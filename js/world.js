@@ -88,7 +88,7 @@
       'The Tipsy Wyvern is roaring. A fire crackles, tankards clash, and someone is singing a song with far too many verses about a goblin\'s trousers.',
     ],
     activities: [
-      { id: 'shift', label: 'Work a shift (+gold, more with Charm)', gold: 20, bonusStat: 'charm', bonusPer: 3, lines: [
+      { id: 'shift', label: 'Work a shift (+gold, more with Charm)', gold: 12, bonusStat: 'charm', bonusPer: 2, lines: [
         'You haul tankards until your arms ache. The tips are decent.',
         'You wash dishes and charm a table of dwarves into tipping generously.',
         'You break up a bar fight with a well-timed joke. The owner slips you a bonus.',
@@ -111,7 +111,7 @@
       '',
     ],
     activities: [
-      { id: 'quest', label: 'Take a quest (+gold, more with Might)', gold: 35, bonusStat: 'might', bonusPer: 3, lines: [
+      { id: 'quest', label: 'Take a quest (+gold, more with Might)', gold: 20, bonusStat: 'might', bonusPer: 3, lines: [
         'You clear a farmer\'s barn of giant rats. They were, regrettably, very giant.',
         'You escort a merchant to the next village. Bandits take one look at you and reconsider their life choices.',
         'You retrieve a "legendary sword" from a cave. It is a slightly rusty butter knife. The client is thrilled anyway.',
@@ -143,7 +143,7 @@
       '',
     ],
     activities: [
-      { id: 'apprentice', label: 'Apprentice shift (+25 gold)', gold: 25, lines: [
+      { id: 'apprentice', label: 'Apprentice shift (+18 gold)', gold: 18, lines: [
         'You pump the bellows at the forge until your arms burn. Honest work, honest coin.',
         'You sort ten thousand tiny screws by size at the workshop. You will see screws in your dreams.',
       ] },
@@ -165,7 +165,7 @@
         'You puzzle through a treatise on applied enchantment. Your brain feels bigger. (+1 Wits)',
         'You study the history of Generic FantasyLandia. It is exactly what you expected, which is somehow fascinating. (+1 Wits)',
       ] },
-      { id: 'copy', label: 'Copy manuscripts (+gold, more with Wits)', gold: 15, bonusStat: 'wits', bonusPer: 4, lines: [
+      { id: 'copy', label: 'Copy manuscripts (+gold, more with Wits)', gold: 10, bonusStat: 'wits', bonusPer: 3, lines: [
         'You copy a crumbling manuscript in neat script. The archivist pays by the page.',
         'You transcribe a dull legal text. Your penmanship improves; your will to live does not.',
       ] },
@@ -222,7 +222,7 @@
         'You run laps with the knights until your legs turn to jelly. (+1 Might)',
         'You spar with a retired gladiator who calls you "kid" and hits like a falling house. (+1 Might)',
       ] },
-      { id: 'bout', label: 'Fight an exhibition bout (+gold, more with Might)', gold: 20, bonusStat: 'might', bonusPer: 5, lines: [
+      { id: 'bout', label: 'Fight an exhibition bout (+gold, more with Might)', gold: 10, bonusStat: 'might', bonusPer: 4, lines: [
         'You fight a man dressed as a chicken. You win. The crowd boos — the chicken was popular.',
         'You fight a pair of goblin twins. It\'s close, but the purse is yours.',
       ] },
@@ -238,7 +238,7 @@
       'Lanterns bob on the black water. Sailors sing shanties in dockside taverns. The sea glitters under the moon.',
     ],
     activities: [
-      { id: 'cargo', label: 'Unload cargo (+25 gold)', gold: 25, lines: [
+      { id: 'cargo', label: 'Unload cargo (+18 gold)', gold: 18, lines: [
         'You haul crates until your shoulders ache. One crate meows. You do not ask.',
         'You unload a shipment of exotic spices and sneeze for an hour. Still: paid.',
       ] },
@@ -258,7 +258,7 @@
       'The sewers at night: drip, drip, drip, and somewhere, humming.',
     ],
     activities: [
-      { id: 'rats', label: 'Hunt giant rats (+gold, more with Might)', gold: 30, bonusStat: 'might', bonusPer: 2, lines: [
+      { id: 'rats', label: 'Hunt giant rats (+gold, more with Might)', gold: 16, bonusStat: 'might', bonusPer: 2, lines: [
         'You hunt giant rats. It\'s the most traditional adventuring experience imaginable.',
         'You exterminate a rat king. It had a tiny crown. You keep the crown. (Not really — you sell it.)',
       ] },
@@ -291,7 +291,7 @@
       '',
     ],
     activities: [
-      { id: 'scales', label: 'Gather shed dragon scales (+45 gold, needs Might 2)', gold: 45, req: { might: 2 }, lines: [
+      { id: 'scales', label: 'Gather shed dragon scales (+35 gold, needs Might 2)', gold: 35, req: { might: 2 }, lines: [
         'You pry loose a few shed scales and scramble down before anything notices. They sell for a fortune.',
       ] },
     ],
@@ -581,7 +581,7 @@
         ];
         if (!ready.length) {
           t.push('You look around the crowd... and realize there\'s no one whose heart you\'ve truly reached. Not yet, anyway.');
-        } else if (ready.length >= 3) {
+        } else if (ready.length >= FL.CONFIG.haremMin) {
           t.push('You notice — with a certain amount of alarm — that several women are looking for you at the same time.');
         }
         return t;
@@ -591,7 +591,7 @@
           const c = FL.characters[id];
           return { text: '♥ Watch the stars with ' + c.name, jump: { char: id, id: 'ending', kind: 'ending' } };
         });
-        if (FL.readyChars(s).length >= 3) {
+        if (FL.readyChars(s).length >= FL.CONFIG.haremMin) {
           list.push({ text: '♥♥♥ "Why not... all of you?"', go: 'harem' });
         }
         list.push({ text: 'Watch the stars alone', go: 'alone' });

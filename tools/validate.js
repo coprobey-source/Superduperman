@@ -188,6 +188,7 @@ FL.charOrder.forEach(function (id) {
     ['intro', 's1', 's2', 's3'].forEach(function (sid, i) {
       if (s.chars[id].stage !== i) { err('sim ' + id + ': expected stage ' + i + ' before ' + sid); return; }
       s.chars[id].aff = Math.max(s.chars[id].aff, FL.CONFIG.affNeeded[i] || 0);
+      s.daily.scene = {};
       const st = FL.romanceStatus(s, id);
       if (st.scene !== sid) { err('sim ' + id + ': romanceStatus scene ' + st.scene + ' != ' + sid); return; }
       if (!st.ok) { err('sim ' + id + ': ' + sid + ' not unlockable: ' + st.needs.join(', ')); return; }

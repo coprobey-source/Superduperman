@@ -482,7 +482,7 @@
         (s.inv[it] ? ' <span class="muted">(have ' + s.inv[it] + ')</span>' : '') +
         '<div class="muted small">' + esc(item.desc) + '</div></div>';
       row.appendChild(btn('Buy', function () {
-        if (FL.buy(s, it, 1)) { renderHud(); shopModal(); }
+        if (FL.buy(s, it, 1)) { renderHub(); shopModal(); }
       }, { disabled: s.gold < item.price }));
       wrap.appendChild(row);
     });
@@ -560,11 +560,11 @@
     openModal('How to Play', [
       '<p>You have <b>30 days</b> until the Starfall Festival. Each day has a <b>Morning</b>, <b>Afternoon</b> and <b>Evening</b>.</p>',
       '<p><b>Actions marked ⏳ take up one part of the day:</b> meeting someone, talking, romance scenes, working and training. Travel, shopping and giving gifts are free (one gift per person per day).</p>',
-      '<p><b>Affection (♥)</b> grows when you talk, give gifts, and make choices in scenes. Each heroine has three romance scenes. They unlock at ♥20, ♥45 and ♥70. The second and third also need her favorite stat (Might, Wits or Charm) at 2 and 4.</p>',
+      '<p><b>Affection (♥)</b> grows when you talk, give gifts, and make choices in scenes. Each heroine has three romance scenes. They unlock at ♥25, ♥50 and ♥75. The second and third also need her favorite stat (Might, Wits or Charm) at 2 and 3. You can only share one romance scene with each heroine per day.</p>',
       '<p>Talking and gifts can only take a relationship so far. To grow closer, you have to see the next romance scene.</p>',
       '<p><b>Stats:</b> Train <b>Might</b> at the Arena, <b>Wits</b> at the Library and <b>Charm</b> at the Tavern, Temple or Noble Quarter. Stats also open up special options in scenes.</p>',
-      '<p><b>Gold:</b> Take quests at the Guild, work shifts, unload cargo. Buy gifts on Market Street. Everyone has a gift they love — and one they hate.</p>',
-      '<p>See all three romance scenes with a heroine to make her <b>Devoted</b>. At the Starfall Festival on Day 30, choose who to watch the stars with to see her ending. Devote yourself to three or more for... a different kind of ending.</p>',
+      '<p><b>Gold:</b> Take quests at the Guild, work shifts, unload cargo. Buy gifts on Market Street. Everyone has a gift they love — and one they hate. Giving the same gift again and again gets less effective, so mix it up.</p>',
+      '<p>See all three romance scenes with a heroine to make her <b>Devoted</b>. At the Starfall Festival on Day 30, choose who to watch the stars with to see her ending. Win over five or more and you can try for... a different kind of ending.</p>',
       '<p>Some heroines only appear after certain events, or only at night. Check the Journal (📖) to see where everyone can be found.</p>',
       '<p>Keyboard: press <b>1–9</b> to pick choices in scenes.</p>',
     ].join(''));

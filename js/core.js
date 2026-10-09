@@ -22,13 +22,14 @@
     maxDay: 30,
     slots: ['Morning', 'Afternoon', 'Evening'],
     // affection needed to unlock the scene for the current stage (stage 1 -> s1, ...)
-    affNeeded: [0, 20, 45, 70],
+    affNeeded: [0, 25, 50, 75],
     // favourite-stat needed to unlock the scene for the current stage
-    statNeeded: [0, 0, 2, 4],
+    statNeeded: [0, 0, 2, 3],
     // talk/gift affection can't push past this cap until the next scene is seen
-    affCap: [0, 30, 55, 80, 100],
+    affCap: [0, 35, 60, 85, 100],
     talkAff: 5,
-    giftAff: { love: 15, like: 8, neutral: 3, hate: -8 },
+    giftAff: { love: 12, like: 6, neutral: 2, hate: -10 },
+    haremMin: 5,
     startGold: 60,
   };
 
@@ -104,7 +105,8 @@
       chars: {},
       known: {},
       seenEvents: {},
-      daily: { talk: {}, gift: {} },
+      daily: { talk: {}, gift: {}, scene: {} },
+      giftLog: {},
       ngplus: opts.ngplus || 0,
       over: false,
     };
@@ -123,7 +125,9 @@
       if (!s.chars[id]) s.chars[id] = { aff: 0, stage: 0, talks: 0 };
       if (!s.known[id]) s.known[id] = {};
     });
-    s.daily = s.daily || { talk: {}, gift: {} };
+    s.daily = s.daily || { talk: {}, gift: {}, scene: {} };
+    s.daily.scene = s.daily.scene || {};
+    s.giftLog = s.giftLog || {};
     s.flags = s.flags || {};
     s.seenEvents = s.seenEvents || {};
     return s;
@@ -215,6 +219,7 @@
     const needAff = FL.CONFIG.affNeeded[st.stage];
     const needStat = FL.CONFIG.statNeeded[st.stage];
     const reasons = [];
+    if (s.daily.scene && s.daily.scene[id]) reasons.push('a new day (one scene per day)');
     if (st.aff < needAff) reasons.push('♥ ' + needAff + ' affection');
     if (needStat && s.stats[c.favStat] < needStat) reasons.push(FL.STAT_NAMES[c.favStat] + ' ' + needStat);
     const extra = c.sceneReq && c.sceneReq[scene];
@@ -241,7 +246,7 @@
     if (s.slot > 2) {
       s.slot = 0;
       s.day += 1;
-      s.daily = { talk: {}, gift: {} };
+      s.daily = { talk: {}, gift: {}, scene: {} };
       // Locations that are closed now kick you back to the square.
     }
     if (!FL.locOpen(s, s.loc)) s.loc = 'square';
@@ -273,6 +278,16 @@
     return 'neutral';
   };
 
+  // Giving the same thing over and over loses its charm: each repeat drops one tier.
+  const TIERS = ['love', 'like', 'neutral'];
+  FL.giftEffect = function (s, id, itemId) {
+    const base = FL.giftReaction(id, itemId);
+    if (base === 'hate') return { reaction: base, tier: base, repeat: 0 };
+    const n = (s.giftLog && s.giftLog[id] && s.giftLog[id][itemId]) || 0;
+    const idx = Math.min(TIERS.length - 1, TIERS.indexOf(base) + n);
+    return { reaction: base, tier: TIERS[idx], repeat: n };
+  };
+
   FL.canGift = function (s, id) {
     return s.chars[id].stage > 0 && !s.daily.gift[id];
   };
@@ -287,15 +302,18 @@
   FL.giveGift = function (s, id, itemId) {
     if (!s.inv[itemId]) return null;
     const c = FL.characters[id];
-    const r = FL.giftReaction(id, itemId);
+    const eff = FL.giftEffect(s, id, itemId);
+    const r = eff.reaction;
     s.inv[itemId] -= 1;
     if (s.inv[itemId] <= 0) delete s.inv[itemId];
     s.known[id][itemId] = r;
     s.daily.gift[id] = true;
-    const got = FL.addAff(s, id, FL.CONFIG.giftAff[r]);
+    s.giftLog[id] = s.giftLog[id] || {};
+    s.giftLog[id][itemId] = (s.giftLog[id][itemId] || 0) + 1;
+    const got = FL.addAff(s, id, FL.CONFIG.giftAff[eff.tier]);
     let line = c.giftLines[r] || GENERIC_GIFT[r].replace('{id}', id);
     if (c.giftLines.special && c.giftLines.special[itemId]) line = c.giftLines.special[itemId];
-    return { reaction: r, gain: got, lines: Array.isArray(line) ? line : [line] };
+    return { reaction: r, tier: eff.tier, repeat: eff.repeat, gain: got, lines: Array.isArray(line) ? line : [line] };
   };
 
   FL.buy = function (s, itemId, qty) {
@@ -499,6 +517,8 @@
   // Called when a scene ends (node with end:true, or a choice with no target).
   FL.finishScene = function (s, run) {
     if (run.kind === 'romance' && run.char) {
+      s.daily.scene = s.daily.scene || {};
+      s.daily.scene[run.char] = true;
       const st = s.chars[run.char];
       const expected = FL.SCENE_FOR_STAGE[st.stage];
       if (expected === run.id) st.stage += 1;
