@@ -440,18 +440,82 @@
       s += '<g fill="#e8e0d0"><circle cx="372" cy="54" r="5"/><circle cx="428" cy="54" r="5"/></g><rect x="420" y="170" width="60" height="20" fill="#5a4a3a"/><path fill="none" stroke="#e8e0d0" stroke-width="1" d="M426 180 h48"/>';
       return s;
     },
+    // The festival hill on Starfall night: the town below, lanterns, a crowd, and falling stars.
+    starfall: function (P) {
+      let s = '<rect width="800" height="250" fill="' + P.lin([[0, '#070a24'], [0.55, '#1c1f5a'], [0.85, '#4a2a6a'], [1, '#7a3a6a']]) + '"/>';
+      const r = rng(77);
+      for (let i = 0; i < 120; i++) {
+        const x = r() * 800, y = r() * 170, z = r();
+        s += '<circle cx="' + f(x) + '" cy="' + f(y) + '" r="' + f(0.4 + z * 1.3) + '" fill="#ffffff" opacity="' + f(0.3 + z * 0.7) + '"/>';
+      }
+      // a soft band of sky-glow, like the stars gathering
+      s += '<path d="M0 120 Q300 40 800 70" stroke="' + P.lin([[0, '#b8a8ff', 0], [0.5, '#e8d8ff', 0.25], [1, '#b8a8ff', 0]], false) + '" stroke-width="70" fill="none"/>';
+      // falling stars: long streaks with bright heads (they animate on screens that allow motion)
+      const tail = P.lin([[0, '#ffffff', 0], [1, '#fff6d8', 0.95]], false);
+      for (let i = 0; i < 16; i++) {
+        const x = 40 + r() * 760, y = 10 + r() * 120, len = 50 + r() * 90, w = 1 + r() * 1.8;
+        // the outer group places and angles the streak; the inner one slides along it
+        s += '<g transform="translate(' + f(x) + ' ' + f(y) + ') rotate(32)"><g class="star-fall" style="animation-delay:' + f(-r() * 6) + 's;animation-duration:' + f(3 + r() * 4) + 's">' +
+          '<rect x="0" y="' + f(-w / 2) + '" width="' + f(len) + '" height="' + f(w) + '" rx="' + f(w / 2) + '" fill="' + tail + '"/>' +
+          '<circle cx="' + f(len) + '" cy="0" r="' + f(w * 1.6) + '" fill="#fffbe8"/></g></g>';
+      }
+      s += P.glow(640, 60, 70, '#fff6d8', 0.35) + '<circle cx="640" cy="60" r="22" fill="#fbf4dc"/>';
+      // the town below, lit up for the festival
+      s += '<path fill="#120e26" d="M0 250 L0 196 L40 196 L40 176 L60 166 L80 176 L80 190 L120 190 L120 170 L150 150 L180 170 L180 196 L240 196 L240 180 L262 160 L284 180 L284 196 L560 196 L560 178 L590 158 L620 178 L620 192 L680 192 L680 168 L700 140 L720 168 L720 196 L800 196 L800 250 Z"/>';
+      [[60, 182], [100, 196], [150, 176], [170, 188], [262, 186], [590, 184], [600, 172], [700, 180], [710, 160], [750, 200]].forEach(function (w) {
+        s += '<rect x="' + w[0] + '" y="' + w[1] + '" width="5" height="7" fill="#ffd27a"/>';
+      });
+      // the hill, with strings of lanterns and the crowd looking up
+      s += '<path fill="' + P.lin([[0, '#1e2a3a'], [1, '#0e1420']]) + '" d="M0 250 L0 222 Q400 170 800 222 L800 250 Z"/>';
+      const lanterns = ['#ff8a5a', '#ffd27a', '#ff6a9a', '#9ad0ff', '#ffd27a'];
+      s += '<path fill="none" stroke="#3a2a3a" stroke-width="1" d="M60 196 Q220 222 400 186 Q580 222 740 196"/>';
+      for (let i = 1; i < 14; i++) {
+        const t = i / 14, x = 60 + t * 680;
+        const y = t < 0.5 ? 196 + Math.sin(t * 2 * Math.PI) * 12 : 186 + Math.sin((t - 0.5) * 2 * Math.PI) * 12;
+        const c = lanterns[i % lanterns.length];
+        s += P.glow(x, y + 6, 14, c, 0.6) + '<ellipse cx="' + f(x) + '" cy="' + f(y + 6) + '" rx="4" ry="5" fill="' + c + '"/>';
+      }
+      for (let i = 0; i < 26; i++) {
+        const x = 20 + i * 30 + r() * 14, y = 214 + Math.abs(400 - x) / 400 * 18 + r() * 4, h = 16 + r() * 7;
+        s += '<g fill="#080a14"><circle cx="' + f(x) + '" cy="' + f(y - h) + '" r="' + f(h * 0.24) + '"/><path d="M' + f(x - h * 0.3) + ' 250 L' + f(x - h * 0.24) + ' ' + f(y - h * 0.7) + ' Q' + f(x) + ' ' + f(y - h * 0.86) + ' ' + f(x + h * 0.24) + ' ' + f(y - h * 0.7) + ' L' + f(x + h * 0.3) + ' 250 Z"/></g>';
+      }
+      return s;
+    },
   };
 
-  const NIGHT_ONLY = { castle: 1, manor: 1, watchtower: 1 };
+  // Candlelight for the most intimate scenes: a rose-gold wash, warm bokeh and drifting petals.
+  function intimate(P, seed) {
+    const r = rng(seed || 19);
+    let s = '<rect width="800" height="250" fill="' + P.lin([[0, '#3a0a2a', 0.55], [1, '#120414', 0.7]]) + '"/>';
+    for (let i = 0; i < 14; i++) {
+      const x = r() * 800, y = 40 + r() * 190, rr = 10 + r() * 30;
+      s += P.glow(f(x), f(y), f(rr), ['#ffb070', '#ff7aa8', '#ffd27a'][i % 3], 0.45);
+    }
+    for (let i = 0; i < 10; i++) {
+      const x = r() * 800, y = r() * 230, a = r() * 180;
+      s += '<g transform="translate(' + f(x) + ' ' + f(y) + ') rotate(' + f(a) + ')"><path class="petal" style="animation-delay:' + f(-r() * 8) + 's" fill="#ff8ab0" opacity="0.8" d="M0 0 C4 -6 12 -6 14 0 C12 6 4 6 0 0 Z"/></g>';
+    }
+    // two candles at the edges
+    [[60, 230], [740, 230]].forEach(function (c) {
+      s += '<rect x="' + (c[0] - 6) + '" y="' + (c[1] - 34) + '" width="12" height="34" fill="#f4ead6"/>' + P.glow(c[0], c[1] - 42, 40, '#ffb050', 0.7) +
+        '<path class="flame" fill="#ffd27a" d="M' + c[0] + ' ' + (c[1] - 50) + ' C' + (c[0] + 5) + ' ' + (c[1] - 42) + ' ' + (c[0] + 4) + ' ' + (c[1] - 36) + ' ' + c[0] + ' ' + (c[1] - 35) + ' C' + (c[0] - 4) + ' ' + (c[1] - 36) + ' ' + (c[0] - 5) + ' ' + (c[1] - 42) + ' ' + c[0] + ' ' + (c[1] - 50) + ' Z"/>';
+    });
+    return s;
+  }
+
+  const NIGHT_ONLY = { castle: 1, manor: 1, watchtower: 1, starfall: 1 };
   const INDOORS = { tavern: 1, guild: 1, library: 1, sewers: 1 };
-  FL.backdrop = function (loc, slot) {
+  // opts.intimate: the candlelit treatment used for each heroine's third romance scene
+  FL.backdrop = function (loc, slot, opts) {
     const draw = DRAW[loc];
     if (!draw) return '';
-    if (NIGHT_ONLY[loc]) slot = 2;
+    opts = opts || {};
+    if (NIGHT_ONLY[loc] || opts.intimate) slot = 2;
     const P = new Pic(slot == null ? 1 : slot);
     let body = draw(P);
     // indoors at night: lamplight, a bit dimmer
     if (INDOORS[loc] && P.night) body += '<rect width="800" height="250" fill="#0a0a28" opacity="0.28"/>';
+    if (opts.intimate) body += intimate(P, loc.length * 7);
     return P.finish(body);
   };
   FL.backdropIds = Object.keys(DRAW);

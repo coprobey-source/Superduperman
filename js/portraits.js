@@ -295,6 +295,17 @@
         for (let x = 80; x <= 120; x += 6) s += '<circle cx="' + x + '" cy="' + (160 + Math.abs(x - 100) * 0.12) + '" r="4.5"/>';
         return s + '</g><path fill="' + t + '" d="M100 166 l6 5 l-6 7 l-6 -7 Z"/>';
       }
+      case 'gown': {
+        // festival finery: off the shoulder, a sweetheart bodice, a fine chain with a pendant
+        const gf = b.lin([[0, shade(o, 0.3)], [0.55, o], [1, shade(o, -0.35)]], 0, 0, 0.2, 1);
+        return '<path fill="' + sf + '" stroke="' + shade(skin, -0.3) + '" stroke-width="1" d="' + SHOULDERS + '"/>' +
+          '<path fill="' + gf + '" stroke="' + od + '" stroke-width="1.4" d="M16 200 C20 180 36 170 56 167 C68 165 78 168 86 174 Q93 166 100 173 Q107 166 114 174 C122 168 132 165 144 167 C164 170 180 180 184 200 Z"/>' +
+          '<path fill="none" stroke="' + t + '" stroke-width="2.6" stroke-linecap="round" d="M30 178 C42 170 56 167 68 168 C76 169 82 171 86 174 Q93 166 100 173 Q107 166 114 174 C118 171 124 169 132 168 C144 167 158 170 170 178"/>' +
+          '<path fill="none" stroke="' + shade(o, 0.35) + '" stroke-width="1.2" opacity="0.6" d="M60 182 C70 178 80 180 88 186 M140 182 C130 178 120 180 112 186"/>' +
+          '<path fill="none" stroke="' + t + '" stroke-width="1.1" d="M88 150 Q100 162 112 150"/>' +
+          '<path fill="' + (p.gem || '#e8486a') + '" stroke="' + t + '" stroke-width="1" d="M100 156 l3.6 4.5 l-3.6 5.5 l-3.6 -5.5 Z"/>' +
+          '<circle cx="99" cy="159.5" r="0.9" fill="#ffffff" opacity="0.8"/>';
+      }
       case 'mage': {
         const mc = b.lin([[0, shade(o, 0.15)], [1, shade(o, -0.35)]], 0, 0, 0, 1);
         return base + '<path fill="' + mc + '" stroke="' + t + '" stroke-width="1.6" d="M78 166 L58 116 L84 140 L90 162 Z M122 166 L142 116 L116 140 L110 162 Z"/>' +
@@ -715,6 +726,13 @@
         mouth: p.mouth === 'none' ? 'none' : 'o', shocklines: true };
     },
   };
+  // Starfall Festival finery: a gown, a flower in the hair, a little sparkle.
+  function festivalLook(p, color, extra) {
+    const o = { collar: 'gown', outfit: shade(color, -0.2), trim: '#f2d27a', sparkles: true, hammer: false, lute: false, sash: false, cape: false, glasses: p.glasses };
+    if (!p.hat && !p.veil && !p.tiara && !p.flowerCrown && !p.halo && !p.circlet && !p.flower && !p.animal && !p.horns) o.flower = shade(color, 0.35);
+    Object.assign(p, o, extra || {});
+    return p;
+  }
   function applyMood(p, mood, extra) {
     if (!mood || mood === 'neutral') return extra && extra.neutral ? Object.assign(p, extra.neutral) : p;
     const fn = MOODS[mood];
@@ -854,10 +872,14 @@
 
   /* ------------------------------------------------------------------ main */
   FL.portraitMoods = ['neutral'].concat(Object.keys(MOODS));
-  FL.portrait = function (id, mood) {
+  // opts.festival: dressed up for the Starfall Festival (endings and the festival itself)
+  FL.portrait = function (id, mood, opts) {
     const cfg = FL.portraitConfigs[id];
     if (!cfg) return '';
-    const p = applyMood(Object.assign({ eyes: 'round', mouth: 'smile', bangs: 'straight', collar: 'v', key: id }, cfg), mood, cfg.moods);
+    opts = opts || {};
+    let base = Object.assign({ eyes: 'round', mouth: 'smile', bangs: 'straight', collar: 'v', key: id }, cfg);
+    if (opts.festival) base = festivalLook(base, FL.characters && FL.characters[id] ? FL.characters[id].color : '#8a7aa8', cfg.festival);
+    const p = applyMood(base, mood, cfg.moods);
     const b = new Builder('pt' + (++uid) + '_');
     const color = FL.characters && FL.characters[id] ? FL.characters[id].color : '#8a7aa8';
     const skin = p.skin;
@@ -885,10 +907,10 @@
       overlays(b, p);
     if (p.ghost) figure = '<g opacity="0.8">' + figure + '</g>';
     if (p.slime) figure = '<g opacity="0.9">' + figure + '<path d="M76 70 C84 60 96 58 104 62" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.5" stroke-linecap="round"/></g>';
-    const bgLayer = background(b, p, color);
+    const bgLayer = opts.noBg ? '' : background(b, p, color);
     const who = FL.characters && FL.characters[id] ? FL.characters[id].short : id;
     const label = who + (mood && mood !== 'neutral' ? ', looking ' + ({ happy: 'happy', blush: 'flustered', angry: 'angry', sad: 'sad', smug: 'smug', surprised: 'surprised' }[mood] || mood) : '');
-    return '<svg viewBox="12 6 176 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + label + '">' +
+    return '<svg viewBox="' + (opts.full ? '0 0 200 200' : '12 6 176 176') + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + label + '">' +
       '<defs>' + b.defs.join('') + '</defs>' + bgLayer + figure + '</svg>';
   };
 })(typeof window !== 'undefined' ? window : globalThis);

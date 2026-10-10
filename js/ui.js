@@ -198,10 +198,10 @@
     }
     return '<span class="hearts" role="img" aria-label="Affection ' + aff + ' of 100" title="' + aff + '/100">' + out + '</span>';
   }
-  function avatar(id, big, mood) {
+  function avatar(id, big, mood, opts) {
     const c = FL.characters[id];
     const cls = 'avatar' + (big ? ' big' : '');
-    if (FL.portrait) return '<span class="' + cls + ' pic" data-mood="' + (mood || 'neutral') + '">' + FL.portrait(id, mood) + '</span>';
+    if (FL.portrait) return '<span class="' + cls + ' pic" data-mood="' + (mood || 'neutral') + '">' + FL.portrait(id, mood, opts) + '</span>';
     return '<span class="' + cls + '">' + esc(c.short.charAt(0)) + '</span>';
   }
   function btn(label, onClick, opts) {
@@ -507,6 +507,29 @@
     return card;
   }
 
+  /* ------------------------------------------------------------------ ending illustrations */
+  // A key-moment picture for an ending: the Starfall sky with her, dressed for the festival.
+  function catSvg() {
+    return '<svg viewBox="0 0 100 100" role="img" aria-label="A stray cat"><path fill="#14101e" d="M30 92 C26 70 30 54 40 46 L36 26 L46 38 C50 36 54 36 58 38 L66 26 L64 46 C74 54 76 72 72 92 Z"/>' +
+      '<path fill="none" stroke="#14101e" stroke-width="6" stroke-linecap="round" d="M70 88 C88 86 92 70 84 62"/><circle cx="46" cy="50" r="2.4" fill="#ffd27a"/><circle cx="56" cy="50" r="2.4" fill="#ffd27a"/></svg>';
+  }
+  function endingIllustration(endingId, state) {
+    const e = FL.endings[endingId];
+    if (!e || !FL.backdrop) return '';
+    let cast = [];
+    let mood = 'happy';
+    let sky = FL.backdrop('starfall', 2);
+    if (e.char) cast = [e.char];
+    else if (endingId === 'harem') cast = state ? FL.readyChars(state).slice(0, 7) : [];
+    else if (endingId === 'true_end') { cast = ['amorette']; mood = 'blush'; }
+    else if (endingId === 'greenhouse') { cast = ['marigold']; mood = 'angry'; sky = FL.backdrop('market', 2); }
+    let figs = cast.map(function (id) {
+      return '<span class="ei-fig" style="--c:' + FL.characters[id].color + '">' + FL.portrait(id, mood, { festival: endingId !== 'greenhouse', full: true, noBg: true }) + '</span>';
+    }).join('');
+    if (endingId === 'alone') figs = '<span class="ei-cat">' + catSvg() + '</span>';
+    return '<div class="ending-illus' + (cast.length > 2 ? ' many' : '') + '" style="--c:' + e.color + '">' + sky + '<div class="ei-cast">' + figs + '</div></div>';
+  }
+
   /* ------------------------------------------------------------------ scenes */
   function renderScene() {
     const s = ui.s;
@@ -530,14 +553,20 @@
       else if (run.id === 's3' && run.char) sfx('heartbeat');
       else sfx('page');
     }
-    if (FL.backdrop && !ui.replay) box.appendChild(el('div', 'backdrop scene-bd', FL.backdrop(s.loc, s.slot)));
+    const festive = run.kind === 'ending' || run.id === 'festival' || run.id === 'true_end';
+    const intimate = run.char && run.id === 's3';
+    if (FL.backdrop) {
+      const bd = festive ? FL.backdrop('starfall', 2) : FL.backdrop(s.loc, s.slot, intimate ? { intimate: true } : null);
+      box.appendChild(el('div', 'backdrop scene-bd' + (festive || intimate ? ' key-moment' : ''), bd));
+    }
+    const dress = festive ? { festival: true } : null;
     if (run.char) {
       const c = FL.characters[run.char];
       let label = { intro: 'First Meeting', s1: 'Romance Scene I', s2: 'Romance Scene II', s3: 'Romance Scene III', morning: 'The Morning After', ending: 'Ending' }[run.id] || (run.kind === 'event' ? 'Chance Encounter' : '');
       if (run.kind === 'date') label = 'Date · ' + FL.DATE_SPOTS[run.id.slice(5)].name;
       const head = el('div', 'scene-head');
       head.style.setProperty('--c', c.color);
-      head.innerHTML = avatar(run.char, true, moods[run.char]) + '<div><b>' + esc(c.name) + '</b> · <span class="trope">' +
+      head.innerHTML = avatar(run.char, true, moods[run.char], dress) + '<div><b>' + esc(c.name) + '</b> · <span class="trope">' +
         esc(c.trope) + '</span><div class="muted">' + label + '</div></div>';
       box.appendChild(head);
     }
@@ -569,7 +598,7 @@
       const e = FL.endings[run.ending];
       const end = el('div', 'ending-card');
       end.style.setProperty('--c', e.color);
-      end.innerHTML = '<div class="ending-label">MEMORY</div><h2>' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) + '</div>';
+      end.innerHTML = endingIllustration(run.ending, s) + '<div class="ending-label">MEMORY</div><h2>' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) + '</div>';
       const row = el('div', 'btns center');
       row.appendChild(btn('Back to Memories', finishReplay, { cls: 'primary' }));
       end.appendChild(row);
@@ -593,7 +622,7 @@
         more = '<p class="muted small">' + esc(FL.characters[e.char].short) + '\'s endings found: ' + got + ' / ' + mine.length +
           (got < mine.length ? ' · the way you played her route decides which one you see' : '') + '</p>';
       }
-      end.innerHTML = '<div class="ending-label">ENDING UNLOCKED</div><h2>' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) +
+      end.innerHTML = endingIllustration(run.ending, s) + '<div class="ending-label">ENDING UNLOCKED</div><h2>' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) +
         '</div><p class="muted">' + unlockedEndings().length + ' / ' + FL.endingOrder.length + ' endings discovered</p>' + more;
       const row = el('div', 'btns center');
       row.appendChild(btn('New Game+ (keep stats & gold)', function () { newGameScreen(true); }, { cls: 'primary' }));
@@ -927,7 +956,8 @@
     const chip = function (id) {
       const e = FL.endings[id];
       const have = got.indexOf(id) >= 0;
-      return '<span class="g-chip' + (have ? ' got' : '') + '" style="--c:' + e.color + '">' + (have ? esc(e.title) : '???') + '</span>';
+      return have ? '<button class="g-chip got" data-end="' + id + '" style="--c:' + e.color + '">' + esc(e.title) + '</button>'
+        : '<span class="g-chip" style="--c:' + e.color + '">???</span>';
     };
     let html = '<p class="muted">' + got.length + ' / ' + FL.endingOrder.length + ' endings discovered. Most heroines have more than one ending: how you play her route decides which you see.</p><div class="g-list">';
     FL.charOrder.forEach(function (id) {
@@ -942,6 +972,20 @@
       return chip(id) + ' <span class="muted small">' + esc(FL.endings[id].who) + '</span>';
     }).join(' ') + '</div></div></div></div>';
     openModal('Endings Gallery', html);
+    document.querySelectorAll('.g-chip[data-end]').forEach(function (b) {
+      b.addEventListener('click', function () { endingViewModal(b.dataset.end); });
+    });
+  }
+  function endingViewModal(id) {
+    const e = FL.endings[id];
+    const snap = endingSnaps()[id];
+    const st = snap ? Object.assign(FL.newState({}), { chars: Object.assign(FL.newState({}).chars, snap.state.chars || {}) }) : null;
+    const wrap = el('div', 'ending-view', endingIllustration(id, st) + '<h2 style="color:' + e.color + '">' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) + '</div>');
+    const row = el('div', 'btns center');
+    if (snap) row.appendChild(btn('Replay this ending', function () { replayEnding(id); }, { cls: 'primary' }));
+    row.appendChild(btn('‹ Back to the gallery', galleryModal));
+    wrap.appendChild(row);
+    openModal('Ending', wrap);
   }
 
   function memoriesModal() {
@@ -1201,6 +1245,7 @@
     if (!host) { host = el('div', null); host.id = 'toasts'; host.setAttribute('role', 'status'); host.setAttribute('aria-live', 'polite'); document.body.appendChild(host); }
     const t = el('div', 'toast', '<b>' + esc(title) + '</b><div class="small">' + esc(body) + '</div>');
     host.appendChild(t);
+    while (host.children.length > 3) host.removeChild(host.firstChild);
     setTimeout(function () { t.classList.add('out'); }, 3600);
     setTimeout(function () { t.remove(); }, 4200);
   }
