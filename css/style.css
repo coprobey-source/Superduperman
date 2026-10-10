@@ -280,3 +280,7 @@ textarea.code { width: 100%; font: .8rem/1.4 ui-monospace, monospace; color: var
 .h-info { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }
 .h-info h3 { text-transform: none; font-size: 1.2rem; margin: 0; }
 .h-info .btn { font-size: .82rem; padding: 4px 10px; }
+@media (max-width: 600px) {
+  #toasts { top: calc(env(safe-area-inset-top, 0px) + 8px); bottom: auto; left: 12px; right: 12px; max-width: none; }
+  .toast { pointer-events: none; }
+}

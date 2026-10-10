@@ -478,7 +478,7 @@ FL.addCharacter({
           '@you You\'re not scary.',
           '@morwen:smug I\'m a *little* scary.',
           '@you You\'re a little scary.',
-          '@morwen:happy She beams.',
+          'She beams.',
         ],
         end: true,
       },

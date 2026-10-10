@@ -65,6 +65,9 @@
   }
   function sceneTheme(run) {
     if (run.id === 'festival') return 'festival';
+    if (run.id === 'true_end') return 'title';
+    if (run.id === 'plot_heist' || run.id === 'plot_ultimatum') return 'tension';
+    if (run.id === 'plot_council') return 'epic';
     // her own leitmotif plays in her romance scenes, the morning after, dates and her ending
     const mine = run.char && FL.music && FL.music.songs['love_' + run.char] ? 'love_' + run.char : 'romance';
     if (run.kind === 'ending' || run.kind === 'date') return run.char ? mine : 'festival';
@@ -768,7 +771,7 @@
       got.length + ' memories unlocked.'));
     FL.charOrder.forEach(function (id) {
       const c = FL.characters[id];
-      const seen = MEMORY_SCENES.filter(function (sc) { return c.scenes[sc] && got.indexOf(id + '.' + sc) >= 0; });
+      const seen = MEMORY_SCENES.filter(function (sc) { return FL.getScene({ char: id, id: sc }) && got.indexOf(id + '.' + sc) >= 0; });
       if (!seen.length) return;
       const row = el('div', 'mem-row');
       row.style.setProperty('--c', c.color);
@@ -1035,11 +1038,12 @@
         ' · <b>Endings found:</b> ' + endingsFor(focus) + ' / ' + c.endingIds.length + '</div>');
       const moods = el('div', 'btns');
       FL.MOODS.forEach(function (m) {
-        moods.appendChild(btn(m.charAt(0).toUpperCase() + m.slice(1), function () {
+        const b = btn(m.charAt(0).toUpperCase() + m.slice(1), function () {
           pic.innerHTML = FL.portrait(focus, m);
-          moods.querySelectorAll('.btn').forEach(function (b) { b.classList.remove('here'); });
-          this.classList.add('here');
-        }, { cls: m === 'neutral' ? 'here' : '' }));
+          moods.querySelectorAll('.btn').forEach(function (x) { x.classList.remove('here'); });
+          b.classList.add('here');
+        }, { cls: m === 'neutral' ? 'here' : '' });
+        moods.appendChild(b);
       });
       info.appendChild(moods);
       if (FL.music && FL.music.songs['love_' + focus]) {

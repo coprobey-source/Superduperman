@@ -476,7 +476,6 @@ FL.addCharacter({
           '@noblewoman Oh, haven\'t you heard? The Prince\'s fiancée fell ill at the garden party last week. Everyone *knows* it was you. Jealousy is *such* an ugly color, darling.',
           'Rosalind goes white. Her fan trembles in her hand. She opens her mouth for a cutting retort — and nothing comes out.',
         ],
-        mood: 'sad',
         choices: [
           { text: 'Defend her publicly, with poise and wit. [Charm check 3]', check: { stat: 'charm', dc: 3 }, pass: 'defend', fail: 'defend_fail' },
           { text: 'Take her hand and walk her out of the room, head high.', go: 'leave', aff: 8 },
@@ -887,9 +886,7 @@ FL.addCharacter({
     },
   });
 
-  // Portrait in the scene header. Non-enumerable so that tools which enumerate
-  // FL.sceneCast as the list of two-heroine crossovers skip this solo side event;
-  // the UI looks it up by id, which works either way.
+  // Portrait in the scene header.
   FL.sceneCast = FL.sceneCast || {};
-  Object.defineProperty(FL.sceneCast, 'rosalind_jealous', { value: ['rosalind'], enumerable: false, writable: true, configurable: true });
+  FL.sceneCast.rosalind_jealous = ['rosalind'];
 })();

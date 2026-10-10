@@ -504,7 +504,7 @@
         const outer = 'M' + (bx - dir * 16) + ' ' + (by - 4) + ' Q' + (tx - dir * 14) + ' ' + (ty + 14) + ' ' + tx + ' ' + ty + ' Q' + (tx + dir * 2) + ' ' + (by - 2) + ' ' + (bx + dir * 14) + ' ' + (by + 18) + ' Z';
         const tipClip = b.clip(outer);
         return '<path fill="' + hairFill(b, h) + '" stroke="' + hd + '" stroke-width="1.4" stroke-linejoin="round" d="' + outer + '"/>' +
-          '<g clip-path="' + tipClip + '"><circle cx="' + tx + '" cy="' + (ty + 2) + '" r="13" fill="' + (p.tipColor || '#fbf4ea') + '"/></g>' +
+          '<g clip-path="' + tipClip + '"><circle cx="' + tx + '" cy="' + (ty + 2) + '" r="13" fill="' + (p.earTip || p.tipColor || '#fbf4ea') + '"/></g>' +
           '<path fill="' + (p.tipColor || '#fbf4ea') + '" opacity="0.9" d="M' + (bx - dir * 6) + ' ' + (by) + ' Q' + (tx - dir * 9) + ' ' + (ty + 20) + ' ' + (tx - dir * 3) + ' ' + (ty + 14) + ' Q' + (tx - dir * 3) + ' ' + (by) + ' ' + (bx + dir * 7) + ' ' + (by + 12) + ' Z"/>';
       };
       s += ear(-1) + ear(1);
@@ -662,6 +662,15 @@
       '<path fill="none" stroke="' + p.monocle + '" stroke-width="1" d="M129 110 C136 124 134 146 126 168"/><path fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.6" d="M110 96 l5 -1"/>';
     if (p.hoops) s += '<g fill="none" stroke="#f2c14e" stroke-width="1.6"><circle cx="133" cy="126" r="5"/><circle cx="67" cy="126" r="5"/></g><g fill="#ffd8f0" stroke="#d04a9a" stroke-width="0.6"><circle cx="136" cy="112" r="1.6"/><circle cx="138" cy="106" r="1.4"/><circle cx="64" cy="112" r="1.6"/></g>';
     if (p.faceGem) s += '<path fill="' + p.faceGem + '" stroke="#ffffff" stroke-width="0.7" d="M126 116 C126 113 129 112 130 114.5 C131 112 134 113 134 116 C134 119 130 121 130 122 C130 121 126 119 126 116 Z"/>';
+    if (p.streak) s += '<path fill="none" stroke="' + p.streak + '" stroke-width="4" stroke-linecap="round" opacity="0.9" d="M118 30 C126 40 130 56 128 78"/>';
+    if (p.hairpins) s += '<g stroke="' + shade(p.hairpins, -0.45) + '" stroke-width="1" fill="' + p.hairpins + '"><path d="M82 22 L118 8 L119 11 L83 25 Z M84 8 L120 24 L119 27 L83 11 Z"/><circle cx="118" cy="9.5" r="2.6"/><circle cx="119.5" cy="25.5" r="2.6"/></g>';
+    if (p.quillPin) s += '<path fill="#1a1622" stroke="#4a4058" stroke-width="0.8" d="M126 30 C146 10 160 2 176 -4 C166 8 152 22 132 36 Z"/><path fill="none" stroke="#c8c0d8" stroke-width="0.8" d="M130 33 L172 -2"/>';
+    if (p.sash) {
+      s += '<path fill="' + p.sash + '" stroke="' + shade(p.sash, -0.4) + '" stroke-width="1" d="M60 168 L72 162 L148 204 L130 204 Z"/>';
+      [[86, 174, '#f2c14e'], [100, 182, '#e84a5a'], [114, 190, '#4a9ae8']].forEach(function (r) {
+        s += '<circle cx="' + r[0] + '" cy="' + r[1] + '" r="4" fill="' + r[2] + '" stroke="' + shade(r[2], -0.4) + '" stroke-width="0.6"/><path fill="' + r[2] + '" d="M' + (r[0] - 3) + ' ' + (r[1] + 3) + ' l-2 7 l3 -2 l2 3 Z M' + (r[0] + 3) + ' ' + (r[1] + 3) + ' l2 7 l-3 -2 l-2 3 Z"/>';
+      });
+    }
     s += moodMarks(p);
     return s;
   }
@@ -833,14 +842,14 @@
     scarlett: { skin: '#f0cbaa', hairColor: '#c8262b', hair: 'curly', bangs: 'curly', eyes: 'sharp', eyeColor: '#2f8a5a', mouth: 'smirk', brows: 'raised', scar: 'brow', earring: true, hat: 'tricorn', hatColor: '#2a1414', outfit: '#b0202a', collar: 'coat', blush: 0.2 },
     amorette: { skin: '#f9e6d8', hairColor: '#ff9ad5', hair: 'wavy', bangs: 'parted', eyes: 'glow', eyeColor: '#f2c14e', mouth: 'smile', halo: true, sparkles: true, outfit: '#ff7aa8', collar: 'off', trim: '#ffd27a', blush: 0.4 },
     // the new heroines
-    kohana: { skin: '#fbe8da', hairColor: '#f08a2a', hair: 'long', bangs: 'parted', eyes: 'cat', eyeColor: '#d8402a', mouth: 'fangsmirk', brows: 'raised', animal: 'fox', tails: 3, tailColor: '#f7a644', tipColor: '#fdf6ec', outfit: '#fbf8f2', collar: 'robe', trim: '#d8283a', ribbon: '#d8283a', blush: 0.3, moods: { happy: { mouth: 'fanglaugh' } } },
-    sesha: { skin: '#eadcc4', hairColor: '#2f8a62', hair: 'wavy', bangs: 'side', eyes: 'cat', eyeColor: '#e8c43a', mouth: 'smile', brows: 'worried', glasses: '#8a6a3a', fogged: true, scales: '#3fa06a', coil: '#3f9a62', outfit: '#d8b870', collar: 'v', trim: '#8a5a2a', blush: 0.45, moods: { angry: { mouth: 'pout', vein: false } } },
-    sigrun: { skin: '#f7e2cf', hairColor: '#f0e6c4', hair: 'braid', bangs: 'swept', eyes: 'sharp', eyeColor: '#4aa8e8', mouth: 'grin', brows: 'raised', braidFront: true, hat: 'wingedhelm', wings: 'feather', outfit: '#a8b4c4', collar: 'armor', cape: '#2a4a8a', ribbon: '#2a4a8a', blush: 0.2 },
-    thistle: { skin: '#fdf0ea', hairColor: '#a8d860', hair: 'wavy', bangs: 'parted', eyes: 'round', eyeColor: '#a050d0', mouth: 'smirk', brows: 'raised', ears: 'elf', wings: 'fairy', wingColor: '#d8f8c8', flowerCrown: ['#f070b0', '#ffffff', '#b07af0'], outfit: '#5aa860', collar: 'off', trim: '#f8d0f0', sparkles: true, blush: 0.35 },
+    kohana: { skin: '#fbe8da', hairColor: '#f08a2a', hair: 'long', bangs: 'parted', eyes: 'cat', eyeColor: '#d8402a', mouth: 'fangsmirk', brows: 'raised', animal: 'fox', earTip: '#2a1a1e', tails: 3, tailColor: '#f7a644', tipColor: '#fdf6ec', outfit: '#fbf8f2', collar: 'robe', trim: '#d8283a', ribbon: '#d8283a', blush: 0.3, moods: { happy: { mouth: 'fanglaugh' } } },
+    sesha: { skin: '#eadcc4', hairColor: '#2f8a62', hair: 'updo', bangs: 'side', eyes: 'cat', eyeColor: '#e8c43a', mouth: 'smile', brows: 'worried', glasses: '#8a6a3a', fogged: true, hairpins: '#b8844a', scales: '#3fa06a', coil: '#3f9a62', outfit: '#d8b870', collar: 'v', trim: '#8a5a2a', blush: 0.45, moods: { angry: { mouth: 'pout', vein: false } } },
+    sigrun: { skin: '#f4d6bc', hairColor: '#f0e6c4', hair: 'braid', bangs: 'swept', eyes: 'sharp', eyeColor: '#8a9ab4', mouth: 'grin', brows: 'raised', freckles: true, braidFront: true, hat: 'wingedhelm', wings: 'feather', outfit: '#a8b4c4', collar: 'armor', cape: '#2a4a8a', ribbon: '#2a4a8a', blush: 0.35 },
+    thistle: { skin: '#fdf0ea', hairColor: '#b8e050', hair: 'wavy', bangs: 'parted', eyes: 'round', eyeColor: '#a050d0', mouth: 'smirk', brows: 'raised', ears: 'elf', wings: 'fairy', wingColor: '#d8f8c8', flowerCrown: ['#9a4ad8', '#c87af0', '#7a3ab8'], outfit: '#5aa860', collar: 'off', trim: '#f8b0d8', sparkles: true, blush: 0.35 },
     lyra: { skin: '#f8dfcb', hairColor: '#8a3aa8', hair: 'wavy', bangs: 'side', eyes: 'round', eyeColor: '#3a9a7a', mouth: 'grin', hat: 'bard', hatColor: '#2a6a8a', featherColor: '#e8505a', lute: true, outfit: '#2a6a8a', collar: 'v', trim: '#f2c14e', earring: true, blush: 0.35 },
-    maud: { skin: '#f0cfae', hairColor: '#7a4a2a', hair: 'short', bangs: 'none', eyes: 'sharp', eyeColor: '#5a8a3a', mouth: 'grin', brows: 'raised', veil: true, veilColor: '#22222e', hammer: true, outfit: '#c8ccd8', collar: 'armor', blush: 0.25, freckles: true },
-    vespera: { skin: '#f9e8db', hairColor: '#3a2860', hair: 'long', bangs: 'straight', eyes: 'sharp', eyeColor: '#c83a8a', mouth: 'smirk', brows: 'raised', monocle: '#e8c45a', outfit: '#3a2a6a', collar: 'mage', trim: '#e8c45a', blush: 0.2 },
-    zyra: { skin: '#8a5e6a', hairColor: '#f8e6a0', hair: 'long', bangs: 'side', eyes: 'round', eyeColor: '#ff5fa8', lash: '#1a0a14', mouth: 'grin', ears: 'elf', hoops: true, shades: '#ff5fa8', faceGem: '#ff8ac8', outfit: '#ff6fb0', collar: 'off', trim: '#ffffff', lip: '#ff4f8f', blush: 0.3 },
+    maud: { skin: '#f0cfae', hairColor: '#c4642b', hair: 'short', bangs: 'none', eyes: 'sharp', eyeColor: '#8a6a34', mouth: 'grin', brows: 'raised', veil: true, veilColor: '#f2f0ea', hammer: true, outfit: '#c8ccd8', collar: 'armor', blush: 0.25, freckles: true, braidFront: false },
+    vespera: { skin: '#f9e8db', hairColor: '#1c1824', hair: 'ponytail', bangs: 'straight', eyes: 'sharp', eyeColor: '#8a5ae0', mouth: 'smirk', brows: 'raised', streak: '#d8dce8', quillPin: true, ribbon: '#1c1824', outfit: '#1e2a5a', collar: 'mage', trim: '#e8c45a', sash: '#c8283a', blush: 0.2 },
+    zyra: { skin: '#a898b4', hairColor: '#f8e6a0', hair: 'curly', bangs: 'side', eyes: 'round', eyeColor: '#e0303a', lash: '#1a0a14', mouth: 'grin', ears: 'elf', hoops: true, streak: '#ff5fa8', shades: '#ff5fa8', faceGem: '#ff8ac8', outfit: '#ff6fb0', collar: 'off', trim: '#ffffff', lip: '#ff4f8f', blush: 0.3 },
   };
 
   /* ------------------------------------------------------------------ main */

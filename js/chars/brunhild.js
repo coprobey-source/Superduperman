@@ -425,10 +425,9 @@ FL.addCharacter({
           '@brunhild:surprised ...On your honor?',
           '@you On my honor.',
           'She stares at you for a long moment. Then she nods, very slowly, and stands, still holding the kitten.',
-          '@brunhild A knight\'s secret, entrusted to a civilian. This is... irregular. But I believe you.',
+          '@brunhild:happy A knight\'s secret, entrusted to a civilian. This is... irregular. But I believe you.',
           'The kitten licks her chin. Her stern face cracks into a smile — a real one, wide and soft and completely unguarded — before she can stop it.',
         ],
-        mood: 'happy',
         next: 'secret',
       },
       kitten: {
