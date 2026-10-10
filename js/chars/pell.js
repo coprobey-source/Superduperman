@@ -1,3 +1,5 @@
+FL.addSpeaker('headlib', 'Head Librarian', '#a7a0b8');
+
 FL.addCharacter({
   id: 'pell',
   name: 'Pellucia Quill',
@@ -335,10 +337,10 @@ FL.addCharacter({
       study: {
         text: [
           "You snatch up the nearest book and open it. Pell does the same. You are both reading very intently when the head librarian rounds the corner.",
-          "Head librarian: Good morning, Miss Quill. You're in early.",
+          "@headlib Good morning, Miss Quill. You're in early.",
           "@pell Y-yes! Research! Very early research!",
           "The head librarian looks at you. At Pell's inside-out cardigan. At the book you're holding, which is upside down and titled *The Duke's Forbidden Passion.* She sighs.",
-          "Head librarian: Chapter nine is overrated, dear. Carry on.",
+          "@headlib Chapter nine is overrated, dear. Carry on.",
           "Pell doesn't speak for an hour. Then she laughs until she cries.",
         ],
         end: true,
@@ -355,7 +357,7 @@ FL.addCharacter({
       caught: {
         text: [
           "You kiss her. She stiffens, then melts. The footsteps stop at the edge of the nook. There's a long silence.",
-          "Head librarian: ...I'll come back after breakfast.",
+          "@headlib ...I'll come back after breakfast.",
           "The footsteps retreat. Pell buries her face in your neck and screams into it, very quietly, for about thirty seconds.",
           "@pell I'm never going to be able to look her in the eye again.",
           "@pell ...That was very brave of us, wasn't it? I've never been brave before. I think I like it.",

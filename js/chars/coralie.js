@@ -26,6 +26,12 @@ FL.addCharacter({
     ['@coralie I found a thing on a shipwreck. It\'s a box with a little handle. When you turn the handle, it plays music. I think it\'s a baby. I\'m raising it.'],
     ['@coralie Daddy says humans are dangerous. You\'re not dangerous. You\'re *nice.* Daddy\'s never met you. I\'m going to tell him all about you! ...Maybe not *all* about you.'],
   ],
+  afterTalk: [
+    ["@coralie My sisters noticed I'm pink all the time now. They asked who the lucky merman was. I said, \"It's not a merman, it's a HUMAN, and they have KNEES!\" They fainted."],
+    ["She tucks a pearl into your pocket.", "@coralie That means \"come to the grotto tonight.\" In mermaid. We have a whole language of shells and pearls. I'm going to teach you all of it. The *naughty* ones first."],
+    ["@coralie I tried to explain last night to a seagull. It didn't understand. I don't think seagulls have romance. That's very sad for seagulls."],
+    ["@coralie I've decided my favorite surface thing isn't forks anymore. Or horses. It's you. Specifically, the dips. The little dips."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -259,13 +265,60 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She kisses you again in the glow of the grotto, and every kiss is another breath of sea-magic, warm now, and dizzying.',
-          'Being with her down here is like being inside a dream: weightless and slow and glimmering, her tail curling around your legs, her hair drifting over you both, the whole ocean holding you in its cool, dark hands. She laughs, and the sound comes out in shimmering bubbles. She whispers your name, and the coral glows brighter.',
-          '...',
-          'Later, you float together in the grotto\'s soft light, her head on your chest, both of you wrapped in a curtain of sea silk.',
-          '@coralie Mermaids have a word for this. It means "the person who makes the sea feel like home."',
-          '@coralie I\'ve never had anyone to use it for before.',
-          'She says the word. It sounds like waves on a shore. It sounds like your name.',
+          "She kisses you again in the glow of the grotto. Every kiss is another breath of sea-magic, warm now, and dizzying.",
+          "@coralie On the surface you wear so many *layers.* Why do humans wear so many layers? Take them off. I want to see how surface people are put together.",
+          "She helps, curious as ever. She drifts around you, examining each newly bared patch of skin with the fascination she usually saves for forks, and kisses each one.",
+          "@coralie Oh! You have little dips here. And here. Mermaids don't have these. I love them. I love *all* of them.",
+          "Being with her down here is like being inside a dream. It's weightless and slow and shimmering. Her tail curls around your legs, smooth and cool and impossibly strong. Her hair drifts over you both like a cloud of teal silk. The tiny scales along her shoulders and ribs shiver and change color under your fingertips, from teal to violet to blushing pink.",
+          "@coralie Mermaids change color when they — when they *really* like something. I'm going to be pink all night. Everyone in the reef will know.",
+          "She laughs, and the sound comes out in shimmering bubbles. She whispers your name, and the coral glows brighter. The whole ocean seems to hold you in its cool, dark hands...",
+          "...",
+          "Later, you float together in the grotto's soft light, her head on your chest, both of you wrapped in a curtain of sea silk. She's still very, very pink.",
+          "@coralie Mermaids have a word for this. It means \"the person who makes the sea feel like home.\"",
+          "@coralie I've never had anyone to use it for before.",
+          "She says the word. It sounds like waves on a shore. It sounds like your name.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake on the black rocks of the harbor at dawn, in a nest of soft seaweed, with no memory of swimming back up. Coralie is curled half in the water beside you, her tail trailing in the waves, her cheek on your chest. She's still faintly pink.",
+          "@coralie Good morning! The kiss-magic wears off at sunrise, so I brought you up. You snore underwater. Did you know that? It makes very cute bubbles.",
+          "A fishing boat drifts past. The fishermen are staring. One of them drops his net.",
+          "@coralie Oh no. Oh no, they've seen me. Daddy is going to hear about this. Daddy hears about *everything.* The fish are terrible gossips.",
+        ],
+        choices: [
+          { text: "Wave cheerfully at the fishermen.", go: "wave", aff: 5 },
+          { text: "\"Let them talk. I'm not going anywhere.\"", go: "talk", aff: 6 },
+          { text: "Pull her into your lap, out of sight behind the rocks.", go: "hide", aff: 6 },
+        ],
+      },
+      wave: {
+        text: [
+          "You wave. After a long pause, one fisherman waves back. Then another. Coralie giggles and waves too, flipping her tail out of the water.",
+          "@coralie They waved! Humans waved at a *mermaid!* Daddy says they'd throw harpoons. They threw nothing! One of them threw a kiss!",
+          "@you I'm going to have words with that one.",
+          "@coralie You're *jealous!* Oh, that's so surface of you. I love it.",
+        ],
+        end: true,
+      },
+      talk: {
+        text: [
+          "She looks up at you, wide-eyed.",
+          "@coralie Really? Even if Daddy sends a sea serpent? He did that to the last sailor who winked at my sister.",
+          "@you Even then.",
+          "She throws her arms around your neck and kisses you, salty and sweet, right there in front of the fishing boat. One of the fishermen applauds.",
+        ],
+        end: true,
+      },
+      hide: {
+        text: [
+          "You pull her up out of the water and into your lap, tucked behind the tallest rock. She squeaks, then giggles, then winds her tail around both your legs.",
+          "@coralie This is very *surface* of you. Hiding behind rocks. Sneaking. I love it.",
+          "@coralie ...Kiss me again. I want to see if I stay pink when the magic's gone.",
+          "She does. Very pink. For a very long time.",
         ],
         end: true,
       },

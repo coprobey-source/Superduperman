@@ -26,6 +26,12 @@ FL.addCharacter({
     ['@gloria I tried to go to the market once. A lady screamed and hit me with a cabbage. So I ate the cabbage. Then she screamed more.'],
     ['@gloria Can I hug you? I\'ll be really careful not to absorb you! I\'ve gotten very good at not absorbing people!'],
   ],
+  afterTalk: [
+    ["@gloria I've been practicing holding human shape for longer! Four hours now! I want to be able to walk with you in the sunshine. And then come back down here and be *squishy* with you."],
+    ["She gives you a long, cool, tingly hug that leaves your clothes spotless and your knees weak.", "@gloria That's a slime kiss. It's like a regular kiss but everywhere. You're welcome!"],
+    ["@gloria I found a love letter in the drain today and I read it and it was nowhere *near* as nice as last night. I put it back anyway. I hope they figure it out."],
+    ["@gloria The pool in my treasure room is warm now. I warmed it up. For two. Just saying! *Bloop.*"],
+  ],
   scenes: {
     intro: {
       start: {
@@ -248,13 +254,61 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Being with Gloria is unlike anything you could have imagined. She is cool and soft and endlessly adaptable, a warm tingling hum everywhere she touches, curious about every reaction, delighting in every gasp. She giggles constantly. She keeps saying *oh! oh, that\'s what that does!* At one point she accidentally absorbs your shirt and then has to very sheepishly give it back.',
-          'The gemstone in her chest glows brighter and brighter until it lights the whole room in shimmering green and blue, like being underwater in a sunlit sea.',
-          '...',
-          'Afterward, you lie with her in her treasure room, half sunk into her like the world\'s most comfortable waterbed. She\'s humming.',
-          '@gloria You know what I am? I\'m a perfect fit. I can be any shape at all. And I picked the shape that fits *you.*',
-          'She forms a hand and holds yours, very gently.',
-          '@gloria I think that\'s what love is. Picking the shape that fits.',
+          "Being with Gloria is unlike anything you could have imagined.",
+          "@gloria Can I — can I touch you everywhere? All at once? Slimes can do that. I've never wanted to before. I really, *really* want to now.",
+          "@you Yes.",
+          "She flows around you like warm water, cool at first and then warming to match your skin. Wherever she touches, she leaves a faint, fizzing tingle, like sparkling wine on the tongue. She slips under your clothes and they simply... aren't there anymore. She's absorbed them, very politely, and she sheepishly promises to give them back later.",
+          "@gloria Sorry! Sorry! It just happened! Your shirt was in the way of the hug!",
+          "She's endlessly adaptable and endlessly curious, delighted by every reaction, every gasp, every shiver. She shapes herself to fit you, then tries a different shape just to see what happens. She giggles constantly. She keeps saying *oh! oh, that's what that does!*, then trying it again, slower, with tremendous scientific dedication.",
+          "@gloria You're so *warm* inside — I mean — your *heart*, your heart is warm, I can feel it beating right through me — oh, it's going so fast —",
+          "The gemstone in her chest glows brighter and brighter until it lights the whole room in shimmering green and blue, like being underwater in a sunlit sea. Her careful human shape dissolves entirely, and she becomes a warm, glowing, wordless tide around you...",
+          "...",
+          "Afterward you lie with her in her treasure room, half sunk into her like the world's most comfortable waterbed. She's humming. She has given back your shirt. It's folded neatly. It's also the cleanest it has ever been.",
+          "@gloria You know what I am? I'm a perfect fit. I can be any shape at all. And I picked the shape that fits *you.*",
+          "She forms a hand and holds yours, very gently.",
+          "@gloria I think that's what love is. Picking the shape that fits.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake up floating. Gloria has formed herself into a warm, gently bobbing bed beneath you, and she's humming. Moss-light glows soft green on the treasure-room walls.",
+          "@gloria Good morning! You slept for nine hours! I counted your heartbeats. Thirty-one thousand, four hundred and six. I liked all of them.",
+          "Her face forms up out of the slime beside your head, beaming.",
+          "@gloria Also, I absorbed your shoes by accident in the night. Here. They're *very* clean now. I don't think they've ever been this clean.",
+          "Two spotless boots pop out of her, one after the other, and land on the floor with a squelch.",
+          "@gloria Was it... was last night okay? I've never done that with anyone. I was worried I was too squishy.",
+        ],
+        choices: [
+          { text: "\"You were perfect. Exactly the right amount of squishy.\"", go: "perfect", aff: 6 },
+          { text: "\"I'd like to stay here all day.\"", go: "stay", aff: 6 },
+          { text: "Ask her to give you back your belt, too.", go: "belt", aff: 5 },
+        ],
+      },
+      perfect: {
+        text: [
+          "Her whole body glows brighter, so bright it lights up the tunnel outside.",
+          "@gloria The *right amount?* Nobody's ever said I was the right amount of anything! People usually say \"too much\" and \"AAAH\" and \"get it off me!\"",
+          "She wraps around you in a hug so warm and complete that you feel it in your bones.",
+        ],
+        end: true,
+      },
+      stay: {
+        text: [
+          "@gloria All day? In the *sewers?* With *me?*",
+          "@you With you.",
+          "She makes a sound like a happy kettle and settles around you even more snugly, like a warm bath that hugs back. You stay all day. She tells you about every treasure in the room. You fall asleep again around noon, floating, and she hums the whole time.",
+        ],
+        end: true,
+      },
+      belt: {
+        text: [
+          "@gloria Oh! Um. Your belt.",
+          "There's a long pause. Something shifts inside her, and you can see your belt floating near her gemstone heart.",
+          "@gloria ...Can I keep it? It's very nice. I like having something of yours in here.",
+          "You let her keep it. She keeps it right next to her heart. You buy a new belt. She keeps that one too.",
         ],
         end: true,
       },

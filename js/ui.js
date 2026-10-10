@@ -397,7 +397,7 @@
       const res = FL.talk(s, id);
       ui.log = res.lines.slice();
       if (res.gain) ui.log.push('<p class="sys">' + noteHtml({ type: 'aff', char: id, n: res.gain }) + '</p>');
-      else ui.log.push('<p class="sys muted">(' + c.short + ' seems to be waiting for something more before you can get any closer.)</p>');
+      else if (st.stage < 4) ui.log.push('<p class="sys muted">(' + c.short + ' seems to be waiting for something more before you can get any closer.)</p>');
       afterAction();
     }, { disabled: !FL.canTalk(s, id), title: FL.canTalk(s, id) ? '' : 'Already talked today' }));
     row.appendChild(btn('Give gift', function () { giftModal(id); }, {
@@ -433,6 +433,13 @@
       head.style.setProperty('--c', c.color);
       head.innerHTML = avatar(run.char, true) + '<div><b>' + esc(c.name) + '</b> · <span class="trope">' +
         esc(c.trope) + '</span><div class="muted">' + label + '</div></div>';
+      box.appendChild(head);
+    }
+    if (!run.char && FL.sceneCast && FL.sceneCast[run.id]) {
+      const cast = FL.sceneCast[run.id];
+      const head = el('div', 'scene-head cast');
+      head.innerHTML = '<span class="cast-pics">' + cast.map(function (id) { return avatar(id, true); }).join('') + '</span><div><b>' +
+        cast.map(function (id) { return esc(FL.characters[id].short); }).join(' & ') + '</b><div class="muted">Chance Encounter</div></div>';
       box.appendChild(head);
     }
     if (ui.lastChoice) box.appendChild(el('p', 'chosen', '› ' + rich(FL.fmt(s, ui.lastChoice))));

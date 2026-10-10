@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@hikari Do you think there\'s a Demon Lord? There\'s always a Demon Lord. I want to defeat the Demon Lord! Or marry him! Depending on the genre!'],
     ['She\'s sitting on the edge of the fountain, swinging her legs, staring at nothing.', '@hikari I miss ramen. And trains. And my mom. Is that weird? To miss trains?'],
   ],
+  afterTalk: [
+    ["@hikari I've been keeping a quest log. Under \"completed\" I wrote \"the big event\" and drew forty little hearts. Mira saw it at the Guild. She asked what quest it was. I lied badly."],
+    ["She strikes a dramatic pose.", "@hikari STATUS OPEN!", "Nothing happens. She leans in and whispers:", "@hikari ...Status: wants to stay over tonight. Accept quest Y/N?"],
+    ["@hikari In my world, there's a thing called a \"route.\" When you pick one person and see their whole story. I picked mine. It's you. I'm never doing another route. This is the true ending."],
+    ["@hikari The light novels always skip to the morning after. I'm writing my own now. It does NOT skip. It is VERY detailed. I'll never let anyone read it."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -293,16 +299,65 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Her room at the inn is tiny and piled with "quest gear" — a bag of rocks she\'s convinced are magic, a hand-drawn map of "possible dungeon locations," a dozen wooden practice swords. She shoves it all under the bed in a panic.',
-          'She is nervous and excitable and talks far too much — narrating everything like an announcer, "and then the heroine *bravely* — oh, oh *wow* —" — until she runs out of words entirely, which takes a while, and is very worth it.',
-          'At one point she says, breathless, *this is SO much better than the light novels*, and you both laugh until the bed shakes.',
-          '...',
-          'Afterward, she lies curled against you, tracing patterns on your chest.',
-          '@hikari Hey. {name}.',
-          '@you Yeah?',
-          '@hikari Status open.',
-          'Nothing happens. She grins anyway.',
-          '@hikari Affection: max. Relationship: *heroine.* Current location: exactly where I want to be.',
+          "Her room at the inn is tiny and piled with \"quest gear\": a bag of rocks she's convinced are magic, a hand-drawn map of \"possible dungeon locations\", a dozen wooden practice swords. She shoves it all under the bed in a panic.",
+          "@hikari Okay. Okay okay okay. This is the event. The big one. I've seen it a thousand times. I've *read* it a thousand times. I know exactly what happens.",
+          "@hikari ...I have absolutely no idea what happens.",
+          "You laugh, and she laughs, and the nerves break. She kisses you, bumping noses, then again, better. She tugs her sailor uniform's red neckerchief loose with a flourish she's obviously been saving.",
+          "@hikari *Cast off armor!* — that sounded way cooler in my head.",
+          "She's nervous and excitable and talks far too much. She narrates everything like an announcer: \"and then the heroine *bravely* unbuttons the — oh, oh *wow* — critical hit —\". Then you kiss down her neck and she runs out of words entirely. That takes a while, and it's very worth it.",
+          "She's fearless, the same way she charged six goblins with a dented sword. She doesn't know the rules, so she makes them up as she goes, with total enthusiasm, and laughs breathlessly every time something works.",
+          "@hikari This is SO much better than the light novels. They skipped *everything.* They always cut to the morning! Who *does* that?!",
+          "@you Writers who've never done it.",
+          "@hikari *Cowards.*",
+          "...",
+          "Afterward, she lies curled against you, tracing patterns on your chest.",
+          "@hikari Hey. {name}.",
+          "@you Yeah?",
+          "@hikari Status open.",
+          "Nothing happens. She grins anyway.",
+          "@hikari Affection: max. Relationship: *heroine.* Current location: exactly where I want to be.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to someone poking your cheek, repeatedly, with great determination.",
+          "@hikari Morning event! Morning event! This is the part where the heroine wakes up first and watches the love interest sleep and thinks deep thoughts!",
+          "Hikari is sitting cross-legged on the bed in your shirt, hair in a messy ponytail, absolutely glowing.",
+          "@hikari I've been thinking deep thoughts for ten minutes and I'm bored, so now it's the part where we talk about our feelings. Or the part where you make me breakfast. Or both! Which route do you pick?",
+        ],
+        choices: [
+          { text: "\"The feelings route.\"", go: "feelings", aff: 6 },
+          { text: "\"The breakfast route. I'll make you noodle soup.\"", go: "breakfast", aff: 6 },
+          { text: "\"Secret third route.\" Pull her back under the blanket.", go: "secret", aff: 6 },
+        ],
+      },
+      feelings: {
+        text: [
+          "@hikari Okay! Okay. Feelings. I'll go first.",
+          "She takes a deep breath.",
+          "@hikari Back home, I used to feel like a background character in my own life. And last night I felt like the main character for the first time ever. And it wasn't because of a cheat skill. It was because of you.",
+          "She stares at you, appalled at herself.",
+          "@hikari That was SO cheesy. I've been reading too much. Pretend I said something cool.",
+          "You kiss her instead. She decides that's cool enough.",
+        ],
+        end: true,
+      },
+      breakfast: {
+        text: [
+          "You go down to the inn kitchen and make her a bowl of noodle soup with an egg on top, the way she taught you. You bring it back up on a tray.",
+          "She eats it sitting in bed in your shirt, slurping loudly, and gets broth on her nose.",
+          "@hikari This is the best morning of both my lives. And one of them included *trains.*",
+        ],
+        end: true,
+      },
+      secret: {
+        text: [
+          "@hikari A SECRET THIRD ROUTE? Oh, those are always the best ones! What unlocks it? Is there a flag? Did I trigger a —",
+          "You pull her under the blanket. She shrieks, then giggles, then stops talking for a good long while.",
+          "@hikari ...Okay, the secret route is canon now. I'm declaring it canon.",
         ],
         end: true,
       },

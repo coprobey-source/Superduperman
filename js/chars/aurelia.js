@@ -27,6 +27,12 @@ FL.addCharacter({
     ['@aurelia Do you know what I love about the tavern? Nobody bows. Nobody calls me "Your Highness." They call me "oi, you" and "where\'s me pie." It\'s *wonderful.*'],
     ['@aurelia I received a letter from my — from a *friend* — saying my — their father is very worried. I wrote back saying "I am fine, I have a mop now." I hope that reassures him.'],
   ],
+  afterTalk: [
+    ["@aurelia Bettina asked why I'm so tired at work lately. I said I've been *reading.* She said, \"Ara, ara, dear, what book? The one with the creaky bed?\" I nearly dropped a whole tray."],
+    ["She slips a note into your hand as she passes with a tray of ale. It reads, in elegant palace calligraphy: *Attic. Midnight. By royal command.*"],
+    ["@aurelia I wrote to my father. I told him I've found someone. He wrote back asking for your lineage. I told him your lineage is \"very good at unlacing dresses.\" I may have been slightly drunk."],
+    ["@aurelia I've learned to make one thing without burning it. It's honey toast. I'm going to make it for you tomorrow morning. You'll have to stay the night, though. That's the recipe."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -279,14 +285,61 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'The attic is cramped and the bed creaks alarmingly. Neither matters. She is tender and eager and full of wonder, as though discovering something that no tutor or governess ever dared to teach her. Every so often she laughs — a bright, unguarded, entirely un-royal laugh — and you think you could listen to it forever.',
-          'The moon shines through the cracked window. Downstairs, the tavern cat knocks something over. Neither of you notices.',
-          '...',
-          'In the morning, she lies with her head on your chest, golden hair spread everywhere, watching dust motes in the sunlight.',
-          '@aurelia I\'ve made a decision.',
-          '@aurelia I\'m going home. Not to hide. Not to marry the Duke. I\'m going to tell my father exactly what I want.',
-          'She props her chin on your chest and smiles.',
-          '@aurelia And I\'m bringing you with me.',
+          "The attic is cramped and the bed creaks alarmingly. Neither matters.",
+          "@aurelia I've been laced into gowns my entire life by three maids at a time. I've never once been *unlaced* by someone I wanted.",
+          "She turns around and looks at you over her shoulder, blue eyes very wide and very bright.",
+          "@aurelia Would you?",
+          "Her barmaid's dress has only six laces, but you take your time with every one. Each tug sends a visible shiver down her spine. When the dress slips from her shoulders she doesn't reach to catch it, the way they must have taught her to. She lets it fall, and stands there in the moonlight with her chin up like a princess at her coronation.",
+          "@aurelia Well? Your future queen awaits your — no. No, that sounds ridiculous. Just — *come here.*",
+          "She's tender and eager and full of wonder, as though discovering something no tutor or governess ever dared to teach her. She keeps saying *oh, is that allowed?* and then answering herself: *it is now, I've decided, royal decree.* She laughs often, a bright, unguarded, entirely un-royal laugh. You think you could listen to it forever.",
+          "And when you kiss your way down the curve of her neck and murmur *Your Highness* against her skin, half teasing, she grips your shoulders and makes a sound that would scandalize the entire royal court...",
+          "...",
+          "The moon shines through the cracked window. Downstairs, the tavern cat knocks something over. Neither of you notices.",
+          "Much later, she lies with her golden hair spread across your chest, tracing idle patterns on your skin.",
+          "@aurelia You realize this is treason. Seducing the Crown Princess. They used to hang people for this.",
+          "@you Should I be worried?",
+          "@aurelia Terribly. I'm going to sentence you to a life of hard labor. In my bed. With no possibility of parole.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to sunlight through the cracked window, the smell of burnt toast, and Aurelia crashing through the attic door holding a tray, wearing your shirt and her apron and nothing else.",
+          "@aurelia I made breakfast! Myself! In the kitchen! With *fire!*",
+          "The toast is charcoal. The eggs are somehow both raw and burnt. The tea is cold. She sets the tray down on your lap and looks at you with total pride.",
+          "@aurelia Nobody has *ever* let me cook. The palace chef wouldn't even let me hold a spoon. Isn't it *wonderful?*",
+          "From downstairs, Bettina's voice drifts up: \"Aura, dear! Why is the kitchen on fire again?\"",
+        ],
+        choices: [
+          { text: "Eat the whole thing with a straight face.", go: "eat", aff: 6 },
+          { text: "\"It's perfect. Come back to bed and help me eat it.\"", go: "bed", aff: 6 },
+          { text: "\"Should we... check on the fire?\"", go: "fire", aff: 4 },
+        ],
+      },
+      eat: {
+        text: [
+          "You eat every bite. The charcoal toast. The raw-burnt eggs. The cold tea. You don't flinch once.",
+          "Aurelia watches with growing wonder. When you finish, her eyes are wet.",
+          "@aurelia That was *terrible.* I tasted it. And you ate all of it. For me.",
+          "@aurelia I'm going to marry you. I've decided. Royal decree.",
+        ],
+        end: true,
+      },
+      bed: {
+        text: [
+          "She climbs back in beside you, still in the apron. You feed each other bites of charcoal toast and laugh until the bed creaks so loudly that Bettina bangs on the ceiling with a broom.",
+          "@aurelia We're being *scolded!* By a *commoner!* For *noise!*",
+          "She's never looked happier.",
+        ],
+        end: true,
+      },
+      fire: {
+        text: [
+          "@aurelia Oh! Oh, BOTHER —",
+          "She runs downstairs in your shirt and the apron. A moment later you hear a scream, a splash, and the entire Tipsy Wyvern bursting into applause.",
+          "When she comes back up, soaking wet and grinning, she says the regulars gave her a standing ovation. You decide not to ask which part they were applauding.",
         ],
         end: true,
       },

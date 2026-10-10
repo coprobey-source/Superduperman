@@ -1,3 +1,4 @@
+FL.addSpeaker('recruit', 'Recruit', '#9fb0c8');
 FL.addSpeaker('goblin', 'Goblin Chief', '#8fbf3a');
 
 FL.addCharacter({
@@ -25,6 +26,12 @@ FL.addCharacter({
     ['@brunhild The Code of Knighthood has one hundred and twelve tenets. I have memorized all of them. Number forty-three: "A knight shall never giggle." It is the hardest.'],
     ['@brunhild My father wished for a son to carry the Steinhart sword. He got me. I have spent my whole life proving that was no misfortune.'],
     ['@brunhild You have been training. I can see it in your stance. ...That is a compliment. Accept it quickly, before I take it back.'],
+  ],
+  afterTalk: [
+    ["@brunhild My recruits have noticed I am... less strict. I gave them a half-day yesterday. Several of them wept. I blame you entirely."],
+    ["She leans close and speaks very quietly, very formally.", "@brunhild I would like to request another... *inspection.* Tonight. At your earliest convenience. This is not an order. ...It is a little bit an order."],
+    ["@brunhild I knitted Sir Fluffington a tiny blindfold. For nights when you visit. He deserves his dignity."],
+    ["@brunhild I have added a private tenet to my code. Number one hundred and fourteen. It reads simply: \"{name}.\" I do not need to explain it."],
   ],
   scenes: {
     intro: {
@@ -297,17 +304,73 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Getting her out of ceremonial plate takes a very long time. There are forty-two buckles. She insists on naming each one. You both end up laughing so hard you have to sit down on the chapel floor.',
-          'Her chambers are spartan and spotless — a narrow bed, a weapons rack, a polished shield — and, on a shelf in the corner, forty-two plushies in tiny knitted helmets, standing at attention.',
-          '@brunhild Do not look at them. They are... on duty.',
-          'She turns them all to face the wall. One by one. Very solemnly.',
-          'Out of her armor she is all strength and nerves and hesitant tenderness, approaching you like a battle she is determined to win honorably, asking permission with grave formality at every step until you kiss her quiet. Then she stops asking, and simply *trusts* — which, you realize, is the bravest thing she has ever done.',
-          '...',
-          'In the gray light of dawn, you wake to find her already awake, watching you. She looks soft and unguarded and almost shy.',
-          '@brunhild I have never been happier in my life. It is deeply undignified.',
-          '@you Want me to kill you?',
-          'She laughs, and pulls you closer.',
-          '@brunhild Not today. Not for a very long time.',
+          "Getting her out of ceremonial plate takes a very long time. There are forty-two buckles. She insists on naming each one. You both end up laughing so hard you have to sit down on the chapel floor.",
+          "Her chambers are spartan and spotless: a narrow bed, a weapons rack, a polished shield. And on a shelf in the corner stand forty-two plushies in tiny knitted helmets, at attention.",
+          "@brunhild Do not look at them. They are... on duty.",
+          "She turns them all to face the wall. One by one. Very solemnly.",
+          "Then she turns back to you in her padded gambeson and stands at attention. She's clearly waiting for orders, has no idea what the orders are supposed to be, and is utterly mortified by this.",
+          "@brunhild I have trained for every eventuality. Siege. Ambush. Dragonfire. I have *not* trained for this.",
+          "@you Then let me take command.",
+          "Something in her shoulders unlocks. She nods once, sharply, like a soldier receiving her orders.",
+          "@brunhild ...Yes. Please. Command me.",
+          "So you do. You tell her to take the gambeson off, and she does it with trembling hands. Underneath she's all hard muscle and old scars. You tell her to lie back, and she obeys at once. You tell her not to move while you kiss every scar, from the sword wound on her shoulder to the arrowhead mark low on her hip. She holds perfectly, rigidly still, her breath growing ragged, until at the last one she breaks discipline with a gasp.",
+          "@brunhild Forgive me — I moved — I couldn't —",
+          "@you You can move now.",
+          "She moves. She is enormously strong, and for once in her life she lets herself use that strength for something other than battle. It is a revelation to you both...",
+          "...",
+          "In the grey light of dawn, you wake to find her already awake, watching you. She looks soft and unguarded and almost shy.",
+          "@brunhild I have never been happier in my life. It is deeply undignified.",
+          "@you Want me to kill you?",
+          "She laughs and pulls you closer.",
+          "@brunhild Not today. Not for a very long time.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You're woken by a trumpet. The garrison's dawn call. Brunhild is out of bed before the first note ends, standing at attention beside it with no armor and no clothes, fully alert, every inch the Knight-Captain.",
+          "Then she remembers where she is, and who's in her bed, and that she is *standing at attention completely naked*, and her whole body turns the color of her cape.",
+          "@brunhild ...Reflex. Twenty years of dawn drills.",
+          "Outside the door, you hear a recruit knock.",
+          "@recruit Captain? You're late for morning inspection. You've never been late. Are you ill?",
+          "Brunhild looks at the door. She looks at you. She looks at the forty-two plushies, which, you notice, are all facing the room again. Someone turned them around in the night.",
+        ],
+        choices: [
+          { text: "\"Tell them you're inspecting something important.\"", go: "inspect", aff: 6 },
+          { text: "Pull her back into bed. Let the recruits drill themselves.", go: "bed", aff: 6 },
+          { text: "Point at the plushies. \"Did you turn them around?\"", go: "plush", aff: 5 },
+        ],
+      },
+      inspect: {
+        text: [
+          "She clears her throat and calls through the door in her most commanding voice:",
+          "@brunhild I am conducting a — a *personal inspection!* Of the utmost importance! Drill yourselves! Fifty laps!",
+          "@recruit ...Fifty, Captain?",
+          "@brunhild ONE HUNDRED.",
+          "The recruit flees. Brunhild turns back to you, still scarlet, and climbs back under the blanket.",
+          "@brunhild The inspection is not yet complete. I must be *thorough.*",
+        ],
+        end: true,
+      },
+      bed: {
+        text: [
+          "You reach out and tug her wrist. She lets herself be pulled down without any resistance at all.",
+          "@brunhild This is a grave dereliction of duty.",
+          "@you Want to stop?",
+          "@brunhild *Absolutely not.*",
+          "She's two hours late for inspection. The recruits whisper about it for weeks. Nobody dares to ask.",
+        ],
+        end: true,
+      },
+      plush: {
+        text: [
+          "She stares at the plushies. Her eye twitches.",
+          "@brunhild I — I woke in the night. And I thought they should — that they should see me happy. Once.",
+          "@brunhild ...That is the most ridiculous sentence I have ever spoken.",
+          "@you It's the sweetest one.",
+          "She hides her face in the pillow. Sir Fluffington watches from the shelf, approving.",
         ],
         end: true,
       },

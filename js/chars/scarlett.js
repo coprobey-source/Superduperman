@@ -27,6 +27,12 @@ FL.addCharacter({
     ['@scarlett Every port I sail into, there\'s someone waving goodbye on the dock. Never someone waving hello. Funny thing, that.'],
     ['@scarlett My first mate, Bones, says I\'ve been docked in Clichéton three weeks longer than planned. He\'s asked why. I told him the rum\'s good.', 'She looks at you sideways.', '@scarlett The rum\'s not *that* good.'],
   ],
+  afterTalk: [
+    ["@scarlett Ahoy, love! The crew's finished the shanty about us. Thirteen verses. Verse nine is *filthy.* Bones wrote it. I'm very proud of him."],
+    ["She pulls Blackheart's compass out and holds it up. The needle swings straight to you.", "@scarlett Still pointin'. Means I'm headed your way tonight. Leave the window open."],
+    ["@scarlett I've been dockside longer than any port in nine years. The crew's started calling Clichéton \"home port.\" I haven't corrected 'em."],
+    ["@scarlett I tied down the bed. Rope, chain and a very good knot. Come test it, love. For the seaworthiness."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -289,16 +295,70 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'The ship rocks gently beneath you. The moon pours silver through the stern windows. She\'s as bold in this as in everything — laughing, daring, demanding, swearing in at least four languages — but every so often she goes suddenly, sweetly quiet, and just holds you, as if making sure you\'re real.',
-          'At one point the ship lurches on a swell and you both tumble off the bed onto a pile of maps, and she\'s laughing so hard she can barely breathe.',
-          '@scarlett Rule one of romance on the high seas: *always* tie down the bed.',
-          '...',
-          'At dawn you lie together in the tangle of sheets and maps, her head on your chest, her red curls everywhere, the gulls crying outside.',
-          '@scarlett Hey, love. You know what\'s funny?',
-          '@you What?',
-          '@scarlett I\'ve been all over the world. Every sea, every shore. And I\'ve never once wanted to stay in bed past sunrise.',
-          'She pulls the blanket over both your heads.',
-          '@scarlett The sea can wait.',
+          "The ship rocks gently beneath you. The moon pours silver through the stern windows.",
+          "@scarlett Right. Boarding procedure. First, the boarding party removes the captain's coat.",
+          "She turns around and holds out her arms, grinning over her shoulder. You slide the heavy crimson coat off her shoulders. Underneath she's wearing a loose linen shirt and a leather corset, and she looks at you sidelong.",
+          "@scarlett Second, the corset. Laces at the back. Twelve of 'em. I tied 'em extra tight tonight, to make you work for it.",
+          "She did. You work for it. She laughs at your fumbling, then stops laughing when you kiss the back of her neck between laces. By the eighth lace she's braced both hands against the map table, breathing hard.",
+          "@scarlett Faster, love. That's an order from your captain.",
+          "@you I thought there were no rules?",
+          "@scarlett ...Oh, you *cheeky* —",
+          "She spins, grabs your collar and drags you onto the great bed under the stern windows. She's as bold in this as in everything: laughing, daring, demanding, swearing in at least four languages. Every so often she goes suddenly, sweetly quiet and just holds you, as if making sure you're real. You trace the old scars on her ribs, the sword cut, the bullet graze, the kraken's mark. She tells you the story of each one in a breathless whisper, and loses the thread of the last story halfway through...",
+          "...",
+          "At one point the ship lurches on a swell and you both tumble off the bed onto a pile of maps. She's laughing so hard she can barely breathe.",
+          "@scarlett Rule one of romance on the high seas: *always* tie down the bed.",
+          "At dawn you lie together in a tangle of sheets and maps, her head on your chest, red curls everywhere, gulls crying outside.",
+          "@scarlett Hey, love. You know what's funny?",
+          "@you What?",
+          "@scarlett I've been all over the world. Every sea, every shore. And I've never once wanted to stay in bed past sunrise.",
+          "She pulls the blanket over both your heads.",
+          "@scarlett The sea can wait.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "The cabin door bangs open. First Mate Bones is standing there holding a mug of coffee and staring directly at the ceiling.",
+          "@crew Cap'n. The crew's back from shore leave. They, ah, saw the stern windows were fogged up from the harbor. All of 'em. There's betting.",
+          "Scarlett sits up in the tangle of sheets, completely unashamed, hair a wild red cloud.",
+          "@scarlett Betting on *what,* Bones?",
+          "@crew Whether you'll finally be makin' an honest landlubber of yourself, Cap'n. Or an honest pirate of them. Odds are about even.",
+          "Scarlett turns to you, grinning.",
+          "@scarlett Well, love? Want to give the crew something to bet on?",
+        ],
+        choices: [
+          { text: "Walk out on deck with her, hand in hand, in front of everyone.", go: "deck", aff: 6 },
+          { text: "\"Tell them to come back in an hour.\"", go: "hour", aff: 6 },
+          { text: "\"Put me down for ten gold on 'honest pirate.'\"", go: "bet", aff: 5 },
+        ],
+      },
+      deck: {
+        text: [
+          "You walk out onto the deck together, hand in hand, still rumpled, in yesterday's clothes. The whole crew goes silent. Then the whole crew erupts.",
+          "Hats go flying. Somebody fires a cannon. Somebody else starts a shanty, very loudly, about a captain who lost her heart to a landlubber with a strong grip.",
+          "@scarlett ...They've been writing that one for weeks, haven't they.",
+          "@crew Aye, Cap'n. There's eleven verses.",
+        ],
+        end: true,
+      },
+      hour: {
+        text: [
+          "@scarlett You heard 'em, Bones. Come back in an hour.",
+          "@crew An hour, Cap'n?",
+          "@scarlett ...Make it two.",
+          "Bones closes the door. Through it you can hear him shouting: \"PAY UP, LADS!\"",
+        ],
+        end: true,
+      },
+      bet: {
+        text: [
+          "Scarlett throws back her head and roars with laughter.",
+          "@scarlett Ha! Betting on your own corruption! Bones, take the bet!",
+          "@crew Aye, Cap'n. Ten gold on \"honest pirate.\" Very good odds.",
+          "When the door closes, Scarlett pins you back down in the sheets.",
+          "@scarlett You're going to have to *earn* that bet, love. Lessons start right now.",
         ],
         end: true,
       },

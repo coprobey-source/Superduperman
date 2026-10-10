@@ -27,6 +27,12 @@ FL.addCharacter({
     ['@amorette I saw what you did today, you know. I see everything. It was very sweet. I narrated it beautifully, if I say so myself. You didn\'t hear? Oh, nobody ever does.'],
     ['She looks out at the candlelit temple, unusually quiet.', '@amorette Everyone prays to me for love. Nobody ever asks if *I\'m* lonely. Not in ten thousand years. ...Forget I said that. Goddesses aren\'t supposed to monologue.'],
   ],
+  afterTalk: [
+    ["@amorette I've been narrating everyone else's romances all week and I keep accidentally comparing them to ours. \"And they kissed, but not as well as —\" I've had to restart *six* love stories."],
+    ["She leans close and whispers in your ear, voice dropping into narration:", "@amorette *And that night, the protagonist found a trail of rose petals leading to the meadow again...*", "@amorette Consider that a hint."],
+    ["@amorette Do you know, prayers to the Temple have doubled this week? Everyone in town has suddenly been asking for \"a love like the goddess has.\" I've been granting them. Generously."],
+    ["@amorette My statue in the temple has started blushing. Actually blushing. The priests think it's a miracle. It's just that I keep thinking about you."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -292,15 +298,67 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She kisses you among the roses. The petals rise around you like a slow, sweet storm.',
-          'What follows is — well. The Narrator has stepped away, and the substitute has been told to look elsewhere, and so the story politely averts its eyes.',
-          'But it\'s worth noting that for a goddess of love, she is surprisingly nervous, and then surprisingly giddy, and then completely, overwhelmingly *present* — no omniscience, no distance, no watching from above, just here, with you. The roses glow brighter. At one point she laughs and a shower of tiny golden hearts erupts into the air around you, and she says *oh, that\'s embarrassing, that hasn\'t happened since the Renaissance.*',
-          '...',
-          'Later, you lie together in the roses, watching the stars. She\'s resting her head on your chest, idly drawing hearts on your skin.',
-          '@amorette Ten thousand years, I\'ve been writing endings. *Happily ever after.* I always thought that was the end of the story.',
-          '@amorette It isn\'t, is it? It\'s just the part where the narrator stops talking.',
-          '@you And then what?',
-          '@amorette And then you get to live it.',
+          "She kisses you among the roses. The petals rise around you like a slow, sweet storm.",
+          "@amorette I have narrated this moment eleven million times. I know every word that's ever been said in it.",
+          "@amorette I have no idea what to say.",
+          "@you Then don't say anything.",
+          "Her gown, which was made of something like sunset, simply fades away into twilight at your touch, and she laughs, startled and delighted, as if even she didn't know it would do that.",
+          "For a goddess of love, she's surprisingly nervous for about thirty seconds, then surprisingly giddy, then completely, overwhelmingly *present.* There's no omniscience, no distance, no watching from above. She's just here with you, gasping at sensations she's described ten million times and never once felt herself.",
+          "@amorette Oh. Oh, the *poets.* The poets got it so wrong. I'm going to have words with every single one of them —",
+          "@you Later.",
+          "@amorette Later. Yes. *Much* later.",
+          "The roses glow brighter wherever she touches you. At one point she laughs and a shower of tiny golden hearts erupts into the air around you. She says *oh, that's embarrassing, that hasn't happened since the Renaissance*, and then you kiss her again and she forgets to be embarrassed.",
+          "And here, as you may have noticed, the Narrator falls silent. For once in ten thousand years, she's too busy to describe what happens next...",
+          "...",
+          "@sub Uh. Hi. It's me again, the substitute. She's told me I can come back now. She also said to tell you the meadow will remember this forever. Every rose. Apparently that's a big deal in goddess circles.",
+          "Later, you lie together in the roses, watching the stars. She rests her head on your chest, idly drawing hearts on your skin.",
+          "@amorette Ten thousand years I've been writing endings. *Happily ever after.* I always thought that was the end of the story.",
+          "@amorette It isn't, is it? It's just the part where the narrator stops talking.",
+          "@you And then what?",
+          "@amorette And then you get to live it.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake in your own bed in Clichéton, with no idea how you got there. The meadow is gone. There's a rose on your pillow, and a voice in your ear.",
+          "@narrator Good morning, darling. I narrated you home. Very gently. You didn't wake once.",
+          "And then she's there in person, lying beside you in your little rented room, hair drifting in a breeze that doesn't exist, wearing a dressing gown made of dawn.",
+          "@amorette I've been narrating your neighbors while you slept. The baker proposed to the blacksmith at four this morning. She said yes. I cried. I'm so emotional now. It's dreadful. I *love* it.",
+          "She props herself up on one elbow and looks at you with shining golden eyes.",
+          "@amorette So. Tell me honestly. How was it, being the protagonist of the goddess of love's first romance?",
+        ],
+        choices: [
+          { text: "\"Ten out of ten. No notes.\"", go: "ten", aff: 6 },
+          { text: "\"You stopped narrating. Who's narrating now?\"", go: "who", aff: 5 },
+          { text: "\"I want a sequel.\"", go: "sequel", aff: 6 },
+        ],
+      },
+      ten: {
+        text: [
+          "She claps her hands, delighted.",
+          "@amorette *Ten!* No notes! Do you know how rare that is? The poets *always* have notes.",
+          "@amorette ...I have one note, actually. The bit with the golden hearts. I'd like to apologize to the Renaissance.",
+        ],
+        end: true,
+      },
+      who: {
+        text: [
+          "@amorette Oh, Kevin's still covering the slow parts. He's terribly nervous. Listen.",
+          "@sub ...and the protagonist lay in bed with the goddess, and, um — oh, gosh, they're looking at me — I'll just — I'll narrate the weather —",
+          "@amorette He's sweet. Leave him. I'd rather be in the story this morning than outside it.",
+          "She pulls the covers up over both your heads, and for a while, nobody narrates anything at all.",
+        ],
+        end: true,
+      },
+      sequel: {
+        text: [
+          "Her golden eyes go wide. Then she grins, slow and wicked and divine.",
+          "@amorette A *sequel.* Oh, darling. Don't you know the second installment is always steamier?",
+          "@amorette It's a rule. I wrote it.",
+          "The rose on your pillow bursts into full bloom. Somewhere outside, the morning bells ring for no reason at all.",
         ],
         end: true,
       },

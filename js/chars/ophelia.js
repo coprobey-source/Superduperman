@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@ophelia Do you know how I died? I fell down those stairs. In my ballgown. Waiting for a man who never came. Very tragic. Very *Gothic.* I\'ve always been a little proud of it, honestly.'],
     ['@ophelia You\'re warm. I can feel it from here, like standing near a hearth. I haven\'t been warm in two hundred years. Stand closer. ...Closer. *There.*'],
   ],
+  afterTalk: [
+    ["@ophelia I've been practicing becoming solid. I managed it for nearly three seconds yesterday while thinking about the blood moon. I nearly fell through the floor afterwards. *Worth it.*"],
+    ["She drifts close and whispers in your ear, sending a delicious chill down your spine.", "@ophelia I've learned that ghosts can make people shiver from across a room. I've been doing it to you all evening. Did you notice?"],
+    ["@ophelia I finally finished the novel I've been stuck on since 1824. The heroine was much less satisfied than I was. I've decided the author was clearly a virgin."],
+    ["@ophelia The piano plays itself better now. Love songs, mostly. I can't help it. It's very embarrassing to be haunted by one's own feelings."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -266,15 +272,64 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Her old bedchamber has been closed for two hundred years. She leads you to it by candlelight, through halls that seem to grow less shadowed with each step. The canopy bed is faded rose silk. The window looks out over the blood moon.',
-          'She is shy and fervent and heartbreakingly grateful, savoring every sensation as if she might never feel it again: the warmth of skin, the weight of an embrace, a heartbeat against her cheek. She keeps laughing softly in wonder. She keeps saying your name, as if to make sure it\'s real.',
-          '...',
-          'Near dawn, she lies against your chest, already beginning to fade at the edges, the blood moon setting outside.',
-          '@ophelia I\'ll be a ghost again when the sun rises. I won\'t be able to touch you.',
-          '@ophelia Will you still come? Even if I can\'t hold you?',
-          '@you Every evening. For as long as you\'ll have me.',
-          'She smiles, translucent now, glimmering in the first gray light.',
-          '@ophelia Then I\'ll haunt you forever, my love. Devotedly.',
+          "Her old bedchamber has been closed for two hundred years. She leads you there by candlelight, through halls that seem a little less shadowed with each step. The canopy bed is faded rose silk. The window looks out over the blood moon.",
+          "@ophelia I haven't been touched in two hundred years. I don't know if I remember how this goes. I'm not sure I ever knew. I died *terribly* inexperienced.",
+          "@you We'll go slow.",
+          "@ophelia Please don't go *too* slow. I've only got until dawn.",
+          "You untie the ribbons of her old-fashioned gown one by one. With each ribbon she seems to become more real: warmer, more solid, color rising into her pale cheeks. When the gown falls away she's shivering, not from cold but from the sheer overwhelming *sensation* of the night air on her skin.",
+          "@ophelia I can feel *everything.* The air. The silk. Your hands. Oh, your *hands.* I'd forgotten hands. I've been dead so long I'd forgotten what *warm* felt like.",
+          "She's shy and fervent and heartbreakingly grateful, savoring every touch as if she might never feel it again. You kiss her slowly down the line of her throat, and she arches against you and makes a sound she hasn't made in two centuries. She clutches at your back. She keeps laughing softly in wonder, and saying your name, as if to make sure it's real.",
+          "@ophelia Again. Do that again. I want to remember it. I want to remember all of it, for when I'm cold again.",
+          "The candles burn low. The blood moon climbs. The old house sighs around you, and for one night it feels truly alive...",
+          "...",
+          "Near dawn she lies against your chest, already beginning to fade at the edges as the blood moon sets.",
+          "@ophelia I'll be a ghost again when the sun rises. I won't be able to touch you.",
+          "@ophelia Will you still come? Even if I can't hold you?",
+          "@you Every evening. For as long as you'll have me.",
+          "She smiles, translucent now, glimmering in the first grey light.",
+          "@ophelia Then I'll haunt you forever, my love. Devotedly.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake alone in the faded rose bed, sunlight pouring through the dusty window. For a terrible moment you think it was a dream.",
+          "Then the temperature drops a few degrees, and a cool, faint pressure settles against your side, like someone curling up next to you on the covers.",
+          "@ophelia I'm here. I'm still here. Just... thin again.",
+          "She shimmers into view: translucent, glowing faintly blue, lying beside you with her chin propped on her hand. She looks happier than you've ever seen her.",
+          "@ophelia I watched you sleep. Is that terribly morbid? It's the sort of thing ghosts are expected to do. But I wasn't haunting you. I was just... *looking.*",
+          "She reaches out and lays her hand on your chest. It passes through, mostly. But you feel the faintest coolness, right over your heart.",
+        ],
+        choices: [
+          { text: "\"Haunt me all you like.\"", go: "haunt", aff: 6 },
+          { text: "\"Was it worth two hundred years of waiting?\"", go: "worth", aff: 6 },
+          { text: "Lay your hand over hers, where it rests on your chest.", go: "hand", aff: 6 },
+        ],
+      },
+      haunt: {
+        text: [
+          "@ophelia Oh, I *intend* to. Rattling chains. Moaning in the corridors. Rearranging your socks. Appearing in mirrors at *extremely* inopportune moments.",
+          "She grins wickedly.",
+          "@ophelia I have a great deal of creative energy and nowhere to put it. You're going to have a very interesting life.",
+        ],
+        end: true,
+      },
+      worth: {
+        text: [
+          "She's quiet for a long time.",
+          "@ophelia I used to count the years. Every single one. Two hundred of them.",
+          "@ophelia I'd wait two hundred more for one more night like that.",
+          "@ophelia ...But I'd rather not have to. Come back tonight. I'll be thin, and cold, and you won't be able to hold me. But I'll play you the piano. Badly. With *feeling.*",
+        ],
+        end: true,
+      },
+      hand: {
+        text: [
+          "You lay your hand over her ghostly one. You can't feel it, not really, but for a moment it seems to glow a little brighter, a little warmer.",
+          "@ophelia ...I felt that. Just for an instant. Like a candle flickering on.",
+          "@ophelia I think every time you touch me, I come back a little more. I think if you keep doing that, one day I might stay.",
         ],
         end: true,
       },

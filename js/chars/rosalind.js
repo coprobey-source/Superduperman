@@ -26,6 +26,12 @@ FL.addCharacter({
     ['@rosalind Do you know how long it takes to set these curls every morning? Two hours. Two hours! And people say I don\'t *work.*'],
     ['@rosalind I had friends, once. Dozens of them. They all vanished the day the Prince broke our engagement. It\'s fine. Friends are terribly overrated. ...Why are you still here? ...You may stay.'],
   ],
+  afterTalk: [
+    ["@rosalind Ohoho! You've returned to bask in my magnificence. You may bask closer. *Much* closer. I've had the pillows restocked."],
+    ["She snaps open her fan and speaks behind it, very low.", "@rosalind I had my dressmaker make something new. In black. It has very few hooks. I'm told it comes off in *seconds.* Come and test that claim tonight."],
+    ["@rosalind Lady Pemberton has told everyone in the Noble Quarter about us. I am now the most interesting woman in society. I've received eleven invitations. I've declined them all. Thursdays are *ours.*"],
+    ["@rosalind I haven't set my drills for two days. My maid nearly fainted. I told her the curls were *distracting* certain people. She didn't ask who."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -292,16 +298,65 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She kisses you among the white roses, and then she takes your hand and leads you up the back stairs of the great silent house to her bedchamber — all violet silk and gilt mirrors and a canopy bed with a ridiculous number of pillows.',
-          '@rosalind Don\'t comment on the pillows.',
-          '@you There are at least forty —',
-          '@rosalind *Don\'t comment on the pillows.*',
-          'Without the fan and the curls and the cutting words, she is startlingly shy, and then startlingly bold, and entirely, wonderfully *honest* — saying exactly what she wants and how and when, as imperious in this as in everything else, until somewhere in the night all her orders melt into soft, wordless sighs.',
-          '...',
-          'In the morning she wakes in a nest of pillows with her hair everywhere, and looks at you, and laughs.',
-          '@rosalind I just realized. I\'ve finally done something truly scandalous.',
-          '@rosalind I\'ve fallen in *love.* Ohohohoho!',
-          'It\'s the best villainess laugh you\'ve ever heard.',
+          "She kisses you among the white roses. Then she takes your hand and leads you up the back stairs of the great silent house to her bedchamber: violet silk, gilt mirrors, and a canopy bed with a ridiculous number of pillows.",
+          "@rosalind Don't comment on the pillows.",
+          "@you There are at least forty —",
+          "@rosalind *Don't comment on the pillows.*",
+          "She sits on the edge of the bed, regal even now, and lifts her chin.",
+          "@rosalind You'll undress me. Slowly. A lady is never rushed.",
+          "It's an order, delivered with all the imperiousness of House Ashcroft. But her voice wavers, just slightly, on the last word.",
+          "So you do it slowly. You unhook the gown at her back one tiny hook at a time, kissing the nape of her neck between each one, and you feel her composure crack a little more with every kiss. When the last hook comes free and the silk slides from her shoulders, she lets out a long, shuddering breath she seems to have been holding for six months.",
+          "@rosalind ...More. Don't stop. That is *also* an order.",
+          "Without the fan and the curls and the cutting words, she's startlingly shy, then startlingly bold, and entirely, wonderfully *honest.* She says exactly what she wants and how and when, as imperious in this as in everything else. Then, somewhere in the night, all her orders melt away into soft, wordless sighs, and the villainess forgets entirely that she was ever supposed to be in control...",
+          "...",
+          "In the morning she wakes in a nest of pillows with her hair everywhere, looks at you, and laughs.",
+          "@rosalind I just realized. I've finally done something truly scandalous.",
+          "@rosalind I've fallen in *love.* Ohohohoho!",
+          "It's the best villainess laugh you've ever heard.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "A knock at the door. A maid's voice: \"Lady Ashcroft? Your morning tea. And... Lady Pemberton is downstairs. She says it's urgent. She says she saw a carriage leave very late last night, and she wishes to know whose.\"",
+          "Rosalind sits bolt upright among the pillows. Her hair is a tangled golden mess without a single drill in sight. She's wearing nothing but your shirt.",
+          "@rosalind That *viper.* She's here to gossip. She'll tell the whole Noble Quarter by luncheon.",
+          "She looks at you. Something wicked dawns in her eyes.",
+          "@rosalind ...Unless.",
+        ],
+        choices: [
+          { text: "\"Unless we go downstairs together. Like this.\"", go: "together", aff: 6 },
+          { text: "\"Let her gossip. Come back to bed.\"", go: "bed", aff: 6 },
+          { text: "\"Ohohoho!\" (Do the laugh.)", go: "laugh", aff: 5 },
+        ],
+      },
+      together: {
+        text: [
+          "You walk into the drawing room hand in hand, you in your rumpled clothes, Rosalind in your shirt and a silk robe with her hair loose around her shoulders.",
+          "Lady Pemberton drops her teacup.",
+          "@rosalind Good morning, Lady Pemberton! You've met my *lover*, I believe? Do sit down. Have a scone. Spread whatever you like about us. *Ohohohoho!*",
+          "Lady Pemberton flees without her hat. By luncheon, the entire Noble Quarter knows. By dinner, three noblewomen have sent Rosalind letters of support and asked for the name of her dressmaker.",
+        ],
+        end: true,
+      },
+      bed: {
+        text: [
+          "@rosalind Let her — *gossip?* Unchallenged?",
+          "@you Let her.",
+          "She considers this for a long moment. It clearly goes against every instinct she has. Then she lies back down in the pillows and pulls the covers over both your heads.",
+          "@rosalind Tell her I'm *indisposed.* Tell her I'll be indisposed all day.",
+          "The maid tells her. Lady Pemberton waits for three hours. Rosalind remains indisposed.",
+        ],
+        end: true,
+      },
+      laugh: {
+        text: [
+          "You throw your head back and laugh the villainess laugh: *OHOHOHO!* This time, after weeks of her lessons, it's perfect. It echoes through the whole estate.",
+          "Rosalind stares at you, utterly delighted.",
+          "@rosalind Your *form!* Your diaphragm! Your *projection!* Oh, I've created a monster.",
+          "Downstairs, Lady Pemberton hears the laugh, goes very pale, and decides to come back another day.",
         ],
         end: true,
       },

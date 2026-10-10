@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@hilde The elf from the library came in yesterday. Wanted a "delicate silver circlet." Delicate! I make *axes.* ...I made it anyway. It\'s alright, I s\'pose. Don\'t tell anyone.'],
     ['@hilde You keep coming round the forge. People\'ll talk. ...Let \'em. Pass me that hammer.'],
   ],
+  afterTalk: [
+    ["@hilde Finished the new bed. Iron-oak, riveted, load-rated for a dragon. Took it for a test. Alone. Wasn't the same. Come round tonight."],
+    ["She hands you a tiny silver charm, a hammer crossed with a rose.", "@hilde Made it on my lunch break. Don't — just put it on. Don't make a thing of it. ...You're making a thing of it."],
+    ["@hilde The lads at the tavern asked why I'm whistling at the anvil. Told 'em I finally found good bellows help. They didn't believe me. Your fault."],
+    ["@hilde You smell like my forge now. Smoke and iron. I like it. Means everyone knows where you've been sleeping."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -278,14 +284,63 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She tastes like ale and smoke. Her hands are rough and strong and astonishingly gentle. She swears under her breath in Dwarvish — fondly, you think — every time you make her gasp.',
-          'There is a cot in the back room of the forge where she sleeps during long commissions. It is not built for two. It does not survive the night. Neither of you particularly cares.',
-          'She is the way she is with everything: honest, direct, hard-working, and absolutely determined to do the job properly. At one point she grins up at you, hair wild, and says *we\'re not done until it\'s right*, and you laugh so hard you can\'t breathe.',
-          '...',
-          'In the gray dawn, you wake on a pile of leather aprons on the forge floor, the cot in splinters beside you. Hilde is sitting up, sketching furiously in her book.',
-          '@hilde Morning. Don\'t move. I\'m designing you a ring.',
-          '@you A ring?',
-          '@hilde Shut up. Don\'t read into it. ...Read into it a little.',
+          "She tastes like ale and smoke. Her hands are rough and strong and surprisingly gentle. She swears under her breath in Dwarvish, fondly you think, every time you make her gasp.",
+          "@hilde Right. Shirt off. I've been looking at your arms swinging my hammer for a month. I want a proper look.",
+          "She doesn't wait. She hauls your shirt over your head with one hand and gives your chest an appraising, craftswoman's once-over, as if checking the temper on a blade.",
+          "@hilde ...Huh. Good. Strong. Decent work. You've been keeping up with the bellows.",
+          "Then she pulls off her own leather apron, then the sweat-soaked linen underneath. She's all muscle and freckles and old burn scars, and she plants her hands on her hips, daring you to say something. You don't say anything. You kiss the scar on her collarbone instead, and her whole body jolts.",
+          "@hilde *Oi* — that's — warn a woman — no, don't stop, I didn't say *stop* —",
+          "There's a cot in the back room of the forge where she sleeps during long commissions. It isn't built for two, and it doesn't survive the night. You end up on a pile of leather aprons by the banked coals, warm red light on her skin.",
+          "She's the way she is with everything: honest, direct, hard-working, and determined to do the job properly. She tells you exactly what she likes in plain words. She praises you like an apprentice who's finally got the technique right. At one point she grins up at you, hair wild, and says *we're not done until it's right*, and you laugh so hard you can't breathe...",
+          "...",
+          "Afterward, she lies sprawled on her back on the aprons, soot smudged on both of you, grinning at the rafters.",
+          "@hilde Ha. Well. That's the best thing I've ever made, and I didn't even use a hammer.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake on the forge floor in the grey dawn, the cot in splinters beside you. Hilde is sitting cross-legged on the anvil wearing your shirt, sketching furiously in her leather book.",
+          "@hilde Morning. Don't move. I'm designing you a ring.",
+          "@you A ring?",
+          "@hilde Shut up. Don't read into it. ...Read into it a little.",
+          "She looks over the top of the book at you, then at the wreckage of the cot.",
+          "@hilde I've built siege engines that took less punishment than that cot. Forty years it lasted. *Forty.*",
+        ],
+        choices: [
+          { text: "\"Build a sturdier one. I'll help.\"", go: "build", aff: 6 },
+          { text: "\"Show me the ring design.\"", go: "design", aff: 6 },
+          { text: "Wipe the soot off her nose.", go: "soot", aff: 5 },
+        ],
+      },
+      build: {
+        text: [
+          "@hilde Now you're talking. Proper dwarven bed. Iron frame. Riveted joints. Load-tested.",
+          "@you Load-tested how?",
+          "She grins, slow and wicked.",
+          "@hilde *Thoroughly.*",
+          "You spend the day building it together. It's the most beautiful bed in Clichéton. She engraves your initials on the headboard when she thinks you're not looking.",
+        ],
+        end: true,
+      },
+      design: {
+        text: [
+          "She hesitates. Then she turns the book around.",
+          "It's a ring: two bands, one of starsilver and one of dwarven gold, braided together like two strands of hair. Around the edge, in tiny Dwarvish runes, she's written something.",
+          "@you What does it say?",
+          "@hilde ...Says \"forged together.\" It's an old dwarf thing. Don't — stop smiling at me like that — I'll put you in the quench tank —",
+          "She doesn't. She lets you kiss her instead, and the book falls off the anvil.",
+        ],
+        end: true,
+      },
+      soot: {
+        text: [
+          "You reach up and brush the soot off the end of her nose with your thumb. She goes still. Then, very slowly, she turns pink under the freckles.",
+          "@hilde ...Soft. You're going soft on me, surfacer.",
+          "@you You like it.",
+          "@hilde I *love* it. Gods help me. Come here.",
         ],
         end: true,
       },

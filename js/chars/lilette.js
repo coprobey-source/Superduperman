@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@lilette Is it normal for mortals to smell this nice? Is that a trap? Is it a counter-seduction? You can tell me. I won\'t report you.'],
     ['@lilette Succubi aren\'t supposed to blush. It\'s in the handbook. Page one. I have never once made it past page one.'],
   ],
+  afterTalk: [
+    ["@lilette The Dean wrote back! She said my report was \"the most enthusiastic piece of academic writing in Academy history.\" She also asked me to stop including illustrations."],
+    ["She sidles up and tries a smoldering look. It actually works this time. She looks as surprised as you are.", "@lilette Oh! Oh, I did it again! Quick, take me somewhere before I forget how!"],
+    ["@lilette I've been glowing for three days straight. People keep asking if I'm sick. I keep saying, \"No, I'm just *very* well fed.\" Then I run away."],
+    ["@lilette I bought a new handbook. It's blank. I'm going to write my own. Chapter one is just your name. Chapter two is... *private.*"],
+  ],
   scenes: {
     intro: {
       start: {
@@ -242,15 +248,65 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Her kiss is clumsy at first. Then it isn\'t. Something old and instinctive seems to wake up in her — not the hungry thing her teachers wanted, but something warm and luminous. Her skin begins to glow faintly pink where you touch her.',
-          'For a succubus who has never done this before, she is remarkably enthusiastic, endlessly curious, and given to blurting out exactly what she\'s feeling at every moment, which is mostly variations of *oh* and *again* and *the book did NOT cover this.*',
-          'At one point her tail gets tangled in the sheets and her wing knocks the strawberry bowl over and you are both laughing so hard you can\'t breathe.',
-          '...',
-          'Afterward, she lies curled against you, glowing softly in the dark like a little pink lantern. She looks down at herself in wonder.',
-          '@lilette I\'m *glowing.* I\'ve never glowed. Succubi only glow when they\'ve fed very, very well.',
-          '@lilette But I didn\'t take anything. You just... gave. And I gave back.',
-          'She snuggles closer, wrapping one wing over you like a blanket.',
-          '@lilette I\'m going to get *such* a good grade.',
+          "Her first kiss is clumsy. Then it isn't. Something old and instinctive wakes up in her. It isn't the hungry thing her teachers wanted. It's something warm and luminous, and her skin begins to glow faintly pink wherever you touch her.",
+          "@lilette Oh. Oh, *that's* what Chapter Twelve meant by \"the awakening.\" I thought it was about alarm clocks.",
+          "She tries a move straight out of the handbook and slides one strap of her black dress off her shoulder with a sultry look. It gets stuck on her wing. She squeaks. You help her out of it, laughing, and her laughter cuts off in a soft gasp when your fingers trail down her bare spine to the base of her wings.",
+          "@lilette The *wings* — nobody's ever touched — the handbook says they're a weakness, I thought it meant in *combat* —",
+          "Her tail winds around your wrist and tugs you closer. For a succubus who has never done this before, she's remarkably enthusiastic, endlessly curious, and given to blurting out exactly what she's feeling at every moment. Mostly that's *oh* and *again* and *the book did NOT cover this.*",
+          "Then her instincts take over properly for the first time in her life. She pushes you back onto the silk sheets, settles over you with her wings spread wide, and her eyes glow a deep rose-red. Her voice comes out low and husky and genuinely, devastatingly sultry.",
+          "@lilette Hold still, mortal. I'm going to *ruin* you.",
+          "She holds it for about three seconds before she bursts into delighted giggles.",
+          "@lilette I DID IT! Did you hear that? I *smoldered!*",
+          "@you You did. Keep going.",
+          "She does. Her tail knocks over the strawberry bowl at some point. Neither of you notices...",
+          "...",
+          "Afterward, she lies curled against you, glowing softly in the dark like a little pink lantern. She looks down at herself in wonder.",
+          "@lilette I'm *glowing.* I've never glowed. Succubi only glow when they've fed very, very well.",
+          "@lilette But I didn't take anything. You just... gave. And I gave back.",
+          "She snuggles closer and drapes one wing over you like a blanket.",
+          "@lilette I'm going to get *such* a good grade.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to the scratching of a quill. Lilette is sitting cross-legged at the foot of the bed, wrapped in a sheet, wings fluttering happily, writing furiously in a notebook. She's still faintly glowing.",
+          "@lilette Good morning! Don't move! I'm writing my field report for the Dean. It has to be *very* detailed. Academic standards.",
+          "She turns the notebook around. The heading reads *FIELD REPORT: Practical Seduction, Session One.* There are diagrams. There are footnotes. There is a section titled *Things I Did Not Expect (Numbered).* It's on page four.",
+          "@lilette Could you, um, help me with the methodology section? I need to rate the — the *techniques* — on a scale of one to ten. Peer review.",
+        ],
+        choices: [
+          { text: "Help her rate them. Honestly. Item by item.", go: "rate", aff: 6 },
+          { text: "\"I think you'll need to repeat the experiment for accurate data.\"", go: "repeat", aff: 6 },
+          { text: "Take the quill and add your own footnote.", go: "footnote", aff: 5 },
+        ],
+      },
+      rate: {
+        text: [
+          "You go through the list together. By item three, she's pink. By item six, she's glowing so brightly the room is lit like a sunset. By item nine, she's hiding under the sheet.",
+          "@lilette TEN? You gave that one a *TEN?* That was an accident! My tail slipped!",
+          "@you Best accident I've ever had.",
+          "@lilette I'm writing that down. I'm writing ALL of this down. The Dean is going to faint.",
+        ],
+        end: true,
+      },
+      repeat: {
+        text: [
+          "She freezes, quill in the air.",
+          "@lilette Repeat the... for *science?*",
+          "@you Strictly for science.",
+          "@lilette The scientific method *does* require reproducible results...",
+          "The notebook hits the floor. The report is submitted three days late. The Dean's only comment, in red ink, is: *Thorough. Very thorough.*",
+        ],
+        end: true,
+      },
+      footnote: {
+        text: [
+          "You take the quill and write at the bottom of the page: *Subject wishes to report that the student is a natural. Highest marks. Would be seduced again.*",
+          "Lilette reads it. Her tail curls into a perfect heart. Her wings flutter so hard she floats off the bed and bonks her horns on the ceiling.",
+          "@lilette *Ow.* Worth it. So worth it.",
         ],
         end: true,
       },

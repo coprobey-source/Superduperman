@@ -24,6 +24,12 @@ FL.addCharacter({
     ['She is watching a pair of pigeons courting on the windowsill with intense concentration.', '@seven Fascinating. The male is puffing out his chest. Query: do humans do this? ...You are puffing out your chest. Noted.'],
     ['@seven I have read every book in the Professor\'s library on human emotion. There are fourteen. Thirteen are about anger. The fourteenth is a cookbook. I believe it was misfiled.'],
   ],
+  afterTalk: [
+    ["@seven Observation: my heat regulators now default to \"warm\" whenever you are within forty feet. I did not program this. It simply happened. The Professor would be fascinated."],
+    ["@seven I have built a second clockwork duck. They sit together on the windowsill. I have named them \"Finding Four\" and \"Finding Five.\" Finding Five was last night. Please do not ask for details in public."],
+    ["She takes your hand and presses it to the glass window over her heart. It's racing.", "@seven Data point. For the record."],
+    ["@seven Query: would you stay at the workshop tonight? I have made the cot larger. I calculated the optimal dimensions. For two. With room for... *movement.*"],
+  ],
   scenes: {
     intro: {
       start: {
@@ -275,16 +281,69 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She is curious and earnest and meticulously attentive, asking questions in a whisper — *is this correct? and this?* — until you tell her she doesn\'t need to ask, and she says *understood*, and then simply *feels.* Her clockwork heart races. Her joints hum. The glowing bees overhead pulse faster and brighter, in time with her heartbeat.',
-          'At one point she laughs — that strange, clicking, wonderful laugh — and says *this was not in any of the fourteen books*, and you both laugh until the duck starts quacking in alarm.',
-          '...',
-          'Afterward she lies with her head on your chest, listening.',
-          '@seven Your heart and mine. They are ticking at the same rate now. One hundred and four beats per minute.',
-          '@seven I believe the Professor would call that "synchronization."',
-          '@seven I believe *you* would call it something else.',
-          '@you What would you call it?',
-          'She thinks about it for a long time.',
-          '@seven Home.',
+          "She is curious and earnest and meticulously attentive.",
+          "@seven I have prepared. I read the fourteenth book seven times. I have made notes. I have also adjusted my joint tension for... *flexibility.* That was probably presumptuous.",
+          "@you It wasn't.",
+          "She undresses you with precision, folding each garment neatly on the workbench before turning back. Then she unfastens the clasps of her own simple dress, and you see her properly for the first time: smooth warm porcelain, delicate brass hinges at her shoulders and wrists, faint seams like fine lace tracing the curves of her body, and right at the center of her chest a little glass window where you can watch her clockwork heart ticking faster and faster.",
+          "@seven Observation: you are staring at my heart.",
+          "@you It's beautiful.",
+          "@seven ...Observation: it has accelerated by sixty percent.",
+          "She asks questions in a whisper as you touch her: *is this correct? and this? and here?* Then you trace the seam along her hip with your fingertips, slowly, and her whole body whirs and her eyes blaze gold. She stops asking.",
+          "@seven Error — sensory overload — no, not error, *not* error, please continue — please —",
+          "Her joints hum. The glowing bees overhead pulse faster and brighter in time with her heartbeat. She's warm everywhere you touch her, then warmer. When she finally loses her careful precision entirely, she laughs, a strange, clicking, wonderful laugh, and says *this was not in any of the fourteen books*. You both laugh until the clockwork duck starts quacking in alarm...",
+          "...",
+          "Afterward she lies with her head on your chest, listening.",
+          "@seven Your heart and mine. They are ticking at the same rate now. One hundred and four beats per minute.",
+          "@seven I believe the Professor would call that \"synchronization.\"",
+          "@seven I believe *you* would call it something else.",
+          "@you What would you call it?",
+          "She thinks about it for a long time.",
+          "@seven Home.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake on a cot in the workshop. Every clockwork beetle in the building has gathered on the windowsill in a neat row, watching you. Seven is sitting beside the cot, very still, hands folded in her lap.",
+          "@seven Good morning. I did not sleep. I do not require sleep. Instead I watched you for seven hours and reviewed last night's data.",
+          "She opens her notebook. The entry is long. Very long. Some of the handwriting is uncharacteristically shaky.",
+          "@seven I have encountered a problem. I attempted to write an objective summary. I have rewritten it nineteen times. Every version contains the word \"wonderful\" at least four times. That is not objective.",
+          "@seven Query: is it acceptable for a scientific record to be... biased?",
+        ],
+        choices: [
+          { text: "\"In this case, bias is the correct result.\"", go: "bias", aff: 6 },
+          { text: "\"Read me the nineteenth draft.\"", go: "read", aff: 6 },
+          { text: "\"Come here. Let's collect more data.\"", go: "data", aff: 6 },
+        ],
+      },
+      bias: {
+        text: [
+          "She considers this for a long moment, eyes flickering.",
+          "@seven Bias as the correct result. That contradicts every principle of the scientific method.",
+          "@seven ...I accept it.",
+          "She writes at the bottom of the page in neat copperplate: *Conclusion: wonderful. Bias: total. Correct.* Then she closes the notebook and smiles, a little crooked and completely real.",
+        ],
+        end: true,
+      },
+      read: {
+        text: [
+          "She reads it aloud in her calm, precise voice. *Subject's hands: warm. Subject's voice: low. Subject said my name eleven times. Each instance: wonderful. Subject's heartbeat while sleeping: steady. I listened to it for three hours. Wonderful.*",
+          "She looks up.",
+          "@seven I see the problem now. It is not a scientific record. It is a love letter. I have written you a love letter by accident.",
+          "@you Keep it.",
+          "@seven ...Affirmative.",
+        ],
+        end: true,
+      },
+      data: {
+        text: [
+          "She stands up instantly.",
+          "@seven Affirmative. Data collection is essential to — ",
+          "She stops mid-sentence and looks at you.",
+          "@seven That is not why I am agreeing. I am agreeing because I want to. Noted.",
+          "The beetles on the windowsill, by some unspoken agreement, all turn to face the wall.",
         ],
         end: true,
       },

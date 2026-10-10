@@ -128,8 +128,12 @@ FL.charOrder.forEach(function (id) {
   if (!(c.gifts.hate || []).length) warn(L + ': no hated gift');
   if (c.talk.length < 5) warn(L + ': only ' + c.talk.length + ' talk lines');
   c.talk.forEach(function (t, i) { checkLines(L + '.talk' + i, t); });
+  if (c.afterTalk.length < 3) err(L + ': needs at least 3 afterTalk lines');
+  c.afterTalk.forEach(function (t, i) { checkLines(L + '.afterTalk' + i, t); });
+  if (!FL.portraitConfigs || !FL.portraitConfigs[id]) err(L + ': no portrait config');
+  else if (FL.portrait(id).indexOf('<svg') !== 0) err(L + ': portrait did not render');
   ['love', 'like', 'neutral', 'hate'].forEach(function (k) { if (c.giftLines[k]) checkLines(L + '.gift.' + k, c.giftLines[k]); });
-  ['intro', 's1', 's2', 's3', 'ending'].forEach(function (sid) {
+  ['intro', 's1', 's2', 's3', 'morning', 'ending'].forEach(function (sid) {
     checkScene(L + '.' + sid, c.scenes[sid], c);
     if (c.scenes[sid]) countWords(c.scenes[sid]);
   });
@@ -199,6 +203,19 @@ FL.charOrder.forEach(function (id) {
       } catch (e) { err('sim ' + id + '.' + sid + ': ' + e.message); }
     });
     if (s.chars[id].stage !== 4) { err('sim ' + id + ': not devoted after scenes'); continue; }
+    // the morning after: the event must fire on the next morning and play cleanly
+    try {
+      s.day += 1; s.slot = 0; s.flags.lastCrossover = s.day;
+      FL.events.forEach(function (ev) { if (ev.id !== 'morning_' + id) s.seenEvents[ev.id] = true; });
+      const ev = FL.pendingEvent(s);
+      if (!ev || ev.id !== 'morning_' + id) err('sim ' + id + ': morning-after event did not fire');
+      else {
+        s.seenEvents[ev.id] = true;
+        const run = FL.startScene(s, ev.ref, 'event');
+        if (playRun(s, run, function (opts) { return opts[Math.floor(r() * opts.length)]; }) !== 'end') err('sim ' + id + ': morning scene did not end');
+      }
+      if (FL.talk(s, id).lines !== FL.characters[id].afterTalk[0]) err('sim ' + id + ': devoted talk did not use afterTalk');
+    } catch (e) { err('sim ' + id + '.morning: ' + e.message); }
     try {
       s.day = 30;
       const run = FL.startScene(s, { id: 'festival' }, 'event');
@@ -208,6 +225,40 @@ FL.charOrder.forEach(function (id) {
       });
       if (res !== 'ending' || run.ending !== id) err('sim ' + id + ': festival did not reach ending (' + run.ending + ')');
     } catch (e) { err('sim ' + id + '.ending: ' + e.message); }
+  }
+});
+
+// 1b) Every crossover fires in the right place and plays through every branch.
+Object.keys(FL.sceneCast || {}).forEach(function (xid) {
+  const cast = FL.sceneCast[xid];
+  cast.forEach(function (c) { if (!FL.characters[c]) err('crossover ' + xid + ': unknown cast ' + c); });
+  const ev = FL.events.find(function (e) { return e.id === xid; });
+  if (!ev) { err('crossover ' + xid + ': no event'); return; }
+  for (let variant = 0; variant < 4; variant++) {
+    const s = FL.newState({ name: 'X' });
+    s.flags.demon_attack = true; s.flags.goddess_awake = true;
+    cast.forEach(function (c) { s.chars[c].stage = 1; });
+    FL.STATS.forEach(function (k) { s.stats[k] = variant % 2 ? 10 : 0; });
+    let fired = false;
+    for (let day = 3; day < 29 && !fired; day++) {
+      for (let slot = 0; slot < 3 && !fired; slot++) {
+        FL.locOrder.forEach(function (loc) {
+          if (fired) return;
+          s.day = day; s.slot = slot; s.loc = loc;
+          if (ev.cond(s)) {
+            fired = true;
+            const r = rng(variant + 1);
+            try {
+              const run = FL.startScene(s, { id: xid }, 'event');
+              const res = playRun(s, run, function (opts) { return variant < 2 ? opts[variant ? opts.length - 1 : 0] : opts[Math.floor(r() * opts.length)]; });
+              if (res !== 'end') err('crossover ' + xid + ': ended with ' + res);
+              if (s.flags.lastCrossover !== day) err('crossover ' + xid + ': did not record lastCrossover');
+            } catch (e) { err('crossover ' + xid + ': ' + e.message); }
+          }
+        });
+      }
+    }
+    if (!fired) err('crossover ' + xid + ': never fires');
   }
 });
 

@@ -219,3 +219,5 @@ section { margin-top: 22px; }
   .choices { animation: rise .45s .2s ease both; }
 }
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.cast-pics { display: inline-flex; }
+.cast-pics .avatar + .avatar { margin-left: -18px; }

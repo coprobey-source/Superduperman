@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@bettina That little blonde barmaid of mine is a princess, you know. Don\'t tell her I know. It\'s so much fun watching her try to say "guv\'nor."'],
     ['@bettina Young people always think the best years are behind folks my age. Silly things. I\'m just getting started, dear.'],
   ],
+  afterTalk: [
+    ["@bettina Ara, ara. You've got that look again, sweetie. The one where you're thinking about upstairs. Close the bar with me tonight and find out if I'm thinking the same thing."],
+    ["She wipes a spot off your cheek with her thumb, slowly. There's nothing on your cheek. There never is.", "@bettina Habit. I like touching you. I've stopped pretending I need a reason."],
+    ["@bettina I put a new drink on the menu. It's called \"The Upstairs.\" It's sweet, it's strong, and it ends the night *very* well. People keep ordering it and looking at you."],
+    ["@bettina I went to Harold's grave again. Told him you snore. He'd have found that very funny. He snored like a bear."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -278,17 +284,67 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She is everything you imagined and nothing like it at all. Confident and unhurried, yes — she knows exactly what she wants, and she isn\'t shy about saying so — but also, in moments, startlingly tender. Laughing. Whispering *sweetie* against your skin like a secret.',
-          'There\'s an ease to her, a warmth like a hearth fire, and she takes her time with you as if time were something she\'s finally decided to stop rationing.',
-          'At one point she pauses, propped on one elbow, and simply looks at you for a long while, her eyes very bright.',
-          '@bettina I forgot. I\'d forgotten what this felt like. Being *seen.*',
-          '...',
-          'Morning comes slow and golden through the window. She\'s lying with her head on your shoulder, tracing lazy circles on your chest.',
-          '@bettina I went to his grave yesterday. Harold\'s. I told him about you.',
-          '@you What did you say?',
-          '@bettina I said, "I\'ve met someone who makes me laugh like you did. You\'d have hated their cocktails." And I swear the wind laughed.',
-          'She tilts her face up and kisses you.',
-          '@bettina He\'d want me happy. I think I finally believe that.',
+          "She leads you into her room and closes the door behind you. For a moment she just looks at you, leaning back against the door, a slow, warm, knowing smile spreading across her face.",
+          "@bettina Twenty years I've watched young things blush across my bar. Do you know what I've always wanted?",
+          "@you What?",
+          "@bettina To see how far down the blush goes.",
+          "She takes her time finding out. She unbuttons your shirt one button at a time, kissing each new inch, murmuring *mm* and *oh, sweetie* and *look at you* in that honey-and-smoke voice until you can't think straight. She takes your hands and places them exactly where she wants them. She shows you how she likes to be touched, patiently, with the confidence of a woman who has nothing left to prove and no intention of hurrying.",
+          "@bettina Slower. *There.* Oh, you're a quick study. I like that. I like that very much.",
+          "Then the red silk robe slides off her shoulders and pools on the floor. Somewhere in the middle of it all, when you kiss her very gently below the ear, her confidence finally cracks. Her breath catches and her fingers tighten in your hair. The great flirt of the Tipsy Wyvern, who has made a thousand adventurers blush, goes pink all the way down herself.",
+          "@bettina Oh. Oh, *my.* I'd — I'd forgotten it could be like this.",
+          "She doesn't let you be careful with her for long. She pulls you down onto the bed with a low, delighted laugh, and the old frame creaks and creaks...",
+          "...",
+          "Morning comes slow and golden through the window. She's lying with her head on your shoulder, tracing lazy circles on your chest.",
+          "@bettina Ara, ara. Look at the state of you. I've ruined you for anyone your own age.",
+          "@you Completely.",
+          "@bettina *Good.*",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You come downstairs to find the Tipsy Wyvern's morning regulars all very, very interested in their porridge. Nobody looks up. Several people are smirking.",
+          "Bettina is behind the bar, humming, hair loose around her shoulders for the first time anyone can remember. She slides a plate of eggs, bacon and honey cakes in front of you, and a mug of coffee with a little heart drawn in the foam.",
+          "@bettina On the house, sweetie. Eat up. You'll need your strength.",
+          "Old Gruk at the end of the bar snorts into his tankard. Aura, wiping tables, drops a whole tray of mugs.",
+          "@bettina Oh, don't mind them. The walls in this place are *dreadfully* thin. Half the street knows. The other half will know by noon.",
+          "She leans across the bar, chin in hand, smiling.",
+          "@bettina Are you going to be embarrassed about it, or are you going to kiss me good morning in front of all these lovely people?",
+        ],
+        choices: [
+          { text: "Lean across the bar and kiss her good morning. Thoroughly.", go: "kiss", aff: 6 },
+          { text: "Go bright red and hide behind your coffee.", go: "blush", aff: 5 },
+          { text: "\"Sorry, everyone. I'll try to be quieter.\"", go: "sorry", aff: 5 },
+        ],
+      },
+      kiss: {
+        text: [
+          "You lean across the bar and kiss her, long and slow, in front of everyone. The whole tavern erupts in cheers. Somebody bangs a tankard. Gruk wolf-whistles.",
+          "When you pull back, Bettina's cheeks are pink. Bettina's cheeks are *never* pink.",
+          "@bettina ...Well. That'll give them something to talk about.",
+          "She's smiling all day. Customers get free refills. Nobody knows why, but everybody knows why.",
+        ],
+        end: true,
+      },
+      blush: {
+        text: [
+          "You hide behind your coffee. Bettina laughs, rich and delighted.",
+          "@bettina Oh, there it is. My favorite tip. Look, everyone! It goes all the way down. I checked.",
+          "The tavern howls. You want to die. She leans over and kisses the top of your head, very softly.",
+          "@bettina I'm teasing, sweetie. Mostly.",
+        ],
+        end: true,
+      },
+      sorry: {
+        text: [
+          "The regulars burst out laughing. Gruk raises his tankard.",
+          "\"Don't you dare, lad,\" he says. \"First time in eight years she's sung while she sweeps.\"",
+          "Bettina goes very quiet. She looks at the old dwarf for a long moment, then at you. Her eyes are a little bright.",
+          "@bettina ...Was I singing?",
+          "Everyone nods.",
+          "@bettina Well. Fancy that.",
         ],
         end: true,
       },

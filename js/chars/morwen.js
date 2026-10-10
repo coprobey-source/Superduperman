@@ -26,6 +26,12 @@ FL.addCharacter({
     ['She\'s staring into her cauldron, chin propped on her broom handle.', '@morwen You know what\'s the hardest potion to brew? Courage. It takes nine years and a phoenix feather. Or you just... do the scary thing anyway. Which is cheaper but much harder.'],
     ['@morwen You have the most interesting aura. Sort of a warm orange, with little sparkles. ...Oh, I said that out loud. Please disregard.'],
   ],
+  afterTalk: [
+    ["@morwen I tried to brew a calming draught this morning and it came out pink and heart-shaped. *Every* potion comes out pink now. It's your fault. I can't concentrate."],
+    ["@croak She has been humming for three days. I implore you: visit her tonight, so that she might finally *sleep.*", "@morwen CROAKSWORTH!"],
+    ["She presses a little vial into your hand. It glows faintly.", "@morwen It's not a love potion! It's — it's a candle-floating draught. For ambiance. For later. Bring it tonight."],
+    ["@morwen The goose has laid an egg. It's a very small teacup. I don't know what that means but I think it means you should come over."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -245,15 +251,68 @@ FL.addCharacter({
       },
       kiss: {
         text: [
-          'Every candle in the room flares when you kiss her. She laughs against your mouth.',
-          '@morwen Sorry! Sorry. Witch thing. Magic gets a little... excitable.',
-          'It gets *much* more excitable. As the night goes on, the candles float up to the ceiling and spin. The jars on the shelves rattle. A long-dormant potion on the windowsill bursts into bloom. Somewhere outside, every frog in the pond begins to sing at once.',
-          'Morwen is wonderfully clumsy and wonderfully clever and laughs at every mishap — the bed collapses under a pile of spellbooks, her elbow knocks over a jar of fireflies, which swirl around you both like living stars.',
-          '...',
-          'In the soft hours before dawn, she lies tangled with you in a nest of quilts, idly drawing glowing runes on your chest with one fingertip.',
-          '@morwen I\'ve figured out the recipe for the strongest potion in the world.',
-          '@you Yeah?',
-          '@morwen It\'s you. Just you. No newt required.',
+          "Every candle in the room flares when you kiss her. She laughs against your mouth.",
+          "@morwen Sorry! Sorry. Witch thing. Magic gets a little... excitable.",
+          "She tries to undo the laces of her gown, gets them tangled in a knot that is probably mildly enchanted, and finally just snaps her fingers. The whole gown dissolves into a shower of violet sparks and lavender smoke.",
+          "@morwen ...That was supposed to be *sexier.* I've been practicing that spell for a week. It usually turns into butterflies.",
+          "@you I'm not complaining.",
+          "@morwen You're *staring.*",
+          "@you I'm not complaining.",
+          "She tugs you down onto the quilts by your collar, and things get much more excitable. The candles float up to the ceiling and spin. The jars on the shelves rattle. A long-dormant potion on the windowsill bursts into bloom. Every time you kiss somewhere new, her skin sparks faintly, and she gasps out something that might be a spell or might just be your name.",
+          "@morwen Oh — there — don't stop, if you stop the cauldron'll explode, I can *feel* it —",
+          "She's wonderfully clumsy and wonderfully clever, and she laughs at every mishap. The bed collapses under a pile of spellbooks. Her elbow knocks over a jar of fireflies, and they swirl around you both like living stars. Somewhere outside, every frog in the pond begins to sing at once...",
+          "...",
+          "In the soft hours before dawn, she lies tangled with you in a nest of quilts, idly drawing glowing runes on your chest with one fingertip.",
+          "@morwen I've figured out the recipe for the strongest potion in the world.",
+          "@you Yeah?",
+          "@morwen It's you. Just you. No newt required.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to a gentle *croak.* Sir Croaksworth is sitting on your chest, staring down at you with an expression of profound weariness.",
+          "@croak Good morning. I spent the night in the pond. Every frog for a mile was singing. I did not sleep. Not a wink.",
+          "Morwen is curled against your side, still asleep, hair a tangled cloud full of sparkles. Every candle in the cottage is stuck to the ceiling. The fireflies have settled in the rafters and are spelling out something that looks a lot like your initials.",
+          "@croak She has also, I note, accidentally turned the teapot into a small, very confused goose.",
+          "The goose honks.",
+          "Morwen wakes up, looks around at the chaos, and pulls the quilt over her head.",
+          "@morwen ...How bad is it?",
+        ],
+        choices: [
+          { text: "\"The goose seems happy.\"", go: "goose", aff: 5 },
+          { text: "\"Best morning of my life.\" Pull the quilt over yourself too.", go: "quilt", aff: 6 },
+          { text: "Read the firefly letters out loud.", go: "fireflies", aff: 6 },
+        ],
+      },
+      goose: {
+        text: [
+          "@morwen The goose is NOT happy, the goose is a TEAPOT, the goose has an IDENTITY CRISIS —",
+          "The goose honks contentedly and settles on the hearth.",
+          "@morwen ...Fine. The goose stays. The goose is family now. Croaksworth, say hello to your new sibling.",
+          "@croak I would rather return to being a duke.",
+        ],
+        end: true,
+      },
+      quilt: {
+        text: [
+          "You pull the quilt over both your heads. Underneath it's warm and dark and smells of lavender. She giggles.",
+          "@morwen Best morning? There's a *goose.* The candles are on the *ceiling.*",
+          "@you You're here.",
+          "@morwen ...Oh. That's — that's unfair, you can't just say that before breakfast —",
+          "A small, happy explosion goes off somewhere in the kitchen. Neither of you goes to look.",
+        ],
+        end: true,
+      },
+      fireflies: {
+        text: [
+          "You squint at the fireflies in the rafters. They've arranged themselves into glowing letters: two sets of initials, with a lopsided heart between them.",
+          "Morwen follows your gaze and turns crimson.",
+          "@morwen That's — I didn't — they do that on their own when I'm — *emotional* —",
+          "@croak She's been emotional all night, I gather. The entire forest gathered as much.",
+          "@morwen *CROAKSWORTH.*",
         ],
         end: true,
       },
