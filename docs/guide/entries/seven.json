@@ -1,0 +1,42 @@
+{
+  "id": "seven",
+  "overview": "Seven is a polite, literal clockwork girl who has spent three years cataloguing human behavior and is sure she has no feelings. Clever minds intrigue her, so keep your Wits sharp. Her endings ask whether she keeps studying love forever or learns to stop measuring it.",
+  "tips": [
+    "Her favourite gift is Clockwork Gears; she also likes a Spell Scroll, an Ancient Tome, an Ordinary Fork and an Enchanted Quill. She hates alcohol (Dwarven Ale, Rum, Honey Mead) and Scented Bath Salts.",
+    "Take her for a stroll through the Moonlit Gardens, her favourite date.",
+    "Wits is her stat (Wits 2 for Romance Scene II, Wits 3 for Scene III); every scene has a Wits check from 1 to 4. Find her on Artisan's Row by day and in the Town Square in the evening.",
+    "You can unlock both variants in one run (for example, teach her tag in Scene I and pass the Wits 4 check in Scene III), then choose at the festival."
+  ],
+  "endings": [
+    {
+      "id": "seven",
+      "title": "A Heart Made of Clockwork",
+      "kind": "main",
+      "summary": "Seven builds a device to predict the brightest falling star, then decides to believe the binding legend anyway: the most human thing she's ever done. Professor Gearwright returns from three years snowed in and weeps to see her smile. You run the workshop together, and she keeps filling notebooks about you.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Kiss her.\""
+      ]
+    },
+    {
+      "id": "seven_study",
+      "title": "Further Study Required",
+      "kind": "variant",
+      "summary": "You ask her device where the stars will fall next year, and the year after, and Seven hears a proposal for a lifelong field study. You chase Starfall across glaciers and deserts, find the lost Professor in a northern monastery, and she publishes On Love: A Field Study. Here her curiosity becomes an adventure for two.",
+      "howTo": [
+        "Do any one of: in Romance Scene II, pass \"Search the Professor's notes for a replacement\" (Wits check 3); or in Romance Scene III, pass \"Take her notebook and write the conclusion yourself\" (Wits check 4).",
+        "At the festival, choose \"Ask your device where the stars fall next year. And the year after.\""
+      ]
+    },
+    {
+      "id": "seven_unmeasured",
+      "title": "No Further Data",
+      "kind": "variant",
+      "summary": "You switch the device off, and for the first time Seven watches a star fall somewhere she didn't predict, and gasps. She closes her last notebook (\"No further data required\") and slowly learns to be surprised. It's the opposite of Further Study: a love she trusts instead of measures.",
+      "howTo": [
+        "Do any one of: in Romance Scene I, choose \"Teach her to play tag.\"; or in Romance Scene II, choose \"Stay with her. Hold her hand. Talk to her.\"",
+        "At the festival, choose \"Reach over and switch the device off. 'Don't predict this one.'\""
+      ]
+    }
+  ]
+}

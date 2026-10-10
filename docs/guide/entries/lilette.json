@@ -1,0 +1,44 @@
+{
+  "id": "lilette",
+  "overview": "A sweet, clumsy succubus student who can't seduce anyone until she falls in love for real. Encourage her to be herself, then help her decide whether to shine at the Academy or follow a different dream.",
+  "tips": [
+    "Her favourite gift is Honey Cakes; she also likes a Cute Plushie, Exotic Perfume, Steamy Romance Novel, Box of Fine Chocolates, Glitter Nail Polish and Scented Bath Salts. Never give a Blessed Candle or Saintly Relic (Probably).",
+    "Her favourite date is Sunset at Saltbreeze Harbor. Find her in the Noble Quarter in the afternoon and the Tipsy Wyvern in the evening.",
+    "Her checks run Charm 1 to 4, and Romance Scenes II and III need Charm 2 and 3 to unlock.",
+    "Romance Scene II is the fork: standing up to the Dean (Charm 3) leads toward Head of the Class, trusting her toward Sinfully Sweet. Failing the Dean check gives you neither."
+  ],
+  "endings": [
+    {
+      "id": "lilette",
+      "title": "Graduated With Honors (in Love)",
+      "kind": "main",
+      "summary": "Lilette takes the Dean's teaching job but stays in the mortal realm, sending lessons by fire-sparrow from your cottage. Her course, Falling In Love On Purpose, becomes the Academy's most popular. She still trips over her tail, but she glows every day. A sweet happily-ever-after, rooted firmly in Clichéton.",
+      "howTo": [
+        "At the festival, when she asks \"Will you keep me?\", choose \"Answer her with a kiss.\"",
+        "It is always available, and the only option if you haven't unlocked either variant."
+      ]
+    },
+    {
+      "id": "lilette_dean",
+      "title": "Head of the Class",
+      "kind": "variant",
+      "summary": "You tell her to take the job properly, on campus, and to bring you along. The Dean hires you too, as Visiting Lecturer in Mortal Studies. Lilette becomes the Abyss's most beloved professor and, fifty years on, Dean herself. Her most ambitious ending: she finally masters seduction, the loving way.",
+      "howTo": [
+        "Any one of: in Romance Scene I, \"Teach her a real smoldering glance.\" (pass Charm 2); or in Romance Scene III, \"Gently tilt her chin up and give her a perfect smoldering glance.\" (pass Charm 4).",
+        "In Romance Scene II, choose \"Stand up to the Dean...\" and pass the Charm 3 check.",
+        "At the festival, choose \"Don't stay here for me. Take the job properly, on campus — and take me with you.\""
+      ]
+    },
+    {
+      "id": "lilette_baker",
+      "title": "Sinfully Sweet",
+      "kind": "variant",
+      "summary": "Asked what she actually wants, Lilette realises it isn't teaching: it's baking. She opens Sinfully Sweet on Market Street, and every bit of joy her customers feel drifts back across the counter to feed her. The homiest ending, where she leaves the Academy's idea of success behind entirely.",
+      "howTo": [
+        "Any one of: in Romance Scene I, \"Honestly? You're cuter when you just smile.\"; or in Romance Scene III, \"Sit beside her. 'Throw out the handbook. Just be you.'\"",
+        "In Romance Scene II, choose \"Go ahead, Lilette. I trust you.\" directly (failing the Dean check doesn't count).",
+        "At the festival, choose \"Lilette. Is teaching seduction what you actually want?\""
+      ]
+    }
+  ]
+}

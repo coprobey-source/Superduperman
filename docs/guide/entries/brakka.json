@@ -1,0 +1,44 @@
+{
+  "id": "brakka",
+  "overview": "Loud, proud and absurdly strong, Brakka wants a mate who can keep up with her clan's traditions, and who sees the soft heart under all that muscle. Might impresses her; kind words decide which future she picks.",
+  "tips": [
+    "Her favourite gift is a Great Battle Axe; she also likes Raw Wyvern Steak, a Keg of Dwarven Ale, a Bottle of Rum and a Horn of Honey Mead. Avoid the Imported Tea Set and Exotic Perfume.",
+    "Her favourite date is a Picnic in Whisperwood. Find her at the Arena & Training Grounds by day and the Tipsy Wyvern in the evening.",
+    "Train Might: her checks are Might 2, 3, 3 and 4, and Romance Scenes II and III need Might 2 and 3 to unlock. Warchief needs Might 4."
+  ],
+  "endings": [
+    {
+      "id": "brakka",
+      "title": "Warrior's Bond",
+      "kind": "main",
+      "summary": "A proper Ironjaw wedding: shouting, an axe ceremony, a three-day feast and a ritual headbutt. You earn her father's blessing by losing an arm-wrestle bravely, live in the ever-growing hut in the hills, and cheer from the stands while she keeps winning. The classic warrior romance: she stays a champion.",
+      "howTo": [
+        "The default ending: you get it whenever neither variant's conditions are met.",
+        "To avoid Warchief: don't combine carrying her in Romance Scene III with winning the lift (Romance Scene I) or the courting fight (Romance Scene II).",
+        "To avoid Gentlest Orc: don't choose both \"You're not too much, Brakka. You're exactly enough.\" (Romance Scene I) and \"Only if I get to court you back.\" (Romance Scene II)."
+      ]
+    },
+    {
+      "id": "brakka_warchief",
+      "title": "Warchief of the Ironjaw",
+      "kind": "variant",
+      "summary": "Her father climbs the hill with twenty war-painted orcs and lays his axe at her feet. Brakka goes home invited, not exiled, becomes Warchief, and outlaws calling anyone \"too much.\" You are her mate, her war-counsel and the only one allowed to tell her no. Her triumphant ending: the exile reclaims her clan.",
+      "howTo": [
+        "In Romance Scene III, choose \"Pick her up. (Yes, all of her.)\" and pass the Might 4 check.",
+        "Plus any one of: in Romance Scene I, \"Try with everything you have.\" (pass Might 3); or in Romance Scene II, \"I accept your challenge, Brakka Ironjaw.\" (pass Might 3).",
+        "Chosen automatically at the festival, ahead of her other endings."
+      ]
+    },
+    {
+      "id": "brakka_gentle",
+      "title": "The Gentlest Orc in the World",
+      "kind": "variant",
+      "summary": "Brakka admits she is tired of fighting and wants a garden. She retires from the arena undefeated to an eleven-minute ovation, and you open a cactus nursery together, Brakka's Prickly Friends. Her softest ending: she trades the arena for growing things, and the soft heart turns out to be her strongest part.",
+      "howTo": [
+        "In Romance Scene I, at the feast, choose \"You're not too much, Brakka. You're exactly enough.\"",
+        "In Romance Scene II, when she offers the token, choose \"Only if I get to court you back.\"",
+        "Chosen automatically at the festival, unless you also met Warchief's conditions, which win. If needed, choose \"It's perfect, Brakka.\" in Romance Scene III."
+      ]
+    }
+  ]
+}

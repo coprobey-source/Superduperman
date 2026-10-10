@@ -1,0 +1,44 @@
+{
+  "id": "rosalind",
+  "overview": "Lady Rosalind plays the jilted villainess magnificently, with cutting remarks, a fan for every occasion and that \"OHOHOHO!\", while secretly funding half the town's charities. Charm wins her over, and her endings turn on one thing: do you join the act, or help her drop it?",
+  "tips": [
+    "Her favourite gift is an Imported Tea Set; she also likes a Bouquet of Roses, Exotic Perfume, a Pearl Comb and a Box of Fine Chocolates. Avoid Fresh Fish and a Keg of Dwarven Ale.",
+    "Take her on a picnic in Whisperwood, her favourite date. She's in the Noble Quarter all day.",
+    "Charm is her stat (Charm 2 for Romance Scene II, Charm 3 for Scene III), and every scene has a Charm check.",
+    "Watch for her jealousy side event, a one-time afternoon ambush on Market Street. It can happen after her Romance Scene I but before her Scene III, once another heroine has finished her own Romance Scene II. Your choice there unlocks either variant on its own."
+  ],
+  "endings": [
+    {
+      "id": "rosalind",
+      "title": "The Villainess's Happy Ending",
+      "kind": "main",
+      "summary": "Asked what happens to the villainess now, Rosalind decides to stay one, because society needs someone to call its hats hideous. You marry in the rose garden, and her legendary tea parties ban only the cruel. She keeps the drills, the fan and the laugh, and you're her partner in secret kindness.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"That's up to you. It's your story.\""
+      ]
+    },
+    {
+      "id": "rosalind_reign",
+      "title": "Partners in Crime",
+      "kind": "variant",
+      "summary": "You laugh the villainess laugh at the whole hill, and Rosalind joins in: two perfect \"OHOHOHO!\"s in harmony. You become Clichéton's most dreadful couple, publicly ruining corrupt landlords and magistrates while every repaid coin goes secretly to the orphans. Here she leans into the role, now with an accomplice.",
+      "howTo": [
+        "Either: in her jealousy side event, choose \"Ohohoho! Count me in. What's my role?\"",
+        "Or do both of: in First Meeting, pass \"Match her energy. 'OHOHOHO! ...Rue me!'\" (Charm check 2), and in Romance Scene II, pass \"Defend her publicly, with poise and wit\" (Charm check 3).",
+        "At the festival, choose \"OHOHOHO!\" (Laugh it with her, at the whole hill.)"
+      ]
+    },
+    {
+      "id": "rosalind_unmasked",
+      "title": "Exit, Villainess",
+      "kind": "variant",
+      "summary": "You ask her to put down the fan, and before everyone she unpins her drills and confesses it all: the charities, the prince she never loved, and you. The hill applauds, to her horror. She learns to be liked, runs her charities openly and leaves her face uncovered. In this ending, the mask comes off.",
+      "howTo": [
+        "Either: in her jealousy side event, pass \"There's no Heroine. There's no script...\" (Charm check 3) or choose \"Step under the bucket yourself and pull the cord.\" (Failing the Charm check doesn't count.)",
+        "Or do both of: in Romance Scene I, choose \"Do we need a fork? Can't I just pick it up?\", and in Romance Scene II, choose \"Because you never let anyone see the best of you. But I see it.\"",
+        "At the festival, choose \"Put down the fan, Rosalind. You don't need it tonight.\""
+      ]
+    }
+  ]
+}

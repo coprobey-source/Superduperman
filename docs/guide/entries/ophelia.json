@@ -1,0 +1,44 @@
+{
+  "id": "ophelia",
+  "overview": "Lady Ophelia is the dramatic, morbid, darkly funny ghost of Hollowmere Manor, who died after waiting all night at her debutante ball for a suitor who never came. Keep showing up for her, and use your Wits to uncover what really happened that night.",
+  "tips": [
+    "Her favourite gift is a Bouquet of Roses; she also likes an Imported Tea Set, a Pearl Comb, a Steamy Romance Novel and Silver Lute Strings. Avoid holy things (Blessed Candle, Saintly Relic) and the Gilded Hand Mirror.",
+    "She can only be found at Hollowmere Manor in the evening, so plan your evenings around her.",
+    "Take her to Sunset at Saltbreeze Harbor, her favourite date. Wits is her stat (Wits 2 for Romance Scene II, Wits 3 for Scene III).",
+    "The Debutante, Belatedly takes priority over her other endings: if you set it up, you get it automatically."
+  ],
+  "endings": [
+    {
+      "id": "ophelia",
+      "title": "A Heartbeat at Starfall",
+      "kind": "main",
+      "summary": "On the manor roof, far from the festival, you tell Ophelia the stars' binding counts for the dead too. The goddess sends a star straight into her chest, and she has a heartbeat again. You restore Hollowmere together, and she eats cake for breakfast for a month. It's the tender second-chance-at-life ending.",
+      "howTo": [
+        "Don't set up The Debutante, Belatedly (see below), or you'll get that ending instead.",
+        "This is the default ending otherwise. On the roof, choose \"Lay your hand as near to hers as it will go. 'I think it counts.'\""
+      ]
+    },
+    {
+      "id": "ophelia_haunted",
+      "title": "Haunted by You",
+      "kind": "variant",
+      "summary": "Offered a wish, Ophelia skips the tidy ending: she doesn't want to stop haunting, only to stop haunting a house. The star binds her to your locket instead, and she follows you everywhere: travelling, critiquing fashions, frosting rude people's soup. She stays a ghost, and you become the most thoroughly haunted person in the kingdom.",
+      "howTo": [
+        "Don't set up The Debutante, Belatedly (see below), or you'll get that ending instead.",
+        "Do any one of: in First Meeting, choose \"That was a beautiful wail. Very haunting.\"; or in The Morning After, choose \"Haunt me all you like.\"",
+        "On the roof, choose \"Make a wish, Ophelia. On the brightest one. Anything you like.\""
+      ]
+    },
+    {
+      "id": "ophelia_debut",
+      "title": "The Debutante, Belatedly",
+      "kind": "variant",
+      "summary": "The festival comes to Hollowmere: Ophelia descends the staircase where she once waited all night, and this time you're waiting at the bottom. Mid-waltz, a star falls through the broken dome and makes her alive. She becomes Clichéton's most scandalous hostess, and she never sits out a dance again.",
+      "howTo": [
+        "Chosen automatically at Starfall (no final choice needed) if you've done any one of the following:",
+        "In The Morning After, choose \"Next time there's a ball in this house, it's yours. Every dance. I promise.\"",
+        "Or do both of: in First Meeting, pass \"Notice the dust sheets — she's set a table for two\" (Wits check 1), and in Romance Scene I, pass \"Ask her to teach you the old dances\" (Wits check 2)."
+      ]
+    }
+  ]
+}

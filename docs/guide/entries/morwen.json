@@ -1,0 +1,44 @@
+{
+  "id": "morwen",
+  "overview": "A brilliant, scatterbrained swamp witch: a genius at potions, a disaster at feelings. Show her that what you feel is real, no potion required, and she will either teach you her craft or find her own courage.",
+  "tips": [
+    "Her favourite gift is Rare Moonherbs; she also likes a Blessed Candle, Ancient Tome, Spell Scroll, Imported Tea Set, Moonflower Nectar and Enchanted Quill. Never give a Bouquet of Roses.",
+    "Her favourite date is a stroll through the Moonlit Gardens. Find her on Market Street in the morning and in Whisperwood Forest later in the day.",
+    "Her checks run Wits 1 to 4, and Romance Scenes II and III need Wits 2 and 3 to unlock.",
+    "Romance Scene II is the fork: reasoning it out (Wits 3) points toward A Coven of Two; drinking the antidote points toward The Scary Thing."
+  ],
+  "endings": [
+    {
+      "id": "morwen",
+      "title": "Happily Ever Potion",
+      "kind": "main",
+      "summary": "You open Hazelbrook's Remedies & Mostly Safe Wonders on Market Street. The shop explodes only monthly, the orphanage never lacks medicine, and Croaksworth officiates your wedding. On the windowsill sits the unused love potion, proof that the best magic never needed brewing. Cosy, chaotic and content.",
+      "howTo": [
+        "At the festival, after the kiss, choose \"Stay just like this, under the stars.\"",
+        "It is always available, and the only option if you haven't unlocked either variant."
+      ]
+    },
+    {
+      "id": "morwen_coven",
+      "title": "A Coven of Two",
+      "kind": "variant",
+      "summary": "You ask Morwen to teach you witchcraft. Three years, six burnt hats and one accidentally restored duke later, you earn a forest-green hat of your own, and even her terrifying mother concedes that a coven of two still counts. The partnership ending: you become a witch beside her.",
+      "howTo": [
+        "Any one of: in First Meeting (as a frog), \"Hop over to her potion shelf and point at the antidote.\" (pass Wits 1); or in Romance Scene I, \"Examine them closely.\" (pass Wits 2).",
+        "In Romance Scene II, choose \"Reason it out...\" and pass the Wits 3 check.",
+        "At the festival, choose \"Morwen. Teach me. Properly. I want to be a witch too.\""
+      ]
+    },
+    {
+      "id": "morwen_courage",
+      "title": "The Scary Thing",
+      "kind": "variant",
+      "summary": "Her golden vial holds nine years of brewed courage. Remembering how you drank an antidote you didn't need, Morwen pours it out and proposes, shaking but unaided, then opens Courage Consultations to teach nervous suitors to do the scary thing. Her bravest ending: growth without any magic at all.",
+      "howTo": [
+        "In Romance Scene II, choose \"Morwen. Make the antidote. I'll drink it right now.\" directly (failing the Wits 3 reasoning check doesn't count).",
+        "Your choice at the cauldron in Romance Scene I doesn't matter: both \"You're amazing when you brew\" and \"Offer to deliver it with her\" count.",
+        "At the festival, choose \"Ask about the little golden vial in her pocket.\""
+      ]
+    }
+  ]
+}

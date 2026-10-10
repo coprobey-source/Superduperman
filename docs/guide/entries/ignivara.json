@@ -1,0 +1,46 @@
+{
+  "id": "ignivara",
+  "overview": "A haughty, three-thousand-year-old dragon who hoards because nothing else has ever stayed. Her route is about possession versus trust: you can become her most cherished treasure, or teach her that she doesn't need to hold on so tight.",
+  "tips": [
+    "Her favourite gift is a Sparkling Gemstone; she also likes a Gilded Hand Mirror, Pearl Comb, Silver Dagger, Ordinary Fork, Glitter Nail Polish and Saintly Relic (Probably). Never give a Cute Plushie or Rare Moonherbs.",
+    "Her favourite date is Dinner at the Tipsy Wyvern. She is only at Dragonspire Peak, in the morning and afternoon.",
+    "Watch for her jealousy side event: it fires once, on an afternoon between her Romance Scenes I and III, once another heroine has finished her Romance Scene II. Its choices can lock in a variant.",
+    "Might matters most (checks at 2, 3 and 4; Romance Scenes II and III need Might 2 and 3), but the jealousy event has a key Charm 3 check."
+  ],
+  "endings": [
+    {
+      "id": "ignivara",
+      "title": "The Most Precious Treasure",
+      "kind": "main",
+      "summary": "You move into the cave (gold bed frame, normal mattress), coax her into lending gold for a bridge, a school and a hospital, and she counts you every morning, one kiss at a time, after the coins. The balanced ending: she keeps her hoard, but knows it isn't her greatest treasure.",
+      "howTo": [
+        "The default ending: you get it whenever neither variant's conditions are met.",
+        "If the jealousy event happens, don't choose \"Then catalogue me...\", and don't pass the Charm 3 check on \"Gold stays because it can't leave...\"",
+        "Don't pair \"Turn out your pockets...\" (First Meeting) with \"Take her clawed hand and hold it.\" (Romance Scene II).",
+        "Don't pair \"I'll always fight for you, Ignivara.\" (Romance Scene II) with \"I'll make you a new treasure from the melted gold.\" (The Morning After)."
+      ]
+    },
+    {
+      "id": "ignivara_hoard",
+      "title": "Item Forty-One Thousand, Six Hundred and Nine",
+      "kind": "variant",
+      "summary": "She presses a golden key into your hand: the key to the secret vault beneath the hoard. You are entered in her ledger as Item 41,609, then polished, appraised and showered with tribute, and each month you add your own small treasures to her vault. Her most possessive ending, and a joyfully cherished one.",
+      "howTo": [
+        "Either: in the jealousy side event, choose \"Then catalogue me. Properly. I'd like to be in the good pile.\"",
+        "Or: choose \"I'll always fight for you, Ignivara.\" in Romance Scene II and \"I'll make you a new treasure from the melted gold.\" in The Morning After.",
+        "Chosen automatically at the festival, unless you passed the Charm 3 \"Gold stays...\" check in the jealousy event, which leads to The Dragon Who Let Go instead."
+      ]
+    },
+    {
+      "id": "ignivara_sky",
+      "title": "The Dragon Who Let Go",
+      "kind": "variant",
+      "summary": "Ignivara gives the Greatest Hoard away, pile by pile, to hospitals, libraries and the town, then leaves the mountain to fly the world with you. She keeps only a coin on a chain and a notebook of wonders she could never keep. Unlike her other endings, she gives up the hoard altogether: the trick was to fly.",
+      "howTo": [
+        "Either: in the jealousy side event, choose \"Gold stays because it can't leave. I come back because I want to.\" and pass the Charm 3 check.",
+        "Or: choose \"Turn out your pockets to prove you haven't taken anything.\" in First Meeting and \"Take her clawed hand and hold it.\" in Romance Scene II (as long as you didn't agree to be catalogued in the jealousy event).",
+        "Chosen automatically at the festival; the jealousy-event route takes priority over everything."
+      ]
+    }
+  ]
+}

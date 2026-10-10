@@ -1,0 +1,42 @@
+{
+  "id": "coralie",
+  "overview": "A wide-eyed mermaid princess utterly obsessed with the surface world. Her route is pure delight: indulge her curiosity, and the only real question is which world you will end up sharing.",
+  "tips": [
+    "Her favourite gifts are an Ordinary Fork and a Pearl Comb; she also likes a Gilded Hand Mirror, Cute Plushie, Sparkling Gemstone, Honey Cakes, Scented Bath Salts and Glitter Nail Polish. Never give Fresh Fish.",
+    "Her favourite date is Dinner at the Tipsy Wyvern, which Have Tub, Will Travel also requires. She is at Saltbreeze Harbor in the morning and afternoon.",
+    "Her checks run Charm 1 to 4, and Romance Scenes II and III need Charm 2 and 3 to unlock. A Sea Change needs Charm 4."
+  ],
+  "endings": [
+    {
+      "id": "coralie",
+      "title": "Between the Tides",
+      "kind": "main",
+      "summary": "The Sea King blesses Coralie so she can switch between tail and legs at will. You build a cliffside house with a sea-cave beneath, she gets a horse called Captain Four-Legs, and her father visits every Starfall, mostly for the bread. The both-worlds ending: land and sea, shared equally.",
+      "howTo": [
+        "At the festival, when the Sea King lifts his trident, choose \"Hold her hand and let him finish.\"",
+        "It is always available, and the only option if you haven't unlocked either variant."
+      ]
+    },
+    {
+      "id": "coralie_sea",
+      "title": "A Sea Change",
+      "kind": "variant",
+      "summary": "Instead of Coralie coming up, you ask to go down. The Sea King gives you a silver-pink tail you have no idea how to use, and you become Royal Ambassador to the Surface for a court that decrees forks are for hair. The most transformative ending: you give up the land for her.",
+      "howTo": [
+        "In Romance Scene III, choose \"Kiss me first. Here, under the moon.\" and pass the Charm 4 check.",
+        "At the festival, choose \"Your Majesty, wait. I don't want her to come up. I want to come down.\""
+      ]
+    },
+    {
+      "id": "coralie_tub",
+      "title": "Have Tub, Will Travel",
+      "kind": "variant",
+      "summary": "Coralie tells her father she doesn't want legs: she likes her tail, she just wants to see everything. With a conch for emergencies, you push her wheeled copper bathtub across the kingdom while she writes A Mermaid's Guide to the Surface (Mostly Correct). The adventurous ending, with no transformation needed.",
+      "howTo": [
+        "Take her on the Dinner at the Tipsy Wyvern date at least once.",
+        "Plus any one of: in Romance Scene I, \"Gently explain what everything really is.\" (pass Charm 2); in Romance Scene II, \"Sweep her into your arms and carry her.\"; or in Romance Scene II, \"Dance with her, one last time...\" (pass Charm 3).",
+        "At the festival, choose \"Squeeze her hand. 'Tell him about the bathtub, Coralie.'\""
+      ]
+    }
+  ]
+}

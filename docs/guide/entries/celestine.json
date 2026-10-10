@@ -1,0 +1,46 @@
+{
+  "id": "celestine",
+  "overview": "A radiant high priestess who has never broken a vow, and is now very curious about what she has been missing. Her route rewards honesty and patience: she wants someone who stays, listens, and lets her find out who she is beyond the Temple.",
+  "tips": [
+    "Her favourite gift is a Blessed Candle; she also likes a Steamy Romance Novel, Honey Cakes, a Bouquet of Roses, an Imported Tea Set and Scented Bath Salts. Never give Vintage Bloodwine or a Silver Dagger.",
+    "Take her on a Picnic in Whisperwood, her favourite date. She is at the Temple of the Radiant Heart all day (sometimes the Town Square in the evening).",
+    "Charm is everything: her checks run Charm 1 to 4, and Romance Scenes II and III need Charm 2 and 3 to unlock.",
+    "Both variants hinge on your confession-booth answer in Romance Scene II, so pick your path before you get there."
+  ],
+  "endings": [
+    {
+      "id": "celestine",
+      "title": "A Blessing of Our Own",
+      "kind": "main",
+      "summary": "Celestine performs your wedding herself while the Abbess weeps through it. She keeps serving the Temple by day and comes home each night to a cottage by the orchards, with a cherry tree she climbs just because she can. Faith and family side by side, with her famous sermons on love retelling your story.",
+      "howTo": [
+        "The default ending: you get it whenever neither variant's conditions are met.",
+        "Don't pair the dare in Romance Scene I (\"Want to find out? Do one thing today you've never done before.\") with \"Say it to my face.\" in Romance Scene II.",
+        "Don't pair a successful prayer in First Meeting (Charm 1) with \"No penance. There's nothing to forgive.\" in Romance Scene II.",
+        "Easy route: skip the dare in Romance Scene I, then choose \"Say it to my face.\" in Romance Scene II."
+      ]
+    },
+    {
+      "id": "celestine_abbess",
+      "title": "The Abbess of the Radiant Heart",
+      "kind": "variant",
+      "summary": "The old Abbess climbs the hill and hangs her own key around Celestine's neck. The youngest Abbess in four centuries rewrites the vow of purity to read \"Thou shalt not be lonely,\" marries you on the Temple steps and keeps its doors open all night. Here she leads the Temple instead of leaving or simply serving it.",
+      "howTo": [
+        "In First Meeting, choose \"Kneel beside her and pray too.\" and pass the Charm 1 check.",
+        "In Romance Scene II, at the confession booth, choose \"No penance. There's nothing to forgive.\"",
+        "Chosen automatically at the festival when both are true."
+      ]
+    },
+    {
+      "id": "celestine_pilgrim",
+      "title": "The Road Less Hallowed",
+      "kind": "variant",
+      "summary": "Celestine lets her gold ribbon fly away on the wind and vows to climb every tree in the world. You walk the kingdom together while she heals villages, blesses ships and writes the Abbess monthly \"Confessions.\" Her freest ending: her faith goes out into the wide world instead of staying inside the Temple walls.",
+      "howTo": [
+        "In Romance Scene I, choose \"Want to find out? Do one thing today you've never done before.\" (she climbs the cherry tree).",
+        "In Romance Scene II, at the confession booth, choose \"Say it to my face.\"",
+        "Chosen automatically at the festival; it takes priority over her other endings."
+      ]
+    }
+  ]
+}

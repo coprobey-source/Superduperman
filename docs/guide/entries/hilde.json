@@ -1,0 +1,43 @@
+{
+  "id": "hilde",
+  "overview": "A gruff dwarf smith who out-drinks and out-swears everyone, and hides a sketchbook of delicate jewellery she has never dared to make. Her route is about coaxing out the romantic she's ashamed of, or proving yourself the dwarven way.",
+  "tips": [
+    "Her favourite gift is a Keg of Dwarven Ale; she also likes Clockwork Gears, a Great Battle Axe, a Sparkling Gemstone, Raw Wyvern Steak and a Horn of Honey Mead. Never give a Bouquet of Roses, Exotic Perfume or Glitter Nail Polish.",
+    "Her favourite date is a Picnic in Whisperwood; find her on Artisan's Row by day and at the Tipsy Wyvern in the evening. On the Moonlit Gardens date, tucking a rose behind her ear helps unlock Iron Roses.",
+    "Her checks run Might 1 to 4, and Romance Scenes II and III need Might 2 and 3 to unlock.",
+    "Ask to see her sketchbook in Romance Scene I if you want her most romantic ending."
+  ],
+  "endings": [
+    {
+      "id": "hilde",
+      "title": "Forged Together",
+      "kind": "main",
+      "summary": "Her speech falls apart, so Hilde simply stands there and asks you to marry her, with a ring of braided starsilver and gold. The forge gets a new sign, the jewellery outsells the axes, and her father hugs her for the first time in fifty years. Gruff and honest: she finally makes the delicate things.",
+      "howTo": [
+        "At the festival, when her speech falls apart, choose \"Wait. Let her find the words.\"",
+        "It is always available, and the only option if you haven't unlocked either variant."
+      ]
+    },
+    {
+      "id": "hilde_shield",
+      "title": "Shield-Bonded",
+      "kind": "variant",
+      "summary": "You ask for a proposal the dwarven way, so it is off to the Ironpeaks: drinking with the elders, hauling granite up four hundred steps and swapping handmade shields. Her father crosses you out of the Book of Grudges. The most traditional ending, which makes you a Stonebrew under the mountain.",
+      "howTo": [
+        "Any one of: in Romance Scene I, \"Drink!\" (pass Might 2); or in Romance Scene II, \"Shove Hilde clear of the falling rocks.\" (pass Might 3).",
+        "At the festival, choose \"Ask me the dwarven way, Hilde. Properly.\""
+      ]
+    },
+    {
+      "id": "hilde_romantic",
+      "title": "Iron Roses",
+      "kind": "variant",
+      "summary": "You beat her to it and kneel. Hilde bursts into furious tears, confesses she has read every elf ballad, and recites a terrible Dwarvish poem. Once she stops pretending, she is the most romantic person in the kingdom: an iron rose every week and every anniversary marked. The ending that reveals her secret heart.",
+      "howTo": [
+        "In Romance Scene I, on the walk home, choose \"Will you show me your sketchbook sometime?\"",
+        "Plus any one of: \"Then make one. For me. I'll wear it every day.\" in Romance Scene II; lifting her onto the workbench in Romance Scene III (pass Might 4); or tucking a rose behind her ear on the Moonlit Gardens date.",
+        "At the festival, choose \"Beat her to it. Get down on one knee.\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "bettina",
+  "overview": "The teasing, motherly owner of the Tipsy Wyvern, who flirts with everyone so that nobody gets close. Get past the armour, honour her memories of Harold, and let her be the one who is looked after for once.",
+  "tips": [
+    "Her favourite gift is Exotic Perfume; she also likes Vintage Bloodwine, a Bouquet of Roses, a Box of Fine Chocolates, a Steamy Romance Novel and Scented Bath Salts. Never give a Keg of Dwarven Ale.",
+    "Her favourite date is Dinner at the Tipsy Wyvern. On the Saltbreeze Harbor date, promising to take her to sea helps unlock Closing Time. Find her on Market Street in the morning and at the Tipsy Wyvern later.",
+    "Her checks run Charm 2 to 4, and Romance Scenes II and III need Charm 2 and 3 to unlock. Closing Time needs Charm 4.",
+    "Ask about Harold in Romance Scene I; she never forgets that you did."
+  ],
+  "endings": [
+    {
+      "id": "bettina",
+      "title": "Last Call, First Love",
+      "kind": "main",
+      "summary": "You run the Tipsy Wyvern together under a new sign naming you co-proprietor. She still flirts with every customer, but each night ends with two glasses on the wobbly bar, and your portrait hangs beside Harold's on the landing. A warm second chance at forever, right where her heart has always been.",
+      "howTo": [
+        "At the festival, after she says she loves you, choose \"Kiss her back, and let the stars do the rest.\"",
+        "It is always available, and the only option if you haven't unlocked either variant."
+      ]
+    },
+    {
+      "id": "bettina_ruin",
+      "title": "Bettina's Ruin",
+      "kind": "variant",
+      "summary": "She pulls a deck of cards from her bodice and gambles for your hand, just as Harold once won her ring, in a game she has rigged so you cannot lose. Gruk, freshly ordained by post, marries you in the tavern, and she introduces you to everyone as \"my ruin.\" The playful, flirtatious ending.",
+      "howTo": [
+        "Any one of: in Romance Scene II, end up in the frying-pan moment (choose \"Grab his wrist...\" or fail the Charm 3 talk-down); or in The Morning After, choose \"Lean across the bar and kiss her good morning. Thoroughly.\"",
+        "At the festival, choose \"Bettina... is that a deck of cards in your bodice?\""
+      ]
+    },
+    {
+      "id": "bettina_wander",
+      "title": "Closing Time",
+      "kind": "variant",
+      "summary": "Asked what she wants, Bettina admits it: the open sea, the trip she and Harold never took. She hands Gruk the keys, and you follow Harold's old map down the coast to Gullwater, coming home after a year and a day. Her most freeing ending: she finally lives for herself, not the tavern.",
+      "howTo": [
+        "In Romance Scene III, choose \"Only if you let me take care of you for once.\" and pass the Charm 4 check.",
+        "Plus any one of: \"Tell me about him.\" in Romance Scene I; tucking a curl behind her ear in Romance Scene II (pass Charm 3); or \"Then I'll take you. One day. I promise.\" on the Saltbreeze Harbor date.",
+        "At the festival, choose \"What do you want, Bettina? Not the tavern. Not the town. You.\""
+      ]
+    }
+  ]
+}

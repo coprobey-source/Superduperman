@@ -1,0 +1,42 @@
+{
+  "id": "scarlett",
+  "overview": "Captain Scarlett \"Red\" Vane is a brash, boastful, big-hearted pirate who robs only the rich and has never stayed in one port long enough to fall in love. She respects a strong sword arm, so build your Might. Her endings ask where you'll be when the voyage ends: at sea together, on the dock, or on your own deck.",
+  "tips": [
+    "Her favourite gift is a Bottle of Rum; she also likes a Silver Dagger, a Sparkling Gemstone, a Pearl Comb and Fresh Fish. Never give her an Imported Tea Set.",
+    "Take her to Sunset at Saltbreeze Harbor, her favourite date; she even mentions it at Starfall.",
+    "Might is her stat (Might 2 for Romance Scene II, Might 3 for Scene III), with Might checks in every scene. Find her at Saltbreeze Harbor by day and the Tipsy Wyvern in the evening.",
+    "Home Port is decided early, in Romance Scene I, so choose carefully on the rigging."
+  ],
+  "endings": [
+    {
+      "id": "scarlett",
+      "title": "A Heart for a Compass",
+      "kind": "main",
+      "summary": "Out on the lantern-lit deck of the Crimson Tide, Scarlett asks you to be her first mate and her spouse, and you say yes. You marry aboard, sail the Sapphire Sea freeing slave ships and fighting krakens, and come home every Starfall. It's the classic life of adventure, with Blackheart's compass still pointing to you.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Say yes.\""
+      ]
+    },
+    {
+      "id": "scarlett_home",
+      "title": "Home Port",
+      "kind": "variant",
+      "summary": "You say yes, then ask what would happen if she didn't have to leave. Scarlett drops her hat on Bones's head, gives him the ship, and stays as just Red, becoming the best harbormaster in the kingdom's history. In this settling-down ending you wave hello from the pier each evening, and the compass points at your house.",
+      "howTo": [
+        "In Romance Scene I, choose \"I think I'd rather see what's right here.\"",
+        "At the festival, choose \"Say yes. And then: 'Red... what if you didn't have to leave?'\""
+      ]
+    },
+    {
+      "id": "scarlett_rival",
+      "title": "Two Ships, One Sea",
+      "kind": "variant",
+      "summary": "You accept the ring but turn down first mate: you want a ship of your own. That night you steal one from the Navy dock and become rival captains, outdoing and boarding each other across the Sapphire Sea. You're equals and sparring partners, each wearing a compass whose needle points toward the other.",
+      "howTo": [
+        "Do any one of: in Romance Scene I, pass \"Fight back with everything you've got\" (Might check 2); or in Romance Scene III, pass \"Pin her against the map table and kiss her. Pirate-style.\" (Might check 4).",
+        "At the festival, choose \"Say yes. And then: 'First mate? Captain, I want a ship of my own.'\""
+      ]
+    }
+  ]
+}

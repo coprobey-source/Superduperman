@@ -1,0 +1,44 @@
+{
+  "id": "aurelia",
+  "overview": "The runaway Crown Princess, now the worst barmaid in history and happier than she has ever been. Let her be bad at things and make her own choices; the fork is whether she returns to the crown, takes it, or gives it up.",
+  "tips": [
+    "Her favourite gift is a Bottle of Rum; she also likes Honey Cakes, Fresh Fish, a Cute Plushie, a Ball of Yarn and a Horn of Honey Mead. She has had enough of fancy things: avoid the Sparkling Gemstone, Imported Tea Set and Saintly Relic (Probably).",
+    "Her favourite date is a Picnic in Whisperwood. Find her in the Town Square in the morning and at the Tipsy Wyvern later in the day.",
+    "Her checks run Charm 1 to 4, and Romance Scenes II and III need Charm 2 and 3 to unlock.",
+    "The court bow in Romance Scene III (Charm 4) is the big fork: pass it for Long Live the Queen, or skip or fail it to keep Just Aura open."
+  ],
+  "endings": [
+    {
+      "id": "aurelia",
+      "title": "The Barmaid Princess",
+      "kind": "main",
+      "summary": "You marry in the capital's cathedral with Bettina as guest of honour. Aurelia becomes the kingdom's most beloved Crown Princess and makes nobles learn to cook, mop and haggle, but one weekend a month she slips back to the Tipsy Wyvern to be Aura again. Royal duty, with a secret tavern escape.",
+      "howTo": [
+        "At the festival, after the King's blessing, choose \"Hold her close and watch the stars fall.\"",
+        "It is always available, and the only option if you haven't unlocked either variant."
+      ]
+    },
+    {
+      "id": "aurelia_aura",
+      "title": "Just Aura",
+      "kind": "variant",
+      "summary": "You ask the King if he has ever asked what she wants. Aurelia renounces the throne to her drain-obsessed cousin, ties on an inside-out apron, buys into the Tipsy Wyvern and becomes Assistant Manager of Spillage. Her father visits in a false beard. The ending where she stays a commoner, for good.",
+      "howTo": [
+        "Any one of: in Romance Scene II, \"Then don't go back. Stay here.\"; or in Romance Scene III, end up on the goat line (choose \"I'd have you if you were a barmaid, a princess, or a goat.\", or fail the Charm 4 bow).",
+        "Plus any one of: \"Help her mop it up.\" in First Meeting; \"Buy her a meat pie from a street stall.\" in Romance Scene I; or \"Splash her with fountain water.\" in Romance Scene I.",
+        "At the festival, choose \"Tell the King what she told you in the storeroom: she was happier in the tavern.\""
+      ]
+    },
+    {
+      "id": "aurelia_queen",
+      "title": "Long Live the Queen",
+      "kind": "variant",
+      "summary": "You kneel, not to the King, but to her. Aurelia tells her father she is ready, and he retires with enormous relief. Queen Aura holds open court in an apron, makes the Council haggle for its budget and hides a mop behind a throne-room tapestry. Her most regal ending: she rules because she chose to.",
+      "howTo": [
+        "In Romance Scene III, choose \"Bow — a perfect court bow — and kiss her hand.\" and pass the Charm 4 check.",
+        "Plus any one of: in First Meeting, \"Your accent slipped, Your Highness.\" (pass Charm 1); in Romance Scene II, \"Step out and bluff the guards.\" (pass Charm 3); or in Romance Scene II, \"You're not just running away, Aurelia. You're running toward something.\"",
+        "At the festival, choose \"Kneel. Not to the King. To her.\""
+      ]
+    }
+  ]
+}

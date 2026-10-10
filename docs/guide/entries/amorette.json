@@ -1,0 +1,42 @@
+{
+  "id": "amorette",
+  "overview": "Amorette, Goddess of Love, has been narrating your life all along, and has never had a love story of her own. Only the truly charming can win her, so bring plenty of Charm. Her endings ask whether she stays half divine, comes down to be mortal, or takes you up with her.",
+  "tips": [
+    "She only appears after the goddess's dream on the morning of day 15, and only at the Temple of the Radiant Heart in the evening. Build Charm early (Charm 2 for Romance Scene II, Charm 3 for Scene III) so you can move quickly.",
+    "Her favourite gift is a Steamy Romance Novel; she also likes a Bouquet of Roses, a Box of Fine Chocolates, Honey Cakes, Exotic Perfume and Vintage Bloodwine. Avoid Clockwork Gears.",
+    "Her favourite date is a stroll through the Moonlit Gardens, but the Sunset at Saltbreeze Harbor date is worth taking too: one choice there unlocks Just a Woman with Pink Hair with no stat check.",
+    "Every romance scene has a Charm check (2 to 4)."
+  ],
+  "endings": [
+    {
+      "id": "amorette",
+      "title": "The Narrator's Own Story",
+      "kind": "main",
+      "summary": "Amorette arrives in a shower of rose petals, makes the stars spell your names, and lets you choose her ending. You ask her to stay just as she is: mornings arranging romances in the heavens, evenings in a cottage with you. It's the in-between ending, wrapped up by a flustered substitute narrator named Kevin.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Stay just as you are. Half the sky, half a cottage. All mine.\""
+      ]
+    },
+    {
+      "id": "amorette_mortal",
+      "title": "Just a Woman with Pink Hair",
+      "kind": "variant",
+      "summary": "You ask her to come all the way down, and she lets go of the golden thread that ties her to the sky; her eyes fade to ordinary brown. She catches her first cold, opens a romance bookshop, learns naps and sunsets, and throws a party for her first grey hair. She trades divinity for not knowing what happens next.",
+      "howTo": [
+        "Do any one of: in Romance Scene II, pass \"Make her laugh. 'Being mortal's great. We have naps.'\" (Charm check 3); or on the Sunset at Saltbreeze Harbor date, choose \"Don't narrate it. Just watch it with me.\"",
+        "At the festival, choose \"Come down, then. All the way. I'll teach you naps. And sunsets.\""
+      ]
+    },
+    {
+      "id": "amorette_ascend",
+      "title": "Patron of the Second Glance",
+      "kind": "variant",
+      "summary": "You ask to go up with her, and you feel every heartbeat in town as your feet leave the hill. You become a minor deity, the Patron of the Second Glance, narrating love stories side by side with her. It's the opposite of the mortal ending: she stays divine, and for the first time she isn't telling it alone.",
+      "howTo": [
+        "Do any one of: in Romance Scene I, choose \"You can be the heroine of mine.\"; or in Romance Scene III, pass \"Do you want to narrate this part, or should I?\" (Charm check 4).",
+        "At the festival, choose \"Take me up with you. Let me help you tell them.\""
+      ]
+    }
+  ]
+}
