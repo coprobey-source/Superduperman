@@ -456,6 +456,17 @@
     return true;
   };
 
+  // The one cheat code, a classic: a fortune and maxed stats. Returns a message, or null if the code is wrong.
+  FL.CHEAT_GOLD = 99999;
+  FL.applyCheat = function (s, code) {
+    const c = String(code || '').toUpperCase().replace(/[^A-Z]/g, '');
+    if (c !== 'MAINCHARACTER') return null;
+    s.gold = Math.max(s.gold, FL.CHEAT_GOLD);
+    FL.STATS.forEach(function (k) { s.stats[k] = 10; });
+    s.flags.cheat_used = true;
+    return 'Main character energy! You now have ' + s.gold.toLocaleString('en-US') + ' gold and 10 in every stat.';
+  };
+
   FL.doActivity = function (s, act) {
     const res = { lines: [] };
     if (act.cost && s.gold < act.cost) return null;

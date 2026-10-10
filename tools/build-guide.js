@@ -182,7 +182,8 @@ function checklist() {
   }).join('') + '<div class="cl-group"><b>Other endings</b>' + special.endings.map(function (x) {
     return '<div class="cl-item"><span class="box"></span>' + esc(FL.endings[x.id].title) + '</div>';
   }).join('') + '</div>';
-  return '<section class="page"><h2>Ending checklist</h2><p class="lede">All ' + FL.endingOrder.length + ' endings. Tick them off as you find them.</p><div class="checklist">' + groups + '</div></section>';
+  return '<section class="page"><h2>Ending checklist</h2><p class="lede">All ' + FL.endingOrder.length + ' endings. Tick them off as you find them.</p><div class="checklist">' + groups + '</div>' +
+    '<div class="strategy secret"><h3>One last secret</h3><p>In a hurry? Open <b>Settings</b> or the ☰ menu, choose <b>Enter a code</b>, and type <b>MAINCHARACTER</b>. You get 99,999 gold and 10 in every stat, so every stat check passes. The Narrator will be <em>very</em> disappointed in you.</p></div></section>';
 }
 
 /* ------------------------------------------------------------------ styles */

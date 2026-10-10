@@ -339,3 +339,5 @@ button.g-chip:hover { background: var(--panel2); }
 .ending-view { text-align: center; }
 .ending-view h2 { margin: .2em 0; }
 .ending-view .btns { margin-top: 12px; }
+.codebox { margin-top: 12px; border-bottom: 0; }
+.code-input { flex: 1; min-width: 160px; font: inherit; color: var(--text); background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; letter-spacing: .06em; text-transform: uppercase; }

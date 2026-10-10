@@ -1099,6 +1099,7 @@
     vols.appendChild(sv);
     wrap.appendChild(vols);
     wrap.appendChild(btn('', toggleMusic, { cls: 'music-toggle' }));
+    wrap.appendChild(codeBox());
     openModal('Settings', wrap);
     updateMusicButtons();
   }
@@ -1139,6 +1140,41 @@
     box.addEventListener('click', clickSkip, true);
     document.addEventListener('keydown', key, true);
     paceTimer = setTimeout(step, Math.min(2600, 500 + ps[0].textContent.length * 22));
+  }
+
+  /* ------------------------------------------------------------------ cheat code */
+  function codeBox() {
+    const wrap = el('div', 'set-row codebox');
+    wrap.appendChild(el('div', 'set-label', 'Enter a code'));
+    if (!ui.s || ui.replay) { wrap.appendChild(el('p', 'muted small', 'Start or load a game to use a code.')); return wrap; }
+    const row = el('div', 'btns');
+    const input = el('input', 'code-input');
+    input.type = 'text'; input.autocomplete = 'off'; input.spellcheck = false;
+    input.setAttribute('aria-label', 'Cheat code');
+    input.placeholder = 'Type a code…';
+    const msg = el('p', 'small muted', '');
+    msg.setAttribute('role', 'status');
+    const go = function () {
+      const res = FL.applyCheat(ui.s, input.value);
+      if (!res) { msg.textContent = 'Nothing happens. Somewhere, the Narrator snickers.'; sfx('fail'); return; }
+      input.value = '';
+      msg.textContent = res;
+      sfx('devoted');
+      toast('The Narrator sighs', 'Fine. But I\'m writing this down.');
+      if (ui.run) renderHud(); else renderHub();
+      checkAchievements();
+    };
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); go(); } });
+    row.appendChild(input);
+    row.appendChild(btn('Enter', go, { cls: 'primary' }));
+    wrap.appendChild(row);
+    wrap.appendChild(msg);
+    return wrap;
+  }
+  function codeModal() {
+    const wrap = el('div', 'settings');
+    wrap.appendChild(codeBox());
+    openModal('Enter a Code', wrap);
   }
 
   /* ------------------------------------------------------------------ save codes */
@@ -1222,6 +1258,7 @@
     ['ngplus', 'Once More, With Feeling', 'Start a New Game+.', function (s) { return s && s.ngplus > 0; }],
     ['true', 'Unabridged', 'Give the Narrator an ending of her own.', function () { return unlockedEndings().indexOf('true_end') >= 0; }],
     ['memory', 'Memory Lane', 'Replay a memory.', function () { return (lifetime().replays || 0) >= 1; }],
+    ['cheat', 'Main Character Energy', 'Find the secret code.', function (s) { return s && !!s.flags.cheat_used; }],
   ];
   function gotAchievements() { try { return JSON.parse(store(ACH_KEY) || '{}') || {}; } catch (e) { return {}; } }
   function checkAchievements() {
@@ -1333,6 +1370,7 @@
       wrap.appendChild(btn('Heroines', function () { heroinesModal(); }));
       wrap.appendChild(btn('Achievements', achievementsModal));
       wrap.appendChild(btn('Settings', settingsModal));
+      wrap.appendChild(btn('Enter a code', codeModal));
       wrap.appendChild(btn('Save Codes (backup / transfer)', saveCodeModal, { disabled: !!ui.run }));
       wrap.appendChild(btn('Quit to Title (unsaved progress since the last autosave is lost)', function () { closeModal(); titleScreen(); }));
       openModal('Menu', wrap);

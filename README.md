@@ -39,8 +39,9 @@ node tools/build-single.js            # -> dist/hearts-of-generic-fantasylandia.
 - **Memories:** replay any romance scene, morning after, date or ending you've seen, from the title screen or the menu. Endings replay with the choices that led to them.
 - **Who's where:** the 👥 button shows everyone you've met, grouped by where they are right now and where they'll be next, with one-click travel. A ★ badge counts heroines with a romance scene ready. The journal can be filtered the same way.
 - **Accessibility:** screen-reader labels for portraits, affection and buttons; dialogs trap and return keyboard focus; new scene text is announced; a skip link; visible focus outlines; and reduced-motion and high-contrast modes are respected. Automated audits (axe-core, WCAG 2 AA) pass on every main screen.
-- Three save slots plus an autosave, **save codes** for backups and moving between browsers, a journal tracking where everyone is and what they like, an endings gallery grouped by heroine, a **heroine gallery** to view every portrait and expression, **31 achievements**, and **New Game+**, which carries over your stats and gold (and the Narrator remembers).
+- Three save slots plus an autosave, **save codes** for backups and moving between browsers, a journal tracking where everyone is and what they like, an endings gallery grouped by heroine, a **heroine gallery** to view every portrait and expression, **32 achievements**, and **New Game+**, which carries over your stats and gold (and the Narrator remembers).
 - **Settings:** text size, text pacing (gentle fade, line by line, or instant), sound-effect and music volume.
+- **Cheat code:** open Settings or the ☰ menu, choose *Enter a code*, and type `MAINCHARACTER` for 99,999 gold and 10 in every stat. The Narrator will notice.
 
 ## The Heroines
 
