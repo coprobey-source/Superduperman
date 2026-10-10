@@ -27,8 +27,8 @@ node tools/build-single.js            # -> dist/hearts-of-generic-fantasylandia.
 - **Endings:** at the festival, choose a heroine who is *Devoted* (all three scenes seen) to get her ending. Win over five or more and another option appears. There's also an ending for nobody at all, and a bad end for anyone careless with a certain florist.
 - **The morning after:** your third romance scene with a heroine is the steamy one. The next morning she gets a scene of her own, and from then on her talk lines call back to what you've shared.
 - **Crossover events:** 16 run-ins between heroines, such as Fenna vs. Kit over a salmon, Valeria meeting Celestine's holy-water bucket, or Malzahra finally meeting a "hero." They happen when you're in the right place at the right time and have met both heroines.
-- **Portraits:** every heroine has a hand-built SVG portrait, generated from a config in `js/portraits.js`.
-- **Music:** a generative Web Audio soundtrack (no audio files) with themes for the town, tavern, forest, night spots, temple, sea, romance scenes, the festival and more. Turn it on from the title screen or the 🎵 button. Volume is in the menu.
+- **Portraits:** every heroine has a soft-shaded anime-style SVG portrait (gradient eyes and hair, fringe shadows, rim light), generated from a config in `js/portraits.js`.
+- **Music:** 14 hand-composed themes (town, tavern jig, forest, gothic night waltz, temple, library music box, sea, noble waltz, cave, arena, romance, festival, tension and the title), synthesized live with Web Audio. There are no audio files: plucked-string, FM, flute, string, choir, organ, brass and percussion instruments go through a reverb and mastering chain. Turn it on from the title screen or the 🎵 button. Volume is in the menu.
 - **Memories:** replay any romance or morning-after scene you've seen, from the title screen or the menu.
 - Three save slots plus an autosave, a journal tracking where everyone is and what they like, an endings gallery, and **New Game+**, which carries over your stats and gold.
 

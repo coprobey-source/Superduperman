@@ -228,6 +228,36 @@ FL.charOrder.forEach(function (id) {
   }
 });
 
+// 1a) Music: every theme parses, locations point at real themes, and melodies
+// put chord tones on the strong beats (apart from deliberately marked dissonances).
+(function () {
+  const M = FL.music;
+  if (!M || !M.songs) { err('music engine not loaded'); return; }
+  FL.locOrder.forEach(function (id) {
+    const t = FL.locations[id].music;
+    if (t && !M.songs[t]) err('location ' + id + ': unknown music theme ' + t);
+  });
+  ['title', 'romance', 'festival', 'tension'].forEach(function (t) { if (!M.songs[t]) err('missing music theme ' + t); });
+  Object.keys(M.songs).forEach(function (name) {
+    const S = M.songs[name];
+    const allowed = S.dissonance || [];
+    S.form.forEach(function (lab) { if (!S[lab.charAt(0)]) err('music ' + name + ': form uses missing section ' + lab); });
+    ['A', 'B'].forEach(function (sec) {
+      const strong = S.meter === 4 ? [0, 2] : S.meter === 3 ? [0] : [0, 3];
+      S[sec].melody.notes.forEach(function (n) {
+        const bar = Math.floor(n.t / S.meter), pos = n.t - bar * S.meter;
+        if (strong.indexOf(pos) < 0) return;
+        const chords = S[sec].bars[bar];
+        const ch = chords[Math.min(chords.length - 1, Math.floor(pos / (S.meter / chords.length)))];
+        const pcs = M.chordSemis(S.mode, ch).map(function (x) { return ((x % 12) + 12) % 12; });
+        if (pcs.indexOf(((n.semis % 12) + 12) % 12) < 0 && allowed.indexOf(sec + ':' + (bar + 1) + ':' + (pos + 1)) < 0) {
+          err('music ' + name + '.' + sec + ': non-chord tone on strong beat (bar ' + (bar + 1) + ', beat ' + (pos + 1) + ')');
+        }
+      });
+    });
+  });
+})();
+
 // 1b) Every crossover fires in the right place and plays through every branch.
 Object.keys(FL.sceneCast || {}).forEach(function (xid) {
   const cast = FL.sceneCast[xid];
