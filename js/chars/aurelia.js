@@ -395,7 +395,7 @@ FL.addCharacter({
       },
       splash: {
         text: [
-          'You kick a spray of water at her. She shrieks. For one second, she looks absolutely scandalized, the full force of royal outrage in her face.',
+          'You kick a spray of water at her. She shrieks. For one second, she looks absolutely scandalised, the full force of royal outrage in her face.',
           'Then she shoves you into the fountain.',
           'You both end up soaked to the skin, laughing so hard you can\'t stand, while the pigeons scatter and a small crowd gathers to watch the barmaid and the adventurer splashing each other like a pair of drunken otters.',
           '@aurelia:happy No one has *ever* splashed me! Not in my *whole life!* Do it again!',

@@ -22,7 +22,7 @@ FL.addCharacter({
     special: {
       roses: [
         "She bends over the roses, and her fingertips, just for an instant, go solid enough to brush a petal. It trembles.",
-        "@ophelia:sad Red ones. You always bring red ones. Do you know, in two hundred years, nobody has *ever* brought me red ones but you?",
+        "@ophelia:sad Red ones. Of *course* you'd bring red ones. Do you know, in two hundred years, nobody has *ever* brought me red ones but you?",
         "@ophelia:blush I'm going to put them in the vase on the landing. At the top of the stairs. Where I waited. I want that spot to have something better in it now.",
       ],
       candle: [
@@ -47,7 +47,7 @@ FL.addCharacter({
         "She circles the enchanted quill curiously as it sits on the dusty writing desk. Then she leans down and whispers to it.",
         "The quill leaps up and begins to write, in a gorgeous flowing hand: *Dearest Diary. It has been two hundred years. I have news.*",
         "@ophelia:surprised It — it writes for me. It writes what I *say.* I haven't been able to hold a pen since 1824!",
-        "@ophelia:happy Oh, I'm going to write *letters.* I'm going to write *complaints.* I'm going to write a sternly worded note to every one of the families who ran away screaming. You've given a ghost her *voice* back, {name}. I could kiss you. I will, later, in the blood moon. Remind me.",
+        "@ophelia:happy Oh, I'm going to write *letters.* I'm going to write *complaints.* I'm going to write a sternly worded note to every one of the families who ran away screaming. You've given a ghost her *voice* back, {name}. I could kiss you. I will, the very moment I'm solid enough. Remind me.",
       ],
       fork: [
         "@ophelia:smug A fork. How touching. I have a whole drawer of silverware downstairs that hasn't been used since the Regency, and you've brought me *one more.*",
@@ -84,7 +84,7 @@ FL.addCharacter({
     ["@ophelia:happy The dining table is set for two again. But I've cleared away the old corsage, and the dust, and I've put the good china out. For *now*, not for *then.* It's the first time in two hundred years I've set a table for someone who's actually coming."],
     { if: 'ophelia_haunt', lines: ["@ophelia:smug I've rearranged your socks. By color. Then by mood. Then I hid one of each pair in the chimney.", "@ophelia:happy You did say *haunt me all you like.* I've a great deal of creative energy and I'm putting it to tremendously good use. Check your boots before you put them on tomorrow. That's all I'll say."] },
     { if: 'ophelia_rose', lines: ["She hovers by the little vase on the landing, where a single red rose stands, impossibly fresh.", "@ophelia:blush Edmund's rose. The one you picked for me under the blood moon. It hasn't wilted. Not a single petal. I think the house is keeping it alive, out of sympathy.", "@ophelia:happy Or I am. I talk to it every night. I tell it about you. Roses are very good listeners."] },
-    { if: 'ophelia_date_harbor', lines: ["@ophelia:happy I keep thinking about the sea. The way the sunset went straight through me. You said I looked like a stained-glass window.", "@ophelia:blush I've never been anything so *colorful.* I've been blue-white for two centuries. For half an hour on that pier I was gold, and pink, and *orange,* and it was entirely your fault."] },
+    { if: 'ophelia_date_harbor', lines: ["@ophelia:happy I keep thinking about the sea. The way the sunset went straight through me and turned me into a stained-glass window.", "@ophelia:blush I've never been anything so *colorful.* I've been blue-white for two centuries. For half an hour on that pier I was gold, and pink, and *orange,* and it was entirely your fault."] },
     { if: 'ophelia_quadrille', lines: ["@ophelia:smug I've written to the Academy of Dance to inform them that the Hollowmere Quadrille has been revived. By two people. One of them deceased.", "@ophelia:happy They wrote back asking whether the tambourine section was really *necessary.* I've replied that it is the *only* necessary part, and enclosed a diagram of the Duke of Westbury's leg."] },
     { if: 'ophelia_ball_promise', lines: ["@ophelia:blush I've begun planning the ball. You did promise. I've drawn up a guest list. It's four hundred names long. Two hundred of them are dead.", "@ophelia:smug I'll trim it. Probably. The dead are much better dancers, you know. We don't step on anyone's feet. We step *through* them."] },
   ],
@@ -107,8 +107,8 @@ FL.addCharacter({
       cake: {
         text: [
           "You catch the barmaid's eye and order the lemon cake, the sharp kind, with the cracked sugar on top. When it comes, you set it in front of Ophelia with a fork.",
-          "She looks at it for a long time. She can't eat it. You both know that.",
-          "@ophelia:sad ...You remembered. I told you once, about lemon cake. Just once. I didn't think anyone listened to the dead about *cake.*",
+          "She hovers over it, flickering faintly, the way a candle does in a draft. She can't eat it. You both know that.",
+          "@ophelia:sad ...Lemon cake. The sharp kind. How did you — I must have mentioned it. I mention it to everyone. I didn't think anyone listened to the dead about *cake.*",
           "She hovers over it, closing her eyes, as though she can feel the warmth rising from it. A single glimmering tear falls, and vanishes before it touches the sugar.",
           "@ophelia:blush Eat it for me. Slowly. And tell me exactly what it's like. Every crumb. I want to *remember* it properly again.",
           "You do. She listens to every word, chin on her hand, and she's smiling the whole time.",
@@ -130,7 +130,7 @@ FL.addCharacter({
       past: {
         text: [
           "@ophelia:smug Oh, *dreadful.* There was a chaperone, always — mine was Aunt Hester, who was deaf in one ear and listened with the other like a hawk.",
-          "@ophelia One sat at opposite ends of a table eleven feet long. One discussed the weather, and the weather, and occasionally, if one was feeling *very* daring, the weather in *Bath.*",
+          "@ophelia One sat at opposite ends of a table eleven feet long. One discussed the weather, and the weather, and occasionally, if one was feeling *very* daring, the weather at the *seaside.*",
           "@ophelia:blush If a gentleman touched one's glove passing the salt, one fainted. I fainted three times at a single supper once. Edmund kept dropping the salt on purpose.",
           "She looks across the little candlelit table at you, close enough to touch if she were solid.",
           "@ophelia:happy This is much better. There's no Aunt Hester. And no salt, and no eleven feet. Only you, close enough to hear me whisper.",
@@ -173,7 +173,7 @@ FL.addCharacter({
       gossip: {
         text: [
           "@ophelia:smug You see the gentleman by the fountain with the very large mustache? His great-great-grandfather fought a duel over a poem. He lost. The poem was about his own nose.",
-          "@ophelia That lady in lilac? Her ancestress eloped with a dancing master to Gretna Green, came back a week later, and *pretended she had been in Bath.* Everyone knew. Everyone *talked.* I talked the most.",
+          "@ophelia That lady in lilac? Her ancestress eloped with a dancing master to the Western March, came back a week later, and *pretended she had been at the seaside.* Everyone knew. Everyone *talked.* I talked the most.",
           "She does the whole Gardens. Every family. Every scandal, two centuries deep. She knows which house's fortune came from smuggling, which earl had a secret second wife, and why the Countess of Ash's family is barred for life from the Royal Regatta.",
           "@ophelia:happy Oh, I've missed this. Dead people are such *dreadful* gossips. They only want to talk about how they died. This is *much* more fun.",
         ],
@@ -182,7 +182,7 @@ FL.addCharacter({
       bench: {
         text: [
           "She leads you down a narrow path to a little stone bench half lost in ivy, under a weeping willow by the pond.",
-          "@ophelia:sad This is where Edmund read me his first poem. It was about my eyebrows. It was *dreadful.* Sixteen stanzas. He rhymed *Ophelia* with *Australia.*",
+          "@ophelia:sad This is where Edmund read me his first poem. It was about my eyebrows. It was *dreadful.* Sixteen stanzas. He rhymed *Ophelia* with *regalia.*",
           "@ophelia:happy I laughed so hard Aunt Hester thought I'd been taken ill. And he laughed too. And I thought, *oh. Oh, it's him.*",
           "She sits on the bench beside you, weightless, and looks at you rather than at the pond.",
           "@ophelia:blush I didn't think I'd ever sit here again with anyone. I thought this bench belonged to the past. But it doesn't, does it? It's only a bench. It belongs to whoever's sitting on it.",
@@ -200,7 +200,7 @@ FL.addCharacter({
       start: {
         text: [
           "You carry the locket all the way to the end of Saltbreeze pier just before sunset, and open it. Ophelia shimmers out beside you, turns, sees the sea, and stops.",
-          "She has never seen it. She tells you so in a whisper. Hollowmere is forty miles inland. She was nineteen. Then she was dead.",
+          "She has never seen it. She tells you so in a whisper. In life, Mama forbade the harbor: sea air ruins a complexion. She was nineteen. Then she was dead.",
           "@ophelia:surprised It's — it doesn't *stop.* It just goes on and on until it falls off the edge of the world. Nobody told me it was so *big.*",
           "The sun sinks low and gold over the water. And as it does, the light passes straight through her, and she lights up from the inside like stained glass: gold, then rose, then fiery orange, all the colors of the sky caught in her translucent gown.",
           { if: { stage: 4 }, text: "@ophelia:blush Stand behind me. Look at the sunset *through* me. I want to be the window you see it in." },
@@ -232,9 +232,9 @@ FL.addCharacter({
       },
       poem: {
         text: [
-          "You clear your throat, face the sunset, and declaim at the top of your voice: *O, Ophelia! Fair as far Australia! Thine eyebrows two, like caterpillars true!*",
+          "You clear your throat, face the sunset, and declaim at the top of your voice: *O, Ophelia! Fair as royal regalia! Thine eyebrows two, like caterpillars true!*",
           "Ophelia makes a sound like a teakettle and collapses into helpless laughter, flickering so hard she nearly goes out.",
-          "@ophelia:happy You *remembered* it! The eyebrow one! You *learned* it! Oh, it's even worse out loud, I'd forgotten — *caterpillars* —",
+          "@ophelia:happy The eyebrow one! I must have recited it to you in the attic — I recited *everything* in the attic — and you *learned* it! Oh, it's even worse out loud, I'd forgotten — *caterpillars* —",
           "@ophelia:sad ...He'd have liked you, you know. He'd have been *horribly* jealous. And then he'd have written you a poem about it. And it would have been dreadful.",
           "She leans against you, still giggling, as the sun goes down.",
         ],
@@ -534,7 +534,7 @@ FL.addCharacter({
       },
       rose: {
         text: [
-          'You hold out a single red rose. You picked it this morning, from the overgrown garden of the manor — from a rosebush she told you Edmund planted for her two hundred years ago, that has somehow, impossibly, survived.',
+          'You hold out a single red rose. You picked it this morning, from the overgrown garden of the manor — from a rosebush by the gate that, according to her father\'s ledgers in the attic, Edmund planted for her two hundred years ago. It has somehow, impossibly, survived.',
           'She takes it with trembling hands. She can hold it. She presses it to her lips and closes her eyes.',
           '@ophelia:sad ...His roses. You found his roses. And you brought them to me.',
           '@ophelia:happy I was given roses at last. And by the person I love.',
@@ -568,7 +568,7 @@ FL.addCharacter({
           "@ophelia:sad I'll be a ghost again when the sun rises. I won't be able to touch you.",
           "@ophelia:sad Will you still come? Even if I can't hold you?",
           "@you Every evening. For as long as you'll have me.",
-          { if: 'ophelia_felt', text: "@ophelia:happy You said that once before. At the window, the night we waltzed. *I'll keep coming.* And you did. Every single evening. I've stopped being afraid you won't." },
+          { if: 'ophelia_felt', text: "@ophelia:happy You said that once before. At the window, that first night in the ballroom. *I'll keep coming.* And you did. Every single evening. I've stopped being afraid you won't." },
           "She smiles, translucent now, glimmering in the first grey light.",
           "@ophelia:happy Then I'll haunt you forever, my love. Devotedly.",
         ],
@@ -603,7 +603,7 @@ FL.addCharacter({
       },
       worth: {
         text: [
-          "She's quiet for a long time.",
+          "She drifts up off the pillow and hangs there a moment, faintly luminous, thinking.",
           "@ophelia:sad I used to count the years. Every single one. Two hundred of them.",
           "@ophelia:happy I'd wait two hundred more for one more night like that.",
           "@ophelia:smug ...But I'd rather not have to. Come back tonight. I'll be thin, and cold, and you won't be able to hold me. But I'll play you the piano. Badly. With *feeling.*",
@@ -671,7 +671,7 @@ FL.addCharacter({
           '*Some time later...*',
           'You restore Hollowmere Manor together, room by room. It turns out Ophelia has two hundred years of opinions on interior design. The ballroom is reopened. The piano is tuned. (She still plays it badly. With feeling.)',
           'She discovers food again and is horrified by how much she\'s missed. She eats cake for breakfast for a month. She sleeps for the first time in two centuries and wakes up furious that she\'d forgotten how wonderful it was.',
-          'She finally finishes the novel she was stuck on at page forty-two. She hates the ending. She writes a strongly worded letter to the author\'s great-great-grandchildren.',
+          'She rereads the novel she was stuck on at page forty-two, turning the pages herself this time. She still hates the ending. She writes a strongly worded letter to the author\'s great-great-grandchildren.',
           'You hold a ball in the restored manor on the anniversary of her death, and she dances every single dance — the first, the last, and all the ones between — with you.',
           'Edmund\'s rosebush blooms in the garden every summer. She lays the first rose on his grave. The second, she keeps for herself.',
         ],
@@ -709,13 +709,13 @@ FL.addCharacter({
       ball: {
         text: [
           "You don't go to the festival hill. The festival comes to Hollowmere.",
-          "For a week you've been hauling dust sheets off furniture and chasing bats out of the chandelier, and Ophelia has been haunting every dressmaker, florist and musician in Clichéton until they agreed to come. Tonight, on Starfall, the great doors of Hollowmere Manor stand open for the first time in two hundred years, and half the town is in the ballroom.",
+          "For a week you've been hauling dust sheets off furniture and chasing bats out of the chandelier, and Ophelia has been haunting every dressmaker, florist and musician in Clichéton until they agreed to come. Tonight, on Starfall, the great doors of Hollowmere Manor stand open again after two hundred years, and half the town is in the ballroom.",
           "The chandelier blazes with ghostly blue fire. An orchestra tunes up nervously. Lady Pemberton is there, clutching her husband. So is the orphanage matron, and a dozen curious adventurers, and the barmaid from the Tipsy Wyvern, and a troll in a borrowed waistcoat.",
           "Then the music stops, and every head turns toward the grand staircase.",
           "She appears at the top of it. The same stairs where she waited all night for someone who never came. She's in a new gown of silver and midnight blue, translucent and glowing, and she looks absolutely terrified.",
           "You're waiting at the bottom. You hold out your hand.",
           "She comes down the stairs. One step. Then another. She doesn't stop. She doesn't wait. When she reaches the last step, she puts her ghostly hand just above yours, and the orchestra strikes up a waltz.",
-          "@ophelia:blush ...Not the first dance I was promised. But the first dance I *had.* May I have it, {name}?",
+          "@ophelia:blush ...Not the first dance I was promised. But the first dance I've ever had at a *ball.* May I have it, {name}?",
         ],
         next: 'ball_dance',
       },

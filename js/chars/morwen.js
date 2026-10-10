@@ -570,7 +570,7 @@ FL.addCharacter({
           "Every candle in the room flares when you kiss her. She laughs against your mouth.",
           "@morwen:blush Sorry! Sorry. Witch thing. Magic gets a little... excitable.",
           "She tries to undo the laces of her gown, gets them tangled in a knot that is probably mildly enchanted, and finally just snaps her fingers. The whole gown dissolves into a shower of violet sparks and lavender smoke.",
-          "@morwen:sad ...That was supposed to be *sexier.* I've been practicing that spell for a week. It usually turns into butterflies.",
+          "@morwen:sad ...That was supposed to be *sexier.* I've been practising that spell for a week. It usually turns into butterflies.",
           "@you I'm not complaining.",
           "@morwen:blush You're *staring.*",
           "@you I'm not complaining.",

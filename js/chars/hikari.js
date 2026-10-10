@@ -7,8 +7,8 @@ FL.addCharacter({
   favStat: 'might',
   endingTitle: 'Isekai\'d Into Love',
   endings: { hikari_hero: 'The Hero After All', hikari_home: 'Reverse Isekai' },
-  teaser: 'A girl in a strange pleated uniform is pointing dramatically at the sky and shouting "STATUS OPEN!" Nothing is happening.',
-  blurb: 'A young woman from a faraway world called "Tokyo," who was hit by a cart-pulling ox on her first day here and is *absolutely certain* she has been reincarnated as the Chosen Hero. She is waiting for her cheat skill to activate. She has been waiting for six months. She is brave, earnest, dramatic and very, very homesick.',
+  teaser: 'A young woman in a strange pleated uniform is pointing dramatically at the sky and shouting "STATUS OPEN!" Nothing is happening.',
+  blurb: 'A young woman from a faraway world called "Tokyo," who was hit by a cart-pulling ox on her way to work, woke up here, and is *absolutely certain* she has been reincarnated as the Chosen Hero. She is waiting for her cheat skill to activate. She has been waiting for six months. She is brave, earnest, dramatic and very, very homesick.',
   schedule: ['guild', 'square', 'tavern'],
   gifts: { love: ['scroll'], like: ['novel', 'cakes', 'plushie', 'chocolate', 'tofu', 'quill'], hate: ['steak'] },
   giftLines: {
@@ -34,7 +34,7 @@ FL.addCharacter({
     ['She\'s sitting on the edge of the fountain, swinging her legs, staring at nothing.', '@hikari:sad I miss ramen. And trains. And my mom. Is that weird? To miss trains?'],
     ["@hikari:smug I've been training! Two hundred sword swings every morning!", "@hikari ...Well. Forty. With breaks. And the sword is a stick. But it's a *very heroic* stick. I've named it."],
     ["@hikari Okay, quick question, totally hypothetical. If a girl from another world ran round a corner with toast in her mouth and crashed into you, would that be a meet-cute?", "@hikari:blush Asking for a friend. The friend is me. I've been carrying toast around for three days. It's getting very stale."],
-    ["@hikari:happy In my world we had a thing called *overtime.* You stay at work after work is over. For free. Because the boss is still there.", "@hikari Here, when the Guild closes, Mira *throws* everyone out. With a broom. I've never felt so *respected.*"],
+    ["@hikari:happy In my world we had a thing called *overtime.* You stay at work after work is over. For free. Because the boss is still there.", "@hikari Here, when the Guild closes, Mira at the front desk *throws* everyone out. With a broom. I've never felt so *respected.*"],
     ["@hikari:sad Do you know what this world doesn't have? Vending machines. You can't just put a coin in a wall and get a drink.", "@hikari:surprised I tried it at the Guild. I found a crack and put a coin in. Mira charged me for the crack."],
     { if: 'hikari_join', lines: ["@hikari:happy People at the Guild have started calling us \"the Status Open Twins.\" Mira says it's an insult.", "@hikari:smug I've decided it's our party name. We need matching capes. I've already bought the fabric. It was very expensive. It was a curtain."] },
     { if: 'hikari_sidekick', lines: ["@hikari:smug I've accepted my role as your sidekick. I've been studying the genre. Sidekicks get the best one-liners, the noble sacrifice scene, and *sometimes* the love interest.", "@hikari:blush I'm going for option three. I'm skipping option two. Option two seems like a lot."] },
@@ -50,7 +50,7 @@ FL.addCharacter({
     { if: 'hikari_secret', lines: ["@hikari:smug The secret third route has a sequel now. Route Three-and-a-Half.", "@hikari:blush It unlocks when you look at me like that across the Guild. ...You're doing it right now. Route unlocked. Meet you upstairs. Bring the blanket."] },
     { if: 'hikari_want', lines: ["@hikari:blush You asked me what I wanted. On the night of the letter. Not the hero. Me.", "@hikari:happy I wrote it down afterwards, so I'd remember. The list is one item long. It's not a cheat skill."] },
     { if: 'hikari_rival', lines: ["@hikari:smug Technically we're still rivals. I've checked. We never formally ended the rivalry. So now we're rivals-to-lovers, which is the *best* genre.", "@hikari:happy You get to bicker *and* kiss. I want to bicker. Say something smug. Go on. Then I'll kiss you to shut you up. It's *tradition.*"] },
-    { if: 'hikari_date_gardens', lines: ["@hikari:happy The gardens. Under the blossoms. In my world that's called *hanami,* and it's the most romantic thing you can do in spring.", "@hikari:blush I didn't tell you at the time because I was busy *dying.* Quietly. On the inside. Of happiness."] },
+    { if: 'hikari_date_gardens', lines: ["@hikari:happy The gardens. Under the blossoms. In my world that's called *hanami,* and it's the most romantic thing you can do in spring.", "@hikari:blush I didn't tell you what it's called at the time because I was busy *dying.* Quietly. On the inside. Of happiness."] },
   ],
   dateFav: 'gardens',
   dates: {
@@ -64,7 +64,7 @@ FL.addCharacter({
         ],
         choices: [
           { text: "\"Go on, then. Do the lines.\"", go: 'lines', aff: 5 },
-          { text: "Order her a bowl of Bettina's noodle soup.", go: 'noodles', aff: 4 },
+          { text: "Order her a bowl of the Wyvern's noodle soup.", go: 'noodles', aff: 4 },
           { text: "\"Is that... a script? On your hand?\"", go: 'hand', aff: 2 },
         ],
       },
@@ -81,8 +81,8 @@ FL.addCharacter({
       },
       noodles: {
         text: [
-          "Bettina brings out a big bowl of thick noodle soup with an egg floating on top, and winks at Hikari, who goes very quiet.",
-          "@hikari:sad You remembered. That it makes me feel... you know. Less far away.",
+          "Madame Bettina, the Wyvern's owner, brings out a big bowl of thick noodle soup with an egg floating on top, and winks at Hikari, who goes very quiet.",
+          { if: 'hikari_noodles', text: "@hikari:sad You remembered. That it makes me feel... you know. Less far away.", else: "@hikari:sad How did you know? It's not ramen. It's not even close. But it makes me feel... you know. Less far away." },
           "She slurps it noisily and happily, the way you're apparently supposed to, and gets broth on her nose, and doesn't once look at her hand.",
         ],
         next: 'end',
@@ -132,7 +132,7 @@ FL.addCharacter({
         text: [
           "She sits down under the biggest tree, and you sit beside her, and she tells you. About picnics under the blossoms with her mom and her little brother. About the year it rained and they all sat under one umbrella and ate soggy sandwiches and laughed. About the petals in the river, so many the water turned pink.",
           "@hikari:sad I thought I'd never see it again.",
-          "She leans her head on your shoulder.",
+          "She tips sideways until her ponytail is squashed against your arm, and stays there.",
           "@hikari:happy This is better, though. Don't tell my mom. It's better because of who I'm sitting with.",
         ],
         next: 'end',
@@ -149,7 +149,7 @@ FL.addCharacter({
       end: {
         text: [
           "You stay under the moonblossoms until the lanterns burn low, petals collecting in her hair and on your shoulders and in the folds of her skirt, and she doesn't shout \"STATUS OPEN\" once.",
-          { if: { stage: 4 }, text: "@hikari:blush In the stories this is where the couple kisses under the blossoms and the petals swirl around them dramatically. I've been practicing. With the wind. Hold still. Okay. *Now.*" },
+          { if: { stage: 4 }, text: "@hikari:blush In the stories this is where the couple kisses under the blossoms and the petals swirl around them dramatically. I've been practising. With the wind. Hold still. Okay. *Now.*" },
         ],
         end: true,
       },
@@ -221,7 +221,7 @@ FL.addCharacter({
       eat: {
         text: [
           "You eat the winking octopus first. Then the stars. Then the omelette, scorched bits and all. She watches you with her hands clasped together under her chin like someone watching the final episode of her favourite show.",
-          "@hikari:happy You *ate* it. You ate the *whole bento.* Do you know what that means?",
+          "@hikari:happy You *ate* it. You ate the *whole bento.* You *know* what that means, right?",
           "@you That I was hungry?",
           "@hikari:blush In my world it means — never mind what it means! Spoilers! You'll find out in a later arc!",
         ],
@@ -262,8 +262,8 @@ FL.addCharacter({
           'Nothing happens.',
           'She\'s wearing a strange outfit — a pleated navy skirt, a white blouse with a sailor collar, a red neckerchief, and a heavily dented iron sword strapped to her back. Her black hair is in a high ponytail. She has the bright, slightly desperate eyes of someone who\'s been waiting a very long time for something.',
           '@hikari:surprised ...SKILL ACTIVATE! CHEAT ABILITY! SYSTEM MENU! HELLO?!',
-          'From behind the reception desk, Mira sighs heavily: "That\'s the fourth time today."',
-          'The girl spots you staring and points at you dramatically.',
+          { if: { met: 'mira' }, text: 'From behind the reception desk, Mira sighs heavily: "That\'s the fourth time today."', else: 'From behind the reception desk, a sharp-eyed receptionist sighs heavily: "That\'s the fourth time today."' },
+          'She spots you staring and points at you dramatically.',
           '@hikari:happy YOU! You look important! Are you my party member? My mentor? My mysterious rival?!',
         ],
         aff: 10,
@@ -297,8 +297,8 @@ FL.addCharacter({
         text: [
           'You hop onto the table beside her and throw your hand up.',
           '@you STATUS OPEN!',
-          'Nothing happens. The whole Guild stares at you both. Mira puts her head down on the desk.',
-          'The girl turns to you with a look of absolute, radiant joy.',
+          'Nothing happens. The whole Guild stares at you both. The receptionist puts her head down on the desk.',
+          'She turns to you with a look of absolute, radiant joy.',
           '@hikari:happy You... you *believe* me? Nobody here believes me! They think I\'m crazy! But you — you did the *pose!*',
         ],
         aff: 8,
@@ -381,7 +381,7 @@ FL.addCharacter({
       },
       means: {
         text: [
-          'She stares at you. Her cheeks go pink under the slime.',
+          'She goes very still, mouth open. Her cheeks go pink under the slime.',
           '@hikari:blush That\'s — that\'s a *line.* That\'s a love interest line. You can\'t just *say* those!',
           '@you Too bad. Already said it.',
           'She covers her face with her hands and kicks her feet in the grass.',
@@ -400,7 +400,7 @@ FL.addCharacter({
     s2: {
       start: {
         text: [
-          'You find Hikari sitting alone on the roof of the Guild late at night, hugging her knees, staring up at the two moons.',
+          'You find Hikari sitting alone on the roof of the Guild late at night, hugging her knees, staring up at the moon.',
           '@hikari:sad Oh. Hey.',
           { if: 'hikari_sidekick', text: '@hikari:sad Shouldn\'t the main character be off doing main-character things? Levelling up? Collecting a mysterious sword?' },
           'Her eyes are red.',
@@ -425,7 +425,7 @@ FL.addCharacter({
       },
       noodles: {
         text: [
-          'You take her to the Tipsy Wyvern, where Bettina is just closing up, and talk her into making a bowl of thick noodle soup with an egg on top.',
+          'You take her to the Tipsy Wyvern, where Madame Bettina, the owner, is just closing up, and talk her into making a bowl of thick noodle soup with an egg on top.',
           'It isn\'t ramen. Not really. But Hikari takes one sip, and her face crumples, and she cries into the bowl for a full minute.',
           '@hikari:sad It\'s *wrong.* It\'s completely wrong. It\'s the best thing I\'ve ever eaten.',
           'She eats three bowls.',
@@ -532,7 +532,7 @@ FL.addCharacter({
           "@hikari:blush Okay. Okay okay okay. This is the event. The big one. I've seen it a thousand times. I've *read* it a thousand times. I know exactly what happens.",
           "@hikari:surprised ...I have absolutely no idea what happens.",
           "You laugh, and she laughs, and the nerves break. She kisses you, bumping noses, then again, better. She tugs her sailor uniform's red neckerchief loose with a flourish she's obviously been saving.",
-          "@hikari:smug *Cast off armor!* — that sounded way cooler in my head.",
+          "@hikari:smug *Cast off armour!* — that sounded way cooler in my head.",
           "She's nervous and excitable and talks far too much. She narrates everything like an announcer: \"and then the heroine *bravely* unbuttons the — oh, oh *wow* — critical hit —\". Then you kiss down her neck and she runs out of words entirely. That takes a while, and it's very worth it.",
           "She's fearless, the same way she charged six goblins with a dented sword. She doesn't know the rules, so she makes them up as she goes, with total enthusiasm, and laughs breathlessly every time something works.",
           "@hikari:happy This is SO much better than the light novels. They skipped *everything.* They always cut to the morning! Who *does* that?!",
@@ -569,7 +569,7 @@ FL.addCharacter({
           "She takes a deep breath.",
           { if: 'hikari_want', text: "@hikari:blush You asked me what I wanted. Not the hero. Me. Nobody ever asks the protagonist that. They just hand her a sword and point." },
           "@hikari:blush Back home, I used to feel like a background character in my own life. And last night I felt like the main character for the first time ever. And it wasn't because of a cheat skill. It was because of you.",
-          "She stares at you, appalled at herself.",
+          "She claps both hands over her face, appalled at herself, and talks through her fingers.",
           "@hikari:surprised That was SO cheesy. I've been reading too much. Pretend I said something cool.",
           "You kiss her instead. She decides that's cool enough.",
         ],
@@ -577,7 +577,7 @@ FL.addCharacter({
       },
       breakfast: {
         text: [
-          { if: 'hikari_noodles', text: "You go down to the inn kitchen and make her a bowl of noodle soup with an egg on top, the way she taught you. You bring it back up on a tray.", else: "You go down to the inn kitchen and make her a bowl of noodle soup with an egg on top, the way Bettina showed you once, while Hikari supervised from a stool and cried about it. You bring it back up on a tray." },
+          { if: 'hikari_noodles', text: "You go down to the inn kitchen and make her a bowl of noodle soup with an egg on top, the way you watched Madame Bettina make it, the night you found Hikari on the Guild roof. You bring it back up on a tray.", else: "You go down to the inn kitchen and make her a bowl of noodle soup with an egg on top, as close to the ramen she's always going on about as you can manage, down to the soft yolk. You bring it back up on a tray." },
           "She eats it sitting in bed in your shirt, slurping loudly, and gets broth on her nose.",
           "@hikari:happy This is the best morning of both my lives. And one of them included *trains.*",
         ],
@@ -595,7 +595,7 @@ FL.addCharacter({
     ending: {
       start: {
         text: [
-          'On the festival hill, Hikari is waiting for you in a borrowed festival yukata she sewed herself from a curtain — white with blue stars. It\'s lopsided. It\'s perfect.',
+          'On the festival hill, Hikari is waiting for you in a festival yukata she sewed herself from a curtain — white with blue stars. It\'s lopsided. It\'s perfect.',
           '@hikari:blush It\'s what we wear for festivals back home! It\'s a bit... rough. I had to guess the pattern. And the sewing. And the fabric.',
           'Halfway through the starfall, the air above the hill shimmers. A doorway opens: a rectangle of fluorescent light, and beyond it, a narrow street full of tiny shops and glowing signs and the distant rumble of a train.',
           'Tokyo.',
@@ -633,9 +633,9 @@ FL.addCharacter({
       epilogue: {
         text: [
           '*Some time later...*',
-          'You and Hikari become the most famous adventuring duo in FantasyLandia. She never gets a cheat skill. She never needs one. She still shouts "STATUS OPEN!" before every fight. Sometimes, now, it works — though that may just be Amorette having fun.',
+          'You and Hikari become the most famous adventuring duo in FantasyLandia. She never gets a cheat skill. She never needs one. She still shouts "STATUS OPEN!" before every fight. Sometimes, now, it works — though that may just be the goddess having fun.',
           { if: 'hikari_toss', text: 'Her signature move is still the Grand Slime Toss. It is entered into the Guild\'s official register of named techniques, over Mira\'s written objections, which are also entered into the register.' },
-          'She opens a noodle shop in Clichéton with Bettina\'s help: *Hoshino Ramen (Approximately).* It\'s wildly popular. It\'s never quite right. She says that\'s the point.',
+          'She opens a noodle shop in Clichéton with Madame Bettina\'s help: *Hoshino Ramen (Approximately).* It\'s wildly popular. It\'s never quite right. She says that\'s the point.',
           'Every Starfall, the goddess delivers one letter to Tokyo, and one letter back. Her mother writes that she\'s glad Hikari is happy, that her brother still plays games too loud, and that she has learned to not burn the rice.',
           'Hikari reads them aloud to you on the festival hill every year, laughing and crying, your hand in hers.',
           'She was right, in the end. Her life did turn into a story.',
@@ -674,7 +674,7 @@ FL.addCharacter({
       },
       home: {
         text: [
-          'She turns and stares at you as if you\'ve started speaking in tongues.',
+          'She whips round and gapes at you as if you\'ve started speaking in tongues.',
           '@hikari:surprised *Both?* You\'d — you\'d *come?* To *Tokyo?*',
           '@hikari:sad {name}, there\'s no *magic.* There are *taxes.* There\'s *paperwork.* Swords are *illegal.* Ox carts are *illegal!* Everyone works eleven hours a day and nobody ever, ever shouts STATUS OPEN —',
           '@you You came here with nothing. A dented sword and a sailor collar. And you made it home.',
@@ -691,11 +691,11 @@ FL.addCharacter({
           '*Some time later...*',
           'The other side is rain and neon and a smell of hot food and engine oil, and you are, immediately and completely, the weird one.',
           'Hikari buys you a rice ball in a little plastic wrapper. You cannot open it. You try a dagger. She laughs until she has to sit down on the wet pavement, and then she opens it for you and watches you eat it with tears running down her face.',
-          'Her mother opens the door of a tiny apartment, sees her daughter, and drops a ladle. Then she holds on to Hikari for a long, long time. Then she looks up at you — a stranger in a travel-stained tunic, with a sword wrapped in a curtain — and says, after a moment\'s consideration, "Are you hungry? There\'s curry."',
+          'Her mother opens the door of a tiny apartment, sees her daughter, and drops a ladle. Then she holds on to Hikari as though an ox cart might come round the corner for her again. Then she looks up at you — a stranger in a travel-stained tunic, with a sword wrapped in a curtain — and says, after a moment\'s consideration, "Are you hungry? There\'s curry."',
           'There is far too much carrot. You have two helpings.',
           'You learn trains. You get lost on trains. You shout "STATUS OPEN!" at a ticket barrier and it opens for you, and you decide on the spot that this world has plenty of magic after all, it\'s just hidden in the walls. Her little brother teaches you to play the magic paintings. You are catastrophically bad. He is delighted.',
-          'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And Fell In Love With My Mysterious Rival* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbours bang on the wall.',
-          'And every Starfall, the air on a quiet rooftop shimmers, and the two of you step back through into Clichéton for a week, to the Tipsy Wyvern, where Bettina always saves you the corner booth.',
+          { if: 'hikari_rival', text: 'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And Fell In Love With My Mysterious Rival* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbours bang on the wall.', else: 'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And My Party Member Followed Me Home* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbours bang on the wall.' },
+          'And every Starfall, the air on a quiet rooftop shimmers, and the two of you step back through into Clichéton for a week, to the Tipsy Wyvern, where Madame Bettina always saves you the corner booth.',
           'She always said she wanted her life to mean something. It turns out it doesn\'t matter which world you\'re in. It matters who\'s holding your hand when the door opens.',
         ],
         ending: 'hikari_home',
