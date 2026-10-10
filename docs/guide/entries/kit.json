@@ -1,0 +1,32 @@
+{
+  "id": "kit",
+  "overview": "A hyperactive catgirl pickpocket who steals for fun, gives most of it to the street kids, and gets bored of anyone who can't keep up. Out-think her and she's yours. The question is whether she goes straight or takes you up on the rooftops with her.",
+  "tips": [
+    "She loves Fresh Fish and Balls of Yarn. She hates the Keg of Dwarven Ale and Scented Bath Salts.",
+    "Her favourite date is Sunset at Saltbreeze Harbor.",
+    "Wits is her stat. Romance Scenes II and III need Wits 2 and 3, and with Wits 1 you can catch her in First Meeting.",
+    "She's on Market Street in the morning, in Town Square in the afternoon, and at the Tipsy Wyvern in the evening."
+  ],
+  "endings": [
+    {
+      "id": "kit",
+      "title": "Nine Lives, One Heart",
+      "kind": "main",
+      "summary": "She wants to steal you a star, and you tell her she doesn't have to steal you anything. She realizes she already has the best thing there is. Kit goes (mostly) straight as the Guild's first Recovery Specialist, the orphans get a real roof, and every night she whispers the words in the locket: someone who stays.",
+      "howTo": [
+        "The default ending. At the festival, choose \"You don't have to steal me anything, Kit.\""
+      ]
+    },
+    {
+      "id": "kit_phantom",
+      "title": "The Phantom Paws",
+      "kind": "variant",
+      "summary": "You've already cased Lord Pomfrey's new vault, and Kit is thrilled: partners forever, no going straight. As the Phantom Paws you only rob people who deserve it, and you return everything with an itemized list. The orphans get a school. In this rooftop-outlaw ending, the heists never stop.",
+      "howTo": [
+        "In Romance Scene I, pass \"I'm in. But we do it smart — I'll plan the route.\" (needs Wits 2).",
+        "Plus any one of these: in First Meeting, pass \"Figure out where she'll run and cut her off.\" (needs Wits 1). Or in The Morning After, choose \"Best heist ever. Want to plan the next job?\"",
+        "At the festival, choose \"Forget the stars. I know a better job. Lord Pomfrey just bought himself a vault.\""
+      ]
+    }
+  ]
+}

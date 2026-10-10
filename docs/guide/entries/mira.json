@@ -1,0 +1,41 @@
+{
+  "id": "mira",
+  "overview": "The Guild's fiercest receptionist yells because she cares, and she knows every quest you've ever taken. Bear with the bluster and be kind when she finally cracks: this is a tsundere romance written in paperwork.",
+  "tips": [
+    "She loves Steamy Romance Novels and Cute Plushies. Never give her Raw Wyvern Steak, Fresh Fish or a Saintly Relic.",
+    "Her favourite date is a Picnic in Whisperwood, and asking about her dream there unlocks Field Audit, Permanent.",
+    "Might is her stat. Romance Scenes II and III need Might 2 and 3.",
+    "She's at the Adventurers' Guild during the day and at the Tipsy Wyvern in the evening."
+  ],
+  "endings": [
+    {
+      "id": "mira",
+      "title": "Paperwork of the Heart",
+      "kind": "main",
+      "summary": "Under the falling stars she says \"I love you\" without yelling, then hands you a marriage form she has already filled in. You sign, and she gives it her best stamp ever. You keep adventuring, she keeps the desk, and she still yells when you're late. Every lunchbox note reads: come home safe, idiot.",
+      "howTo": [
+        "The default ending. At the festival, choose \"Sign it. Obviously.\""
+      ]
+    },
+    {
+      "id": "mira_partners",
+      "title": "Field Audit, Permanent",
+      "kind": "variant",
+      "summary": "You sign, then hand her the adventurer form she filled in nine years ago and never got stamped. She stamps it APPROVED herself. Mira becomes a Fighter: she audits dragons, hits goblins with her DENIED stamp, and yells \"DUCK!\" at you in dungeons. In this ending she finally leaves the desk to fight beside you.",
+      "howTo": [
+        "On the Picnic in Whisperwood date, choose \"Did you ever want to be out here? Instead of behind the desk?\"",
+        "At the festival, choose \"Sign it. Then hand her the old form from the picnic basket: her own, never stamped.\""
+      ]
+    },
+    {
+      "id": "mira_desk",
+      "title": "The Other Side of the Desk",
+      "kind": "variant",
+      "summary": "You sign, then ask for the desk next to hers, so she never has to check the casualty reports again. As Junior Registrar you scold rookies, yell \"YOU'RE LATE\" and slowly turn into her, and the Guild's survival rate goes up. Here you give up adventuring for her, and it suits you.",
+      "howTo": [
+        "Any one of: in Romance Scene III, choose \"Were you... worried about me?\" or \"Wipe the tears from under her spectacles.\" Or in The Morning After, choose \"Sign the form as witness, right under her line.\"",
+        "At the festival, choose \"Sign it. Then ask where you apply for the desk next to hers.\""
+      ]
+    }
+  ]
+}

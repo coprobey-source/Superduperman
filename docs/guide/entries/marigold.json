@@ -1,0 +1,44 @@
+{
+  "id": "marigold",
+  "overview": "Clichéton's sweetest florist is also its most obsessive: she follows you, keeps albums about you, and carries a very sharp knife. Your choices decide whether you help her loosen her grip or happily let her hold on.",
+  "tips": [
+    "She loves Silver Daggers and Boxes of Fine Chocolates. She hates Exotic Perfume and Enchanted Quills.",
+    "Her favourite date is the Moonlit Gardens. Charm is her stat, and Romance Scenes II and III need Charm 2 and 3.",
+    "Romance Scene II is the big fork. Setting boundaries leads toward Room to Grow, and encouraging her leads toward Forever in My Garden.",
+    "Her jealousy scene can come up once you reach Romance Scene II with someone else. Never tell her \"I'm in love with someone else\": that leads to the Locked in the Greenhouse bad ending."
+  ],
+  "endings": [
+    {
+      "id": "marigold",
+      "title": "Forever in Bloom",
+      "kind": "main",
+      "summary": "She claims the hilltop inside a ring of potted flowers, with Mr. Snips on guard, and promises to love you first, longest and hardest. You move in above her shop. She talks to a priestess about her feelings and only uses her knife on weeds (mostly). This is the middle path: healing, sweet and still a little intense.",
+      "howTo": [
+        "The default ending. At the festival, choose \"Say nothing. Just hold her, and watch the stars fall.\" This is always on offer.",
+        "Or, if you didn't set boundaries in Romance Scene II, choose \"Marigold. Ask me the question…\" and then \"Not forever-forever. Not yet. But come here.\""
+      ]
+    },
+    {
+      "id": "marigold_trust",
+      "title": "Room to Grow",
+      "kind": "variant",
+      "summary": "You tell her you're leaving on a three-week expedition, and she lets you go without following. While you're away she breeds a new golden flower that only blooms when it's left alone. She's still \"a lot\", just never \"a lock\". This is the growth ending, where her love learns to trust.",
+      "howTo": [
+        "In Romance Scene II, set boundaries: pass \"Be gentle, but firm…\" (needs Charm 3) or choose \"Sit down on the step next to her. 'Tell me why.'\"",
+        "Plus any one of these: in Romance Scene III, choose \"That's huge progress. I'm proud of you.\" or pass \"I'm yours, Marigold.\" (needs Charm 4). Or in The Morning After, choose \"Gently: 'You're doing great. Now let me watch you for a while.'\"",
+        "At the festival, choose \"Tell her about the guild expedition…\""
+      ]
+    },
+    {
+      "id": "marigold_garden",
+      "title": "Forever in My Garden",
+      "kind": "variant",
+      "summary": "She offers you a brass key to a room she has built in her greenhouse, and you say yes, lock and all. The lock is on the inside and you keep the key. It's the same roses and the same two sugars as the bad ending, except this time you chose it. Her yandere dream, happily accepted.",
+      "howTo": [
+        "Don't set boundaries in Romance Scene II: choose \"…This is the most romantic thing anyone's ever done for me?\" or fail the \"Be gentle, but firm\" check (Charm 3).",
+        "At the festival, choose \"Marigold. Ask me the question. The one you've been carrying in your apron pocket.\"",
+        "Then choose \"Yes. Forever. Lock and all.\""
+      ]
+    }
+  ]
+}

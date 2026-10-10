@@ -102,6 +102,10 @@ tools/build-single.js bundles everything into one HTML file
 tools/apply_patch.py  helper for bulk-editing scene nodes in character files
 docs/AUTHORING.md     the full authoring guide (format, conditions, callbacks, endings, dates, moods)
 docs/CANON.md         continuity canon: named NPCs, world facts and running gags shared across files
+docs/Hearts-of-Generic-FantasyLandia-Ending-Guide.pdf
+                      the illustrated guide to every ending (rebuild: node tools/build-guide.js)
+docs/guide/           the guide's written entries, special endings and fonts
+tools/build-guide.js  builds the ending guide PDF from the game data and docs/guide
 ```
 
 ### Adding a heroine

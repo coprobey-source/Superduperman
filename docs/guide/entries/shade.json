@@ -1,0 +1,32 @@
+{
+  "id": "shade",
+  "overview": "A flat-voiced assassin who claims to feel nothing and is \"professionally\" very interested in clever people. Win her trust with sharp eyes and steady hands, and help her find out that she's allowed to want things.",
+  "tips": [
+    "Honey Cakes are her one weakness. She hates Exotic Perfume, Bouquets of Roses and the Horn of Honey Mead.",
+    "Her favourite date is Dinner at the Tipsy Wyvern.",
+    "Wits is her stat. Romance Scenes II and III need Wits 2 and 3, and The Twin Shades depends on Wits checks, so raise it early.",
+    "She's in Town Square in the morning, at Saltbreeze Harbor in the afternoon, and in the Noble Quarter or Town Square in the evening."
+  ],
+  "endings": [
+    {
+      "id": "shade",
+      "title": "The Quiet Blade Retires",
+      "kind": "main",
+      "summary": "She arrives without her mask, carrying a basket of honey cakes, and you choose Plan A: a bakery, a warm kitchen, and her. She picks a name, Wren, and kisses you without checking the exits once. Her bakery, The Quiet Crumb, becomes famous, and she learns to laugh out loud. This is the gentle retirement ending.",
+      "howTo": [
+        "The default ending. At the festival, choose \"Plan A. Honey cakes, a warm kitchen, and you.\""
+      ]
+    },
+    {
+      "id": "shade_partners",
+      "title": "The Twin Shades",
+      "kind": "variant",
+      "summary": "You choose Plan B and become her partner. She whispers her new name to you and nobody else. Together you become the Twin Shades, rooftop vigilantes who rescue kidnapped heirs, recover stolen funds and leave a honey cake for whoever hired them. She keeps doing what she's best at, but never alone again.",
+      "howTo": [
+        "In Romance Scene I, pass \"Scan the crowd methodically for anything out of place.\" (needs Wits 2).",
+        "Plus any one of these: in First Meeting, pass \"Notice her reflection in the fountain…\" (needs Wits 1). Or in Romance Scene II, pass \"Clean and stitch the wound carefully.\" (needs Wits 3).",
+        "At the festival, choose \"Tell me more about Plan B, partner.\""
+      ]
+    }
+  ]
+}

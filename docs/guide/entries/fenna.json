@@ -1,0 +1,43 @@
+{
+  "id": "fenna",
+  "overview": "A wild, blunt werewolf who respects strength and loyalty above all else. Fenna falls for the one who doesn't run: stand your ground, play rough, and stay with her on the full moon.",
+  "tips": [
+    "Raw Wyvern Steak is her favourite gift. Never give her a Silver Dagger, Exotic Perfume or Scented Bath Salts.",
+    "Her favourite date is a Picnic in Whisperwood. You'll find her in the forest in the mornings and evenings.",
+    "Might is her stat. Romance Scenes II and III need Might 2 and 3, and Might 3 also wins the big wrestling match.",
+    "The full-moon night (Romance Scene III) matters: baring your throat opens Alpha of Whisperwood, and saying her name helps Ranger Moonfang."
+  ],
+  "endings": [
+    {
+      "id": "fenna",
+      "title": "Pack of Two",
+      "kind": "main",
+      "summary": "Fenna howls at the falling stars, a pack answers from the forest, and she kisses you hard: pack of two, forever. You build a cabin at the edge of Whisperwood and run beside her every full moon. This is the cosy, private take: just the two of you, and that's more than enough.",
+      "howTo": [
+        "The default ending. At the festival, choose \"Kiss her under the falling stars.\" It's always on offer, whatever else you've unlocked."
+      ]
+    },
+    {
+      "id": "fenna_alpha",
+      "title": "Alpha of Whisperwood",
+      "kind": "variant",
+      "summary": "Her old pack steps out of the trees, and you stand beside her to face the alpha who cast her out. The wolves choose Fenna. She becomes Whisperwood's first two-legged alpha, and her one law is NOBODY HAS TO BE LESS. Expect pack meetings in your kitchen: this is the big, triumphant, pack-of-thirteen ending.",
+      "howTo": [
+        "In Romance Scene III, choose \"Answer by tilting your head back and baring your throat to her.\"",
+        "Plus any one of these: in First Meeting, pass \"Stand your ground and look her in the eye.\" (needs Might 1). Or in Romance Scene II, pick \"Accept the challenge and go all in.\" Winning and losing both count, and so does a failed tickle.",
+        "At the festival, choose \"Stand up beside her as the old pack comes out of the trees.\""
+      ]
+    },
+    {
+      "id": "fenna_ranger",
+      "title": "Ranger Moonfang",
+      "kind": "variant",
+      "summary": "Instead of hiding on the hill, Fenna runs down into the crowd with you. She sniffs out a lost dog while you read the tracks, and for the first time the town cheers her. She becomes Ranger Moonfang, the best tracker in the kingdom. In this ending the world finally grows big enough to fit her.",
+      "howTo": [
+        "Any one of: in Romance Scene I, pass \"Study the tracks carefully.\" (needs Wits 2) or pick \"Tell me about your old pack.\" Or in Romance Scene II, pick \"Are you afraid of yourself?\"",
+        "And any one of: in First Meeting, pick \"Sniff her back.\" In Romance Scene II, pick \"Then I'll come with you. You don't have to be alone.\" Or in Romance Scene III, pick \"Say her name, gently, again and again…\"",
+        "At the festival, choose \"Come down the hill with me. Let them all meet the real you.\""
+      ]
+    }
+  ]
+}

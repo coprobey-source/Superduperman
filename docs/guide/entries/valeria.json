@@ -1,0 +1,43 @@
+{
+  "id": "valeria",
+  "overview": "A six-hundred-year-old vampire countess, used to being obeyed and bored of it. She warms to people who either surrender gracefully or dare to talk back. Underneath it all, what she wants most is to be chosen.",
+  "tips": [
+    "Vintage Bloodwine is her favourite gift, and carrying a bottle adds a bonus option on the Tipsy Wyvern dinner date. Avoid Blessed Candles, Silver Daggers and Saintly Relics.",
+    "She only appears in the evening, at Castle Nocturne. Her favourite date is the Moonlit Gardens.",
+    "Charm is everything with her. Romance Scenes II and III need Charm 2 and 3, and her boldest options need Charm 3 or 4.",
+    "If you reach Romance Scene II with someone else while Valeria is mid-route (after her Romance Scene I, before III), expect her jealousy scene one evening. Two of its answers feed her variant endings."
+  ],
+  "endings": [
+    {
+      "id": "valeria",
+      "title": "Consort of Eternal Night",
+      "kind": "main",
+      "summary": "On her highest balcony she offers you immortality, and you put her off, either for ten years or for \"soon\". You become her consort on a second throne with your name in rubies, and every night she asks \"still mine?\" This is the classic gothic romance: devoted, a little wicked, and you stay mortal.",
+      "howTo": [
+        "The default ending. At the festival, choose either \"Ask me again in ten years.\" or \"Yes. Forever sounds about right.\" Both lead here."
+      ]
+    },
+    {
+      "id": "valeria_bride",
+      "title": "Bride of the Crimson Throne",
+      "kind": "variant",
+      "summary": "You ask her to turn you tonight, under the falling stars, and she does, saying your real name the whole time. You wake up as her vampire bride. You're hopeless at being terrifying, you reform the tax code, and on Thursdays you lead the dance. It's the only ending where you truly share her forever.",
+      "howTo": [
+        "Any one of: in Romance Scene II, choose \"Then I'm asking. Go ahead.\" Or in her jealousy scene, choose \"Hold out your bare wrist…\"",
+        "And any one of: in First Meeting, choose \"Kneel, with a theatrical bow.\" Or in Romance Scene III, choose \"Yes, Mistress.\" (Failing the Charm 4 \"you do as I say\" check counts too.)",
+        "At the festival, choose \"Bare your throat to her under the falling stars. 'Not soon. Tonight. Make me yours.'\""
+      ]
+    },
+    {
+      "id": "valeria_bakery",
+      "title": "Honey Bread at Midnight",
+      "kind": "variant",
+      "summary": "She offers you eternity, and you ask for her mother's honey bread recipe instead. On the forty-second loaf she smells it and weeps. She opens Nocturne's, a bakery that only opens at midnight, and never asks to turn you again because she likes you warm. In this tender, human ending, her nightly question becomes \"how does it taste?\"",
+      "howTo": [
+        "In Romance Scene II, choose \"Only if you tell me something true about yourself first.\" This is where she tells you about the honey bread.",
+        "Plus any one of these: in Romance Scene III, pass \"…maybe tonight, you do as I say.\" (needs Charm 4) or choose \"Sunrise.\" In her jealousy scene, say \"I have friends, Valeria. You don't own me.\" Or on the Tipsy Wyvern dinner date, choose \"Order the honey bread. Describe every bite to her.\"",
+        "At the festival, choose \"Keep forever. Teach me your mother's honey bread instead.\""
+      ]
+    }
+  ]
+}

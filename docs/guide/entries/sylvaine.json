@@ -1,0 +1,41 @@
+{
+  "id": "sylvaine",
+  "overview": "A 912-year-old elven archmage who insists she has nothing left to learn. Her route is about time. You can impress her mind or tempt her into foolishness, and either way you show her that a short mortal life can still be enough.",
+  "tips": [
+    "Ancient Tome is her favourite gift. She hates the Great Battle Axe, the Keg of Dwarven Ale and the Horn of Honey Mead.",
+    "Her favourite date is Sunset at Saltbreeze Harbor, and going on it also unlocks Blue Hair, Again.",
+    "Wits is her stat. Romance Scenes II and III need Wits 2 and 3, and passing any of her Wits checks unlocks The Last Apprentice.",
+    "She's at the Grand Library in the morning and in Whisperwood Forest for the rest of the day."
+  ],
+  "endings": [
+    {
+      "id": "sylvaine",
+      "title": "A Season Among Centuries",
+      "kind": "main",
+      "summary": "She gives you a Silverbough seed, the gift elves give when they bind their life to someone, and you kiss as the stars fall. The tree grows silver in her glade. She teaches you magic, you teach her to cook, and she starts counting days instead of years. Bittersweet and gentle, she loves your short life as it is.",
+      "howTo": [
+        "The default ending. At the festival, choose \"Close your hand around the seed, and kiss her as the stars fall.\""
+      ]
+    },
+    {
+      "id": "sylvaine_apprentice",
+      "title": "The Last Apprentice",
+      "kind": "variant",
+      "summary": "You turn down the seed and ask for lessons, all of them. Studying deep magic slows your ageing, and over a century you go from her student to her rival to her equal. You finally beat her at Kings & Dragons, and it isn't a draw. In this ending you don't leave her behind, because you learn to keep up.",
+      "howTo": [
+        "Pass any one of these Wits checks: \"Say something clever.\" in First Meeting (Wits 1), \"Play a careful, patient game.\" in Romance Scene I (Wits 2), \"Concentrate with everything you have.\" in Romance Scene II (Wits 3), or tracing her markings in Romance Scene III (Wits 4).",
+        "At the festival, choose \"Don't give me a seed. Give me lessons. All of them. I want to keep up with you.\""
+      ]
+    },
+    {
+      "id": "sylvaine_blue",
+      "title": "Blue Hair, Again",
+      "kind": "variant",
+      "summary": "You ask her to stop being wise and come be foolish with you. She turns her hair blue, the way it was in her youth, and leaves town with you. She gets sunburnt ears, cheats at cards with magic, and learns to boil an egg over a campfire. This is the carefree road-trip ending, and her journal counts days now.",
+      "howTo": [
+        "Any one of: in Romance Scene I, choose \"Play wildly and recklessly, sacrificing pieces everywhere.\" In Romance Scene II, choose \"Get distracted by how close she is.\" or fail the \"Concentrate\" check (Wits 3). Or take her on the Sunset at Saltbreeze Harbor date.",
+        "At the festival, choose \"Forget the tree. You've been wise for nine hundred years. Come be foolish with me.\""
+      ]
+    }
+  ]
+}

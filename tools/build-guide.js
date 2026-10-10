@@ -64,7 +64,16 @@ function fontCss() {
     return 'url(data:font/woff2;base64,' + fs.readFileSync(path.join(GUIDE, 'fonts', f)).toString('base64') + ')';
   });
 }
-const SLOTS = ['Morning', 'Afternoon', 'Evening'];
+// A readable text version of a heroine color: darken pale colors until they reach ~4.5:1 on white.
+function textColor(hex) {
+  let rgb = [1, 3, 5].map(function (i) { return parseInt(hex.substr(i, 2), 16); });
+  const lum = function (c) {
+    const l = c.map(function (v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
+    return 0.2126 * l[0] + 0.7152 * l[1] + 0.0722 * l[2];
+  };
+  while ((1.05) / (lum(rgb) + 0.05) < 4.5) rgb = rgb.map(function (v) { return v * 0.9; });
+  return '#' + rgb.map(function (v) { return Math.round(v).toString(16).padStart(2, '0'); }).join('');
+}
 function unlockNote(id) {
   return { malzahra: 'Appears after the imp attack on day 10.', amorette: 'Appears after the goddess dream on day 15.', sigrun: 'Arrives on day 6.' }[id] || '';
 }
@@ -113,7 +122,7 @@ function index() {
     const c = FL.characters[id];
     const love = (c.gifts.love || []).map(function (i) { return FL.items[i].name; }).join(', ');
     return '<tr><td><span class="ix-face" style="--c:' + c.color + '">' + FL.portrait(id, 'neutral') + '</span></td>' +
-      '<td><b style="color:' + c.color + '">' + esc(c.short) + '</b><div class="small">' + esc(c.trope) + '</div></td>' +
+      '<td><b style="color:' + textColor(c.color) + '">' + esc(c.short) + '</b><div class="small">' + esc(c.trope) + '</div></td>' +
       '<td>' + FL.STAT_NAMES[c.favStat] + '</td><td class="small">' + esc(love) + '</td>' +
       '<td class="small">' + esc(c.dateFav ? FL.DATE_SPOTS[c.dateFav].name.replace(/^(A |Dinner at the |Sunset at )/, '') : '—') + '</td>' +
       '<td class="num">' + c.endingIds.length + '</td></tr>';
@@ -137,11 +146,11 @@ function heroine(id) {
   const endings = e.endings.map(function (x) {
     const meta = FL.endings[x.id];
     const badge = x.kind === 'main' ? '<span class="badge main">Main ending</span>' : '<span class="badge var">Variant</span>';
-    return '<div class="ending" style="--c:' + c.color + '"><div class="en-head"><span class="box"></span><h4>' + esc(meta.title) + '</h4>' + badge + '</div>' +
+    return '<div class="ending" style="--c:' + c.color + ';--ct:' + textColor(c.color) + '"><div class="en-head"><span class="box"></span><h4>' + esc(meta.title) + '</h4>' + badge + '</div>' +
       '<p class="en-sum">' + rich(x.summary) + '</p>' +
       '<div class="en-how"><div class="label">How to get it</div><ul>' + x.howTo.map(function (h) { return '<li>' + rich(h) + '</li>'; }).join('') + '</ul></div></div>';
   }).join('');
-  return '<section class="page heroine" style="--c:' + c.color + '">' +
+  return '<section class="page heroine" style="--c:' + c.color + ';--ct:' + textColor(c.color) + '">' +
     '<header class="h-head"><div class="h-pic">' + FL.portrait(id, 'happy', { full: true }) + '</div>' +
     '<div class="h-title"><div class="h-trope">' + esc(c.trope) + '</div><h2>' + esc(c.name) + '</h2>' +
     '<p class="h-over">' + rich(e.overview) + '</p></div></header>' +
@@ -157,7 +166,7 @@ function specials() {
     const faces = (pics[x.id] || []).map(function (id) {
       return '<span class="sp-face" style="--c:' + FL.characters[id].color + '">' + FL.portrait(id, x.id === 'greenhouse' ? 'angry' : x.id === 'true_end' ? 'blush' : 'happy', { festival: x.id !== 'greenhouse' }) + '</span>';
     }).join('') || '<span class="sp-cat">🐈‍⬛</span>';
-    return '<div class="ending special" style="--c:' + meta.color + '"><div class="en-head"><span class="box"></span><h4>' + esc(meta.title) + '</h4><span class="badge sp">' + esc(meta.who) + '</span></div>' +
+    return '<div class="ending special" style="--c:' + meta.color + ';--ct:' + textColor(meta.color) + '"><div class="en-head"><span class="box"></span><h4>' + esc(meta.title) + '</h4><span class="badge sp">' + esc(meta.who) + '</span></div>' +
       '<div class="sp-faces">' + faces + '</div>' +
       '<p class="en-sum">' + rich(x.summary) + '</p>' +
       '<div class="en-how"><div class="label">How to get it</div><ol>' + x.howTo.map(function (h) { return '<li>' + rich(h) + '</li>'; }).join('') + '</ol></div></div>';
@@ -168,7 +177,7 @@ function specials() {
 function checklist() {
   const groups = FL.charOrder.map(function (id) {
     const c = FL.characters[id];
-    return '<div class="cl-group"><b style="color:' + c.color + '">' + esc(c.short) + '</b>' +
+    return '<div class="cl-group"><b style="color:' + textColor(c.color) + '">' + esc(c.short) + '</b>' +
       c.endingIds.map(function (eid) { return '<div class="cl-item"><span class="box"></span>' + esc(FL.endings[eid].title) + '</div>'; }).join('') + '</div>';
   }).join('') + '<div class="cl-group"><b>Other endings</b>' + special.endings.map(function (x) {
     return '<div class="cl-item"><span class="box"></span>' + esc(FL.endings[x.id].title) + '</div>';
@@ -178,15 +187,15 @@ function checklist() {
 
 /* ------------------------------------------------------------------ styles */
 const CSS = `
-@page { size: A4; margin: 16mm 15mm 18mm; }
+@page { size: A4; margin: 13mm 13mm 15mm; }
 @page :first { margin: 0; }
 * { box-sizing: border-box; }
-:root { --ink: #2a1f33; --muted: #6e6278; --paper: #fbf7f0; --line: #e6dccd; --plum: #5a2a6a; --gold: #b8892e; }
-html, body { margin: 0; background: var(--paper); color: var(--ink); font: 10.4pt/1.45 'EB Garamond', Georgia, serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+:root { --ink: #2a1f33; --muted: #6e6278; --paper: #ffffff; --card: #fbf7f0; --line: #e6dccd; --plum: #5a2a6a; --gold: #b8892e; }
+html, body { margin: 0; background: var(--paper); color: var(--ink); font: 10pt/1.4 'EB Garamond', Georgia, serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 h1, h2, h3, h4 { font-family: 'Cinzel', Georgia, serif; font-weight: 600; margin: 0; }
 h2 { font-size: 19pt; color: var(--plum); margin-bottom: 8pt; letter-spacing: .02em; }
 h3 { font-size: 10.5pt; color: var(--plum); margin: 10pt 0 3pt; letter-spacing: .05em; text-transform: uppercase; }
-h4 { font-size: 11.5pt; color: var(--c, var(--plum)); }
+h4 { font-size: 11.5pt; color: var(--ct, var(--plum)); }
 p { margin: 0 0 6pt; }
 em { font-style: italic; }
 .small { font-size: 8.6pt; color: var(--muted); }
@@ -214,7 +223,7 @@ em { font-style: italic; }
 
 /* prose pages */
 .prose p { font-size: 10.8pt; }
-.strategy { margin-top: 8mm; background: #fff; border: .8pt solid var(--line); border-left: 2.4pt solid var(--gold); border-radius: 2mm; padding: 3mm 5mm; }
+.strategy { margin-top: 8mm; background: var(--card); border: .8pt solid var(--line); border-left: 2.4pt solid var(--gold); border-radius: 2mm; padding: 3mm 5mm; }
 .strategy h3 { margin-top: 0; }
 .strategy ul { margin: 0; padding-left: 12pt; } .strategy li { margin: 3pt 0; font-size: 10.2pt; }
 .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9mm; }
@@ -225,42 +234,42 @@ table.ix th { text-align: left; font-family: 'Cinzel', serif; font-size: 7.6pt; 
 table.ix td { border-bottom: .6pt solid var(--line); padding: 2.4pt 4pt; vertical-align: middle; }
 table.ix td.num { text-align: center; font-family: 'Cinzel', serif; color: var(--plum); }
 table.ix tr { break-inside: avoid; }
-.ix-face { display: block; width: 22pt; height: 22pt; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 1pt var(--c); }
+.ix-face { display: block; width: 22pt; height: 22pt; border-radius: 50%; overflow: hidden; border: 1pt solid var(--c); }
 
 /* heroine pages */
-.h-head { display: flex; gap: 6mm; align-items: flex-end; border-bottom: 2.4pt solid var(--c); padding-bottom: 4mm; margin-bottom: 5mm; break-inside: avoid; }
-.h-pic { width: 40mm; height: 40mm; flex: 0 0 auto; border-radius: 6mm 6mm 0 0; overflow: hidden; box-shadow: 0 0 0 1.4pt var(--c); }
+.h-head { display: flex; gap: 5mm; align-items: flex-end; border-bottom: 2.4pt solid var(--c); padding-bottom: 3mm; margin-bottom: 4mm; break-inside: avoid; }
+.h-pic { width: 33mm; height: 33mm; flex: 0 0 auto; border-radius: 6mm 6mm 0 0; overflow: hidden; border: 1.4pt solid var(--c); }
 .h-pic svg { width: 100%; height: 100%; display: block; }
-.h-trope { font-family: 'Cinzel', serif; font-size: 8.4pt; letter-spacing: .14em; text-transform: uppercase; color: var(--c); }
-.h-title h2 { font-size: 21pt; color: var(--ink); margin: 1pt 0 4pt; }
-.h-over { font-size: 10.8pt; font-style: italic; color: #4a3d55; margin: 0; }
-.h-body { display: grid; grid-template-columns: 52mm 1fr; gap: 6mm; }
-aside { font-size: 9pt; }
+.h-trope { font-family: 'Cinzel', serif; font-size: 8.4pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ct); }
+.h-title h2 { font-size: 19pt; color: var(--ink); margin: 1pt 0 4pt; }
+.h-over { font-size: 10.2pt; font-style: italic; color: #4a3d55; margin: 0; }
+.h-body { display: grid; grid-template-columns: 50mm 1fr; gap: 5mm; }
+aside { font-size: 8.6pt; }
 dl.facts { margin: 0 0 4mm; }
-dl.facts dt { font-family: 'Cinzel', serif; font-size: 7.4pt; letter-spacing: .12em; text-transform: uppercase; color: var(--c); margin-top: 5pt; }
+dl.facts dt { font-family: 'Cinzel', serif; font-size: 7.4pt; letter-spacing: .12em; text-transform: uppercase; color: var(--ct); margin-top: 5pt; }
 dl.facts dd { margin: 1pt 0 0; line-height: 1.35; }
-.tips { background: #fff; border: .8pt solid var(--line); border-left: 2.4pt solid var(--c); border-radius: 2mm; padding: 3mm 3.4mm; }
+.tips { background: var(--card); border: .8pt solid var(--line); border-left: 2.4pt solid var(--c); border-radius: 2mm; padding: 3mm 3.4mm; }
 .tips ul, .en-how ul, .en-how ol { margin: 0; padding-left: 12pt; }
-.tips li { margin: 2pt 0; }
-.ending { background: #fff; border: .8pt solid var(--line); border-top: 2.4pt solid var(--c); border-radius: 2mm; padding: 3.4mm 4mm 3mm; margin-bottom: 4mm; break-inside: avoid; }
+.tips li { margin: 1.6pt 0; line-height: 1.32; }
+.ending { background: var(--card); border: .8pt solid var(--line); border-top: 2.4pt solid var(--c); border-radius: 2mm; padding: 2.8mm 3.6mm 2.4mm; margin-bottom: 3.2mm; break-inside: avoid; }
 .en-head { display: flex; align-items: center; gap: 6pt; margin-bottom: 3pt; }
 .en-head h4 { flex: 1; }
 .badge { font-family: 'Cinzel', serif; font-size: 6.8pt; letter-spacing: .12em; text-transform: uppercase; padding: 1.4pt 6pt; border-radius: 8pt; white-space: nowrap; }
-.badge.main { background: var(--c); color: #fff; }
-.badge.var { border: .8pt solid var(--c); color: var(--c); }
-.badge.sp { border: .8pt solid var(--c); color: var(--c); }
-.en-sum { font-size: 10.2pt; }
-.en-how li { margin: 2pt 0; font-size: 9.6pt; }
+.badge.main { background: var(--ct); color: #fff; }
+.badge.var { border: .8pt solid var(--ct); color: var(--ct); }
+.badge.sp { border: .8pt solid var(--ct); color: var(--ct); }
+.en-sum { font-size: 9.8pt; margin-bottom: 4pt; }
+.en-how li { margin: 1.4pt 0; font-size: 9.2pt; line-height: 1.32; }
 
 /* specials */
 .sp-faces { display: flex; gap: 2mm; margin: 2mm 0 3mm; }
-.sp-face { display: block; width: 16mm; height: 16mm; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 1pt var(--c); }
+.sp-face { display: block; width: 16mm; height: 16mm; border-radius: 50%; overflow: hidden; border: 1pt solid var(--c); }
 .sp-cat { font-size: 22pt; line-height: 1; }
 
 /* checklist */
-.checklist { columns: 3; column-gap: 7mm; font-size: 9pt; }
-.cl-group { break-inside: avoid; margin-bottom: 4mm; }
-.cl-group b { font-family: 'Cinzel', serif; font-size: 9pt; display: block; margin-bottom: 1.4pt; }
+.checklist { columns: 4; column-gap: 5mm; font-size: 8.2pt; }
+.cl-group { break-inside: avoid; margin-bottom: 2.6mm; }
+.cl-group b { font-family: 'Cinzel', serif; font-size: 8.4pt; display: block; margin-bottom: 1.4pt; }
 .cl-item { display: flex; gap: 5pt; align-items: flex-start; margin: 1.6pt 0; line-height: 1.25; }
 .cl-item .box { margin-top: 1.4pt; --c: var(--muted); }
 `;
@@ -304,5 +313,11 @@ const html = doc(intro() + index() + FL.charOrder.map(heroine).join('') + specia
     'w.add_metadata({"/Title": "Hearts of Generic FantasyLandia: The Complete Guide to Every Ending", "/Subject": "Every ending and how to reach it"})\n' +
     'w.write(open(sys.argv[1], "wb"))\n';
   require('child_process').execFileSync('python3', ['-c', py, pdfOut, coverPdf, bodyPdf], { stdio: 'inherit' });
+  // flag pages that hold only a few stray lines (a layout overflow)
+  const check = 'import sys\nfrom pypdf import PdfReader\nr = PdfReader(sys.argv[1])\n' +
+    'for i, p in enumerate(r.pages[1:], 2):\n    t = [l for l in p.extract_text().split("\\n") if "ENDING GUIDE" not in l and l.strip()]\n' +
+    '    if len(t) < 4: print("  warning: page %d is nearly empty (%d lines)" % (i, len(t)))\n' +
+    'print("  %d pages" % len(r.pages))\n';
+  require('child_process').execFileSync('python3', ['-c', check, pdfOut], { stdio: 'inherit' });
   console.log('Wrote ' + pdfOut + (htmlOut ? ' and ' + htmlOut : ''));
 })().catch(function (e) { console.error(e); process.exit(1); });

@@ -1,0 +1,42 @@
+{
+  "id": "pell",
+  "overview": "A whisper-quiet librarian who is secretly the kingdom's most scandalous romance novelist. Be gentle with her secret. Her route is about finding the courage to be the heroine of her own story.",
+  "tips": [
+    "She loves Steamy Romance Novels (of course) and Imported Tea Sets. Avoid the Keg of Dwarven Ale, Raw Wyvern Steak and the Horn of Honey Mead.",
+    "She's only at the Grand Library, in the mornings and afternoons. Her favourite date is a Picnic in Whisperwood.",
+    "Wits is her stat. Romance Scenes II and III need Wits 2 and 3, and Wits 4 opens an easy way to Out Loud.",
+    "How you react to her manuscript in Romance Scene II matters: promising to keep her secret opens The Secret Life of Lady Velvet Ink."
+  ],
+  "endings": [
+    {
+      "id": "pell",
+      "title": "Our Story, Bound in Leather",
+      "kind": "main",
+      "summary": "She gives you a book bound in blue leather, The Librarian and the Adventurer, published under her real name. You kiss her and tell her you're proud of her. It becomes FantasyLandia's bestseller, she survives her first book signing, and one day she becomes head librarian. In this ending she stops hiding for good.",
+      "howTo": [
+        "The default ending. At the festival, choose \"Kiss her. 'I'm so proud of you.'\""
+      ]
+    },
+    {
+      "id": "pell_velvet",
+      "title": "The Secret Life of Lady Velvet Ink",
+      "kind": "variant",
+      "summary": "You tell her she doesn't have to put her real name on it. She crosses it out and writes Lady Velvet Ink, so the secret isn't just hers any more, it's yours together. The book takes the kingdom by storm while she quietly reshelves poetry, and the acknowledgements thank you as her \"Research Consultant\". The cosy, conspiratorial take.",
+      "howTo": [
+        "In Romance Scene II, when you find her manuscript, choose \"Hand it back gently. 'I won't tell anyone.'\"",
+        "At the festival, choose \"You don't have to put your real name on it, Pell. Not unless you want to.\""
+      ]
+    },
+    {
+      "id": "pell_loud",
+      "title": "Out Loud",
+      "kind": "variant",
+      "summary": "You ask her to read the book aloud, right there on the hill. She starts in a whisper, and by the end of the chapter forty people are listening and applauding. She becomes Clichéton's most popular reader and packs out the Tipsy Wyvern. In the bravest of her endings, the shy librarian finds her voice.",
+      "howTo": [
+        "In Romance Scene I, choose \"Will you read something aloud to me?\"",
+        "Plus any one of these: in Romance Scene III, pass \"Read the last line aloud anyway, softly.\" (needs Wits 4). Or in The Morning After, choose \"Kiss her, slowly. Let the head librarian find what she finds.\"",
+        "At the festival, choose \"Read it to me. Right here. Out loud.\""
+      ]
+    }
+  ]
+}

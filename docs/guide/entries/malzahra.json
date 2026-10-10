@@ -1,0 +1,42 @@
+{
+  "id": "malzahra",
+  "overview": "A theatrical demon queen who has waited a thousand years for a worthy rival and has never had a friend. Take her seriously and ask what she really wants: the would-be conqueror turns out to be lonely and very sweet.",
+  "tips": [
+    "She only appears after the imp raid on Day 10, at the Old Watchtower in the evening, so start her route right away.",
+    "She loves Boxes of Fine Chocolates. Never give her a Blessed Candle or a Saintly Relic. Her favourite date is Sunset at Saltbreeze Harbor.",
+    "Might is her stat. Romance Scenes II and III need Might 2 and 3.",
+    "If you've finished her Romance Scene II before the Day 28 heist, you can let her deal with Lord Baalgrim herself: \"Malzahra. He's all yours.\""
+  ],
+  "endings": [
+    {
+      "id": "malzahra",
+      "title": "The Dread Queen's Consort",
+      "kind": "main",
+      "summary": "She arrives in peace, carrying a royal treaty that gives her imps the Badlands, and watches her first open sky with you. When she asks where to go next, you choose the border: a castle with a sky, between both worlds. The Badlands bloom, and you serve as Royal Consort and Official Monologue Reviewer.",
+      "howTo": [
+        "The default ending. After the stars fall, she asks where the Dread Queen should go. Choose \"The border. A castle with a sky. Both worlds, and me.\""
+      ]
+    },
+    {
+      "id": "malzahra_throne",
+      "title": "Long Live the Dread Queen",
+      "kind": "variant",
+      "summary": "You tell her to go home and take back her throne, with you ruling beside her. Ten thousand imps watch her crowned on a throne built for two. Then she has them dig through the cavern roof until daylight reaches the Underrealm. In this grand, imperial ending she conquers the world, starting with her own.",
+      "howTo": [
+        "When she asks where to go, choose \"Home. Take back your throne. I'll rule beside you.\"",
+        "This option unlocks once Lord Baalgrim is beaten in the Day 28 Starfall Heist. The heist always ends with him beaten, win or lose, so in a normal playthrough it's always there.",
+        "There's also a backup unlock. It needs both \"I take you seriously.\" in Romance Scene I and \"Malzahra. You're the Queen. Show him.\" in Romance Scene II."
+      ]
+    },
+    {
+      "id": "malzahra_neighbor",
+      "title": "The Nice Lady Next Door",
+      "kind": "variant",
+      "summary": "You tell her to put the crown down and just be Malzahra. She drops it on Gnarlbit's head, makes him Regent, and moves into a farmhouse with you at the edge of the Badlands. She enters pie contests, learns her neighbours' names, and learns to knock. In this ending the Dread Queen finally gets a home and friends.",
+      "howTo": [
+        "Any one of: in Romance Scene I, choose \"Do you actually want to conquer the world?\" Or in Romance Scene II, choose \"Nobody lives in the Badlands. What if you didn't have to conquer anything?\"",
+        "When she asks where to go, choose \"Nowhere. Put the crown down. Just be Malzahra.\""
+      ]
+    }
+  ]
+}
