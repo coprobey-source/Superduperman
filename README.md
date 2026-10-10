@@ -78,7 +78,7 @@ node tools/build-single.js            # -> dist/hearts-of-generic-fantasylandia.
 | Vespera Thornquill | Self-Proclaimed Rival | Wits |
 | Zyra Sunkiss | Dark Elf Gyaru | Charm |
 
-ENDINGS_LINE
+101 endings in total: 97 across the 34 heroines (two or three each), plus the harem, alone, greenhouse and secret true endings. Over 300,000 words of story, 37 crossover scenes and a 30-day main plot.
 
 ## Project layout
 
