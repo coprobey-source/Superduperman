@@ -20,7 +20,7 @@ FL.addCharacter({
       cakes: [
         '@lilette:surprised Honey cakes! For me?! A mortal is giving *me* treats? That\'s backwards! I\'m supposed to tempt *you!*',
         'She eats one. Her tail curls into a happy spiral. Her little wings flutter so fast she lifts an inch off the ground.',
-        { if: 'lilette_fedcake', text: '@lilette:smug This time *I* get to feed *you* the first bite. Chapter Seven, paragraph nine. Open wide. ...That was your nose again. I\'m improving. Last time it was your ear.', else: '@lilette:blush ...You\'re *very* tempting. Unfair. Unfair!' },
+        { if: 'lilette_fedcake', text: '@lilette:smug This time *I* get to feed *you* the first bite. Chapter Seven, paragraph nine. Open wide. ...That was your nose again. I\'m very consistent. That\'s a kind of skill.', else: '@lilette:blush ...You\'re *very* tempting. Unfair. Unfair!' },
       ],
       novel: [
         '@lilette:surprised *The Duke\'s Forbidden Passion, Volume IX!* I\'ve read one through eight forty times each! This is where I learned *everything!*',
@@ -30,7 +30,7 @@ FL.addCharacter({
         'She takes one look at the gilded little reliquary and her tail puffs up like a startled cat\'s.',
         '@lilette:surprised Is that a *saint?!* A piece of one?! Ow — wait.',
         'She pokes it, very carefully. There is a faint, apologetic fizzle.',
-        '@lilette:smug It\'s only a *tiny* bit holy. Like a pig that went to church once. I\'m going to mail it to my roommate. She\'ll scream.',
+        '@lilette:smug It\'s only a *tiny* bit holy. Like a pig that went to church once. I\'m going to send it to my roommate by fire-sparrow. She\'ll scream.',
       ],
       mirror: [
         '@lilette:happy A new mirror! My old one is so *mean.* It said my smolder looked "congested."',
@@ -99,8 +99,8 @@ FL.addCharacter({
       },
       feed: {
         text: [
-          'You hold out the fork. She stares at it, then at you, then opens her mouth and accepts the bite with her eyes squeezed shut, as if it might bite back.',
-          'Her wings snap open so fast they knock the lantern off its hook. You catch it. She doesn\'t notice.',
+          'You hold out the fork. She stares at it, then at you, then parts her lips and accepts the bite with her eyes squeezed shut, as if it might bite back.',
+          'She goes pink from the horns down, like a slow sunrise, and her tail lashes so hard it knocks the lantern off its hook. You catch it. She doesn\'t notice.',
           '@lilette:surprised You can\'t — that\'s *my* move! Chapter Seven, paragraph nine! You\'re stealing my curriculum *again!*',
           '@lilette:smug My turn. Hold still.',
           'She aims a forkful at your mouth with the concentration of an archer. She hits your nose. She hits your chin. The third attempt lands, and she cheers so loudly that the whole tavern applauds without knowing why.',
@@ -112,7 +112,7 @@ FL.addCharacter({
           '@lilette:happy Oh! It says — hang on —',
           'She hauls the book onto the table and reads aloud, finger under each word.',
           '@lilette "And then, with a smoldering glance, she slowly lifts her *ankle* —"',
-          'She stops. She turns the colour of the candle. She slides, very slowly, under the table.',
+          'She stops. She turns the color of the candle. She slides, very slowly, under the table.',
           '@lilette:blush (from under the table) I\'m fine. Eat the cake. I\'m living down here now.',
           'You take the cake under the table. It is cramped. Her horns are stuck in the underside of the tabletop. It is, somehow, the best part of the evening.',
         ],
@@ -122,8 +122,8 @@ FL.addCharacter({
         text: [
           'The barkeep sets a second honey cake beside the first. Lilette looks at the two cakes. She looks at you.',
           '@lilette:surprised *Two?* Two cakes? Are you trying to *tempt* me?',
-          '@you Is it working?',
-          '@lilette:blush It\'s working *so well.* I don\'t understand. I\'m the professional. You\'re not even reading from a book!',
+          '@you Maybe.',
+          '@lilette:blush You can\'t just say *maybe* like that! In that voice! I\'m the professional. You\'re not even reading from a book!',
           'She eats both. She saves you the last bite of the second one, which, she informs you gravely, is the single greatest sacrifice a succubus has ever made.',
         ],
         next: 'done',
@@ -147,9 +147,9 @@ FL.addCharacter({
           '@lilette:sad Um. Hello? I\'m *genuinely* lost now. This is no longer seductive. There\'s a hedge here shaped like a swan and it\'s *judging* me.',
         ],
         choices: [
-          { text: 'Follow the sound of her apologising to the hedges.', go: 'follow', aff: 4 },
+          { text: 'Follow the sound of her apologizing to the hedges.', go: 'follow', aff: 4 },
           { text: 'Climb up onto the hedge and look for her. [Might check 2]', check: { stat: 'might', dc: 2 }, pass: 'climb', fail: 'thorns' },
-          { text: 'Wait at the fountain in the centre. Everyone ends up there eventually.', go: 'wait', aff: 6 },
+          { text: 'Wait at the fountain in the center. Everyone ends up there eventually.', go: 'wait', aff: 6 },
         ],
       },
       follow: {
@@ -157,7 +157,7 @@ FL.addCharacter({
           'You follow a trail of "sorry" and "excuse me" and "oh, I\'m so sorry, I didn\'t see you, you\'re a bush" through six turns and a dead end, and find her sitting under the swan topiary with her wings wrapped around her knees.',
           '@lilette:blush You found me. Okay. Okay, hold on.',
           'She checks her palm. The ink has smudged into a pink smear.',
-          '@lilette:sad The devastating thing has rubbed off. I think it was about stars. Or possibly scars. It might have been *cars.* I don\'t know what a car is.',
+          '@lilette:sad The devastating thing has rubbed off. I think it was about stars. Or possibly scars. It might have been *jars.* I don\'t know why I would say something devastating about jars.',
         ],
         next: 'done',
       },
@@ -179,7 +179,7 @@ FL.addCharacter({
       },
       wait: {
         text: [
-          'You sit on the rim of the centre fountain and listen to the water. Twenty minutes later, a hedge rustles violently and Lilette bursts out of it in a shower of leaves, triumphant and dishevelled, a twig stuck on one horn.',
+          'You sit on the rim of the center fountain and listen to the water. Twenty minutes later, a hedge rustles violently and Lilette bursts out of it in a shower of leaves, triumphant and disheveled, a twig stuck on one horn.',
           'She sees you. Her whole face lights up.',
           '@lilette:surprised You — you didn\'t search for me. You just *waited.* You knew I\'d come to you.',
           '@lilette:blush That\'s... that\'s *so* much better than Chapter Ten.',
@@ -202,13 +202,13 @@ FL.addCharacter({
           '@lilette:smug Chapter Three: *The Sunset Kiss.* According to the handbook, a kiss at the exact moment the sun touches the sea is "devastating, irresistible, and legally binding in four kingdoms."',
           '@lilette I\'ve done the calculations. Sunset is in eleven minutes. I\'ve turned the hourglass. That leaves time for one paper of fried fish and some light, sultry conversation.',
           'She perches on a bollard, crosses her legs seductively, and lets her tail drape over the edge of the pier. It falls in the harbor. She fishes it out without comment.',
-          'The sky is going pink and lavender, the same colours as her. You don\'t think she\'s noticed.',
+          'The sky is going pink and lavender, the same colors as her. You don\'t think she\'s noticed.',
           { if: { stage: 4 }, text: '@lilette:blush I know we\'ve kissed lots of times now. Lots and lots. But never *on schedule.* I want one perfect one, exactly on time, to put in my report.' },
         ],
         choices: [
           { text: 'Share your chips and talk about anything except the schedule.', go: 'chips', aff: 5 },
           { text: 'Count the seconds down with her, very seriously.', go: 'count', aff: 3 },
-          { text: '"Have you noticed the sky is exactly your colour?"', go: 'colour', aff: 6 },
+          { text: '"Have you noticed the sky is exactly your color?"', go: 'colour', aff: 6 },
         ],
       },
       chips: {
@@ -235,7 +235,7 @@ FL.addCharacter({
       },
       colour: {
         text: [
-          '@you Have you noticed the sky is exactly your colour? Lavender up top, pink at the edges.',
+          '@you Have you noticed the sky is exactly your color? Lavender up top, pink at the edges.',
           'She looks up. She looks at her own arm. She looks back at the sky.',
           'And she begins to glow. Softly at first, then brighter, pink-gold, until the boards of the pier around her are lit up like a lantern.',
           'Out in the harbor, a fishing boat changes course, its captain apparently convinced someone has built a new lighthouse.',
@@ -297,8 +297,8 @@ FL.addCharacter({
       },
       apple_fail: {
         text: [
-          'You take the apple and bite it slowly and smoulderingly. A piece goes down the wrong way. You cough for about a minute while she pats your back, enormously delighted.',
-          '@lilette:happy You\'re *terrible* at it too! Oh, that\'s my favourite thing about you. Well, *one* of them. It\'s top ten.',
+          'You take the apple and bite it slowly and smolderingly. A piece goes down the wrong way. You cough for about a minute while she pats your back, enormously delighted.',
+          '@lilette:happy You\'re *terrible* at it too! Oh, that\'s my favorite thing about you. Well, *one* of them. It\'s top ten.',
         ],
         next: 'done',
       },
@@ -329,7 +329,7 @@ FL.addCharacter({
       },
       laugh: {
         text: [
-          'She stares at you as you laugh. Then she starts giggling too, nervously, hiding her face in her hands.',
+          'Her tail freezes mid-swish while you laugh. Then she starts giggling too, nervously, hiding her face in her hands.',
           '@lilette:happy You\'re not angry? Everyone at the Academy gets angry when I spill things on them. Which is... often.',
         ],
         aff: 5,
@@ -441,7 +441,7 @@ FL.addCharacter({
       },
       another: {
         text: [
-          'Her wings flutter so hard she lifts off the ground and has to grab your arm to come back down.',
+          'Her tail shoots straight up like an exclamation mark, heart tip quivering.',
           '@lilette:happy YES. I mean. Yes. For practice. *Strictly* for practice.',
           'She writes it on the clipboard: *Step 6: another date!!! (for practice) (not for practice)*',
         ],
@@ -507,7 +507,7 @@ FL.addCharacter({
         text: [
           'Lilette has rented a room at the inn. She has decorated it according to Chapter Twelve of her handbook: rose petals, candles, silk sheets, a bowl of strawberries. She is sitting on the very edge of the bed, wringing her tail in her hands.',
           '@lilette Okay. Okay. So. I read every book. I made notes. I made *diagrams.* I am extremely prepared.',
-          '@lilette:sad I am also extremely nervous. I have never been this nervous. Not even the time I accidentally summoned a duke of hell instead of a pizza.',
+          '@lilette:sad I am also extremely nervous. I have never been this nervous. Not even the time I accidentally summoned a duke of hell instead of a pastry.',
           'She looks up at you, pink to the tips of her horns.',
           '@lilette:blush I don\'t want to do this for an exam. I want to do it because it\'s *you.* Is that — is that okay?',
           { if: 'lilette_defended', text: '@lilette You told the Dean you wanted to be near me more than anything. I\'ve stood near you every day since, just to check if it was true. It was true every single time.' },
@@ -541,8 +541,8 @@ FL.addCharacter({
       },
       night: {
         text: [
-          "Her first kiss is clumsy. Then it isn't. Something old and instinctive wakes up in her. It isn't the hungry thing her teachers wanted. It's something warm and luminous, and her skin begins to glow faintly pink wherever you touch her.",
-          "@lilette:surprised Oh. Oh, *that's* what Chapter Twelve meant by \"the awakening.\" I thought it was about alarm clocks.",
+          "Her first kiss of the night is clumsy. Then it isn't. Something old and instinctive wakes up in her. It isn't the hungry thing her teachers wanted. It's something warm and luminous, and her skin begins to glow faintly pink wherever you touch her.",
+          "@lilette:surprised Oh. Oh, *that's* what Chapter Twelve meant by \"the awakening.\" I thought it was about roosters.",
           "She tries a move straight out of the handbook and slides one strap of her black dress off her shoulder with a sultry look. It gets stuck on her wing. She squeaks. You help her out of it, laughing, and her laughter cuts off in a soft gasp when your fingers trail down her bare spine to the base of her wings.",
           "@lilette:blush The *wings* — nobody's ever touched — the handbook says they're a weakness, I thought it meant in *combat* —",
           "Her tail winds around your wrist and tugs you closer. For a succubus who has never done this before, she's remarkably enthusiastic, endlessly curious, and given to blurting out exactly what she's feeling at every moment. Mostly that's *oh* and *again* and *the book did NOT cover this.*",
@@ -614,7 +614,7 @@ FL.addCharacter({
           'Lilette finds you on the festival hill, positively radiant — literally; she has been faintly glowing pink for weeks now. She\'s wearing a dress she clearly chose herself: soft, pink, comfortable, with a little heart embroidered on the pocket. Not a scrap of black lace in sight.',
           '@lilette:happy I got my results!',
           'She unrolls a scroll bearing the Infernal Academy seal. In flaming letters across the top: *GRADUATED WITH HIGHEST HONORS.* Below, in the Dean\'s handwriting: *First true-love feeding in 300 years. Exemplary. — V.*',
-          { if: 'lilette_footnote', text: 'Underneath that, smaller: *Subject testimony ("Would be seduced again") entered into the permanent record. Do not let it go to your head. — V.*' },
+          { if: 'lilette_footnote', text: 'Underneath that, smaller: *Subject testimony ("Would be seduced again") entered into the permanent record. Stop grinning. I can tell. — V.*' },
           '@lilette:smug I\'m the best student in my whole class! Me! I failed Smoldering Glances three times!',
         ],
         next: 'fall',
@@ -645,7 +645,7 @@ FL.addCharacter({
           'Lilette teaches her class by correspondence from a little cottage in Clichéton, sending lessons to the Infernal Academy by fire-sparrow. Her course becomes the most popular in the Academy\'s history. Enrollment triples. Several of her students marry mortals.',
           'The Dean visits once a year to inspect her. She brings you a fruitcake. It is mildly cursed. It\'s also delicious.',
           { if: 'lilette_fedcake', text: 'Every anniversary, you take her back to the corner booth at the Tipsy Wyvern and feed her the first bite of honey cake. She still tries to feed you back. She still hits your nose.' },
-          'Lilette still trips over her own tail. She still blushes at the word "ankle." She still has never once smoldered properly.',
+          'Lilette still trips over her own tail. She still blushes at the word "ankle." She still has never once smoldered on purpose for longer than three seconds.',
           'But she glows every single day. And whenever anyone in town asks her the secret of seduction, she simply points at you and smiles — just smiles — and that, it turns out, was the whole curriculum all along.',
         ],
         ending: 'lilette',
@@ -662,7 +662,7 @@ FL.addCharacter({
           '@lilette:happy They\'d let you *teach?* We\'d have offices next door! We could pass *notes!*',
           'She turns back to you, and something shifts in her face. She lifts her chin, holds your gaze a beat too long, and lets one corner of her mouth curl into the slow, devastating look she learned from you.',
           '@lilette:smug Well, mortal? Will you follow me into the Abyss?',
-          'It works. It works *completely.* You say yes. She squeals, and the smoulder collapses into giggles, and the Dean sighs and looks at the falling stars as if they have personally disappointed her.',
+          'It works. It works *completely.* You say yes. She squeals, and the smolder collapses into giggles, and the Dean sighs and looks at the falling stars as if they have personally disappointed her.',
         ],
         next: 'dean_epilogue',
       },
@@ -686,7 +686,7 @@ FL.addCharacter({
           'She opens her mouth to say yes. Nothing comes out. She closes it again.',
           '@lilette:sad Nobody\'s ever asked me that. At the Academy they don\'t ask what you *want.* They ask what you\'re *for.*',
           'She turns the glowing scroll over in her hands.',
-          '@lilette You know what my favourite part of this whole month was? It wasn\'t the smoldering. It was three in the morning in the inn kitchen, when I couldn\'t sleep, and the cook let me bake honey cakes for you. I burned the first batch. And the second. The third was *perfect.* And you ate four, and you made a little noise, and I felt like I\'d been fed for a *year.*',
+          '@lilette You know what my favorite part of this whole month was? It wasn\'t the smoldering. It was three in the morning in the inn kitchen, when I couldn\'t sleep, and the cook let me bake honey cakes for you. I burned the first batch. And the second. The third was *perfect.* And you ate four, and you made a little noise, and I felt like I\'d been fed for a *year.*',
           '@lilette:blush I don\'t want to teach people to make other people want them. I want to make things people want. I want to bake.',
           '@lilette:surprised Oh, the Dean is going to *explode.* Literally. She does that.',
           'She rolls the scroll up and tucks it into her pocket next to the little embroidered heart.',
@@ -703,7 +703,7 @@ FL.addCharacter({
           'Something strange happens in that shop. People come in sad and leave happy. Customers swear the cakes are enchanted. They aren\'t. But every bit of joy that someone feels biting into one drifts, freely given, back across the counter to the succubus who made it. She has never been so well fed in her life. She glows so brightly in the mornings that the lamplighter skips your street.',
           'You do the early bake together. Your job is to stir. Her job is to taste. She takes her job very seriously. There is usually flour on her horns, and on you, and on the ceiling.',
           'Dean Vexaria visits once a year, glowers at everything, and buys a dozen honey cakes "for research." The Academy\'s cafeteria quietly starts serving them on Fridays.',
-          'Lilette never does learn to smolder. She doesn\'t need to.',
+          'Lilette never does learn to smolder for longer than three seconds at a time. She doesn\'t need to.',
           'Every Starfall, you close the shop early, climb the hill with a basket of the day\'s last cakes, and watch the sky together. She feeds you the first bite. She still misses. You still let her try again.',
         ],
         ending: 'lilette_baker',

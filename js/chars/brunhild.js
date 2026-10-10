@@ -18,7 +18,7 @@ FL.addCharacter({
   schedule: ['arena', 'arena', 'noble'],
   gifts: { love: ['plushie'], like: ['cakes', 'dagger', 'axe', 'yarn', 'mead', 'relic'], hate: ['novel', 'perfume'] },
   giftLines: {
-    love: ['She stares at the stuffed bunny. Her stern face does not move. Her hands, however, are trembling.', '@brunhild:blush This is... a child\'s toy. Wholly inappropriate for a Knight-Captain.', 'She tucks it into her breastplate, very carefully, so that only its ears stick out.', '@brunhild:blush I shall... confiscate it. For safekeeping. Its name is Sir Fluffington. Speak of this to no one.'],
+    love: ['She stares at the stuffed bunny. Her stern face does not move. Her hands, however, are trembling.', '@brunhild:blush This is... a child\'s toy. Wholly inappropriate for a Knight-Captain.', 'She tucks it into her breastplate, very carefully, so that only its ears stick out.', '@brunhild:blush I shall... confiscate it. For safekeeping. It will report to Sir Fluffington. Speak of this to no one.'],
     like: '@brunhild:happy A fine gift. You honor me. I accept it in the spirit it was given.',
     neutral: '@brunhild Hm. A curious offering. I shall accept it, as is proper.',
     hate: ['She takes one look at the cover and goes scarlet from her collar to her hairline.', '@brunhild:angry THIS IS — this is *indecent!* To present a knight with such — such *lewdness!* The shame! Kill me! Just kill me!'],
@@ -29,6 +29,10 @@ FL.addCharacter({
         "Her voice wobbles on *brave.*",
         "@brunhild:blush He shall be given a helmet and a posting. Sir Fluffington has been asking for a second-in-command. This is *not* a gift to me. This is a *reinforcement.* I accept it on behalf of the garrison. Do not watch me hug it.",
         "You watch her hug it.",
+      ],
+      perfume: [
+        "She unstoppers the bottle, sniffs once, and recoils as though from a gas attack.",
+        "@brunhild:angry *Perfume.* A knight smells of steel, saddle leather and honest effort. If I wore this onto a battlefield, the enemy would *flirt* with me. Take it away before it gets into my cape.",
       ],
       fork: [
         "She turns the fork over in her gauntlet with deep suspicion.",
@@ -68,7 +72,7 @@ FL.addCharacter({
     ['@brunhild:sad My father wished for a son to carry the Steinhart sword. He got me. I have spent my whole life proving that was no misfortune.'],
     ['@brunhild:smug You have been training. I can see it in your stance. ...That is a compliment. Accept it quickly, before I take it back.'],
     ["@brunhild I have asked to be killed four hundred and six times since I took my oath. No one has ever obliged.", "@brunhild:angry It is the only order the garrison has ever dared to ignore. I have half a mind to discipline them for it."],
-    ["She is knitting something very small and very red at the edge of the training sands, glaring at anyone who looks.", "@brunhild:blush It is *chain mail.* For a very small knight. Woollen chain mail is a legitimate field innovation. Move along."],
+    ["She is knitting something very small and very red at the edge of the training sands, glaring at anyone who looks.", "@brunhild:blush It is *chain mail.* For a very small knight. Woolen chain mail is a legitimate field innovation. Move along."],
     ["@brunhild Tenet seventy-seven: \"A knight shall not take the last honey cake without first offering it to her companion.\"", "She holds out the last honey cake. Her arm is trembling. Her eyes do not leave the cake.", "@brunhild:sad ...You are taking a very long time to refuse."],
     ["@brunhild:happy Recruit Pim dropped his sword four times this morning. He is hopeless. He is also the only one who says good morning to the stable cat.", "@brunhild I have been giving him extra rations. If you tell him, I shall have you *flogged.* Gently. With a scarf."],
     ["@brunhild:sad When I took my oath, my father came to watch. Afterwards he looked at me in my armor for a long time and said: \"Hm.\"", "@brunhild:happy I have treasured that \"Hm\" for eleven years. I believe it was approving. It had an approving *shape.*"],
@@ -81,7 +85,7 @@ FL.addCharacter({
     ["@brunhild:happy My recruits have noticed I am... less strict. I gave them a half-day yesterday. Several of them wept. I blame you entirely."],
     ["She leans close and speaks very quietly, very formally.", "@brunhild:blush I would like to request another... *inspection.* Tonight. At your earliest convenience. This is not an order. ...It is a little bit an order."],
     ["@brunhild:blush I knitted Sir Fluffington a tiny blindfold. For nights when you visit. He deserves his dignity."],
-    ["@brunhild I have added a private tenet to my code. Number one hundred and fourteen. It reads simply: \"{name}.\" I do not need to explain it."],
+    ["@brunhild I have added a private tenet to my code. Number one hundred and fourteen. It reads simply: \"{name}.\" I have left one hundred and thirteen blank, in case of emergencies. I do not need to explain it."],
     ["@brunhild:smug Sir Fluffington has been promoted to Knight-Lieutenant. He was decorated for valor last night. For remaining at his post on the shelf, facing the wall, through *considerable* noise."],
     { if: 'brunhild_knighted', lines: ["@brunhild Good morning, my liege — ", "She stops. Her ears go red.", "@brunhild:blush Reflex. You knighted me in the chapel. My body has decided you are my sovereign. It bows when you enter rooms. Yesterday it bowed to you in the *bathhouse.* Kill me. ...No. Do not. I would miss you."] },
     { if: 'brunhild_equal', lines: ["@brunhild:happy I have had a second kneeling cushion placed in the garrison chapel. Beside the first. Not behind it. Not in front.", "@brunhild The chaplain asked whom it was for. I told him, \"for my equal.\" He asked if I meant the King. I said I meant someone considerably more important."] },
@@ -166,7 +170,7 @@ FL.addCharacter({
           "Brunhild meets you at the gates of the Moonlit Gardens and informs you that the two of you will be *patrolling* them. In case of ruffians.",
           "She marches the gravel paths at regulation pace, inspecting hedges, saluting fountains, glaring suspiciously at a stone cherub. The roses are silver in the moonlight. Couples on hidden benches stop kissing as she clanks past, then start again.",
           "@brunhild The Gardens are a known haven for scandal. Lovers. Poets. Unsupervised *hand-holding.* Someone must keep order.",
-          { if: { stage: 4 }, text: "@brunhild:blush ...I realize we have done all three of those things here. That is beside the point. Keep up." },
+          { if: { stage: 4 }, text: "@brunhild:blush ...I realize we are now at least two of those three things. That is beside the point. Keep up." },
         ],
         choices: [
           { text: "Take her hand. \"For tactical cohesion.\"", go: 'cohesion', aff: 5 },
@@ -276,10 +280,10 @@ FL.addCharacter({
     picnic: {
       start: {
         text: [
-          "Brunhild has planned the picnic like a military campaign. She has scouted the clearing, secured the perimeter, and laid out the blanket at precise right angles to the sun. The basket contains sandwiches cut into perfect squares, two honey cakes, and a laminated map of the clearing.",
+          "Brunhild has planned the picnic like a military campaign. She has scouted the clearing, secured the perimeter, and laid out the blanket at precise right angles to the sun. The basket contains sandwiches cut into perfect squares, two honey cakes, and a map of the clearing on waxed canvas.",
           "@brunhild Rations, hydration, a defensible position with clear sightlines. All that remains is for us to... *enjoy* ourselves. I have allotted ninety minutes.",
           "Then a mother duck waddles out of the reeds, followed by seven fluffy ducklings in a wobbly line. They walk straight across the blanket.",
-          "Brunhild makes a noise like a kettle that has seen something precious.",
+          "Brunhild's gauntlet flies to her breastplate and clamps over her heart, as though something has pierced the steel. Something has. It is seven ducklings.",
           { if: { stage: 4 }, text: "@brunhild:blush Do not look at me. I am *fine.* I am experiencing a sentiment. It will pass. It will not pass." },
         ],
         choices: [
@@ -322,7 +326,7 @@ FL.addCharacter({
       },
       end: {
         text: [
-          "You pack up long after the sun has moved and the right angles of the blanket are hopelessly lost. Brunhild folds the laminated map and tucks it into her breastplate beside Sir Fluffington.",
+          "You pack up long after the sun has moved and the right angles of the blanket are hopelessly lost. Brunhild folds the waxed map and tucks it into her breastplate beside Sir Fluffington.",
           "@brunhild:smug I am keeping this. For future campaigns. I intend there to be many.",
         ],
         end: true,
@@ -424,7 +428,7 @@ FL.addCharacter({
         text: [
           '@brunhild:surprised ...On your honor?',
           '@you On my honor.',
-          'She stares at you for a long moment. Then she nods, very slowly, and stands, still holding the kitten.',
+          'She searches your face the way she would inspect a recruit\'s blade, edge to hilt, for a flaw. She finds none. She nods, very slowly, and stands, still holding the kitten.',
           '@brunhild:happy A knight\'s secret, entrusted to a civilian. This is... irregular. But I believe you.',
           'The kitten licks her chin. Her stern face cracks into a smile — a real one, wide and soft and completely unguarded — before she can stop it.',
         ],
@@ -437,7 +441,7 @@ FL.addCharacter({
           '@brunhild:surprised You... are not mocking me.',
           '@you Why would I? It\'s a kitten.',
           '@brunhild:happy ...It *is* a kitten. Isn\'t it. A very good one.',
-          'She kneels back down. You sit together in the flowerbed for half an hour, petting the kitten. She doesn\'t say a word. She doesn\'t have to.',
+          'She kneels back down. You sit together in the flowerbed for half an hour, petting the kitten. She doesn\'t say a word. Once, very quietly, she hums.',
         ],
         next: 'secret',
       },
@@ -611,7 +615,7 @@ FL.addCharacter({
         text: [
           "Getting her out of ceremonial plate takes a very long time. There are forty-two buckles. She insists on naming each one. You both end up laughing so hard you have to sit down on the chapel floor.",
           { if: 'brunhild_cape', text: "The cape comes off last. She unclasps it, holds it out at arm's length, and gives it one final, enormous swish before she lets it fall. \"Dramatic?\" she asks. \"Extremely,\" you tell her, and she looks ridiculously pleased." },
-          "Her chambers are spartan and spotless: a narrow bed, a weapons rack, a polished shield. And on a shelf in the corner stand forty-two plushies in tiny knitted helmets, at attention.",
+          "Her chambers, when you finally reach them with an armful of plate, are spartan and spotless: a narrow bed, a weapons rack, a polished shield. And on a shelf in the corner stand forty-two plushies in tiny knitted helmets, at attention.",
           "@brunhild:blush Do not look at them. They are... on duty.",
           "She turns them all to face the wall. One by one. Very solemnly.",
           "Then she turns back to you in her padded gambeson and stands at attention. She's clearly waiting for orders, has no idea what the orders are supposed to be, and is utterly mortified by this.",
@@ -701,7 +705,7 @@ FL.addCharacter({
           'A few of her recruits, nearby, gasp audibly. She ignores them.',
           '@brunhild For twenty years I have been steel all the way through. I believed it was the only way to be strong.',
           '@brunhild:happy You taught me otherwise. That a knight\'s heart may be soft and still be unbreakable.',
-          { if: 'brunhild_tenet', text: "@brunhild Tenet one. Protect those who cannot protect themselves. You showed me, in a flowerbed, that the tenet had room in it for kittens. And for me." },
+          { if: 'brunhild_tenet', text: "@brunhild Tenet one. Protect those who cannot protect themselves. You showed me, on a garden bench with a kitten in my lap, that the tenet had room in it for kittens. And for me." },
           '@brunhild:blush I love you, {name}. I say it before the stars and the town and my recruits and Sir Fluffington. Let them all bear witness.',
         ],
         choices: [
@@ -749,7 +753,7 @@ FL.addCharacter({
           "She walks one pace behind your left shoulder, everywhere. She tests your soup for poison. She challenges a baker to a duel for short-changing you by a copper, wins, and then apologizes so thoroughly that he gives you free bread for a year. She stands guard outside the bathhouse. She stands guard outside the privy. You have a talk about the privy.",
           "You grant her lands, as a liege must: a vegetable patch behind the cottage, three feet by six. She accepts it on one knee, weeping openly, and defends it from rabbits with the full force of the Steinhart blade.",
           "Every morning she recites her oath at the foot of the bed before breakfast. Every morning you accept it. Some mornings you make her start over, just to hear the bit about the bakery.",
-          "Sir Fluffington is made her squire. Sir Pounce is made yours.",
+          "Sir Fluffington is made her squire. Sir Pounce, the fat orange garrison cat, is made yours.",
           "And on the long nights, when the candles are low and she has finally, finally taken off the last of the forty-two buckles, she still asks, very softly, for orders.",
           "You still give them. She still obeys every one, perfectly, with a devotion that would make the old Code blush.",
           "She has never once said \"just kill me\" in your service. She says there is no need. She has finally found the thing she was willing to live for.",
@@ -758,7 +762,7 @@ FL.addCharacter({
       },
       shield: {
         text: [
-          "She stares at you. Her hand goes to the buckles at her side.",
+          "Her chin, for once, comes *down*. Her hand goes to the buckles at her side.",
           "@brunhild:surprised Here? With the whole town watching?",
           "@you With the whole town watching.",
           "Her fingers shake on the first buckle. Then the second. You help with the third. The breastplate comes away with a great clank, and there, in the falling starlight, in front of the entire population of Clichéton, stands the Knight-Captain of the garrison in her padded gambeson, cradling a small stuffed bunny in a tiny knitted helmet.",

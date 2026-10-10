@@ -26,7 +26,7 @@ FL.addCharacter({
         "@seven:blush ...I will not do that. I like it when you wind me. But I will build something else beautiful with them, and I will tell you every time it ticks.",
       ],
       fork: [
-        "@seven:happy A fork. Four tines, stainless, perfectly symmetrical. I approve of forks. They are honest. They do one thing and do not pretend otherwise.",
+        "@seven:happy A fork. Four tines, plain steel, perfectly symmetrical. I approve of forks. They are honest. They do one thing and do not pretend otherwise.",
         "She tucks it into the compartment in her wrist, beside her notebook and pencil.",
         "@seven I now have eleven forks. Humans give me forks more than any other object. Hypothesis: humans believe I am a fork enthusiast. Conclusion: humans are correct.",
       ],
@@ -68,7 +68,7 @@ FL.addCharacter({
     ["@seven You have blinked eleven thousand, four hundred and six times in my presence since we met.", "@seven:happy I have found every one of them acceptable. I wanted you to know. Humans worry about such things."],
     ["She winds a small brass cylinder and sets it on the workbench. A crackly, off-key humming fills the workshop.", "@seven:sad The Professor hummed while he worked. Always the same tune, always wrong in the third bar. I recorded it on a wax cylinder before he left. I play it when the workshop is too quiet.", "@seven ...It is less quiet now. I have not played it in nine days."],
     ["@seven:surprised I do not sleep. But during my low-power cycle last night, I ran a simulation of you. I did not instruct myself to do so. You were in the workshop, and you were laughing, and the duck was wearing your hat.", "@seven Query: is that what humans call a *dream?* If so, I would like another one. Can they be requested?"],
-    { if: 'seven_friend', lines: ["She opens her notebook to the first page and shows it to you. *FRIENDS: 1.* Beneath it, in smaller, newer writing: *2 (the baker, conditionally). 3 (the dog). 4 (the clockwork duck, if it counts).*", "@seven:happy It began with you. You told me you were *something else, a friend maybe.* Every entry after that is your fault. I wanted to thank you for the fault."] },
+    { if: 'seven_friend', lines: ["She opens her notebook to the first page and shows it to you. *FRIENDS: 1.* Beneath it, in smaller, newer writing: *2 (the baker, conditionally). 3 (the beetles, collectively). 4 (the pigeons on the windowsill, if they count).*", "@seven:happy It began with you. You told me you were *something else, a friend maybe.* Every entry after that is your fault. I wanted to thank you for the fault."] },
     { if: 'seven_dog', lines: ["A shaggy brown dog is asleep across the threshold of the workshop. Seven steps over it with great care.", "@seven:happy The dog from the market. The one who licked my hand. It followed my scent back here two days ago. It has refused to leave.", "@seven I have named it Variable. It licks me every morning. Observation: it is still wet and unpleasant. Observation: I still want it to do that again."] },
     { if: 'seven_tag', lines: ["@seven:smug I have been losing at tag with the apprentice from the forge. On purpose. Every afternoon.", "@seven He believes he is extremely fast. I have not corrected him. You taught me that losing means the game keeps going. I would like many things to keep going."] },
     { if: 'seven_bees', lines: ["The blue drawer is open a crack. A single clockwork bee crawls out, circles your head twice, and lands on your shoulder.", "@seven:surprised It remembers you. You opened its drawer, the first day, when I had specifically warned you about bees.", "@seven:happy The bees have since voted you an honorary member of the hive. The vote was unanimous. Bees are very decisive."] },
@@ -147,7 +147,7 @@ FL.addCharacter({
       },
       end: {
         text: [
-          "When you leave, she insists on paying for the chicken nobody ate. She asks the cook to wrap it up for the dog that lives by the workshop door.",
+          "When you leave, she insists on paying for the chicken nobody ate. She asks the cook to wrap it up for the stray dogs behind the market.",
           "@seven:happy Nothing will go to waste. Except time, of course. I wasted all of this time on you. I would like to waste more of it.",
         ],
         end: true,
@@ -181,7 +181,7 @@ FL.addCharacter({
       maze: {
         text: [
           "@you Race you to the middle!",
-          "You plunge into the hedge maze. Seven follows. She solves it within four seconds, of course; you can see her eyes flick across the hedges and map the whole thing. She reaches the center fountain before you've turned three corners.",
+          "You plunge into the hedge maze. Seven follows. She solves it within two seconds, of course; you can see her eyes flick across the hedges and map the whole thing. She reaches the center fountain before you've turned three corners.",
           "Then she walks back out and gets lost with you instead.",
           { if: 'seven_tag', text: "@seven:smug You taught me this. In tag. Losing means the game keeps going. I have chosen to lose the maze." },
           "You wander together through the dark green corridors for nearly an hour, taking wrong turns on purpose, until neither of you can remember where the middle is, and it doesn't matter.",
@@ -192,7 +192,7 @@ FL.addCharacter({
       roses: {
         text: [
           "She bends to the nearest bush, and her eyes flicker as her olfactory sensors whir.",
-          "@seven Damask rose: citronellol, geraniol, phenyl-ethyl alcohol. A trace of clove. Concentration: seventeen parts per million.",
+          "@seven Damask rose: citronellol, geraniol, phenylethyl alcohol. A trace of clove. Concentration: seventeen parts per million.",
           "She moves to the next bush. And the next. She catalogues every variety in the Gardens while you walk beside her, and then she stops in front of one small, dark red, slightly disheveled rose growing wild over a wall.",
           "@seven:blush This one has no catalogued name. Its chemical signature is unique. I have decided to name it after you.",
           "@you What does it smell like?",
@@ -212,7 +212,7 @@ FL.addCharacter({
       start: {
         text: [
           "Seven arrives at Saltbreeze Harbor in an oilskin coat, a sou'wester hat, a pair of enormous yellow galoshes and a great deal of waxed cotton tied around every exposed hinge. She looks like a lighthouse keeper who has been personally betrayed by the ocean.",
-          "@seven:angry The sea is eighty-nine percent water and three percent salt. It is, for me, the single most hostile environment in Clichéton. I have triple-sealed my joints. I have brought a spare umbrella. I have brought a spare *spare* umbrella.",
+          "@seven:angry The sea is ninety-six and a half percent water and three and a half percent salt. It is, for me, the single most hostile environment in Clichéton. I have triple-sealed my joints. I have brought a spare umbrella. I have brought a spare *spare* umbrella.",
           "@seven:surprised ...But you said the sun goes into it every evening. I have never seen that. I wished to see it with you.",
           "You walk her slowly to the very end of the pier. The sun hangs low over the water, swollen and gold.",
           { if: { stage: 4 }, text: "She tucks herself under your arm, out of the spray, and presses the warm little window over her heart against your side, so that you can feel it ticking through your coat." },
@@ -282,7 +282,7 @@ FL.addCharacter({
       heart: {
         text: [
           "You lie back on the blanket. She looks down at you, puzzled, and then understands, and very carefully lays her head on your chest.",
-          "For a long time she doesn't say anything at all. Her eyes are half-closed. Her own heart ticks softly in its little glass window, slowing.",
+          "For three hundred and eleven ticks she doesn't say anything at all. Her eyes are half-closed. Her own heart ticks softly in its little glass window, slowing.",
           "@seven Seventy-two beats per minute. Regular. Strong. A very good heart.",
           "@seven:blush Mine is adjusting to match. I did not tell it to. It is simply doing it. Clocks placed on the same wall will eventually tick together, did you know that? The Professor showed me once. I did not understand why he looked so happy when they did.",
           "@seven:happy I understand now.",
@@ -303,7 +303,7 @@ FL.addCharacter({
       },
       see: {
         text: [
-          "@seven Visible: two hundred and forty clover flowers. Eleven bees, nine of them real. A cloud, cumulus, moving east at four miles an hour. A beetle that is not mine, which is very confusing to me.",
+          "@seven Visible: two hundred and forty clover flowers. Eleven bees, at least ten of them real. A cloud, cumulus, moving east at four miles an hour. A beetle that is not mine, which is very confusing to me.",
           "She pauses, and looks down at you lying in the clover.",
           "@seven:blush And you. There is a petal in your hair. Your eyes are closed against the sun. You are smiling at nothing, which you do often, and I have never found the cause.",
           "@seven I have stopped trying to find the cause. I simply record that it happens, and I am glad.",
@@ -497,7 +497,7 @@ FL.addCharacter({
       },
       stay: {
         text: [
-          'You sit beside her on the floor and take her hand. You talk to her — about the market, the duck, the dog that licked her. She listens, her eyes flickering.',
+          'You sit beside her on the floor and take her hand. You talk to her — about the town, the weather, the bees in the blue drawer, anything at all. She listens, her eyes flickering.',
           { if: 'seven_friend', text: "@seven *FRIENDS: 1.* It is still the first entry in my notebook. I have been thinking that if I stop, the entry will just... stay there. Unattended. I did not like that thought." },
           'After an hour, she says, quietly:',
           '@seven:sad The Professor kept a spare. In the locked drawer. I did not want to mention it. I was afraid you would leave to fetch it.',
@@ -525,7 +525,7 @@ FL.addCharacter({
         text: [
           '@seven Too much. Yes. That is accurate. I feel... too much.',
           '@seven:sad I feel grief, for the Professor. And gratitude. And something else. Something about you. It is very loud.',
-          'She leans her head against your shoulder. Her clockwork heart ticks fast and warm.',
+          'She leans into you, and her clockwork heart ticks fast and warm against your arm.',
         ],
         end: true,
       },
@@ -573,7 +573,7 @@ FL.addCharacter({
           'She steps closer, her heart ticking loud in the quiet room.',
           '@seven:blush I have read about what humans do, when they love each other. I would like to... experience it. With you. If you are willing.',
           '@seven I am warm, now. I modified my heat regulators. I did not know if that was presumptuous. I hoped it was not.',
-          'You kiss her. Her lips are smooth and warm, and she makes a soft sound of startled whirring, like a music box opening.',
+          'You kiss her. Her lips are smooth and warm, and she makes a soft, startled whirr, like a clock that has missed a beat and is not sorry.',
         ],
         next: 'night',
       },
@@ -591,12 +591,12 @@ FL.addCharacter({
           "@seven:surprised Error — sensory overload — no, not error, *not* error, please continue — please —",
           "Her joints hum. The glowing bees overhead pulse faster and brighter in time with her heartbeat. She's warm everywhere you touch her, then warmer. When she finally loses her careful precision entirely, she laughs, a strange, clicking, wonderful laugh, and says *this was not in any of the fourteen books*. You both laugh until the clockwork duck starts quacking in alarm...",
           "...",
-          "Afterward she lies with her head on your chest, listening.",
+          "Afterward she lies curled against you, one porcelain palm spread flat over your heart, listening.",
           "@seven Your heart and mine. They are ticking at the same rate now. One hundred and four beats per minute.",
           "@seven I believe the Professor would call that \"synchronization.\"",
           "@seven:smug I believe *you* would call it something else.",
           "@you What would you call it?",
-          "She thinks about it for a long time.",
+          "She thinks about it. Her eyes flicker through every word she knows, discarding them one by one.",
           "@seven:happy Home.",
         ],
         end: true,
@@ -621,7 +621,7 @@ FL.addCharacter({
       },
       bias: {
         text: [
-          "She considers this for a long moment, eyes flickering.",
+          "Her eyes flicker through what sounds like several hundred calculations.",
           "@seven:surprised Bias as the correct result. That contradicts every principle of the scientific method.",
           "@seven:happy ...I accept it.",
           "She writes at the bottom of the page in neat copperplate: *Conclusion: wonderful. Bias: total. Correct.* Then she closes the notebook and smiles, a little crooked and completely real.",
@@ -701,7 +701,7 @@ FL.addCharacter({
           "Her eyes flare so bright that the people around you on the hill turn to look.",
           "@seven:happy A *field study.* You are proposing a field study. Of the stars. And the world. And —",
           "She takes your face in both porcelain hands.",
-          "@seven:blush — and of *this.* Further study required, for the rest of our lives. You wrote it. I am holding you to it. I accept. I accept. I *accept.*",
+          { if: 'seven_conclusion', text: "@seven:blush — and of *this.* Further study required, for the rest of our lives. You wrote it. I am holding you to it. I accept. I accept. I *accept.*", else: "@seven:blush — and of *this.* Further study required, for the rest of our lives. I am writing it down so that you cannot take it back. I accept. I accept. I *accept.*" },
           "She kisses you, and the device chimes, and another star falls exactly where she said it would.",
         ],
         next: 'study_epilogue',
@@ -709,7 +709,8 @@ FL.addCharacter({
       study_epilogue: {
         text: [
           '*Some time later...*',
-          "You leave Clichéton in the spring, with a cart full of instruments, a duck in a hat, a dog called Variable and a crate of notebooks.",
+          "You leave Clichéton in the spring, with a cart full of instruments, a duck in a hat and a crate of notebooks.",
+          { if: 'seven_dog', text: "Variable the dog rides on top of the crate and licks Seven's hand at every milestone. She records each one. *Wet. Unpleasant. Again, please.*" },
           "The first Starfall finds you on a glacier in the Frostspine Mountains, half frozen and laughing, while Seven, wrapped in nine blankets for the sake of her joints, records every falling star. The second finds you on the Sunken Coast. The third, the Glass Desert, where the sand sings at night and Seven sings back, in A-sharp.",
           "On the fourth year, following a rumor of clockwork bells ringing in the snow, you find a monastery high in the far north, and inside it, half buried in blueprints and very surprised to see you, a small elderly gnome named Ambrose Gearwright.",
           "He looks up from his workbench at Seven, and at you, and at the way she's holding your hand, and he drops his spanner.",
@@ -728,9 +729,11 @@ FL.addCharacter({
           "@you I know. Neither do I.",
           "She stares at the dark device. Her own heart is ticking very fast in its little glass window.",
           "@seven:sad I have measured everything since the day I was built. I do not know how to not know.",
-          "@you You did it once. In tag. And on the day your spring broke, you knew where the spare was, and you didn't tell me. You didn't calculate. You just chose.",
-          "She is quiet for a long time. Then she takes her notebook out of the compartment in her wrist, looks at it, and closes it, and puts it away.",
-          "A star falls. It falls nowhere she expected. It is the most beautiful thing she has ever seen, and she *gasps,* a real gasp, startled and delighted, like a child at a firework.",
+          { if: ['seven_tag', 'seven_stayed'], text: "@you You did it once. In tag. And on the day your spring broke, you knew where the spare was, and you didn't tell me. You didn't calculate. You just chose." },
+          { if: ['seven_tag', '!seven_stayed'], text: "@you You did it once. In tag. You didn't calculate. You just chose to let the game keep going." },
+          { if: ['seven_stayed', '!seven_tag'], text: "@you You did it once. On the day your spring broke, you knew where the spare was, and you didn't tell me. You didn't calculate. You just chose." },
+          "For once, she does not count the silence. Then she takes her notebook out of the compartment in her wrist, looks at it, and closes it, and puts it away.",
+          "A star falls. It falls nowhere she expected. It is the most beautiful thing she has ever seen, and she *gasps,* a real gasp, startled and delighted, with no number in it at all.",
           "@seven:happy *Oh.* Oh, I didn't know where it was going to go! I didn't — {name}, I didn't *know!*",
           "She kisses you, unmeasured, under a sky full of stars that no one has predicted.",
         ],

@@ -194,7 +194,7 @@ FL.addCharacter({
     gardens: {
       start: {
         text: [
-          'The Moonlit Gardens are full of nobles\' houses, and Kit walks through them the way a child walks through a sweet shop: wide-eyed, slow, mentally pricing every window latch.',
+          'The Moonlit Gardens are ringed by nobles\' houses, and Kit walks through them the way a child walks through a sweet shop: wide-eyed, slow, mentally pricing every window latch.',
           "@kit:smug That one's got a broken shutter. That one keeps the spare key under a frog. That one's *dog* is a *liar.*",
           'Then she sees the fountain. It is full of fat, glittering orange koi, gliding under the lily pads in the moonlight.',
           '@kit:surprised ...',
@@ -242,8 +242,8 @@ FL.addCharacter({
         text: [
           'The gulls attack in force. You stand your ground at the end of the pier, waving your paper cone like a sword. Feathers fly. Gulls retreat. Not a single piece of fish is lost.',
           "@kit:surprised You — you *fought the birds!* For *my fish!*",
-          'She looks at you as though you\'ve just slain a dragon on her behalf.',
-          '@kit:blush Nobody\'s ever fought the birds for me. I always have to fight the birds by myself.',
+          'She looks at you the way she usually looks at the fish stall.',
+          '@kit:blush I always fight the birds by myself. Always. Every fish of my whole life.',
           'You sit at the very end of the pier with your legs over the water and watch the sun go down, and she leans against you and purrs, and every so often hisses at a gull to keep the treaty fresh.',
         ],
         aff: 6,
@@ -287,7 +287,7 @@ FL.addCharacter({
       },
       nap: {
         text: [
-          'You lie back on the blanket in the warmest patch of sun. Kit looks at you for a long moment, then crawls over and curls up on your chest, exactly like a cat that has located the best spot in the house.',
+          'You lie back on the blanket in the warmest patch of sun. Kit\'s ears swivel toward you. She studies you the way she studies an unguarded window, then crawls over and curls up on your chest, exactly like a cat that has located the best spot in the house.',
           "@kit:blush Mmmrrr... this is the warm spot. You're the warm spot. You were the warm spot all along...",
           'She is purring before she finishes the sentence. She is asleep thirty seconds later.',
           'A butterfly lands on her ear. Her ear twitches. She doesn\'t wake. You don\'t move for two hours, and you would not have traded those two hours for anything in Clichéton.',
@@ -340,7 +340,7 @@ FL.addCharacter({
         text: [
           'You chase her through the market, over a fruit cart, under a horse, and up a drainpipe. She is *much* better at this than you.',
           'Eventually you find her sitting on a rooftop, swinging her legs, tossing your coin purse up and down.',
-          '@kit:smug Nyahaha! You\'re slow but you\'re *stubborn!* Nobody\'s ever chased me this far before! That\'s worth something!',
+          '@kit:smug Nyahaha! You\'re slow but you\'re *stubborn!* You made it past the third drainpipe! Normal people give up at the second! That\'s worth something!',
           'She tosses the purse back to you. It\'s lighter than before.',
           '@kit:smug I kept a finder\'s fee. For the cardio.',
         ],
@@ -535,7 +535,7 @@ FL.addCharacter({
           "@kit:blush Do that again. Do that *again.* — Don't stop, don't you *dare* stop, I'll steal everything you own —",
           "At one point you knock over a stolen candelabra and she has to put out a very small fire with a stolen tablecloth. Then she climbs back on top of you, purring loud enough to rattle the shiny things on the shelves, and nothing in the attic gets any quieter for a long time...",
           "...",
-          "Afterward she curls up on your chest like a cat in a sunbeam, purring softly, her tail draped over your legs.",
+          "Afterward she curls up in the crook of your arm like a cat in a sunbeam, purring softly, her tail draped over your legs.",
           { if: 'kit_drawing', text: 'On the wall above you, the charcoal sketch of you laughing watches the candles burn down. Since you last saw it, she has drawn a tiny heart in the corner.' },
           "@kit Hey. {name}.",
           "@you Mm?",
@@ -620,7 +620,7 @@ FL.addCharacter({
       epilogue: {
         text: [
           '*Some time later...*',
-          'Kit goes legitimate. Mostly. The Adventurers\' Guild hires her as their first ever "Recovery Specialist," retrieving stolen goods from people who stole them first. She is spectacularly good at it. Mira hates her paperwork.',
+          'Kit goes legitimate. Mostly. The Adventurers\' Guild hires her as their first ever "Recovery Specialist," retrieving stolen goods from people who stole them first. She is spectacularly good at it. Mira, at the front desk, hates her paperwork.',
           'The orphans at the old mill get a real roof, warm beds, and a lot of very mysterious anonymous donations. One of the kittens there grows up into a very fat, very smug tomcat named Kit Junior.',
           'You live together above the old hatmaker\'s, in an attic full of cushions and shiny things. She still steals your socks. She still naps in every patch of sunlight. She still wakes you at dawn by sitting on your chest.',
           { if: 'kit_drawing', text: 'The charcoal sketch of you laughing hangs above the bed now, in a real frame she bought with real money from a real shop, an experience she describes as "deeply uncomfortable" and "worth it."' },
@@ -650,7 +650,7 @@ FL.addCharacter({
           '*Some time later...*',
           'Clichéton gets a new legend. They call it the Phantom Paws: a pair of thieves who only rob people who deserve it, and who always leave a calling card behind. A paw print in pink chalk, and beside it, in very tidy handwriting, an itemized list of everything taken and exactly who it is being returned to.',
           'Lord Pomfrey\'s vault is emptied in a single night. The next morning, half the town finds its "back taxes" on its doorsteps, wrapped in brown paper. Granny Hobb receives a new roof. Lord Pomfrey receives a fish.',
-          'The guard captain puts up wanted posters. The drawing of Kit has a mustache again. The drawing of you is, everyone agrees, extremely flattering. Kit is furious about this for a month.',
+          'Captain Brassbuckle puts up wanted posters. The drawing of Kit has a mustache. Kit does not have a mustache. The drawing of you is, everyone agrees, extremely flattering. Kit is furious about this for a month.',
           'You do the planning. She does the climbing. You both do the running, usually laughing, usually with somebody shouting behind you. She has never once let you fall. You have never once let her get wet.',
           'The orphans at the old mill get a real school, with books and a very tall climbing wall. Their anonymous benefactor is listed in the town records as *A. Cat.* Nobody asks questions. The few who do find their purses mysteriously returned, with a polite note.',
           'By day you sleep tangled in the cushions of the attic above the hatmaker\'s, surrounded by shiny things that each meant something to somebody. The locket hangs over the bed now, where you can both see it.',

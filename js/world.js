@@ -16,7 +16,7 @@
   FL.addSpeaker('gnarlbit', 'Gnarlbit the Imp', '#ff8f6b');
   FL.addSpeaker('stranger', '???', '#a35cff');
   FL.addSpeaker('prophet', 'Old Ebbe, Prophet of Doom', '#9b8ec4');
-  FL.addSpeaker('warden', 'Temple Warden', '#e6d9a8');
+  FL.addSpeaker('warden', 'Old Sacristan', '#e6d9a8');
   FL.addSpeaker('captain', 'Captain Brassbuckle', '#c98b4a');
   FL.addSpeaker('pindle', 'Pindle the Imp', '#ff9d7a');
   FL.addSpeaker('darklord', 'The Dark Lord', '#b9a6ff');
@@ -144,7 +144,7 @@
     open: [0, 1, 2],
     shop: true,
     desc: [
-      'Stalls unfold like flowers along Market Street: fruit, fabric, flasks of suspicious potions. Marigold\'s Flower Shop glows with color on the corner.',
+      'Stalls unfold like flowers along Market Street: fruit, fabric, flasks of suspicious potions. Marigold\'s Flower Shop glows with colour on the corner.',
       'The market is packed. A butcher shouts prices. A pickpocket with a tail is very obviously not pickpocketing anyone.',
       'Most stalls are closing, but the lantern-lit ones selling sweets, perfume and "romantic gifts" are doing brisk business.',
     ],
@@ -198,7 +198,7 @@
     icon: '⛪',
     desc: [
       'White marble and golden light. Morning prayers echo under the dome, and the air smells of incense and fresh bread from the soup kitchen.',
-      'The temple is peaceful in the afternoon. Sunlight paints stained-glass colors across the pews.',
+      'The temple is peaceful in the afternoon. Sunlight paints stained-glass colours across the pews.',
       'At night the temple is lit by a thousand candles. The statue of the Goddess of Love seems almost to be smiling. Almost smirking, actually.',
     ],
     activities: [
@@ -295,7 +295,7 @@
     name: 'Whisperwood Forest',
     icon: '🌲',
     desc: [
-      'Mist curls between ancient trees. Birds sing. A path leads deeper toward a hidden elven glade, and a crooked chimney puffs colored smoke somewhere off to the left.',
+      'Mist curls between ancient trees. Birds sing. A path leads deeper toward a hidden elven glade, and a crooked chimney puffs coloured smoke somewhere off to the left.',
       'Sunlight filters green-gold through the canopy. Somewhere a wolf howls — a little too cheerfully.',
       'The forest at night is all silver moonlight and glowing mushrooms. Eyes gleam in the undergrowth. Some of them seem friendly.',
     ],
@@ -539,7 +539,7 @@
         '@prophet REPENT! The Dark Lord awakens SOON! The stars shall be stolen from the sky! The festival shall end in DARKNESS! And possibly a light drizzle!',
         'Nobody looks up. A fishwife steps around him the way you step around a puddle. A child offers him half a bun, which he accepts with great dignity, mid-doom.',
         'At the foot of the bucket, curled in the only patch of sun in the whole square, a scruffy black cat is asleep with the total commitment of someone who has never had a single obligation in its life.',
-        { if: { ngplus: 1 }, text: 'As you pass, the cat opens one yellow eye, studies you for a long moment, and closes it again, with the air of someone who has decided you are a rerun.' },
+        { if: { ngplus: 1 }, text: 'As you pass, the cat opens one yellow eye, flicks an ear at you, and closes it again, with the air of someone who has decided you are a rerun.' },
       ],
       choices: [
         { text: '"When, exactly, is *soon*?"', go: 'soon' },
@@ -732,7 +732,7 @@
     },
     cakes: {
       text: [
-        'You hold out a honey cake. The imp stares at it for a very long moment, as though it might be a trap. Then he takes it, very carefully, with both hands, and eats it in tiny, reverent bites.',
+        'You hold out a honey cake. The imp sniffs it from a safe distance, tail twitching, as though it might be a trap. Then he takes it, very carefully, with both hands, and eats it in tiny, reverent bites.',
         'His eyes are wet by the end.',
         '@pindle Nobody gives imps *cake.* They give us orders. And sometimes a boot.',
         '@pindle I\'m Pindle. Junior Underling, Fourth Class, Department of Skulking. Don\'t tell anyone I told you my name. Names are a whole thing down there.',
@@ -840,7 +840,7 @@
         'Then the air goes cold. The imps freeze.',
         'On the rooftop above stands a tall figure in a hooded cloak, two great curling horns jutting through the hood. Her eyes glow like coals.',
         '@stranger Enough. Go home. All of you. *Now.* We will discuss "subtle reconnaissance" later.',
-        'The imps flee into the rift. The figure looks down at you, soaking wet in the fountain, for a long moment.',
+        'The imps flee into the rift. The figure looks down at you, soaking wet in the fountain, her head tilted like a cat considering a beetle.',
       ],
       next: 'watcher2',
     },
@@ -927,7 +927,7 @@
     cat: {
       text: [
         'It is. It must be. The same scruffy black cat from the square is curled up on the velvet altar cushion, in a slant of sunlight from the brand-new hole in the roof, sound asleep.',
-        '@warden It was there when we came in. It\'s been there ever since. It slept through the bells. Brother Pim tried to move it. Brother Pim is lying down now.',
+        '@warden It was there when we came in. It\'s been there ever since. It slept through the bells. Brother Osric tried to move it. Brother Osric is lying down now.',
         { if: { any: ['plot_cat_fed', 'plot_cat_petted'] },
           text: 'As you approach, the cat opens one eye, recognizes you, and — slowly, deliberately — turns its head to stare at a scrap of parchment wedged under the altar candlestick. Then it goes back to sleep. You get the very distinct feeling you have been *helped.*',
           else: 'The cat does not acknowledge you in any way. But its tail is curled, very precisely, around a scrap of parchment wedged under the altar candlestick.' },
@@ -1061,7 +1061,7 @@
     },
     dock_badge: {
       text: [
-        'You flash the badge. The heavies lean in to read it. One of them reads *(PROBABLY)* aloud, slowly, and they both have to sit down for a while from laughing.',
+        'You flash the badge. The heavies lean in to read it. One of them reads *(PROBABLY)* aloud, slowly, and they both fold over their crates, wheezing, with tears in their eyes.',
         'While they\'re wiping their eyes, you walk right past them.',
       ],
       next: 'dock_in',
@@ -1071,7 +1071,7 @@
         'Inside, under a tarpaulin the size of a mainsail, is a jar.',
         'It is the biggest jar you have ever seen: green glass, thick as a castle wall, tall enough to stable a horse in. Painted on its side, in loving detail, is the face of a demon with four polished horns and a small, smug, carefully trimmed beard, smiling at you from every angle.',
         'A shipping label is tied around its neck: *THE GRAND AMPHORA OF UNCONDITIONAL ADORATION. FRAGILE. THIS WAY UP. PROPERTY OF LD. BAALGRIM, DUKE OF THE FOURTH PIT. IF FOUND, DO NOT OPEN. YOU ARE NOT WORTHY.*',
-        { if: { met: 'malzahra' }, text: 'Baalgrim. You know that name. Malzahra said it, in her tower, over very bad tea: one of the council who call her "the young queen."' },
+        { if: { stage: 2, who: 'malzahra' }, text: 'Baalgrim. You know that name. Malzahra said it, in her tower, over very bad tea: one of the council who call her "the young queen."' },
         'The lid hangs from a single enormous brass hinge: the kind of fiddly, overengineered fitting that looks magnificent and could be jammed by almost anything small and pointy.',
         'By the time you come back with help, the warehouse is empty except for a fresh tunnel in the floor and a lingering smell of expensive cologne.',
       ],
@@ -1083,7 +1083,7 @@
         'You hit the side door with everything you\'ve got. The door is unmoved. You are moved, quite a long way, backwards, into a stack of lobster pots.',
         'The heavies laugh so hard that they don\'t notice you crawl round the back and put your eye to a knothole.',
         'Inside: a jar the size of a cottage, under a tarpaulin. You can just make out the shipping label: *...PROPERTY OF LD. BAALGRIM, DUKE OF THE FOURTH PIT...*',
-        { if: { met: 'malzahra' }, text: 'Baalgrim. You know that name. Malzahra said it, in her tower, over very bad tea.' },
+        { if: { stage: 2, who: 'malzahra' }, text: 'Baalgrim. You know that name. Malzahra said it, in her tower, over very bad tea.' },
         'You smell of lobster for the rest of the day. It feels like progress.',
       ],
       flag: 'plot_lead_docks',
@@ -1155,7 +1155,7 @@
         '@narrator Also — and I only mention it because it\'s *mine* — somebody has stolen my Lens.',
         'For the first time, the smile slips a little.',
         '@narrator Every Starfall I tip the stars out of the sky, and the Lens catches them and lays them down over that silly little hill, so that everyone watching together gets... well. *Bound.* That\'s the bit everyone likes.',
-        '@narrator Without it, the stars go wherever the Lens is pointed. And whoever has it is pointing it at a *jar.* A ten-thousand-year-old miracle, {name}, and somebody wants to keep it on a *shelf.*',
+        '@narrator Without it, the stars go wherever the Lens is pointed. And whoever has it is pointing it at a *jar.* A four-hundred-year-old miracle, {name}, and somebody wants to keep it on a *shelf.*',
         '@narrator And before you ask: no, I can\'t just reach down and smite him. Gods have rules. Very frustrating rules. I\'ve drafted a complaint.',
         { if: 'plot_deputized', text: '@narrator But *you* have a badge! A tin one, with *(probably)* scratched on it. I have never been so reassured in my immortal life.' },
       ],
@@ -1195,7 +1195,7 @@
       text: [
         '@narrator Visit my temple at night. Bring something nice. Or don\'t. I\'ll know either way. I\'m omniscient. Mostly.',
         'You wake with a rose petal on your pillow.',
-        { if: 'plot_thread_dream', text: 'It\'s pressed perfectly flat and a little faded, like something that has been kept between the pages of a book for a very long time.' },
+        { if: 'plot_thread_dream', text: 'It\'s pressed perfectly flat and a little faded, like something that has been kept between the pages of a book and taken out to be looked at more often than was good for it.' },
         '*Amorette can now be found at the Temple in the evening.*',
       ],
       end: true,
@@ -1286,7 +1286,7 @@
         '@baalgrim The young queen is *irrelevant.* After Starfall she will love me too. Everyone will. They will all be glad to see me. It will be very... very...',
         'He trails off. Something oddly wistful crosses his face, and then it\'s gone.',
         '@baalgrim ...nice.',
-        'The sneer comes back. The purse goes back into his coat. He vanishes in a pillar of green.',
+        'The sneer comes back. The purse goes back into his coat. He vanishes in a sulky little puff of green.',
       ],
       end: true,
     },
@@ -1399,19 +1399,19 @@
   const PLEDGES = {
     fenna: '@fenna:angry Bad demon wants to steal the stars? Fenna will bite him. Fenna will bite him a LOT. ...Fenna also brought you a stick. Good stick. For luck.',
     valeria: '@valeria:smug A duke who wishes to be adored by everyone at once. How *gauche.* I shall attend, little mortal. Nobody steals the night but me.',
-    sylvaine: '@sylvaine I watched the first Starfall from this hill when it was a mountain. I should like to see the next one. I have brought four books on demonic contract law and a very sharp letter opener.',
+    sylvaine: '@sylvaine I have watched nine hundred and twelve Starfalls from this hill. I should like to see the next one. I have brought four books on demonic contract law and a very sharp letter opener.',
     mira: '@mira:angry I have filed Form 88-B, Request for Guild Assistance Against Demonic Larceny. In triplicate. Not for YOU! For the — the *stars!* Somebody has to look after the stars!',
     marigold: '@marigold:happy Someone wants to make *everyone* love him? Oh, that isn\'t how love works at all! ♡ I\'ll bring my pruning knife. For *weeds.*',
     shade: '@shade I will be on the roof. You will not see me. That is the point. ...I will be there.',
     pell: '@pell:blush I f-found three books on binding enchantments, and one on how to say no to dukes. I underlined the good parts. For you. In pencil. So it doesn\'t count as vandalism.',
     kit: '@kit:happy A HEIST?! A real one, with a jar and a villain and everything?! Nyahaha! Leave the lid to me — I\'ve never met a lock I couldn\'t talk round!',
     malzahra: '@malzahra:angry He forged my seal. He stole a holy relic in MY name. He told my imps to loot a *bakery.* Ten thousand imps await your word, hero. Gnarlbit has made banners.',
-    celestine: '@celestine That Lens belongs to the Goddess! I shall pray for you, and bless your boots, and — I\'ve been practising a very stern face. Look. ...Was that stern? Be honest.',
+    celestine: '@celestine That Lens belongs to the Goddess! I shall pray for you, and bless your boots, and — I\'ve been practising a very stern face in the font. The novices say it looks like a disappointed duckling. I\'m told that\'s progress.',
     brakka: '@brakka:happy TINY HUMAN goes to fight demon duke? Brakka comes too! Brakka will carry the jar! Brakka will carry the *duke!*',
     ignivara: '@ignivara:angry He wants to hoard the *stars?* Stars are the one treasure even I leave in the sky. The presumption! I\'ll scorch the shine right off his horns.',
     lilette: '@lilette:blush Mind-binding love magic is literally my field of study! I failed it. But I know exactly what NOT to do, and that\'s half of it, right?',
     hilde: '@hilde That jar\'s enchanted, aye? Every enchantment\'s got a seam. Find me the seam and I\'ll find you a hammer.',
-    coralie: '@coralie:surprised He wants to put the *stars* in a *jar?* Like a fish in a bowl? That\'s so sad! Daddy\'s navy is three seahorses, but they are very brave!',
+    coralie: '@coralie:surprised He wants to put the *stars* in a *jar?* Like a fish in a bowl? That\'s so sad! I can\'t bring Daddy\'s guards, because I\'m not supposed to be up here. But I can bring a crab! A very brave crab!',
     morwen: '@morwen:happy I brewed something for the fight! It\'s either a demon repellent or a very strong soup. Either way, throw it at him.',
     aurelia: '@aurelia Hypothetically, a woman who knows nothing whatsoever about royal politics might know that a duke who wants a throne always says so, loudly. I\'ll write to... a friend. At court. Who I don\'t have.',
     bettina: '@bettina:smug Ara, ara. A grown demon throwing a tantrum because nobody loves him? Sweetie, I run a tavern. I deal with that every Friday.',
@@ -1421,14 +1421,14 @@
     rosalind: '@rosalind:smug OHOHOHO! A villain with no taste, no style and no *invitation?* Unforgivable. This town has room for exactly one magnificent villain, and it is *me.*',
     seven: '@seven Calculation: the probability of success rises eleven percent with my presence. I would like to be present. ...That was a feeling. I have filed it.',
     ophelia: '@ophelia:sad I have been dead for two hundred years and I have never once missed a Starfall. I am not missing one for a *duke.* I shall haunt him. Thoroughly. With pathos.',
-    scarlett: '@scarlett:happy Stealin\' the stars? That\'s my trade, and even I\'ve got standards. The *Crimson Gale* sails for you, love. Cannons and all.',
+    scarlett: '@scarlett:happy Stealin\' the stars? That\'s my trade, and even I\'ve got standards. The *Crimson Tide* sails for you, love. Cannons and all.',
     amorette: '@amorette:angry That\'s my Lens he stole, darling. My *stars.* I can\'t smite him — there are rules — but nobody said I couldn\'t narrate him *very* unflatteringly.',
-    kohana: '@kohana:smug A demon duke in a disguise? How *quaint.* Fufu. Leave the masks to the professional, little one. On the night, I shall be whoever he least expects. Possibly him.',
+    kohana: '@kohana:smug A demon duke in a disguise? How *quaint.* Mm-hm-hm. Leave the masks to the professional, dumpling. On the night, I shall be whoever he least expects. Possibly him.',
     sesha: '@sesha:blush I\'m not very good at fightsss — at fights. But I\'m very good at holding things very, very ssstill. Jars. Dukes. Whatever you need.',
     sigrun: '@sigrun:happy A battle on the eve of Starfall! Against a DUKE OF HELL! Oh, little warrior, you could die so GLORIOUSLY — no. No. I mean: I will guard your back. And you will live. I am practising saying that.',
     thistle: '@thistle:smug I shall help you, mortal. No — that is not a bargain. Write that down. It is *not* a bargain. ...It is a gift. How very peculiar.',
     lyra: '@lyra:happy "The Ballad of {name} and the Duke of Doom"! I\'ve got the first verse, the chorus and a key change. I just need you to win so I can write the ending.',
-    maud: '@maud:happy HA! A demon! Defiling the Goddess\'s own festival! Mercy and I shall be there, and Mercy has been *very* bored.',
+    maud: '@maud:happy HA-HAAA! A demon! Defiling the Goddess\'s own festival! Mercy and I shall be there, and Mercy has been *very* bored.',
     vespera: '@vespera:smug I refuse to let some horned buffoon defeat you before *I* do. Ledger entry: "Assisted rival against Duke of Hell. Points pending."',
     zyra: '@zyra:happy A heist? Babe, that is *so* mythic. I was literally trained for this. Since birth. No curse.',
   };
@@ -1472,7 +1472,7 @@
           t.push(pledgeLine(id));
           if (i === 5 && met.length > 8) t.push('They keep coming. Somebody has to fetch more chairs. Somebody else has to fetch more cheese.');
         });
-        if (met.length >= 12) t.push('By the end there are people sitting on the windowsills, the barrels and each other. The landlady\'s cat has given up its seat. The room smells of steel, perfume, brimstone and cheese.');
+        if (met.length >= 12) t.push('By the end there are people sitting on the windowsills, the barrels and each other. The scruffy black cat from the square has given up its seat. The room smells of steel, perfume, brimstone and cheese.');
         else if (met.length >= 4) t.push('By the end every chair in the room is taken, and two of them are being argued over.');
         else t.push('It isn\'t an army. But it is a table full of people who came because you asked, and that turns out to matter more than you expected.');
         return t;
@@ -1538,7 +1538,7 @@
         { if: { any: ['plot_heard_herald', 'plot_jar_plans', 'plot_danced_baalgrim', 'plot_pindle_friend'] },
           text: 'You already know what the light means. The Herald Star crosses the sky on the twenty-eighth. That\'s the night.',
           else: [
-            'At the Temple, the old warden has been doing sums on the back of a hymn sheet. He catches your sleeve as you pass.',
+            'At the Temple, the old sacristan has been doing sums on the back of a hymn sheet. He catches your sleeve as you pass.',
             '@warden The Herald Star crosses on the twenty-eighth, deputy. Two nights before the festival. Whoever holds the Lens when it passes overhead can lock it, and aim every star that falls after. If you mean to stop him, that\'s your night.',
           ] },
         '@narrator Five days left, darling. Whoever you\'re thinking of right now? That\'s probably your answer.',
@@ -1574,7 +1574,7 @@
     },
     fork: {
       text: [
-        'You hand over three coppers. The vendor places the fork in your palm with great ceremony, as if it were a sword pulled from a stone.',
+        'You hand over three gold coins. The vendor places the fork in your palm with great ceremony, as if it were a sword pulled from a stone.',
         'It is a fork.',
         '@narrator Oh, not the *fork.* Every time. Every single time. ...Actually, you know what? Keep it. I have a feeling.',
       ],
@@ -1645,7 +1645,7 @@
         { if: { met: 'shade' }, text: 'The guards on the stair go quiet, one by one. You never see Shade. You only see the imps afterwards, tied up neatly in a row, each with a small note pinned to its chest: *Not fatal. —S.*' },
         { if: { met: 'valeria' }, text: ['@valeria:smug Go on, little mortal. I shall entertain the rabble.', 'A storm of bats pours past you, and the imps on the battlements discover that they are very, very afraid of the dark after all.'] },
         { if: { met: 'ignivara' }, text: 'A shadow blots out the Herald Star for one glorious second, and a jet of crimson flame turns every green banner on the tower into ash. "NOBODY HOARDS THE SKY!" roars Ignivara, wheeling away overhead. "IT\'S *TACKY!*"' },
-        { if: { met: 'scarlett' }, text: 'A ship\'s cannon booms from the harbor, and a grappling line thunks into the battlements beside you. Scarlett\'s voice carries all the way from the *Crimson Gale*: "Climb, love! I\'ll keep \'em ducking!"' },
+        { if: { met: 'scarlett' }, text: 'A ship\'s cannon booms from the harbor, and a grappling line thunks into the battlements beside you. Scarlett\'s voice carries all the way from the *Crimson Tide*: "Climb, love! I\'ll keep \'em ducking!"' },
         { if: { met: 'hilde' }, text: ['Hilde rams a wedge into the tower\'s winch and bangs it home in three short strokes.', '@hilde Nobody\'s hauling anything else up there tonight. You\'re welcome.'] },
         { if: { met: 'gloria' }, text: 'Under your feet, the tunnels gurgle. Somewhere below, a dozen imps yelp in unison as something large, green and extremely friendly fills the passage. "Hiii! You\'re all under arrest! I think! *Bloop!*"' },
         { if: { met: 'brunhild' }, text: ['@brunhild FOR HONOR! AND FOR ALL ONE HUNDRED AND TWELVE TENETS!', 'She charges up the stair in full plate, and the imps, never having met anyone who says *tenets* in battle, simply get out of her way.'] },
@@ -1692,7 +1692,7 @@
           '@baalgrim ...That is *monstrous.* I am almost impressed.',
         ] },
         { if: 'plot_defied', text: '@baalgrim "I\'m going to stop you," you said. In the square. I have thought about it every night since. I have composed fourteen comebacks. Here is the best one: NO.' },
-        { if: 'plot_danced_baalgrim', text: '@baalgrim And you *danced* with me. You were very kind about my footwork. Do you know how long it has been since anyone was kind about my footwork? It makes this so much more *tragic.*' },
+        { if: 'plot_danced_baalgrim', text: '@baalgrim And you *danced* with me. You were very kind about my footwork. Nobody has been kind about my footwork since the Third Pit Cotillion, nine hundred years ago. It makes this so much more *tragic.*' },
         '@baalgrim Do you know what it is like, deputy? Two thousand years as High Treasurer of the Underrealm. Two thousand years of being *feared.* Bowed to. Fled from. Not ONE birthday card.',
         { if: 'plot_lead_sewers', text: 'You know. You\'ve read Draft 22. You decide not to mention the little drawn heart.' },
         '@baalgrim The young queen gets *songs.* The young queen gets a *fan club.* And the prophecy — THE prophecy, the one every mortal fool in this town has been muttering for four hundred years — "the Dark Lord awakens soon" — well, HERE I AM! Dark! A lord! And AWAKE! I have been awake since FIVE! I am a *morning* demon!',
@@ -1764,7 +1764,7 @@
     },
     win_fork: {
       text: [
-        'You walk up to the Grand Amphora of Unconditional Adoration — ten thousand gold crowns of infernal engineering, enchanted glass as thick as a castle wall — and jam an ordinary three-copper dinner fork into its lid hinge.',
+        'You walk up to the Grand Amphora of Unconditional Adoration — ten thousand gold crowns of infernal engineering, enchanted glass as thick as a castle wall — and jam an ordinary three-gold dinner fork into its lid hinge.',
         { if: 'plot_lead_docks', text: 'You knew it, from the moment you saw that hinge in warehouse nine. Fiddly. Overengineered. Vulnerable to cutlery.' },
         'The Herald Star reaches its height. The Lens locks. The jar\'s great brass lid tries to swing shut on its prize, hits the fork, and stops.',
         'There\'s a long, high, very expensive creak. Then the Grand Amphora cracks from top to bottom, and a fountain of harmless silver starlight sprays out into the night like champagne.',
@@ -1778,7 +1778,9 @@
     },
     win_queen: {
       text: [
-        'You don\'t step in front of her. You step *beside* her, the way you did once before, and put your hand on her shoulder.',
+        { if: 'malzahra_beside',
+          text: 'You don\'t step in front of her. You step *beside* her, the way you did once before, and put your hand on her shoulder.',
+          else: 'You don\'t step in front of her. You step *beside* her, and put your hand on her shoulder.' },
         'Malzahra looks at you. Then she looks at Baalgrim. She doesn\'t bother with a monologue.',
         'She raises one hand, and every shadow on the roof rises with it.',
         '@malzahra:angry You forged my seal, Baalgrim. You stole a holy relic in my name. You put your *face* on my *banners.* And you touched my *doormat.*',
@@ -1802,7 +1804,7 @@
         '@darklord THE DARK LORD... AWAKENS.',
         '@darklord ...WHO IS MAKING ALL THIS NOISE.',
         { if: 'plot_lead_library', text: '*He knocks things off high places,* says the footnote in your memory.' },
-        'One enormous paw comes down, very gently, and lifts you back onto the roof. Then the same paw reaches out, considers the Grand Amphora for one long, unhurried moment —',
+        'One enormous paw comes down, very gently, and lifts you back onto the roof. Then the same paw reaches out and pats the Grand Amphora, once, experimentally —',
         'and knocks it off the tower.',
         'Lord Baalgrim, who is holding onto the jar\'s lid, goes with it, shrieking all the way down into the Old Watchtower\'s duck pond. The Starfall Lens, knocked loose from its tripod, falls straight into your arms.',
         { if: 'plot_cat_fed', text: 'The vast moon-eyes look down at you for a moment. You get the distinct impression that they remember a fish.' },
@@ -1844,7 +1846,7 @@
     fate_queen: {
       text: [
         'Malzahra takes him by one horn, like a schoolteacher taking a boy by the ear.',
-        '@malzahra:smug The council will hear of this, Baalgrim. And then you will spend a very long time thinking about what you have done.',
+        '@malzahra:smug The council will hear of this, Baalgrim. And then you will have several centuries to think about what you have done.',
         { if: { seenEnding: 'malzahra' }, text: '@malzahra I have been thinking about the goats. I feel the goats would be good for you.', else: '@malzahra I shall find you something humble to do. Something with animals, perhaps.' },
         '@baalgrim Not the *goats.*',
         'He is led away down the stairs, still protesting, and with every step he looks a tiny bit relieved.',
@@ -1878,7 +1880,7 @@
           'Then it\'s a cat again, and asleep.',
         ] },
         'You carry the Starfall Lens down the tower stairs, through the cheering crowd, all the way across town to the Temple. It\'s heavier than it looks, and warm, as if it\'s still holding on to a little of the Herald Star.',
-        { if: { met: 'celestine' }, text: '@celestine:happy You brought it back! You actually — oh, Goddess, you brought it *back!* I\'m going to hug you. I\'m sorry. It\'s happening. It\'s already happening.', else: 'The old warden takes it from you with shaking hands, and doesn\'t say anything at all, which is the loudest thank-you you\'ve ever had.' },
+        { if: { met: 'celestine' }, text: '@celestine:happy You brought it back! You actually — oh, Goddess, you brought it *back!* I\'m going to hug you. I\'m sorry. It\'s happening. It\'s already happening.', else: 'The old sacristan takes it from you with shaking hands, and doesn\'t say anything at all, which is the loudest thank-you you\'ve ever had.' },
         { if: 'plot_promised_goddess', text: '@narrator You promised me you\'d get it back. People promise me things all the time, you know. In prayers. It\'s very different when someone actually... does it.' },
         { if: { met: 'amorette' }, text: 'Up at the top of the dome, as the Lens slides back into its silver clamps, the statue of the Goddess of Love is very clearly smiling. Not smirking. Smiling.' },
         '@narrator Two days to Starfall, darling. For once, I genuinely don\'t know how this ends.',
@@ -1967,36 +1969,36 @@
     fenna: ['Fenna learns to sit on a chair. She hates it. She goes back to the ground, which is a free chair, and is happy there for the rest of her very long, very muddy life.', '@fenna:happy Fenna has a stick and a pack and a whole forest. Fenna has *everything.*'],
     valeria: ['Countess Valeria discovers she can bear exactly one sunset a year, if it\'s a good one. She comes to every Starfall under an enormous black parasol, pretending to be bored.', '@valeria:smug I am not *enjoying* it. I am *tolerating* it. Magnificently.'],
     sylvaine: ['Sylvaine writes the history of these thirty days. It takes her two hundred years. It is the only history book in the Grand Library with a chapter called *Pies.*'],
-    mira: ['Mira is made Guild Master and reorganizes the entire filing system in a single afternoon. Adventurer mortality drops below thirty percent for the first time in recorded history.', '@mira:blush Not because I CARE! For STATISTICAL reasons!'],
+    mira: ['Mira is made Guildmaster and reorganizes the entire filing system in a single afternoon. Adventurer mortality drops below thirty percent and stays there. She has the chart framed above her desk, where nobody is allowed to see it.', '@mira:blush Not because I CARE! For STATISTICAL reasons!'],
     marigold: ['Marigold\'s flower shop wins Best in Show at the Spring Fair three years running. She knows the name, birthday and favourite flower of every single person in Clichéton. Everyone finds this lovely now. Mostly.', '@marigold:happy Everyone gets a flower! Forever! I made a list! ♡'],
     shade: ['Shade chooses a name. She won\'t tell anyone what it is yet. She practises it quietly in the mirror every morning, to see if it fits.', '@shade:blush ...It fits.'],
-    pell: ['Pell reads every book in the Grand Library, and then, having run out, writes one. It\'s a love story. It\'s *extremely* good. She hides behind it at the launch.'],
+    pell: ['Pell reads every book in the Grand Library, and then, having run out, writes one under her own name at last. It\'s a love story. It\'s *extremely* good, and only half as scandalous as Volume Nine. She hides behind it at the launch.'],
     kit: ['Kit pulls off the greatest heist in Clichéton\'s history: she steals the Starfall Lens, polishes it, and puts it back before anyone notices. Nobody believes her. She doesn\'t mind in the slightest.', '@kit:smug Nyahaha! The *perfect* crime!'],
     malzahra: ['The Dread Queen Malzahra gets her lands, her treaty, and a monologue so good that the whole Underrealm learns it by heart. Gnarlbit weeps at every performance.', '@malzahra:happy MWAHAHAHA! ...That one was menacing. Do not answer. I *know* it was.'],
-    celestine: ['Sister Celestine is made High Priestess, on the strength of having personally met the Goddess at Starfall and fainted only once. She confiscates a great many romance novels. She reads all of them. For research.'],
+    celestine: ['Sister Celestine is made Abbess when the old Abbess finally retires, on the strength of having personally met the Goddess at Starfall and fainted only once. She confiscates a great many romance novels. She reads all of them. For research.'],
     brakka: ['Brakka finally finds a challenge worthy of her: teaching the children of Clichéton to arm-wrestle. She loses on purpose every single time, and roars with laughter.', '@brakka:happy TINY HUMANS ARE VERY STRONG! BRAKKA IS DEFEATED! AGAIN!'],
     ignivara: ['Ignivara adds a new treasure to her hoard: one small fallen star, caught in her own claws on Starfall night. She doesn\'t count it in the mornings. She just looks at it.'],
     lilette: ['Lilette resits her final exam in Seduction and passes with honours, on the strength of a two-hundred-page essay arguing that the most seductive thing in the world is simply being kind. The examiners cried.'],
-    hilde: ['Hilde forges a blade so fine the dwarven kings send an envoy to buy it. She sends the envoy home with a meat pie and a fresh grudge, and hangs the sword over her own fireplace.'],
+    hilde: ['Hilde forges a blade so fine the Mountain King sends an envoy to buy it. She sends the envoy home with a meat pie and a fresh grudge, and hangs the sword over her own fireplace.'],
     coralie: ['Princess Coralie talks her father into opening the first-ever embassy between the sea and the land. Its first official act is a horse-viewing ceremony.', '@coralie:happy FOUR LEGS! I will *never* get used to it!'],
-    morwen: ['Morwen finally brews a potion that does exactly what it says on the label. She is so shocked that she sets her hat on fire. Croaksworth notes, for the record, that this is a personal best.'],
+    morwen: ['Morwen finally brews a potion that does exactly what it says on the label. She is so shocked that she sets her hat on fire. Sir Croaksworth notes, for the record, that this is a personal best.'],
     aurelia: ['Princess Aurelia goes back to the palace, on one condition: one night a week she pulls pints at the Tipsy Wyvern. She can count change now. She is extremely proud of it.'],
     bettina: ['The Tipsy Wyvern becomes the most famous tavern in the kingdom: partly for the stew, partly for the night a goddess drank there, and entirely because of Bettina.', '@bettina:smug Ara, ara. Sit down, sweetie. Last call is whenever I say it is.'],
     gloria: ['Gloria is awarded the Clichéton Medal for Civic Cleanliness. She absorbs it by accident during the ceremony. She is allowed to keep it.', '@gloria:happy It\'s *inside* me now! Forever! *Bloop!*'],
     hikari: ['Hikari never does get her status screen. She gets something better: a whole town of friends who will listen to her explain, at great length, why this was all actually a very well-written isekai.', '@hikari:happy Ten out of ten! Strong ending! Would get hit by an ox cart again!'],
     brunhild: ['Dame Brunhild is knighted a second time, for valor at the Battle of the Old Watchtower. At the ceremony, she giggles. Tenet forty-three is struck from the Code by royal decree.'],
-    rosalind: ['Lady Rosalind throws the most fabulous ball in the history of the kingdom, and invites everyone, including the Prince\'s fiancée, who is now her dearest friend. Rosalind still sends her rude letters. And fruit baskets.', '@rosalind:smug OHOHOHO! Villainy has never looked so *good!*'],
+    rosalind: ['Lady Rosalind throws the most fabulous ball in the history of the kingdom, and invites everyone, including Prince Cedric\'s fiancée, who is now her dearest friend. Rosalind still sends her rude letters. And fruit baskets.', '@rosalind:smug OHOHOHO! Villainy has never looked so *good!*'],
     seven: ['Seven stops counting the days since anybody needed her. There\'s no point any more; somebody always does. She keeps a different count instead: the number of times she has laughed. It is a very large number.', '@seven:happy Observation: it is still going up.'],
-    ophelia: ['Lady Ophelia finally gets past page forty-two. Somebody turns the pages for her every evening now, and she says the ending was worth waiting two hundred years for.'],
+    ophelia: ['Lady Ophelia finally gets past page forty-two. Somebody turns the pages for her every evening now. She hates the ending. She says it was not worth waiting two hundred years for, and she has never enjoyed anything more.'],
     scarlett: ['Captain Scarlett sails the whole Sapphire Sea, and every port she reaches already knows her song. She pretends to be embarrassed. She is not.', '@scarlett:happy It was me! I wrote it! Tell everyone!'],
-    kohana: ['Kohana plays the greatest trick of her long, long life: for one whole day she pretends to be nobody at all, just herself. Everybody recognizes her anyway. It\'s the best day she has ever had.', '@kohana:smug Fufu. Spiritually, that counts as another tail.'],
+    kohana: ['Kohana plays the greatest trick of her long, long life: for one whole day she pretends to be nobody at all, just herself. Everybody recognizes her anyway. It\'s the best day she has ever had.', '@kohana:smug Mm-hm-hm. Spiritually, that counts as another tail.'],
     sesha: ['The Steamwhistle Bathhouse becomes the warmest place in the kingdom, and not only because of the springs. Nobody runs screaming any more. Several guests have asked for a hug. Sesha says yesss, and doesn\'t even correct it.'],
     sigrun: ['Sigrun stops waiting for glorious deaths and starts collecting glorious *lives*: long ones, loud ones, ones that end in bed at a hundred and four, surrounded by grandchildren. She attends every one.', '@sigrun:happy THAT was the most glorious thing I have ever seen! Again! Live long AGAIN!'],
     thistle: ['Queen Thistle grants a boon to the whole of Clichéton, freely, with no bargain attached. The Seelie Court is scandalized for a century. She has never been happier.', '@thistle:smug It was a *gift.* Look it up. I had to.'],
     lyra: ['Lyra writes a ballad about the night the stars stopped and the narrator stepped down off the page. It\'s the first love song she\'s ever written that is any good. The whole tavern knows the words by midnight.'],
-    maud: ['Sister Maud Ironveil is courted at last, properly, with flowers and poetry, and is so mortified she bends Mercy into a knot. Then she says yes.', '@maud:happy HA! HA HA! Somebody fetch me a new hammer!'],
+    maud: ['Sister Maud Ironveil is courted at last, properly, with flowers and poetry, and is so mortified she bends Mercy into a knot. Then she says yes.', '@maud:happy HA-HAAA! Somebody fetch me a new hammer!'],
     vespera: ['Vespera Thornquill closes her ledger at last. Final score: a draw. She has the page framed.', '@vespera:smug Don\'t get comfortable. I\'ve started a new one.'],
-    zyra: ['Zyra opens the trendiest shop in the kingdom and sells glitter to the Underdark by post. Her whole family writes back. In colour. It is literally legendary.', '@zyra:happy No curse! Big crit energy! Forever!'],
+    zyra: ['Zyra opens the trendiest shop in the kingdom and sells glitter to the Underdark by post. Somebody in House Ssivrin writes back. In colour. It is literally legendary.', '@zyra:happy No curse! Big crit energy! Forever!'],
   };
   function epilogueLines(id) {
     if (EPILOGUES[id]) return EPILOGUES[id];
@@ -2052,7 +2054,7 @@
       text: [
         'She is standing beside you on the frozen hill.',
         'Not the goddess from the dream. No swing, no drifting hair, no gown made of sunset. Just a woman in a plain grey dress with ink on her fingers and rose-pink hair pinned up badly with a pencil, holding a quill as though she\'s forgotten it\'s in her hand.',
-        'She looks tired. She looks like someone who has been up all night writing, for a very, very long time.',
+        'She looks tired. She looks like someone who has been up all night writing, every night, since before the town had a name.',
         { if: { devoted: 'amorette' },
           text: [
             '@amorette:sad Hi, darling.',
@@ -2102,7 +2104,7 @@
     },
     chosen: {
       text: [
-        'She stares at you. Above you, a thousand frozen stars tremble very slightly in their places.',
+        'Her quill hand goes very still. Above you, a thousand frozen stars tremble very slightly in their places.',
         '@amorette:blush Say that again. Slowly. I want to be sure I didn\'t write it.',
         '@you You didn\'t write it.',
         'She listens, hard, the way only a narrator could, for the faint scratch of her own pen. There\'s nothing. There\'s just you.',
@@ -2113,7 +2115,7 @@
     tell: {
       text: [
         '@you Then I\'ll tell it. Your ending. You can\'t narrate it yourself? Fine. I will.',
-        'She opens her mouth. She closes it. For possibly the first time in ten thousand years, the Goddess of Love, Narrator of Clichéton, Patron of Romantic Clichés, Hopeless Pining and Meet-Cutes, has absolutely nothing to say.',
+        'In ten thousand years of narration, the Goddess of Love, Narrator of Clichéton, Patron of Romantic Clichés, Hopeless Pining and Meet-Cutes, has never once been lost for words. She is now.',
         'She holds out the quill.',
         '@amorette I\'ve never been told a story before. Be gentle. And no flashbacks. I *hate* flashbacks.',
         'You take the quill. It\'s warm. The page — the whole sky — waits.',

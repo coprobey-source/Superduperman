@@ -55,7 +55,7 @@ FL.addCharacter({
     ['@hilde:smug Dwarven proverb: "A good blade, a good ale, and a good grudge will see you through any winter." ...I got a lot of grudges. Want to hear \'em? It\'ll take a while.'],
     ['@hilde My da wanted me to marry a nice dwarf lad and make babies and shields. Made the shields. Skipped the rest. Best decision I ever made.'],
     ['She\'s sitting on an anvil, eating a meat pie in three bites.', '@hilde Lunch. Want some? Don\'t answer, you\'re having some. You\'re too skinny. Swing a hammer, you\'ll grow.'],
-    ['@hilde:angry The elf from the library came in yesterday. Wanted a "delicate silver circlet." Delicate! I make *axes.* ...I made it anyway. It\'s alright, I s\'pose. Don\'t tell anyone.'],
+    ['@hilde:angry The elf from the library came in yesterday. Wanted a "delicate silver circlet." Delicate! I make *axes.* ...Sent her to the jeweler down the Row. Then I sat up half the night sketching one anyway. Don\'t tell anyone.'],
     ['@hilde:blush You keep coming round the forge. People\'ll talk. ...Let \'em. Pass me that hammer.'],
     ['@hilde:angry Know what\'s wrong with surface houses? Windows. Great big holes in your walls so the weather can watch you eat.', '@hilde Under the mountain, if you want to see outside, you go *outside*, like a sensible person.'],
     ['She hands you a horseshoe fresh off the anvil. It\'s still warm enough to sting.', '@hilde Don\'t drop it. Don\'t flinch. ...Good.', '@hilde:smug That\'s a dwarven compliment, that is. "Didn\'t flinch." My da\'s said it to me twice in a hundred years.'],
@@ -161,8 +161,8 @@ FL.addCharacter({
         text: [
           'She reaches back blind. You put a stone in her hand to use as a hammer. She reaches back again. You hand her the hairpin. She doesn\'t look round once.',
           '@hilde Good. Good. And the — ',
-          'You\'re already holding the gate steady. She finishes the repair in under a minute. The gate swings smooth and silent for the first time in a decade.',
-          '@hilde:blush ...You\'d make a decent apprentice, you know. Don\'t let it go to your head. Your head\'s big enough.',
+          'You\'re already holding the gate steady. She finishes the repair in under a minute. The gate swings smooth and silent, which, judging by the rust, it hasn\'t done since before you were born.',
+          '@hilde:blush ...You\'d make a decent apprentice, you know. Don\'t get cocky. Your head\'s big enough.',
         ],
         next: 'done',
       },
@@ -181,7 +181,7 @@ FL.addCharacter({
           'You stand guard. A noblewoman in a towering wig strolls around the corner, sees a soot-streaked dwarf dismantling her gate, and stops.',
           '@you She\'s from the council.',
           '@hilde:smug *Gate inspection,* madam. This one\'s a hazard. Could\'ve had your wig off.',
-          'The noblewoman flees. Hilde laughs so hard she has to sit down on the edge of the fountain.',
+          'The noblewoman flees. Hilde laughs so hard she nearly topples backwards into the fountain.',
         ],
         next: 'done',
       },
@@ -220,7 +220,7 @@ FL.addCharacter({
       },
       crate: {
         text: [
-          'You flip an old fish crate upside down beside the harbourmaster\'s hut, at the very start of the pier, and pat it. Hilde sits down with enormous relief.',
+          'You flip an old fish crate upside down beside the harbormaster\'s hut, at the very start of the pier, and pat it. Hilde sits down with enormous relief.',
           '@hilde:happy Now *this* is a proper view. Solid ground. Wall at your back. Sea where it belongs, over *there.*',
           'You eat fried fish out of the paper and watch the sunset from twenty yards further back than everyone else. She steals your last chip. You let her.',
         ],
@@ -281,7 +281,7 @@ FL.addCharacter({
       },
       axe_win: {
         text: [
-          'She produces a hand-axe from somewhere in her belt and gives it to you with a look of pure challenge. You throw. It spins end over end and buries itself in the dead centre of the stump with a deep, satisfying *thock.*',
+          'She produces a hand-axe from somewhere in her belt and gives it to you with a look of pure challenge. You throw. It spins end over end and buries itself in the dead center of the stump with a deep, satisfying *thock.*',
           'Hilde forgets about the sky entirely.',
           '@hilde:surprised *Who taught you that?*',
           '@you You did. Sort of. I\'ve been watching you swing a hammer for weeks.',
@@ -350,7 +350,7 @@ FL.addCharacter({
       },
       please: {
         text: [
-          'She stops mid-swing and stares at you. Then she barks out a laugh.',
+          'She stops mid-swing, hammer raised, sparks dying on the anvil. Then she barks out a laugh.',
           '@hilde:happy *Please?* Ha! Cheeky! Fine. *Please* pump the bloody bellows before my blade cools, your highness.',
           'You pump. She grins the whole time.',
         ],
@@ -477,7 +477,7 @@ FL.addCharacter({
         text: [
           'You throw yourself at her and knock her into a side passage just as the tunnel collapses where she was standing. Rock thunders down. Dust fills the air.',
           'When it settles, you\'re both alive, pressed together in a small pocket of tunnel, sealed in by rubble. The lantern flickers on the floor.',
-          'Hilde stares at you, wide-eyed.',
+          'Hilde blinks up at you through a mask of dust, grit caked in her eyebrows.',
           '@hilde:surprised You... you pushed *me* out of the way. Nobody protects a dwarf in a mine. *We* protect *you.*',
         ],
         aff: 10,
@@ -674,7 +674,7 @@ FL.addCharacter({
           'The Stonebrew Forge gets a new sign: *STONEBREW & {name} — Weapons, Armor & Fine Jewelry.* The jewelry sells faster than the axes. Hilde complains about this constantly and is secretly delighted.',
           'Her da comes down from the Ironpeaks for the wedding. He grumbles about surfacers. Then he sees the necklace you\'re wearing, and the filigree on it, and he goes very quiet and has to step outside for a while.',
           'When he comes back, he hugs his daughter for the first time in fifty years.',
-          { if: 'hilde_fern', text: 'The fern from the Tipsy Wyvern attends the wedding in a place of honour by the cake. It has been sober for a year. Hilde gives a short speech in its honour. Nobody else understands it. You cry anyway.' },
+          { if: 'hilde_fern', text: 'The fern from the Tipsy Wyvern attends the wedding in a place of honor by the cake. It has been sober for a year. Hilde gives a short speech in its honor. Nobody else understands it. You cry anyway.' },
           'You learn to swing a hammer. She learns to say "I love you" without immediately adding "shut up." It takes about the same amount of practice.',
           'And every Starfall, the two of you climb the hill with a keg and a box, and she gives you something new she\'s made — something delicate and impossible and beautiful — and says "Don\'t read into it."',
           'You always read into it.',
@@ -684,7 +684,7 @@ FL.addCharacter({
       kneel: {
         text: [
           'Before she can open the box, you get down on one knee in the grass in front of her.',
-          'Hilde stares at you. She looks around wildly, as if someone might be playing a trick on her.',
+          'Hilde clutches the box to her chest like a shield. She looks around wildly, as if someone might be playing a trick on her.',
           '@hilde:surprised What are you — get *up* — dwarves don\'t kneel — bad for the knees —',
           '@you I\'m not a dwarf.',
           'Her face crumples. Hilde Stonebrew, master smith, the gruffest woman in Clichéton, bursts into tears — loud, ugly, furious tears — in front of the entire festival.',

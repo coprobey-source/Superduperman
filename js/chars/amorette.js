@@ -10,7 +10,7 @@ FL.addCharacter({
   endingTitle: 'The Narrator\'s Own Story',
   endings: { amorette_mortal: 'Just a Woman with Pink Hair', amorette_ascend: 'Patron of the Second Glance' },
   teaser: 'At the foot of the Goddess\'s statue, a pink-haired woman is eating popcorn and watching couples with intense interest.',
-  blurb: 'Goddess of Love, Patron of Romantic Clichés, and — as you\'ve noticed — the voice narrating your life. She has arranged a million meet-cutes and a thousand happily-ever-afters, and has never once had one of her own. She has taken a mortal form for the first time in an age. Only the truly charming can win the heart of the one who invented charm.',
+  blurb: 'Goddess of Love, Patron of Romantic Clichés, and — as you\'ve noticed — the voice narrating your life. She has arranged a million meet-cutes and a thousand happily-ever-afters, and has never once had one of her own. Now, after an age without one, she has taken a mortal form. Only the truly charming can win the heart of the one who invented charm.',
   schedule: [null, null, 'temple'],
   unlock: function (s) { return !!s.flags.goddess_awake; },
   gifts: { love: ['novel'], like: ['roses', 'chocolate', 'cakes', 'perfume', 'wine', 'quill', 'salts'], hate: ['gears'] },
@@ -18,7 +18,7 @@ FL.addCharacter({
     love: ['@amorette:happy *The Duke\'s Forbidden Passion, Volume Nine!* Oh, I *adore* this one! Did you know I personally inspired the author? I whispered chapter nine into her ear at three in the morning.', 'She hugs the book to her chest.', '@amorette:smug You have *excellent* taste, darling. Clearly I chose well.'],
     like: '@amorette:happy A romantic gift for the Goddess of Romance? Oh, how *meta.* I love it. I love it *so much.*',
     neutral: '@amorette Hm! Not exactly romantic, darling. But it\'s the thought that counts. I\'m a goddess; I can *see* the thought. It was a nice thought.',
-    hate: ['@amorette:angry Gears? Cogs? *Clockwork?* The most unromantic thing in creation!', 'She pauses.', '@amorette:smug ...Although, the automaton girl... no. No. Still unromantic. Give these to Seven.'],
+    hate: ['@amorette:angry Gears? Cogs? *Clockwork?* The most unromantic thing in creation!', 'She pauses.', '@amorette:smug ...Although, the automaton girl... no. No. Still unromantic. Give these to the clockwork girl at the Gearwright Workshop.'],
     special: {
       novel: [
         "@amorette:surprised *The Duke's Forbidden Passion, Volume Nine!* Oh — oh, it's the *first printing!* With the typo on page forty! \"He clasped her to his heaving chest-of-drawers!\"",
@@ -42,7 +42,7 @@ FL.addCharacter({
         "@amorette ...Although. A girl made of these is out there learning to blush. Fine. *Fine.* I'll put them on the altar. Pointedly. Facing the wall.",
       ],
       fork: [
-        "@amorette:surprised A fork! An ordinary fork! Do you know how rare it is for someone to surprise *me?*",
+        "@amorette:surprised A fork! An ordinary fork! Nobody surprises *me,* darling. Nobody. It's been *centuries.*",
         "@amorette:smug I've narrated eleven million love stories and not *one* of them featured a fork. I'm going to put it in the next one. A forbidden romance. A fork and a — a spoon from a rival drawer.",
         "@amorette:happy ...Oh, this is good. Somebody get me a quill.",
       ],
@@ -53,7 +53,7 @@ FL.addCharacter({
       ],
       relic: [
         "She peers into the little gilded box.",
-        "@amorette:surprised Oh! That's Saint Ebbert's knuckle. Hello, Ebbert! — He owes me twelve silver from a dice game in the year four hundred. I'd recognise that knuckle anywhere. It's the one he cheated with.",
+        "@amorette:surprised Oh! That's Saint Ebbert's knuckle. Hello, Ebbert! — He owes me twelve coppers from a dice game in the year four hundred. I'd recognise that knuckle anywhere. It's the one he cheated with.",
         "@amorette:smug Holy? Probably not. *Valuable?* Enormously. To me. As leverage.",
       ],
       mirror: [
@@ -179,8 +179,8 @@ FL.addCharacter({
       rose: {
         text: [
           "You pick a rose from the hedge and tuck it behind her ear. She touches it, delighted — and a gardener's voice bellows from the darkness.",
-          "@amorette:surprised Run, darling! *Run!* That's Old Hobb, and he has a rake and no sense of romance whatsoever!",
-          "You run. She's laughing so hard she can barely keep up. You end up hiding behind a statue of her, panting, while Hobb stomps past muttering about \"bloody couples.\"",
+          "@amorette:surprised Run, darling! *Run!* That's Old Grimsby, and he has a rake and no sense of romance whatsoever!",
+          "You run. She's laughing so hard she can barely keep up. You end up hiding behind a statue of her, panting, while Grimsby stomps past muttering about \"bloody couples.\"",
           "@amorette:smug ...He's going to fall in love next spring. With a woman who steals his roses. I'm going to enjoy that *enormously.*",
         ],
         end: true,
@@ -280,7 +280,7 @@ FL.addCharacter({
         text: [
           'The Temple of the Radiant Heart glows with a thousand candles. At the foot of the great statue of the Goddess of Love, a woman sits cross-legged on the altar steps, eating popcorn out of a golden offering bowl.',
           'She has long, rose-pink hair that seems to drift in a breeze you can\'t feel, golden eyes, and a gown made of something that looks like sunset. She looks exactly like the statue above her. The statue, you notice, is now subtly frowning.',
-          '@amorette:happy There you are! Finally! I\'ve been waiting *all evening.* Do you know how hard it is to sit still when you\'re omnipresent? I keep wanting to be somewhere else.',
+          '@amorette:happy There you are! Finally! I\'ve been waiting *all evening.* Sitting still is *agony* when you\'re omnipresent. I keep wanting to be somewhere else.',
           { if: { ngplus: 1 }, text: "@amorette:smug Hello *again*, {name}. — Hello. I mean hello. Just the one hello. First time. Obviously. Ignore me, I've had a lot of popcorn." },
           '@amorette Hello, {name}. It\'s me. The Narrator. In the flesh! Well, in *a* flesh. It\'s borrowed. I\'ll give it back.',
         ],
@@ -460,7 +460,7 @@ FL.addCharacter({
       popcorn: {
         text: [
           'You hold out the bowl. She takes a piece, then looks at it in her palm.',
-          '@amorette:blush You always share. Every time. I\'ve watched you share with everyone — the werewolf, the dragon, the ghost.',
+          '@amorette:blush You always share. Every time. I\'ve watched you share with everyone — strangers, street cats, the pigeons, who did *not* deserve it.',
           '@amorette:happy It\'s the most romantic thing about you, and you don\'t even know it.',
         ],
         flag: 'amorette_shared',
@@ -473,7 +473,7 @@ FL.addCharacter({
           'The temple is dim tonight. Half the candles have gone out. Amorette is sitting on the altar steps, and something is wrong: her hair isn\'t drifting. Her gown is just a dress. Her golden eyes have faded to warm brown.',
           '@amorette:surprised Oh. You\'re here. I didn\'t know you\'d come. I *always* know. I didn\'t know.',
           "@amorette:sad This has never — I don't *remember* this part. I mean — nothing like this has ever happened before. Obviously. That's what I meant.",
-          '@amorette:sad Something\'s happening to me. I\'m losing my divinity, darling. Bit by bit. I tried to narrate the baker\'s proposal this morning and I couldn\'t *see* it. I tried to fire an arrow and it just... fell on the floor.',
+          '@amorette:sad Something\'s happening to me. I\'m losing my divinity, darling. Bit by bit. I tried to narrate the baker rehearsing his proposal this morning — he practises it on a loaf every day — and I couldn\'t *see* it. I tried to fire an arrow and it just... fell on the floor.',
           '@amorette There\'s an old law. Gods who fall in love with mortals become a little mortal themselves. I always thought it was a myth.',
           { if: 'amorette_slowburn', text: "@amorette:sad You told me love takes time. Little moments, hundreds of them. I thought I had all the time in the world. I'm a *goddess.* And then the moments went and added up when I wasn't looking." },
           'She looks up at you. She looks frightened, and very young.',
@@ -487,7 +487,7 @@ FL.addCharacter({
         text: [
           '@amorette:angry Of course it\'s because of you, you magnificent idiot. Who else would it be?',
           'She laughs, wet and shaky.',
-          '@amorette:blush I\'m the Goddess of Love, and I didn\'t see it coming. Do you know how *embarrassing* that is?',
+          '@amorette:blush I\'m the Goddess of Love, and I didn\'t see it coming. That\'s *professionally embarrassing,* darling. There\'ll be a hearing.',
         ],
         next: 'choice',
       },
@@ -527,7 +527,7 @@ FL.addCharacter({
       naps: {
         text: [
           '@you Being mortal\'s great. We have naps. And cake. And stubbing our toes, which builds character.',
-          'She stares at you. Then she bursts out laughing — and with every peal of laughter, a candle in the temple flickers back to life.',
+          'Her mouth twitches. Her shoulders shake. Then she bursts out laughing — and with every peal of laughter, a candle in the temple flickers back to life.',
           '@amorette:happy *Naps!* You\'re selling me mortality on *naps!*',
           '@you They\'re really good naps.',
           'She laughs until she cries, and the tears glow gold, and her hair begins to drift again.',
@@ -594,7 +594,7 @@ FL.addCharacter({
           "@amorette:surprised I have no idea what to say.",
           "@you Then don't say anything.",
           "Her gown, which was made of something like sunset, simply fades away into twilight at your touch, and she laughs, startled and delighted, as if even she didn't know it would do that.",
-          "For a goddess of love, she's surprisingly nervous for about thirty seconds, then surprisingly giddy, then completely, overwhelmingly *present.* There's no omniscience, no distance, no watching from above. She's just here with you, gasping at sensations she's described ten million times and never once felt herself.",
+          "For a goddess of love, she's surprisingly nervous for about thirty seconds, then surprisingly giddy, then completely, overwhelmingly *present.* There's no omniscience, no distance, no watching from above. She's just here with you, gasping at sensations she's described eleven million times and never once felt herself.",
           "@amorette:surprised Oh. Oh, the *poets.* The poets got it so wrong. I'm going to have words with every single one of them —",
           "@you Later.",
           "@amorette:blush Later. Yes. *Much* later.",
@@ -618,7 +618,7 @@ FL.addCharacter({
           "You wake in your own bed in Clichéton, with no idea how you got there. The meadow is gone. There's a rose on your pillow, and a voice in your ear.",
           "@narrator Good morning, darling. I narrated you home. Very gently. You didn't wake once.",
           "And then she's there in person, lying beside you in your little rented room, hair drifting in a breeze that doesn't exist, wearing a dressing gown made of dawn.",
-          "@amorette:happy I've been narrating your neighbors while you slept. The baker proposed to the blacksmith at four this morning. She said yes. I cried. I'm so emotional now. It's dreadful. I *love* it.",
+          "@amorette:happy I've been narrating your neighbors while you slept. The baker proposed to the blacksmith at four this morning. He said yes. I cried. I'm so emotional now. It's dreadful. I *love* it.",
           { if: 'amorette_goose', text: "@amorette:smug Also the duke sent a card. And the goose. Separately. The goose's handwriting is better." },
           { if: 'amorette_selfless', text: "@amorette:blush You told me to go back up, if that's what I needed. Nobody's ever wanted to give me back to the sky before. Everyone *wants* something from a goddess. You wanted me to be happy. ...So I stayed. Isn't that funny?" },
           "She props herself up on one elbow and looks at you with shining golden eyes.",
@@ -633,7 +633,7 @@ FL.addCharacter({
       ten: {
         text: [
           "She claps her hands, delighted.",
-          "@amorette:happy *Ten!* No notes! Do you know how rare that is? The poets *always* have notes.",
+          "@amorette:happy *Ten!* No notes! That never happens. The poets *always* have notes.",
           "@amorette:blush ...I have one note, actually. The bit with the golden hearts. I'd like to apologize to the Renaissance.",
         ],
         flag: 'amorette_ten',
@@ -744,7 +744,7 @@ FL.addCharacter({
         text: [
           "@amorette:surprised Up? With *me?*",
           "@you You said you're always the narrator, never the heroine. I don't want you up there alone, telling everyone else's story. I want to be in the telling.",
-          "She stares at you. Then she starts to laugh, and the laugh turns to light, and the light runs down her arm and into your hand.",
+          "Her hair lifts all at once, as if the whole sky has just breathed in. She starts to laugh, and the laugh turns to light, and the light runs down her arm and into your hand.",
           "@amorette:happy You *can't* just ascend, darling. It doesn't work like that. There are forms. Councils. A minor god of paperwork who hates me personally.",
           "@amorette:blush ...But you *did* tell me what to do with my divinity once. And I'm a goddess. And it's my favorite night. And nobody's ever asked to come *up.*",
           "The stars are falling. You feel your feet leave the hill. You feel the whole town, all at once: every pair of hands being held, every kiss, every glance across the crowd, every heart beating a little too fast. It's deafening. It's wonderful. She's holding your hand through all of it.",

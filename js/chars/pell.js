@@ -68,7 +68,7 @@ FL.addCharacter({
       "@pell:surprised I think he lives there now. He writes sonnets. They're actually quite good.",
     ],
     [
-      'Footnote the cat is sitting on your foot. Pell looks mortified.',
+      'Errata the cat is sitting on your foot. Pell looks mortified.',
       "@pell:surprised He doesn't do that! He doesn't do that to *anyone!* He bit a duke once. A real one!",
       "@pell:blush ...He has very good taste. I mean — he's a very *discerning* cat.",
     ],
@@ -84,7 +84,7 @@ FL.addCharacter({
       "@pell:blush I think it means you knew which thing I'd be sadder to lose. That's... that's the most romantic thing a person can know about another person.",
     ] },
     { if: 'pell_aloud', lines: [
-      "@pell:blush I've been reading aloud. To Footnote. Every night, ever since you said my voice was...",
+      "@pell:blush I've been reading aloud. To Errata. Every night, ever since you said my voice was...",
       "@pell He falls asleep by page three. I've decided to take it as a compliment.",
       "@pell:happy Yesterday I read a whole chapter without whispering once. Then I noticed the window was open and three pigeons were listening, and I had to go and lie down.",
     ] },
@@ -106,7 +106,7 @@ FL.addCharacter({
   afterTalk: [
     ["She hands you a book without a word. There's a bookmark in it, on a page with one line underlined: *She wanted it again. She wanted it every night.* When you look up, she's very pink and very busy shelving."],
     ["@pell:blush M-my editor read the new chapter. She said it was \"suspiciously well-informed.\" I said I'd been doing a lot of research. She asked who with. I fainted a little."],
-    ["@pell:blush Footnote has started sleeping on your side of the nook. He misses you. I mean — he — *I* — he misses you."],
+    ["@pell:blush Errata has started sleeping on your side of the nook. He misses you. I mean — he — *I* — he misses you."],
     ["@pell:smug The library closes at sundown. And I have a key now. I'm just... telling you. For no reason. Purely informational."],
     [
       'She has fallen asleep at the reading desk with her cheek on an open dictionary. When you touch her shoulder she wakes with a gasp, and the word *besotted* is printed backwards across her face.',
@@ -153,7 +153,7 @@ FL.addCharacter({
         text: [
           'You pick up your fork and eat a large mouthful of turnip with the air of someone tasting a rare vintage.',
           '@you Incredible. You have wonderful taste.',
-          'Pell stares at you. Then a small, helpless giggle escapes from behind the menu. Then a bigger one.',
+          'Pell lowers the menu one inch. Then a small, helpless giggle escapes from behind it. Then a bigger one.',
           '@pell:happy You — you don\'t even *like* turnips — I can tell, your left eye is twitching —',
           'She eats hers too, giggling the whole time. Nobody in the tavern can hear her over the noise, so for once she doesn\'t try to be quiet at all.',
           { if: { stage: 4 }, text: 'Under the table, her ankle finds yours and stays there. When the candle gutters, she leans across and kisses you, quick and turnip-flavored and bold, and then hides behind the menu again, beaming.' },
@@ -197,7 +197,7 @@ FL.addCharacter({
       story: {
         text: [
           'She tells you. She stands in front of the statue with her hands clasped and tells you all of it: the countess, the shipwrecked sailor, the letters hidden in the garden wall for nine years.',
-          'She doesn\'t stammer once. Her voice goes low and sure and lovely, and when she gets to the end, two night watchmen have stopped their rounds to listen.',
+          'Not one word catches. Her voice goes low and sure and lovely, and when she gets to the end, two night watchmen have stopped their rounds to listen.',
           '@pell:surprised ...Oh. People. I didn\'t notice the people.',
           '@pell:blush I never notice the people when you\'re the one I\'m telling.',
           { if: { stage: 4 }, text: 'On the hidden bench behind the countess, she kisses you very slowly, the way the heroines do in chapter seven. Then she pulls back and whispers, *I\'ve always wanted to do that on this exact bench*, and kisses you again.' },
@@ -232,7 +232,7 @@ FL.addCharacter({
       end: {
         text: [
           'You walk her out, past the moored boats and the coiled ropes and the fishermen packing up for the night, until there is nothing in front of you but water and the sun going down into it.',
-          'Pell stops. She doesn\'t say anything for a long time.',
+          'Pell stops. She doesn\'t say anything at all, not even a whisper, until the sun is halfway into the water.',
           '@pell:sad ...The books got it wrong. All three hundred and forty. They said it was blue. It isn\'t. It\'s every color. It\'s *moving.*',
           'She opens her book of voyages, looks at it, and very carefully closes it again.',
           '@pell:blush I\'m going to write a better one. And I\'m going to say the sea is every color, and it\'s loud, and it smells like fish, and I saw it for the first time holding your hand.',
@@ -269,7 +269,7 @@ FL.addCharacter({
         text: [
           'You lie back and put your head in her lap. She goes completely still for a moment, then, very slowly, rests one hand in your hair.',
           'She chooses a book of old forest ballads and begins to read.',
-          { if: 'pell_aloud', text: 'It\'s the voice from the nook, the low warm one that comes out when she forgets to be afraid. She doesn\'t start with a whisper this time. She starts right in the middle of it, as if she knows you\'ve been waiting.', else: 'She starts in a whisper. By the second ballad her voice has found something warm and steady that you would never have guessed was hiding in her.' },
+          { if: 'pell_aloud', text: 'It\'s the voice from the nook, the low warm one that comes out when she forgets to be afraid. She doesn\'t start with a whisper this time. She starts right in the middle of it, as if she knows you\'ve been waiting.', else: 'She starts in a whisper. By the second ballad her voice has found its feet, warm and steady, as if it has been waiting all week to be let out.' },
           'You fall asleep somewhere in the fourth ballad. When you wake, the sun has moved, the tea is cold, and she is still reading, very softly, mostly to herself.',
           '@pell:blush You looked so peaceful. I didn\'t want to stop. I didn\'t want *any* of it to stop.',
         ],
@@ -374,7 +374,7 @@ FL.addCharacter({
       start: {
         text: [
           'Pell finds you in the reading hall. She hovers at the end of your table for nearly a full minute, opening and closing her mouth, before she finally sets down a book in front of you and bolts.',
-          'You follow her into a small, hidden reading nook behind the history section: a window seat piled with cushions, a teapot, and a cat named Footnote who regards you with contempt.',
+          'You follow her into a small, hidden reading nook behind the history section: a window seat piled with cushions, a teapot, and a cat named Errata who regards you with contempt.',
           '@pell:blush Th-this is my secret place... No one else knows about it... I thought... maybe... you could read with me? If you want? You don\'t have to! You probably have adventures to — ',
           '@you I\'d love to.',
           '@pell:surprised ...Oh.',
@@ -392,13 +392,13 @@ FL.addCharacter({
           'When she finishes, she looks up and realizes you\'re staring at her.',
           '@pell:sad W-was that bad? I\'m sorry —',
           '@you You have a beautiful voice, Pell.',
-          'She pulls a cushion over her head. Footnote the cat sighs.',
+          'She pulls a cushion over her head. Errata the cat sighs.',
         ],
         next: 'end',
       },
       quiet: {
         text: [
-          'You sit. You read. The afternoon light moves slowly across the floor. The tea goes cold. Footnote eventually, grudgingly, settles in your lap.',
+          'You sit. You read. The afternoon light moves slowly across the floor. The tea goes cold. Errata eventually, grudgingly, settles in your lap.',
           'At some point you look up. Pell has stopped reading. She\'s watching you over the top of her book.',
           '@pell:blush ...Sorry. I just... I\'ve never had someone to be quiet *with* before. Only someone to be quiet *around*.',
         ],
@@ -438,7 +438,7 @@ FL.addCharacter({
     s2: {
       start: {
         text: [
-          'Pell is late to the reading nook. You wait for her. Footnote the cat knocks a stack of papers off the window seat out of spite.',
+          'Pell is late to the reading nook. You wait for her. Errata the cat knocks a stack of papers off the window seat out of spite.',
           'You gather them up. It\'s a manuscript. Handwritten, in Pell\'s tiny, careful script. The title page reads: *The Librarian\'s Secret Desire, by Lady Velvet Ink.*',
           { if: 'pell_page', text: 'The handwriting is instantly familiar. You\'ve been carrying a page of it in your pack since the day the ladder fell: *...his strong hands upon her trembling...* You now know exactly whose trembling it was.' },
           'Lady Velvet Ink. The anonymous author of *The Duke\'s Forbidden Passion.* The most scandalous romance novelist in all of FantasyLandia.',
@@ -476,7 +476,7 @@ FL.addCharacter({
           'She takes it with trembling hands, hugging it to her chest.',
           '@pell:sad ...You\'re not going to laugh? Or tell anyone?',
           '@you Never.',
-          'She stares at you for a long moment, glasses fogging slightly.',
+          'Her glasses fog. She takes them off, polishes them on her cardigan and puts them back on, as if you might turn out to be a smudge.',
           '@pell:blush No one has ever kept a secret for me before. Because no one has ever *known* any.',
         ],
         next: 'research',
@@ -581,7 +581,7 @@ FL.addCharacter({
       },
       kiss: {
         text: [
-          "She kisses you this time, really kisses you, on tiptoe, her glasses bumping your nose and her hands trembling against your chest. She isn't hiding behind anything at all.",
+          "She kisses you, really kisses you, on tiptoe, her glasses bumping your nose and her hands trembling against your chest. She isn't hiding behind anything at all.",
           "You end up in the reading nook among the cushions, by the light of a single candle and the moon through the tall windows. She is shy at first: she sets her glasses aside very carefully, then fumbles with the buttons of her cardigan and gets two of them wrong.",
           "@pell:blush I-I know the theory. Very well. Extensively. Forty-two chapters of theory.",
           "@you And the practice?",
@@ -601,8 +601,8 @@ FL.addCharacter({
     morning: {
       start: {
         text: [
-          "You wake to a click and a creak: the head librarian is unlocking the main door. You and Pell are tangled together in the reading nook, half-dressed under her cardigan, with Footnote the cat asleep on your chest like a judgmental loaf.",
-          "Pell's eyes snap open. She sees the head librarian's shadow at the end of the history aisle, and she makes a sound like a teakettle.",
+          "You wake to a click and a creak: the head librarian is unlocking the main door. You and Pell are tangled together in the reading nook, half-dressed under her cardigan, with Errata the cat asleep on your chest like a judgmental loaf.",
+          "Pell's eyes snap open. She sees the head librarian's shadow at the end of the history aisle, and every inch of her goes rigid, like a startled bookend.",
           "@pell:surprised Oh no. Oh no, oh no. Hide. *Hide.* We have to — my cardigan's inside out — where are my *glasses* —",
           "The footsteps are getting closer.",
         ],
@@ -625,7 +625,7 @@ FL.addCharacter({
       },
       hide: {
         text: [
-          "You pull the cushions over both of you. Pell burrows into your chest, shaking with silent, terrified giggles. The footsteps pause right outside the nook. Footnote yawns loudly. The footsteps move on.",
+          "You pull the cushions over both of you. Pell burrows into your chest, shaking with silent, terrified giggles. The footsteps pause right outside the nook. Errata yawns loudly. The footsteps move on.",
           "@pell:happy ...That was the most exciting thing that's ever happened to me in this library.",
           "@you The most exciting thing?",
           "@pell:blush The *second* most exciting thing. Please stop smiling like that. I'm going to put it in a book.",
@@ -680,7 +680,7 @@ FL.addCharacter({
           '*Some time later...*',
           '*The Librarian and the Adventurer* becomes the bestselling book in FantasyLandia history. Pell goes to her first book signing, nearly faints twice, and signs four hundred copies anyway — with you standing beside her, holding her hand under the table.',
           'Her mother reads it. Her mother *loves* it. Except chapter eleven, which her mother has "not read, and will never mention, and please stop asking, Pellucia."',
-          'She becomes head librarian eventually. She installs a new reading nook, with two window seats side by side. Footnote the cat sleeps between you.',
+          'She becomes head librarian eventually. She installs a new reading nook, with two window seats side by side. Errata the cat sleeps between you.',
           'She still whispers, mostly. She still stammers when she\'s flustered. But every night, in the quiet of the library after closing, she reads to you aloud — and her voice never shakes at all.',
         ],
         ending: 'pell',
@@ -688,14 +688,14 @@ FL.addCharacter({
       velvet: {
         text: [
           '@you You don\'t have to put your real name on it, Pell. Not unless you want to. I\'ll keep the secret as long as you like.',
-          'She looks down at the cover for a long time. Then up at you.',
+          'She runs her thumb along the silver letters of her own name, back and forth, back and forth. Then she looks up at you.',
           '@pell:sad I thought... I thought being brave meant telling everyone.',
           '@you Maybe being brave just means telling the right person.',
           '@pell:surprised ...',
           'Very slowly, she takes a pencil from behind her ear, draws a neat line through *Pellucia Quill*, and writes above it, in curling, extravagant script: *Lady Velvet Ink.*',
           '@pell:smug There. Now it\'s not my secret. It\'s *ours.* That\'s different. That\'s so much better.',
           '@pell:blush And you\'ll have to keep helping me with the research. For all the future volumes. Rigorously. It\'s a very demanding position.',
-          'She kisses you under the falling stars, and then, for old times\' sake, hides behind the book.',
+          'She kisses you with the book pressed between you, and then, for old times\' sake, hides behind it.',
         ],
         next: 'velvet_epi',
       },
@@ -705,7 +705,7 @@ FL.addCharacter({
           '*The Librarian and the Adventurer*, by Lady Velvet Ink, sells out in nine days. The kingdom loses its mind. Salons hold debates on the true identity of Lady Velvet Ink. A duchess claims to be her. Three separate dukes claim to be the adventurer. One of them sues the other two.',
           'Meanwhile, in the Grand Library, a small assistant librarian with enormous glasses re-shelves the poetry section, listens to two noblewomen argue loudly about chapter eleven, and says absolutely nothing. She just smiles into the returns cart.',
           'You are thanked in the acknowledgements as *my Research Consultant, without whom chapters six through fourteen would have been emotionally bankrupt.* People at the tavern ask what exactly you consult on. You say "historical accuracy." Pell, at your elbow, inhales her tea.',
-          'The head librarian works it out by Volume Two. She says nothing. She simply starts leaving the library key under a pot of ferns at sundown, with a note: *Lock up when you\'re finished, dear. Chapter nine is still overrated.*',
+          'The head librarian works it out by Volume Two. She says nothing. She simply starts leaving the library key under a pot of ferns at sundown, with a note: *Lock up when you\'re finished, dear. And chapter nine is overrated.*',
           'Every new book has a reading nook in it, and a cat who judges everyone, and two people who are very, very quiet together. Every one is dedicated to the same mysterious initial.',
           'Her mother never finds out. Her mother does, however, read every volume, and tells Pell over Sunday lunch that "this Velvet woman really understands romance, unlike *some* people who just shelve it."',
           'Pell says, "Yes, Mother," and kicks you gently under the table, and doesn\'t stammer once.',
@@ -717,7 +717,7 @@ FL.addCharacter({
           '@you Read it to me. Right here. Out loud.',
           '@pell:surprised H-here? On the *hill?* There are — there are *people* on the hill —',
           { if: 'pell_letter_aloud', text: '@you You told me not to read your letter aloud, and I did it anyway. Now it\'s your turn.' },
-          'She looks at the crowd. She looks at the book. She looks at you, for a long time, and something in her face goes very still and very certain: the face of a heroine on the page right before she\'s brave.',
+          'She looks at the crowd. She looks at the book. She looks at you, and something in her face goes very still and very certain: the face of a heroine on the page right before she\'s brave.',
           'Then she opens to chapter one, takes a breath, and reads.',
           'The first sentence comes out as a whisper. The second, a little louder. By the end of the first page, the couple on the next blanket has stopped kissing to listen. By the end of the chapter, there are forty people sitting in the grass around your oak tree, and nobody is watching the stars at all.',
           'When she closes the book there is a silence. Then the applause starts, and doesn\'t stop.',
@@ -731,7 +731,7 @@ FL.addCharacter({
         text: [
           '*Some time later...*',
           'The shy assistant librarian of the Grand Library becomes, against every law of nature, the most sought-after reader in Clichéton.',
-          'It starts as one night a week at the Tipsy Wyvern: Pell, a stool, a candle, and whatever book she loves that week. At first she reads to five people. Then twenty. Then the landlord has to take out a wall. He starts charging at the door. Pell gives every coin to the library roof fund.',
+          'It starts as one night a week at the Tipsy Wyvern: Pell, a stool, a candle, and whatever book she loves that week. At first she reads to five people. Then twenty. Then Madame Bettina has to take out a wall. She starts charging at the door. Pell gives every coin to the library roof fund.',
           'She reads poetry so softly that grown dwarves weep into their tankards. She reads adventure so fiercely that a knight once drew his sword on a dragon that was only in chapter four. She reads chapter eleven of her own book exactly once, to a packed house, and has to be fanned back to consciousness afterwards. They still talk about it.',
           'Hecklers learn quickly. The first man to shout "Speak up!" receives a long look over the top of her enormous glasses, followed by the entire *Lament of the Drowned King* at a volume that rattles the tankards on the shelves. He buys every book she has ever written the next morning.',
           'At home she still whispers. She still stammers when she\'s flustered, which is often, because you make a point of it. She still hides behind books, but only from you, and only so she can peek over the top.',

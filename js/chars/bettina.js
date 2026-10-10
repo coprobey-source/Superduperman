@@ -18,7 +18,7 @@ FL.addCharacter({
     hate: ['She laughs, long and loud.', '@bettina:smug Ale? You\'re giving *ale* to the woman who owns a *tavern?* Sweetie, I\'ve been drowning in the stuff for twenty years. I can\'t stand the taste.'],
     special: {
       perfume: ['She uncorks it and breathes in, eyes fluttering closed.', '@bettina:blush Oh, *my.* Nightjasmine and amber. Harold used to buy me this, every anniversary. Nobody\'s bought it for me since.', 'She dabs a little on her wrist, then holds it out to you.', '@bettina:smug Well? Go on, sweetie. Tell me what you think.'],
-      novel: ["@bettina:smug *The Duke's Forbidden Passion, Volume Nine.* Oh, you wicked thing. Who do you think has been lending volumes one through eight to half the women on Market Street?", "@bettina:happy I'll read it first, then Aura, then the baker's wife. By Thursday the whole street will be walking funny. Thank you, dear."],
+      novel: ["@bettina:smug *The Duke's Forbidden Passion, Volume Nine.* Oh, you wicked thing. Who do you think has been lending volumes one through eight to half the women on Market Street?", "@bettina:happy I'll read it first, then Aura, then the fishmonger's wife. By Thursday the whole street will be walking funny. Thank you, dear."],
       salts: ["@bettina:surprised Bath salts. For *me?* Not for the tavern, not for the guest rooms — for me?", "@bettina:sad Twenty years on my feet behind that bar, sweetie. My feet have opinions. Loud ones.", "@bettina:blush ...I'm going to have a bath tonight. A long one. You may be *invited* to hear about it afterwards."],
       roses: ["@bettina:happy Roses! How shamelessly traditional.", "@bettina Harold never bought me roses. He said they were \"showing off.\" He bought carnations, from the woman by the well, and pretended he'd grown them. He couldn't grow mould on bread.", "@bettina:blush I like showing off. Put them in water, sweetie. On the bar, where everyone can see."],
       fork: ["She holds the fork up to the light, turning it slowly, eyebrow climbing.", "@bettina:smug I own four hundred and twelve forks, sweetie. I count them every night. I'm always short by about thirty.", "@bettina:happy This is the first one anybody's ever *given* back. I'm going to frame it. Over the till. As a lesson to the others."],
@@ -106,7 +106,7 @@ FL.addCharacter({
       start: {
         text: [
           "Bettina arrives at the Moonlit Gardens in dark green velvet with her hair up and a fan she has no intention of using for its intended purpose. Within three steps of the gate, a baron sees her and dives behind a hedge.",
-          "@bettina:smug Ara, ara. Lord Pemberly. He drank at my bar for six years before his uncle died and left him a title. He still owes me fourteen silver. I'll let him keep hiding. It's good for his knees.",
+          "@bettina:smug Ara, ara. Lord Pettigrew. He drank at my bar for six years before his uncle died and left him a title. He still owes me fourteen crowns. I'll let him keep hiding. It's good for his knees.",
           "She takes your arm and strolls you down the rose walk, nodding graciously to lords and ladies who all, without exception, go a little pale.",
           "@bettina Half these nobles used to be *somebody's* regulars. I know who cried into their ale, who sang, and who proposed to my coat stand. Pick a couple, sweetie. I'll tell you their secret.",
         ],
@@ -153,7 +153,7 @@ FL.addCharacter({
       },
       end: {
         text: [
-          "You end the night on a hidden bench behind the yew walk, her head on your shoulder, Lord Pemberly still crouching hopefully in a hedge some way off.",
+          "You end the night on a hidden bench behind the yew walk, her shoes kicked off under the bench and her cheek pillowed on your arm, Lord Pettigrew still crouching hopefully in a hedge some way off.",
           { if: { stage: 4 }, text: "@bettina:smug There's a reason they put the benches back here, you know. Generations of nobility have made poor decisions on this very bench. Shall we uphold the tradition, dear? Discreetly. Mostly." },
         ],
         end: true,
@@ -185,7 +185,7 @@ FL.addCharacter({
       where: {
         text: [
           "@bettina:happy Gullwater. A little town on the south coast. Harold read about it in a book. Pink cliffs, he said. Oysters the size of your hand. A tavern with no roof at all, just stars.",
-          "@bettina:smug He'd never been to the end of the street without getting lost. He'd have got us to Gullwater by way of the North Pole. ...It would have been a lovely trip.",
+          "@bettina:smug He'd never been to the end of the street without getting lost. He'd have got us to Gullwater by way of the Frostspine Mountains. ...It would have been a lovely trip.",
         ],
         next: 'end',
       },
@@ -199,7 +199,7 @@ FL.addCharacter({
       },
       end: {
         text: [
-          "The sun goes down into the sea. She hums something under her breath, off-key, and leans her head on your shoulder.",
+          "The sun goes down into the sea. She hums something under her breath, off-key, and leans into you the way she leans on her bar at closing: all of her weight, none of her guard.",
           { if: { stage: 4 }, text: "@bettina:blush You know, the fishwife has a little room above her shop. Rents it by the night. Very discreet. I happen to know she owes me a favour. ...I happen to know *everybody* owes me a favour, dear." },
         ],
         end: true,
@@ -294,7 +294,7 @@ FL.addCharacter({
       },
       match_fail: {
         text: [
-          'You lean in, try to match her smile, slip on the bar\'s wet surface, and nearly faceplant into a bowl of peanuts.',
+          'You lean in, try to match her smile, slip on the bar\'s wet surface, and nearly pitch face-first into a bowl of peanuts.',
           '@bettina:surprised Oh, *sweetie.*',
           'She\'s laughing, but not unkindly. She pushes a glass toward you.',
           '@bettina:happy Here. For the bravery. And the peanuts.',
@@ -307,7 +307,7 @@ FL.addCharacter({
           'She laughs, a rich, warm sound that fills the whole room.',
           '@bettina:happy Oh, you\'re *adorable.* I\'m going to keep you.',
           'She pours your ale and leaves a little honey cake beside it, winking.',
-          '@bettina:smug For the blush. It\'s my favorite kind of tip.',
+          '@bettina:smug For the blush. It\'s my favourite kind of tip.',
         ],
         aff: 5,
         next: 'name',
@@ -403,7 +403,7 @@ FL.addCharacter({
       quiet: {
         text: [
           'You don\'t say anything. You just sit there beside her, shoulder to shoulder, while the fire crackles down.',
-          'After a while, she leans her head on your shoulder.',
+          'After a while, she sets her glass down on the bar and lets her shoulder settle against yours, heavy and warm, like a door that has finally been allowed to close.',
           '@bettina:blush ...You\'re a good listener, {name}. Even when nobody\'s talking.',
         ],
         end: true,
@@ -412,7 +412,7 @@ FL.addCharacter({
     s2: {
       start: {
         text: [
-          'The Tipsy Wyvern is packed and rowdy. Then the door slams open, and a gang of mercenaries swaggers in — big, drunk, armored, and looking for trouble.',
+          'The Tipsy Wyvern is packed and rowdy. Then the door slams open, and a gang of mercenaries swaggers in — big, drunk, armoured, and looking for trouble.',
           'Their leader slams his fist on the bar. "Free drinks for the Iron Hounds, woman. Or we start breaking things."',
           'The tavern goes quiet. Bettina doesn\'t even look up from the glass she\'s polishing.',
           '@bettina:smug Sweetie, I\'ve been throwing men like you out of this tavern since before you lost your milk teeth. Pay or leave.',
@@ -428,7 +428,7 @@ FL.addCharacter({
           'You slide between them with an easy smile and lean on the bar.',
           '@you Friend, you don\'t want to do this. See that woman? She once knocked out an ogre with a soup ladle. The ogre still sends her a fruit basket every year. Out of *fear.*',
           '@you Also — look behind you.',
-          'He turns. Every regular in the tavern — dwarves, adventurers, Brakka the orc, a knight in full plate — is standing, silently, glaring at him.',
+          'He turns. Every regular in the tavern — dwarves, adventurers, Old Gruk, an orc woman with two axes she calls by name, a knight in full plate — is standing, silently, glaring at him.',
           'The Iron Hounds leave very quickly. They even pay.',
           'Bettina looks at you over her glass, and for once, her smile seems genuinely surprised.',
         ],
@@ -438,7 +438,7 @@ FL.addCharacter({
       },
       pan: {
         text: [
-          'You grab for his wrist — but before you can do anything heroic, there\'s a resounding *BONG*.',
+          'You move — but before you can do anything heroic, there\'s a resounding *BONG*.',
           'Bettina has produced a cast-iron frying pan from under the bar and introduced it to the side of his head. He crumples like a wet sack. The tavern erupts into cheers.',
           '@bettina:smug Somebody drag this one out by his ankles, please. Thank you, Gruk.',
           'Then she turns to you, frying pan still in hand, eyes bright.',
@@ -452,9 +452,9 @@ FL.addCharacter({
         text: [
           'After closing, you help her clean up. When the last chair is upright and the last glass is washed, she sets down her rag and doesn\'t pick it up again.',
           { if: 'bettina_harold', text: '@bettina:sad You asked me about Harold, that night on the bar. Do you know how long it had been since anyone asked? People step around him like a puddle on the floor. You walked straight through it.' },
-          '@bettina I flirt with everyone, you know. It\'s a barkeep\'s armor. Make everyone feel special, and no one ever gets close enough to see the cracks.',
+          '@bettina I flirt with everyone, you know. It\'s a barkeep\'s armour. Make everyone feel special, and no one ever gets close enough to see the cracks.',
           '@bettina:sad But you keep getting past it. You keep staying after closing. You keep *seeing* me. I don\'t quite know what to do with that.',
-          'For the first time since you met her, Bettina Rosewater looks uncertain.',
+          'Bettina Rosewater, who always has the last word, has run out of words. She looks uncertain.',
         ],
         choices: [
           { text: '"You don\'t have to do anything with it. Just let me stay."', go: 'stay', aff: 10 },
@@ -510,7 +510,7 @@ FL.addCharacter({
       },
       care: {
         text: [
-          'She stops. She stares at you. For a moment, all the teasing confidence falls away, and she looks like someone who\'s been carrying something heavy for a very long time.',
+          'She stops on the bottom stair. The candle tilts. For a moment, all the teasing confidence falls away, and she looks like someone who\'s been carrying a full tray, one-handed, for eight years.',
           '@bettina:sad ...No one\'s said that to me in eight years.',
           '@bettina:sad Everyone needs Bettina. Nobody ever thinks Bettina might need anything.',
           'She lets you lead her up the stairs. When you reach her room, she sits on the edge of the bed and lets you take the pins from her hair one by one, eyes closed.',
@@ -532,7 +532,7 @@ FL.addCharacter({
           "@bettina:blush Oh. Oh, *my.* I'd — I'd forgotten it could be like this.",
           "She doesn't let you be careful with her for long. She pulls you down onto the bed with a low, delighted laugh, and the old frame creaks and creaks...",
           "...",
-          "Morning comes slow and golden through the window. She's lying with her head on your shoulder, tracing lazy circles on your chest.",
+          "Morning comes slow and golden through the window. She's propped on one elbow beside you, hair everywhere, tracing lazy circles on your chest.",
           "@bettina:smug Ara, ara. Look at the state of you. I've ruined you for anyone your own age.",
           "@you Completely.",
           "@bettina:happy *Good.*",
@@ -544,7 +544,7 @@ FL.addCharacter({
       start: {
         text: [
           "You come downstairs to find the Tipsy Wyvern's morning regulars all very, very interested in their porridge. Nobody looks up. Several people are smirking.",
-          "Bettina is behind the bar, humming, hair loose around her shoulders for the first time anyone can remember. She slides a plate of eggs, bacon and honey cakes in front of you, and a mug of coffee with a little heart drawn in the foam.",
+          "Bettina is behind the bar, humming, hair loose around her shoulders for the first time anyone can remember. She slides a plate of eggs, bacon and honey cakes in front of you, and a mug of coffee with a little heart traced in cinnamon on the saucer.",
           { if: 'bettina_care', text: "@bettina:blush You took my pins out last night, sweetie. One at a time. I didn't put them back in this morning. I don't think I'm going to." },
           "@bettina:happy On the house, sweetie. Eat up. You'll need your strength.",
           "Old Gruk at the end of the bar snorts into his tankard. Aura, wiping tables, drops a whole tray of mugs.",
@@ -561,7 +561,7 @@ FL.addCharacter({
       kiss: {
         text: [
           "You lean across the bar and kiss her, long and slow, in front of everyone. The whole tavern erupts in cheers. Somebody bangs a tankard. Gruk wolf-whistles.",
-          "When you pull back, Bettina's cheeks are pink. Bettina's cheeks are *never* pink.",
+          "When you pull back, Bettina's cheeks are pink. In public. Before noon. In front of the *regulars.*",
           "@bettina:blush ...Well. That'll give them something to talk about.",
           "She's smiling all day. Customers get free refills. Nobody knows why, but everybody knows why.",
         ],
@@ -570,7 +570,7 @@ FL.addCharacter({
       blush: {
         text: [
           "You hide behind your coffee. Bettina laughs, rich and delighted.",
-          "@bettina:smug Oh, there it is. My favorite tip. Look, everyone! It goes all the way down. I checked.",
+          "@bettina:smug Oh, there it is. My favourite tip. Look, everyone! It goes all the way down. I checked.",
           "The tavern howls. You want to die. She leans over and kisses the top of your head, very softly.",
           "@bettina:happy I'm teasing, sweetie. Mostly.",
         ],
@@ -580,7 +580,7 @@ FL.addCharacter({
         text: [
           "The regulars burst out laughing. Gruk raises his tankard.",
           "\"Don't you dare, lad,\" he says. \"First time in eight years she's sung while she sweeps.\"",
-          "Bettina goes very quiet. She looks at the old dwarf for a long moment, then at you. Her eyes are a little bright.",
+          "Bettina goes very quiet. She looks at the old orc, then at you. Her eyes are a little bright.",
           "@bettina:surprised ...Was I singing?",
           "Everyone nods.",
           "@bettina:blush Well. Fancy that.",
@@ -591,7 +591,7 @@ FL.addCharacter({
     ending: {
       start: {
         text: [
-          'Bettina closes the Tipsy Wyvern for Starfall — the first time she\'s closed it for anything in twenty years. The regulars are scandalized. She doesn\'t care.',
+          'Bettina closes the Tipsy Wyvern for Starfall — the first time she\'s closed it for anything in twenty years. The regulars are scandalised. She doesn\'t care.',
           'She climbs the festival hill on your arm in an emerald gown, her hair loose, a basket of food and a bottle of Bettina\'s Ruin under her other arm.',
           { if: 'bettina_singing', text: 'She\'s humming as you climb. She\'s been humming for weeks now. Gruk has started keeping a tally on the wall behind the bar, and the regulars are running a book on when she\'ll stop. Nobody is betting on soon.' },
           { if: 'bettina_pan', text: 'The frying pan is in the basket too. "For emergencies," she says, when you raise an eyebrow. "And omelettes. And emergencies involving omelettes."' },
@@ -624,7 +624,7 @@ FL.addCharacter({
           { if: ['!bettina_sweetheart', '!bettina_duet', '!bettina_sticky'], text: 'The Tipsy Wyvern gets a new sign. It reads, in fresh gold paint: *THE TIPSY WYVERN — Proprietors: Bettina Rosewater & {name}.* Below it, smaller: *(Ask about our signature cocktail, "The Newcomer.")*' },
           'You run the bar together. She still flirts with every customer. They still blush. But at the end of every night, when the doors are locked and the chairs are up, she pours two glasses and sits on the bar with you, legs dangling, and tells you about her day.',
           'The bar still wobbles on the left. Neither of you ever fixes it.',
-          'Harold\'s portrait still hangs on the landing. Next to it now hangs another: you and Bettina on the festival hill, painted by a very excitable traveling artist.',
+          'Harold\'s portrait still hangs on the landing. Next to it now hangs another: you and Bettina on the festival hill, painted by a very excitable travelling artist.',
           'She says Harold would have liked you. She says it often. She says it like she means it — because she does.',
         ],
         ending: 'bettina',
@@ -670,7 +670,7 @@ FL.addCharacter({
           '@you Then Aura can help.',
           '@bettina:smug Aura sets the kitchen on fire.',
           '@you Then it\'ll be on fire for a while. It\'ll survive. So will they. So will you.',
-          'She stares at you for a very long time. A star falls behind her and she doesn\'t see it.',
+          'She searches your face for a very long time, the way she reads a stranger across her bar. A star falls behind her and she doesn\'t see it.',
           '@bettina:blush ...Twenty years, and nobody ever asked what *I* wanted. They only ever asked for a drink.',
           '@bettina:happy All right. All *right,* you wicked, wonderful thing. Take me to the sea.',
         ],
@@ -679,12 +679,12 @@ FL.addCharacter({
       epilogue_wander: {
         text: [
           '*Some time later...*',
-          'Bettina hands the keys of the Tipsy Wyvern to Gruk, along with a list of instructions nine pages long, a frying pan, and a kiss on his bald head that makes him go purple. Then she walks out of her own front door with a carpetbag, Harold\'s old map, and you, and she doesn\'t look back. Well. She looks back once.',
+          'Bettina hands the keys of the Tipsy Wyvern to Gruk, along with a list of instructions nine pages long, a frying pan, and a kiss on his bald head that makes him go dark green. Then she walks out of her own front door with a carpetbag, Harold\'s old map, and you, and she doesn\'t look back. Well. She looks back once.',
           'You take the coast road south. She makes a pirate captain blush so hard he gives you free passage. She out-drinks a sea giant in a harbor town and is carried home on his shoulders, singing. She discovers she gets terribly seasick, and then that she doesn\'t care.',
           { if: 'bettina_sea', text: 'You keep your promise from the pier. The first morning there is nothing on any side of the ship but open water, she stands at the rail and cries, and then laughs, and then kisses you so long that the helmsman has to steer around a whale.' },
           'You reach Gullwater in the autumn. The cliffs really are pink. The oysters really are the size of your hand. There is a tavern with no roof, just stars, exactly as Harold read in his book, and she sits at its bar and orders a drink and lets someone else pour it, and tips like a duchess.',
           'Every night, wherever you are — a ship\'s rail, a mountain inn, a hayloft in a storm — she pours two glasses and sits with you, legs dangling, and tells you about her day. The days are much more interesting now.',
-          'You come home after a year and a day. The kitchen has been on fire only eleven times. The regulars have read every postcard aloud so often they can recite them. Gruk hands her back the keys and bursts into tears.',
+          'You come home after a year and a day. The kitchen has been on fire only eleven times. The regulars have read every letter aloud so often they can recite them. Gruk hands her back the keys and bursts into tears.',
           'The bar still wobbles on the left. Nobody has fixed it. She puts her hand flat on it, and smiles, and says, "Hello, love. We\'re back. You\'d have hated the boat."',
         ],
         ending: 'bettina_wander',

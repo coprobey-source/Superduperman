@@ -51,8 +51,8 @@ FL.addCharacter({
   afterTalk: [
     { if: 'sigrun_helm', lines: ['You realize, halfway through saying hello, that she isn\'t wearing the helm. Just her braids, a bit wind-mussed, and a smile that looks oddly young.', '@sigrun:blush I left it on the hook by your door. People keep staring at me in the street. I think they did not know I had a forehead.', '@sigrun:happy I like having a forehead. You kiss it.'] },
     { if: 'sigrun_called', lines: ['@sigrun:blush I keep hearing it. In the arena. You, flat on your back, calling my name. Not the gods\'. Not glory\'s. Mine.', '@sigrun:happy Valkyries hear a thousand battle cries a day. I only ever want to hear that one again. ...Ideally under less ogre-related circumstances.'] },
-    { if: 'sigrun_date_picnic', lines: ['@sigrun:happy Can we have another day where nothing happens? Like the picnic. Where nobody died and we ate cheese and you fell asleep with your head on my wing.', '@sigrun:blush I have been thinking about that cheese for a week. And about the head. Mostly the head.'] },
-    ['She presses her ear to your chest without warning, right in the middle of the street, and stays there.', '@sigrun Shh. I am counting. Every beat is one more. I spent a thousand years listening for the last one.', '@sigrun:happy I would much rather count these.'],
+    { if: 'sigrun_date_picnic', lines: ['@sigrun:happy Can we have another day where nothing happens? Like the picnic. On a blanket, on the GROUND, where nobody died and there was cheese.', '@sigrun:blush I have been thinking about that cheese for a week. And about you on the blanket. Mostly you.'] },
+    ['She presses her ear to your chest without warning, right in the middle of the street, and stays there.', '@sigrun Shh. I am counting. On the mountain I stopped at four thousand and twelve. I have been adding to it ever since.', '@sigrun:happy ...You made me lose count. Good. I shall have to start again from one.'],
     ['She hands you a padded leather helmet, a padded vest and a set of padded knee-guards.', '@sigrun:smug For when you go to the market.', '@you It\'s a market. It sells cabbages.', '@sigrun:angry I have TOLD you about cabbages.'],
     ['@sigrun:angry You will eat your vegetables. All of them. I have read that mortals who eat vegetables live longer.', '@sigrun:blush I did not used to care how long mortals lived. I care very much about one of them now. So. Carrots.'],
     ['@sigrun:blush I tried to whisper something romantic to you in the tavern last night. Four people at the next table proposed to each other.', '@sigrun:smug I do not have a quiet voice. I have a voice for across battlefields. I shall have to love you loudly. You will have to cope.'],
@@ -65,7 +65,7 @@ FL.addCharacter({
       start: {
         text: [
           'The Tipsy Wyvern\'s owner sees Sigrun ducking through the door, wings folded tight, and silently moves every breakable thing behind the bar.',
-          'She orders "the most dangerous thing on the menu." It is a chili stew that has hospitalized two dwarves. She eats it with a spoon in each hand.',
+          'She orders "the most dangerous thing on the menu." It is a chili stew that has put two dwarves in the Temple infirmary. She eats it with a spoon in each hand.',
           '@sigrun:happy This is GOOD! My mouth is on fire! This is how I would want my mouth to die!',
           { if: { stage: 4 }, text: ['@sigrun:blush ...Your mouth, though, I want kept in excellent condition. For reasons.', 'Under the table, she hooks her boot around your ankle and leaves it there.'] },
           'She waves for two horns of mead and leans across the table, eyes bright.',
@@ -124,7 +124,7 @@ FL.addCharacter({
       rose: {
         text: [
           'You reach up, which takes some reaching, and slide a white rose into the feathers on her helm.',
-          'She goes perfectly still, like you might be a sniper.',
+          'She goes perfectly still, like a deer that has heard a bowstring.',
           '@sigrun:blush ...That is where the Hall-Father pins his medals.',
           '@sigrun:blush This is better than a medal. Do not tell him I said so. Do not tell ANYONE I said so.',
           'She wears it for three days. When it wilts, she presses it inside her shield.',
@@ -180,7 +180,7 @@ FL.addCharacter({
         text: [
           'She considers. Then, without warning, she scoops you up, beats her wings twice, and you are a thousand feet above the harbor with the whole sea on fire beneath you.',
           '@sigrun:happy Like that!',
-          'You can see the curve of the world. You can see the masquerade lanterns of the Noble Quarter and the smoke of Dragonspire. She holds you as if you\'re made of eggshell, which, compared to her, you are.',
+          'You can see the curve of the world. You can see the lanterns of the Noble Quarter and the smoke of Dragonspire. She holds you as carefully as a brimming horn of mead, which is the most carefully she holds anything.',
           { if: { stage: 4 }, text: '@sigrun:blush I always flew this high alone. With the dead. They never looked down. You keep looking down. You keep saying "oh." I love the "oh."' },
           'She sets you back on the pier exactly where your fish is, still warm.',
         ],
@@ -300,8 +300,8 @@ FL.addCharacter({
         text: [
           '@sigrun Worthy: fit for the High Hall. Slain: the way one GETS to the High Hall. It is a very short process. Mostly a spear.',
           '@you I\'d prefer to stay unslain, actually. If it\'s all the same to you.',
-          'She stares at you. The lightning in her eyes flickers, confused.',
-          'Then she throws back her head and laughs, so loudly that dust falls from the rafters and a pigeon outside drops a crust.',
+          'The lightning in her eyes stutters, like a storm that has lost its place.',
+          'Then she plants both fists on her hips and laughs, so loudly that dust falls from the rafters and a pigeon outside drops a crust.',
           '@sigrun:happy MODEST! Ha! The best ones always say that! Grettir said that! Ulfar said that! Thora threw a cheese at me!',
           '@sigrun:smug They all came round in the end.',
         ],
@@ -373,7 +373,7 @@ FL.addCharacter({
       charge_win: {
         text: [
           'You charge. The wyvern lunges. You duck the snapping jaws, grab one horn and hang on while she thrashes and the world becomes a blur of scales.',
-          'Sigrun is hovering just overhead, cheering like a whole stadium.',
+          'Sigrun is hovering just overhead, cheering like a whole arena.',
           '@sigrun:happy GLORIOUS! TERRIBLE FORM! GLORIOUS! TUCK YOUR ELBOWS!',
           'Somehow, you hold on until the wyvern decides you\'re more trouble than you\'re worth and backs off with a sulky hiss. You drop to the rock, gasping and alive.',
           'In all the thrashing, one of the eggs has rolled out of the nest. It wobbles to a stop right at the cliff\'s edge.',
@@ -610,7 +610,7 @@ FL.addCharacter({
       },
       want: {
         text: [
-          'She opens her mouth. Closes it again.',
+          'For once she has no answer ready. Her wings rustle behind her, as if they are looking for one.',
           '@sigrun:surprised Nobody has ever asked me that. Valkyries do not want, little warrior. Valkyries *choose.*',
           '@you You\'re allowed to do both.',
           'She thinks about it with enormous effort, frowning, as if the answer is a long way off and she is flying towards it into a headwind.',
@@ -653,7 +653,7 @@ FL.addCharacter({
       },
       helm: {
         text: [
-          'You reach up, which takes some reaching, and take hold of the winged helm. She stiffens, then bows her head to let you.',
+          'You stretch up onto your toes and take hold of the winged helm. She stiffens, then bows her head to let you.',
           'It comes away heavier than you expect. Underneath, her platinum hair is flattened, damp and wild, and there is a red line across her forehead where the helm has sat for longer than anyone can remember.',
           'Without it she looks younger. Softer. Startled, as if she\'s been caught without her armor in more than one way.',
           '@sigrun:blush No one has seen me without it since... I do not remember. Since before your kingdom had a name.',
@@ -704,7 +704,7 @@ FL.addCharacter({
           'Much later, the fire has burned down to embers. You are still wrapped in her wings, your cheek against her collarbone, sticky with sweat and tangled in platinum braids.',
           'She has her palm over your heart again. Her lips are moving silently.',
           '@you What are you doing?',
-          '@sigrun:blush Counting. Every beat is one more. I have spent a thousand years listening for last heartbeats.',
+          '@sigrun:blush Counting. Every beat is one more. I have spent eight hundred years listening for last heartbeats.',
           '@sigrun:happy I would much rather count these. Go to sleep, little warrior. I have only got to four thousand and twelve.',
         ],
         end: true,
@@ -754,7 +754,7 @@ FL.addCharacter({
           '@sigrun:smug We jump.',
           '@you We what?',
           'She grabs you, sprints out of the hut door and throws you both off the summit.',
-          'You fall for a very long time, screaming, while she laughs like a thunderstorm. Then her wings snap open a hundred feet above the treetops, and you glide down over Whisperwood in the early sun, your heart pounding against her palm.',
+          'You fall for what feels like a week, screaming, while she laughs like a thunderstorm. Then her wings snap open a hundred feet above the treetops, and you glide down over Whisperwood in the early sun, your heart pounding against her palm.',
           '@sigrun:happy Feel that? Four thousand and thirteen. Four thousand and fourteen. You are VERY alive this morning.',
         ],
         end: true,
@@ -810,7 +810,7 @@ FL.addCharacter({
         text: [
           'She sets down her mead.',
           '@sigrun:surprised Grow old. With you.',
-          '@sigrun:sad You know what that means, for a valkyrie. The wings are the Hall\'s. To stay, I would have to give them back. I would have to get old, and slow, and sick, and one day I would have to die.',
+          '@sigrun:sad You know what that means, for a valkyrie. The wings are the Hall\'s. To grow old, I would have to give them back. I would have to get old, and slow, and sick, and one day I would have to die.',
           '@you I know. I\'ll be right there for all of it. I\'ll even complain about my knees, so you don\'t feel alone.',
           'She laughs, and it breaks halfway through, and she wipes her eyes with the heel of her hand.',
           '@sigrun:happy Then I am going to need to borrow your knees. I have never had bad knees. I want to know what all the fuss is about.',
@@ -826,9 +826,9 @@ FL.addCharacter({
           '*Some time later...*',
           'She walks back into Clichéton three days after the festival, footsore, sunburnt and grinning, with no wings at all. She stops in the square and announces, at the top of her lungs, that she has a blister.',
           '@sigrun:happy A BLISTER! On my HEEL! Look at it! It is MAGNIFICENT!',
-          'Being mortal turns out to be the greatest adventure of her life. Her first cold is a saga. Her first hangover is an epic. When she finds her first grey hair, years later, she throws a feast for the whole town and has it mounted in a little frame.',
+          'Being mortal turns out to be the greatest adventure of her life. Her first cold is a saga. Her first hangover is an epic. When she finds her first grey hair, years later, she challenges it to single combat, loses, and declares it a worthy foe.',
           'You buy a farm at the edge of Whisperwood with goats, a mead-cellar and a very low doorway that she never once ducks for, and hits her head on every time, laughing. She still yells HAIL at the neighbours every morning. The neighbours have started yelling it back.',
-          { if: 'sigrun_feather', text: 'The feather she gave you on the crags, the last one from her old wings, hangs over the hearth in a glass case. She says it isn\'t a reservation any more. Now it\'s just a feather. It\'s her favorite thing in the house, after you.' },
+          { if: 'sigrun_feather', text: 'The feather she gave you on the way home from the crags, the last one from her old wings, hangs over the hearth in a glass case. She says it isn\'t a reservation any more. Now it\'s just a feather. It\'s her favorite thing in the house, after you.' },
           'Every Tuesday afternoon, the two of you sit on the porch and do nothing at all.',
           'And many, many years later, she sits beside you with white braids, two bad knees and a horn of mead, and tells your grandchildren about the day a valkyrie found out what happens to a hero who lives.',
           '@sigrun:happy This, little ones. *This* is what happens.',

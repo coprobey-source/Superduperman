@@ -19,7 +19,7 @@ FL.addCharacter({
     neutral: ["She circles it twice in the air, wings humming.", "@thistle What is it *for?* Does it grant wishes? Does it sing? No? Mortals make the strangest objects and then just... keep them."],
     hate: ["The moment it leaves your bag, her nose wrinkles. Her eyes water. Her wings go rigid.", "@thistle:angry Is that — is that *IRON* — ah — ahh — *AH-CHOO!*", "The sneeze blows her backward a full foot through the air and turns a nearby dandelion into a small, confused sparrow.", "@thistle:angry Take it AWAY. Bury it. Salt the earth. *Assassin.*"],
     special: {
-      nectar: ["She uncorks the vial, takes one sip, and glows. Literally: a soft silver light rises off her skin like steam off tea.", "@thistle:surprised Oh. *Oh.* Do you know fairies have traded kingdoms for less than this? I once traded a *duchy* for half a thimble, and it was a bad duchy, but still.", "She takes another sip and sways happily in the air.", "@thistle:blush You have pleased the crown so much that the crown is going to be very undignified about it. Look away. *Look away,* I'm going to do a little spin."],
+      nectar: ["She uncorks the vial, takes one sip, and glows. Literally: a soft silver light rises off her skin like steam off tea.", "@thistle:surprised Oh. *Oh.* Fairies have traded kingdoms for less than this, you know. I once traded a *duchy* for half a thimble, and it was a bad duchy, but still.", "She takes another sip and sways happily in the air.", "@thistle:blush You have pleased the crown so much that the crown is going to be very undignified about it. Look away. *Look away,* I'm going to do a little spin."],
       fork: ["You hold out an ordinary fork.", "Thistle looks at it. Thistle looks at you. Thistle's nose begins, very slowly, to twitch.", "@thistle:angry You have brought a *trident of cold iron* to a QUEEN — hh — hhh —", "The sneeze knocks her crown askew and makes every rose within ten feet bloom at once, out of season, in a mild panic.", "@thistle:smug ...I am adding forks to the list of things that are treason. It is a long list. You are on it twice."],
       mirror: ["@thistle:happy Oh! Oh, it's *enormous.* A whole lake of me!", "She hovers in front of the glass, turning this way and that, adjusting her crown by a hair.", "@thistle:smug I will hang it in the throne room so my court can see what perfection looks like from every angle. They need the reminder."],
       plushie: ["She looks at the stuffed bunny, which is roughly four times her size.", "@thistle:surprised A *steed!*", "She is on its back before you can explain. It doesn't move. She doesn't care.", "@thistle:happy I name him Sir Flopsalot, and he shall ride at the head of my armies. Or sit at the head of them. *Gallantly.*"],
@@ -33,7 +33,7 @@ FL.addCharacter({
     ["@thistle People call me capricious. *I* call it having a great many moods and the authority to act on all of them.", "@thistle:smug Yesterday I outlawed Tuesdays. Today I miss them. I shall reinstate Tuesday as a favor to you, and you shall owe me for Tuesday."],
     ["She is sitting on your shoulder, kicking her heels against your collarbone.", "@thistle You may tell the town that the Queen of the Seelie Court rides upon your shoulder. You may *not* tell them it's because my wings got tired.", "@thistle:angry Royal wings do not get tired. They get *bored of flapping.*"],
     ["@thistle Do you know how many mortals have tried to learn my true name? Four hundred and twelve. One tried guessing every name in the kingdom in alphabetical order. He got to the Fs before he died of old age.", "@thistle:smug I went to the funeral. It was the polite thing. I wore a little black petal."],
-    ["@thistle Iron. Cold iron. Do you know what it's like? Imagine everyone you meet is carrying a sneeze in their belt buckle. Imagine *nails.* Mortals put nails in *everything.*", "She shudders delicately.", "@thistle:angry Your whole town is a sneeze waiting to happen."],
+    ["@thistle Iron. Cold iron. Have you any idea what it's like? Imagine everyone you meet is carrying a sneeze in their belt buckle. Imagine *nails.* Mortals put nails in *everything.*", "She shudders delicately.", "@thistle:angry Your whole town is a sneeze waiting to happen."],
     ["@thistle I have been Queen for nine hundred years. Before that I was a princess for a hundred. Before that, according to my chamberlain, I was a light in the sky.", "@thistle:smug I don't remember it. I was very young. And Bramblewick exaggerates. He once described a mild drizzle as *the Deluge.*"],
     ["@thistle:smug Let's make a bargain. I tell you a secret, you tell me a secret, and whoever's secret is better wins the other's shoes.", "@you What would you even do with my shoes?", "@thistle:happy Live in one. Obviously. It looks roomy."],
     ["@thistle The trick with bargains isn't to cheat. Cheating is for goblins. The trick is to be *precise* while the other person is being *hopeful.*", "She taps the side of her nose.", "@thistle:smug Free lesson. Do not get used to free."],
@@ -42,8 +42,8 @@ FL.addCharacter({
     { if: 'thistle_snail', lines: ["A snail is crossing the garden path with tremendous purpose. It is wearing a tiny acorn-cap helmet.", "@thistle:happy Ah! Sir Slowly. I knighted him after his acquittal. He is my most loyal knight. He is also my *slowest* knight, but loyalty is rarer than speed.", "@thistle He's attended court every day since. He arrives about a week after each session ends. It's very moving."] },
     { if: 'thistle_debt', lines: ["@thistle:smug I haven't forgotten, you know.", "@you Forgotten what?", "@thistle:smug You owe me a favor, mortal. Unnamed. I haven't decided what it is yet. I think about it every night before I fall asleep.", "@thistle:happy It's the most fun I've had in a century."] },
     { if: 'demon_attack', lines: ["@thistle:angry Those imps in the square! Malzahra's little nuisances. One of them had an iron pitchfork. *Iron.* I sneezed so hard the town fountain ran lemonade for an hour.", "@thistle:smug Nobody complained. I'm told it was very good lemonade."] },
-    { if: 'goddess_awake', lines: ["@thistle I hear Amorette is walking around in a body again. The Goddess of Love. She does this every few centuries; it's a whole phase.", "@thistle:smug She owes me a favor from the Fourth Age. I won a bet with her about a swan. Never bet a fairy about swans."] },
-    { if: 'thistle_truename', lines: ["She lands on your palm and looks up at you for a long moment.", "@thistle:blush You haven't used it. My name. Not once. Not to show off, not to make me fetch you a cup of tea, not even as a joke.", "@you It's not mine to use.", "@thistle:sad ...It is, though. I gave it to you. And you just *keep* it, like a pressed flower. Nobody ever keeps things. They always *use* them."] },
+    { if: 'goddess_awake', lines: ["@thistle I hear Amorette is walking around in a body again. The Goddess of Love. She hasn't done that in an age. Last time, I was still a princess.", "@thistle:smug She owes me a favor from the Fourth Age. I won a bet with her about a swan. Never bet a fairy about swans."] },
+    { if: 'thistle_truename', lines: ["She lands on your palm and stands there with her wings folded, oddly formal, like a herald about to read out a verdict.", "@thistle:blush You haven't used it. My name. Not once. Not to show off, not to make me fetch you a cup of tea, not even as a joke.", "@you It's not mine to use.", "@thistle:sad ...It is, though. I gave it to you. And you just *keep* it, like a pressed flower. Nobody ever keeps things. They always *use* them."] },
   ],
   afterTalk: [
     ["Thistle lands on your shoulder and settles in like she's claiming a throne.", "@thistle:happy There you are. I've decided you are my favorite mortal. Don't let it go to your head. It's a very small category. It used to have a cat in it."],
@@ -76,7 +76,7 @@ FL.addCharacter({
         text: [
           "You bundle every fork, knife and spoon on the table into a napkin and tuck it under your thigh. Thistle watches with growing delight.",
           "@thistle:happy You're *sitting on the iron* for me. Like a dragon on a hoard. A very silly dragon, with a very bad hoard.",
-          "@thistle:blush ...It's very gallant. Don't let it go to your head.",
+          "@thistle:blush ...It's very gallant. I'm entering it in the ledger. On *your* side. Don't get used to it.",
           "She dines from the rim of your goblet, sipping wine from a drop caught on her fingertip, and tears the chicken into fairy-sized pieces with her bare hands, which is apparently allowed at court if you are the Queen.",
         ],
         next: 'end',
@@ -139,7 +139,7 @@ FL.addCharacter({
         text: [
           "She settles on the edge of the rose like it's an armchair, and for once she doesn't perform.",
           "@thistle It was the spring after a very long winter. I was lonely. I thought if I made something beautiful, someone might come and look at it.",
-          "@thistle:sad Nobody came for three hundred years. Then the nobles came, and built a garden around it, and never noticed it was here at all.",
+          "@thistle:sad Nobody came for four hundred years. Then the nobles came, and built a garden around it, and never noticed it was here at all.",
           "She looks at you, sitting on the moss, looking at her rose.",
           "@thistle:blush ...Well. Someone came.",
         ],
@@ -227,7 +227,7 @@ FL.addCharacter({
       named: {
         text: [
           "Her eyes go wide, then narrow, then crinkle up with delight.",
-          "@thistle:happy You *remembered* the rules! You actually listened to me!",
+          "@thistle:happy You know the *rules!* Where did a giant learn the rules? Somebody's grandmother raised you properly.",
           "@thistle:blush ...Very well. Freely given, nothing owed. No dancing, no hundred years. It's just a pastry.",
           "It is just a pastry. It is also the best thing you have ever eaten, and you say so, and she preens for the rest of the afternoon.",
         ],
@@ -283,7 +283,7 @@ FL.addCharacter({
       defend_win: {
         text: [
           "@you With respect, Your Majesty, this is a public garden. The snail had no way of knowing the rose was royal. Is there a sign?",
-          "She opens her mouth. She closes it. She looks around for a sign. There is no sign.",
+          "She points a tiny, furious finger. She lowers it. She looks around for a sign. There is no sign.",
           "@thistle:surprised ...There is no sign.",
           "@you Then the snail is a victim of unclear signage. Case dismissed.",
           "@thistle:happy *Case dismissed!* Oh, that's marvelous. I've never been out-lawyered by a giant before! The snail is free! The snail is *knighted!* Rise, Sir Slowly!",
@@ -466,7 +466,7 @@ FL.addCharacter({
           "@you I'd love it. But I'll pay for it. What's the price of one royal cake?",
           "The revel goes silent. A bumblebee drops its drink.",
           "@thistle:surprised You want to *buy* a gift. So it's a trade. So it doesn't bind you.",
-          "She stares at you. Then she throws back her head and laughs, a bright peal like a spoon dropped in a crystal glass.",
+          "Her wings buzz so fast they blur. Then she laughs, a bright peal like a spoon dropped in a crystal glass.",
           "@thistle:happy Oh, you *vicious* thing! One kiss of the hand. That's the price. Pay up.",
           "She holds out a hand the size of a sugar cube. You kiss the very tips of her fingers, carefully. She turns faintly pink from the ears down.",
           "@thistle:blush ...The debt is settled. Eat your cake. It's just a cake now. It's still very good.",
@@ -499,7 +499,7 @@ FL.addCharacter({
         text: [
           "Later, when the revel has wound down to a few tipsy bees and a cricket playing something slow, the Queen flutters over and lands on your knee. She sits there swinging her legs, watching the stars come out above the clearing.",
           "@thistle Nine hundred years of revels. Every night, the same dances, the same cakes, the same courtiers telling me I'm radiant.",
-          "@thistle:sad They're all bound to me, you know. Every one of them. A bargain here, an oath there. Bramblewick owes me eight hundred years over a thing with a magpie. They *have* to tell me I'm radiant.",
+          "@thistle:sad They're all bound to me, you know. Every one of them. A bargain here, an oath there. Bramblewick owes me eleven hundred and eleven years over a thing with a magpie. They *have* to tell me I'm radiant.",
           "She tilts her head up at you.",
           "@thistle You don't have to tell me anything. It's very disorienting.",
         ],
@@ -523,7 +523,7 @@ FL.addCharacter({
           "@you You need a name people can call you that isn't *Majesty.* How about... Thimble?",
           "@thistle:angry *Thimble?* I am the Queen of the Seelie Court! I have dethroned kings! I once turned a duke into a weathervane! *Thimble!*",
           "@you It suits you. Small, silver, and you'd only notice how much you needed it once it was gone.",
-          "She opens her mouth to object. She closes it again.",
+          "Her wings go stiff with outrage. Then, slowly, they droop.",
           "@thistle:blush ...It isn't a *true* name. It has no power at all. You could call me it a thousand times and I wouldn't have to do a single thing.",
           "@you That's the idea.",
           "@thistle:blush ...Thimble. Hmph. *Fine.* But only you. If Bramblewick tries it, I'll make him a doorknob.",
@@ -594,7 +594,7 @@ FL.addCharacter({
       counter_win: {
         text: [
           "@you Counter-offer. I'll love you for a year and a day, and longer, and in exchange you give me nothing. Not a coin. Not a beard. Write that in.",
-          "She opens her mouth to argue and stops. She frowns at the scroll. She frowns at you.",
+          "She draws herself up to argue and stops. She frowns at the scroll. She frowns at you.",
           "@thistle:surprised But a bargain needs a price on both sides, or it isn't a bargain, it's a *gift,* and a gift doesn't bind, so the whole contract would —",
           "She does the sums. You watch her do them. Her eyes get very, very wide.",
           "@thistle:surprised You just turned my bargain into a *love letter.* Using my own clauses.",
@@ -622,7 +622,7 @@ FL.addCharacter({
           "She sits down hard on the toadstool and looks at her hands for a while.",
           "@thistle Do you know where fairies come from? The old ones, I mean. Not pixies. Pixies come from sneezes.",
           "@thistle:sad I came from a star. The first Starfall that ever fell on Whisperwood. I landed in a thistle patch and woke up with a crown on, because there was nobody else to wear it.",
-          "@thistle And every Starfall since, I've watched the mortals go up the hill in pairs. *Bound forever,* the legend says. Nine hundred and some Starfalls, and I have never once had anyone to watch with who wasn't *contractually obliged.*",
+          "@thistle And every Starfall since, I've watched the mortals go up the hill in pairs. *Bound forever,* the legend says. A thousand and some Starfalls, and I have never once had anyone to watch with who wasn't *contractually obliged.*",
           { if: 'thistle_gavename', text: ["@thistle:blush You gave me your name the day we met. Just handed it over. I've carried it around ever since like a hot coal, waiting for the catch.", "@thistle:sad There wasn't one. I kept *looking.*"] },
           "She takes a breath. Her wings tremble.",
           "@thistle:blush I could give you mine. My true name. You'd have power over me, all of it, forever. You could make me do anything at all.",
@@ -845,7 +845,7 @@ FL.addCharacter({
         text: [
           "The whole town is climbing the hill above the square. You are not. You're sitting in a thistle patch at the edge of Whisperwood, because the Queen of the Seelie Court has informed you that this is where the *good* view is, and that the hill is for amateurs.",
           "She sits on your knee in a gown of moonflower petals, crown freshly polished, wings folded neatly. She has been nervous all evening and has blamed it on Bramblewick four separate times.",
-          "@thistle This is the spot. Right here. Nine hundred and something Starfalls ago, I landed in this exact thistle patch and woke up wearing a crown.",
+          "@thistle This is the spot. Right here. A thousand and something Starfalls ago, I landed in this exact thistle patch and woke up wearing a crown.",
           "@thistle:sad I come here every year. Alone. I watch the town go up the hill in pairs, and I sit in my thistles, and I tell myself I don't care.",
           "@thistle:blush I care. It turns out I care quite a lot.",
         ],
@@ -928,7 +928,7 @@ FL.addCharacter({
           { if: 'thistle_snail', text: "Sir Slowly was briefly considered for the throne, but the coronation procession would have taken four years." },
           "As for Thistle, she made one last bargain with the Moon, the biggest of her life: her crown and nine hundred years of tiny, perfect sovereignty, in exchange for a full-sized life in a mortal town, iron and all.",
           "She sneezes constantly. She has opinions about every nail in Clichéton. She opens a shop off the market called *Thistle's Bargains,* in letters slightly too fancy for the sign, where she trades favors, settles disputes, and once sold the mayor a cloud. Everyone in town owes her something. She has never been happier.",
-          "She grows older now, slowly, alongside you. When she finds her first grey hair, she has it framed.",
+          "She grows older now, slowly, alongside you. When she finds her first grey hair, she tries to negotiate it off her head. It refuses every offer. She respects it enormously.",
           "And one evening, years in, she brings you tea in bed without being asked, and you say the word without thinking, and she freezes.",
           "@thistle:smug ...You said it. The T-word.",
           "@you I did.",

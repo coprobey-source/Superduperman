@@ -12,7 +12,7 @@ FL.addCharacter({
   schedule: ['square', 'docks', ['noble', 'square']],
   gifts: { love: ['cakes'], like: ['dagger', 'tea', 'chocolate', 'salts'], hate: ['perfume', 'roses', 'mead'] },
   giftLines: {
-    love: ['She stares at the honey cakes. She stares for a long time. Then she pulls her mask down just far enough to eat one in a single bite.', '@shade ...', '@shade:blush Acceptable. Highly acceptable. You have located my weakness. This is a serious tactical failure on my part.', 'Her ears are pink.'],
+    love: ['She goes perfectly still, the way she does just before she moves very fast. Then she pulls her mask down just far enough to eat one in a single bite.', '@shade ...', '@shade:blush Acceptable. Highly acceptable. You have located my weakness. This is a serious tactical failure on my part.', 'Her ears are pink.'],
     like: '@shade Useful. Thank you. I will add it to my equipment.',
     neutral: '@shade:surprised ...I do not understand the purpose of this object. I will keep it until I do.',
     hate: ['@shade:angry Strong scent. Highly visible colors. This would compromise my position from forty paces.', '@shade:sad ...You intended it kindly. I will dispose of it kindly.'],
@@ -29,7 +29,7 @@ FL.addCharacter({
         '@shade:blush I own thirty-one knives. This is now my favorite. Do not tell the other thirty-one.',
       ],
       fork: [
-        'She takes the fork. She looks at it for a very long time.',
+        'She takes the fork and tests each tine against her thumb, then its weight, then its balance, then its reach.',
         '@shade Four tines. Concealable. Universally underestimated. No guard in history has ever confiscated a fork.',
         '@shade:smug ...You understand me better than the Guild ever did.',
       ],
@@ -228,7 +228,7 @@ FL.addCharacter({
           'You bend over a white rose and breathe in. Shade watches with deep suspicion.',
           '@shade:angry Roses. Highly fragrant. Trackable at a distance. Thorned. Planted along every approach in this garden for a reason.',
           '@you Try it.',
-          'She leans down, very cautiously, and sniffs. Then sniffs again. Then stays bent over the rose for a long time with her eyes closed.',
+          'She leans down, very cautiously, and sniffs. Then sniffs again. Then stays bent over the rose with her eyes closed, for longer than any approach in this garden is safe.',
           '@shade:blush ...It is still a tactical liability. It is also very nice. I am filing both reports.',
         ],
         end: true,
@@ -421,7 +421,7 @@ FL.addCharacter({
           '@shade I am on duty.',
           '@you It\'s just a cake.',
           '@shade ...',
-          'She pulls her mask down just far enough and eats it in two bites. For a moment — just a moment — her flat expression wavers, and she looks like a completely different person. Younger. Happier.',
+          'She pulls her mask down just far enough and eats it in two bites. For a moment — just a moment — her flat expression wavers, and she looks like a completely different person. Lighter. Happier.',
           '@shade:blush That was a tactical error. I am now distracted. If the smuggler appears, it is your fault.',
           'The smuggler appears. She catches him anyway, in about four seconds.',
         ],
@@ -441,7 +441,7 @@ FL.addCharacter({
       },
       lonely: {
         text: [
-          'She doesn\'t answer for a long time. A bat swoops past.',
+          'She doesn\'t answer. A bat swoops past, and she tracks it out of habit, and still doesn\'t answer.',
           '@shade:sad ...That is not a feeling I was trained to have.',
           '@you That\'s not the same as not having it.',
           'She looks at you sideways. Then, very deliberately, she shifts an inch closer, until her shoulder just barely touches yours.',
@@ -476,7 +476,7 @@ FL.addCharacter({
       },
       stitch_win: {
         text: [
-          'You boil water, find clean cloth, thread a needle. You work slowly and precisely, the way the library\'s medical texts described. She doesn\'t flinch once — not when the alcohol touches the wound, not when the needle goes in.',
+          'You boil water, find clean cloth, thread a needle. You work slowly and precisely, the way you once watched a field surgeon do it. She doesn\'t flinch once — not when the alcohol touches the wound, not when the needle goes in.',
           'But her hand finds yours on the bedsheet and grips it, very tightly.',
           'When it\'s done, the stitches are neat and even. She inspects them with professional interest.',
           '@shade:surprised ...Your work is better than the Guild physician\'s. You are full of anomalies.',
@@ -501,7 +501,7 @@ FL.addCharacter({
           'She grabs your wrist before you can reach the door.',
           '@shade:angry No. No healers. They would report it. The Guild would know I was weak.',
           '@shade:sad ...Please. Just you.',
-          'It\'s the first time you\'ve ever heard her say *please.* You stay. You stitch the wound as best you can, and she holds your hand the whole time.',
+          'You have never heard her say *please* like that before. You stay. You stitch the wound as best you can, and she holds your hand the whole time.',
         ],
         aff: 6,
         next: 'feeling',
@@ -532,7 +532,7 @@ FL.addCharacter({
       mask: {
         text: [
           'She tenses — every muscle coiled — and you stop, waiting. After a long moment, she gives the smallest nod.',
-          'You lower the mask. Underneath, she\'s younger than you expected: a sharp little chin, a faded scar across one cheek, a small serious mouth. She\'s flushed pink from her nose to her ears.',
+          'You lower the mask. Underneath, she isn\'t what you expected: a sharp little chin, a faded scar across one cheek, a small serious mouth. She\'s flushed pink from her nose to her ears.',
           '@shade:blush ...No one has seen my face in nine years. This is a severe breach of protocol.',
           '@you You\'re beautiful.',
           'She immediately pulls the blanket over her head.',
@@ -592,11 +592,11 @@ FL.addCharacter({
           "She approaches it the only way she knows how: like a mission. She disarms first. Two knives from her sleeves, one from her boot, one from her hair, one from somewhere you genuinely didn't see. Each one goes on the rack with a click. Then she starts on your buttons with steady fingers and total focus.",
           "@shade Report each sensation. I need data.",
           "You report. She listens with total concentration and adjusts accordingly, and she's devastatingly effective. She finds every sensitive point the way she'd find the gaps in a suit of armor. She marks each one with her mouth and files it away. She has, it turns out, studied anatomy *very* thoroughly.",
-          "Then you turn the tables. You slide your hands under her leathers and trace the scars along her ribs, slowly, one by one. The steady breathing she has trained for nine years finally breaks.",
+          "Then you turn the tables. You slide your hands under the hem of that new dark dress and trace the scars along her ribs, slowly, one by one. The steady breathing she has trained for nine years finally breaks.",
           { if: 'shade_stitched', text: 'Your fingers find the newest scar, the neat line you stitched yourself on the night she came to your window. She covers your hand with hers and holds it there, pressed flat, as though she could keep it.' },
           { if: 'shade_scar', text: 'Your fingers find the newest scar, crooked and still pink. *The first one I do not mind,* she told you. She shivers when you touch it, and it isn\'t from pain.' },
           "@shade:blush That — that is not — I cannot catalogue this — *{name}* —",
-          "She stops cataloguing. She simply *feels*, maybe for the first time in her life. She's not silent at all...",
+          "She stops cataloguing. She simply *feels*, with nothing held in reserve. She's not silent at all...",
           "...",
           "In the small hours of the morning she lies with her head on your chest and her back to the door.",
           "You feel her shaking against you, and for a moment you think she's crying.",
@@ -610,11 +610,11 @@ FL.addCharacter({
       start: {
         text: [
           "You wake up because someone is watching you. It's the same prickle on the back of your neck you felt the day you met her.",
-          "Shade is sitting on the windowsill in one of your shirts, knees drawn up, a honey cake in each hand. She is not wearing her mask. The early light makes her look very young and very soft.",
+          "Shade is sitting on the windowsill in your shirt, knees drawn up, a honey cake in each hand. She is not wearing her mask. The early light makes her look softer than you have ever seen her.",
           "@shade Report: you slept seven hours and twelve minutes. You stole the blanket four times. I allowed it.",
           "@shade:blush Additional report: I slept. Actually slept. Facing away from the door. For the first time in nine years.",
           { if: 'shade_cake', text: "@shade:smug You introduced me to honey cakes on duty. I am now expanding the program to honey cakes in bed. Field trials are going well." },
-          "She stares at the honey cake.",
+          "She stares down at the honey cakes in her hands, as if they might explain it.",
           "@shade:surprised I do not know what to do with this information. Or with my face. It keeps doing this.",
           "She's smiling. She can't seem to stop.",
         ],
@@ -628,7 +628,7 @@ FL.addCharacter({
         text: [
           "@shade:blush ...Acknowledged.",
           "She tries to make her face stern. She fails completely. She pulls your shirt up over her nose instead, so only her eyes show, and they're crinkled at the corners.",
-          "@shade:happy This is worse than the mask. I can't hide anything in this.",
+          "@shade:happy This is worse than the mask. I cannot hide anything in this.",
         ],
         end: true,
       },
@@ -658,7 +658,7 @@ FL.addCharacter({
         text: [
           'You don\'t see Shade anywhere on the festival hill. And then a hand slips into yours, and she\'s simply *there*, at your side, as if she always has been.',
           'She\'s wearing a pale lavender dress that matches her eyes. Her face is bare. She is carrying a basket. It\'s full of honey cakes.',
-          '@shade Seventeen Guild operatives attempted to stop me from attending tonight. They are currently tied up in the cellar of the Tipsy Wyvern. Bettina has agreed to keep them until morning.',
+          '@shade Seventeen Guild operatives attempted to stop me from attending tonight. They are currently tied up in the cellar of the Tipsy Wyvern. Madame Bettina has agreed to keep them until morning.',
           '@shade:blush I did not want anything to interrupt.',
         ],
         next: 'plans',
@@ -695,7 +695,7 @@ FL.addCharacter({
           '*Some time later...*',
           'The former best assassin in the Silent Guild now runs a bakery on Market Street. It is called *The Quiet Crumb*, and its honey cakes are the finest in the kingdom.',
           'The Silent Guild stopped sending people after the fourth group was found tied up in a bundle in the town square with a polite note and a box of pastries each.',
-          'Wren still counts exits. She still catches pickpockets without looking up from the dough. But she laughs now — often, loudly, like a little bird — and she sleeps every night with her back to the door and her head on your shoulder.',
+          'Wren still counts exits. She still catches pickpockets without looking up from the dough. But she laughs now — often, loudly, like a little bird — and she sleeps every night with her back to the door and your arm over her waist.',
           { if: 'shade_list',
             text: ['Her list hangs framed on the bakery wall. Every item has been checked off.', 'Number five has been checked off many, many times.'],
             else: ['A new list hangs framed on the bakery wall, in very neat handwriting: *Things I Am Allowed To Want.* It gets longer every week.', 'Your name is at the top. It is underlined twice.'] },

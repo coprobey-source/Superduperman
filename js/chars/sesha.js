@@ -71,7 +71,7 @@ FL.addCharacter({
     { if: 'sesha_spectacles', lines: ["She leans down near you and holds very, very still.", "@you ...Do you want me to clean your spectacles?", "@sesha:blush I didn't *say* that. But if you happened to have a cloth on you... they *are* very foggy..."] },
     { if: 'sesha_partner', lines: ["@sesha:happy Old Pip's been whistling in tune ever since you sorted him out. A proper tune, with a chorus. I think he likes you.", "@sesha:blush I think — well. He isn't the only one."] },
     { if: 'sesha_world', lines: ["@sesha I bought a map. Of the whole kingdom, and the bits around it. I've put a pin in every warm place.", "@sesha:blush There are a lot of pins. I ran out and had to use my hairpins. My hair's been falling down all week."] },
-    { if: 'sesha_fangs', lines: ["She smiles at you when you walk in: a big one, both fangs on show.", "@sesha:blush I smiled at the baker like that this morning. She dropped a loaf. But then she smiled *back!* A bit wobbly. But back!"] },
+    { if: 'sesha_fangs', lines: ["She smiles at you when you walk in: a big one, both fangs on show.", "@sesha:blush I smiled at the baker like that this morning. He dropped a loaf. But then he smiled *back!* A bit wobbly. But back!"] },
     { if: { stage: 3 }, lines: ["@sesha:happy A new guest came in this morning, screamed, and then said, *oh, wait, it's only Sesha.*", "@sesha:blush *Only Sesha!* Do you know how long I've waited to be an *only?*"] },
   ],
   afterTalk: [
@@ -83,7 +83,7 @@ FL.addCharacter({
     ["@sesha Grumbold asked me if we're *courting.* I said yesss. And then I said yes, properly. And then I hid in the boiler room for an hour.", "@sesha:blush Old Pip was very understanding."],
     { if: 'sesha_coil', lines: ["A coil slides around your waist the moment you walk in, light and familiar.", "@sesha:happy Hello. Sorry. Was that rude? It wasn't rude. You asked for the first one, in the pool. That counts forever."] },
     { if: 'sesha_rock', lines: ["@sesha:blush I've had a little sign made for the bench by the hot pool. It says *RESERVED: SUNNY ROCK.*", "@sesha:happy Grumbold sat on it anyway. I had to move him. With my tail. He was very surprised."] },
-    { if: 'sesha_date_harbor', lines: ["@sesha I can still taste the sea. Not literally. Well. A little literally. The tongue, you know.", "@sesha:happy Can we go back? I want to try the water with my tail again. I'll be braver about the cold this time."] },
+    { if: 'sesha_date_harbor', lines: ["@sesha I can still taste the sea. Not literally. Well. A little literally. The tongue, you know.", "@sesha:happy Can we go back? Next time I'm putting my whole tail in the water. All forty feet. I'm going to be *very* brave about the cold."] },
     { if: 'sesha_date_picnic', lines: ["@sesha:happy I keep thinking about that rock in Whisperwood. The sunny one. I've decided it's ours.", "@sesha:blush I've told the rock. It didn't object."] },
   ],
   dateFav: 'picnic',
@@ -537,7 +537,7 @@ FL.addCharacter({
       },
       gentle: {
         text: [
-          "@you You're not scary. You're the gentlest person I've ever met. You fold towels into swans. You found a frog in the drain yesterday and gave him a name.",
+          "@you You're not scary. You're the gentlest person I've ever met. You fold towels into swans. You found a frog in the drain and gave him a name.",
           "@sesha:blush Bartholomew. He's doing very well.",
           "@you See? Gentle.",
           "@sesha:sad Gentle doesn't matter when you're the size of a barn, dear. People see the size first. The size, and the fangs, and the tongue. Gentle is something you only find out later. If you stay long enough.",
@@ -597,9 +597,9 @@ FL.addCharacter({
         text: [
           "@you Have you ever been somewhere really warm? Somewhere far away? The desert? The southern islands?",
           "Sesha laughs softly.",
-          "@sesha:sad Dear, I've never been further than the end of the street. I've run this bathhouse for eighty years. I've never even seen the sea.",
-          "@you The sea's five miles away.",
-          "@sesha:blush I know! I can *smell* it! But there's the road, and the people on the road, and the screaming, and the carts going into ditches. It's simpler to stay in the steam.",
+          "@sesha:sad Dear, I've never been further than the end of the street. I've run this bathhouse for eighty years.",
+          { if: 'sesha_date_harbor', text: "@sesha:blush Well. Apart from the harbor, with you. And you had to walk beside me the whole way, and I still nearly turned back twice.", else: ["@sesha:sad I've never even seen the sea.", "@you The sea's five miles away.", "@sesha:blush I know! I can *smell* it!"] },
+          "@sesha:blush But there's the road, and the people on the road, and the screaming, and the carts going into ditches. It's simpler to stay in the steam.",
           "She gazes into the lantern-lit water.",
           "@sesha I read about it, though. The desert, where the sand stays warm all night. The islands with black rock that holds the sun. The fire-mountains. Hot springs up in the snow, with monkeys in them. *Monkeys*, {name}! In a bath!",
           "@sesha:sad I'd love to see it all. I just can't imagine how you'd get forty feet of snake out of the front door without somebody fetching a pitchfork.",
@@ -618,7 +618,7 @@ FL.addCharacter({
           "Inside, every lantern is lit. The hot pool is steaming like a dragon's breath. And Sesha is coiled around the edge of it in a loose emerald spiral, waiting, and wringing her hands.",
           "She's let her hair down. You've never seen it down before: it falls nearly to the water in a heavy green wave, and her wooden hairpins are lined up along the edge of the pool in a neat little row, as if she's spent an hour arranging and rearranging them.",
           "@sesha:blush You came. Oh, good. Oh, *no.* I mean, good! I've been nervous all day. I dropped a guest. Only a little way. Into the pool. He thought it was part of the service.",
-          "@sesha I wanted to — I've been thinking about — oh, I had a whole speech. I practised it on Bartholomew. He was very supportive.",
+          "@sesha I wanted to — I've been thinking about — oh, I had a whole speech. I practised it on Bartholomew. The frog. He was very supportive.",
         ],
         choices: [
           { text: 'Pull off your boots and slide into the pool beside her.', go: 'pool', aff: 6 },
@@ -692,7 +692,7 @@ FL.addCharacter({
           "Instantly, she lets go. All forty feet of her loosens at once, the coils falling open around you like a flower, and she's backed away to the far side of the pool with her hands up, eyes wide and stricken.",
           "@sesha:sad Too tight? Was it too tight? I'm so sorry, I —",
           "@you It wasn't too tight. I just wanted to know you'd really let go.",
-          "She stares at you. Then something in her face goes soft and wobbly.",
+          "For a moment she just floats there, spectacles fogging, tail-tip frozen in a question mark. Then something in her face goes soft and wobbly.",
           "@sesha:blush ...I'll always let go. That's the whole *point* of me.",
           "@you I know. Now come back.",
           "She does. Faster, this time. Coil after coil, she gathers you up again, and this time you're the one who pulls her closer.",
@@ -702,7 +702,7 @@ FL.addCharacter({
       deeper: {
         text: [
           "You wrap your arms around her neck, pull her down into a deeper kiss, and hold on tight.",
-          "A shiver runs through her, from her shoulders to the very tip of her tail, all forty feet of it, rippling the water. Somewhere across the hall a stack of towel-swans topples over. Neither of you looks.",
+          "A shiver runs through her, from her shoulders to the very tip of her tail, all forty feet of it, rippling the water. The floating lanterns bob in the wave and spin slowly round. Neither of you looks.",
           "@sesha:blush Oh, you — *ssss* — sorry, sorry, I'm hissing again, I can't stop —",
           "@you Don't stop.",
         ],
@@ -771,7 +771,7 @@ FL.addCharacter({
           "@you I'm keeping them.",
           "@sesha:happy They'll fade in an hour!",
           "@you Then you'll have to do it again tonight.",
-          "She makes a sound like a kettle coming to the boil and dives into the hot pool to hide. Her tail stays curled around your ankle the whole time.",
+          "She lets out a long, mortified hiss, like a valve giving way, and dives into the hot pool to hide. Her tail stays curled around your ankle the whole time.",
         ],
         end: true,
       },
@@ -792,7 +792,7 @@ FL.addCharacter({
       fall: {
         text: [
           "The first star falls, a long streak of silver across the whole dark sky. Then another. Then a hundred, a thousand, until the night is raining light.",
-          "Sesha's mouth falls open. Her spectacles reflect every single one.",
+          "Sesha's tail-tip shoots straight up like an exclamation mark. Her spectacles reflect every single one.",
           "@sesha:surprised Oh. *Oh.* They're not blurry. They're not blurry at all.",
           "Her tail curls around you, loop by loop, drawing you close against her side, warm and slow and certain. In front of half the town. She doesn't even seem to notice. Or she does, and she doesn't care.",
         ],
@@ -856,7 +856,7 @@ FL.addCharacter({
           "@sesha_grumbold I'll mind the place. Been coming forty years. I know where to kick.",
           "@sesha:sad But the people on the road, {name}. They'll scream. Every town. Every inn.",
           "@you Then I'll be there every time. Saying hello. Asking about the water.",
-          "She looks at you for a long, long moment, with the whole sky falling behind her. Then she wraps one more coil around you, tight and warm and sure.",
+          "Behind her, against the falling sky, her tail-tip rises and curls into a question mark. It stays there, trembling, for three long heartbeats. Then it uncurls, and she wraps one more coil around you, tight and warm and sure.",
           "@sesha:happy ...Then I'd better pack a *lot* of towels.",
         ],
         next: 'world_epilogue',

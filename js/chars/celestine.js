@@ -20,8 +20,8 @@ FL.addCharacter({
     neutral: '@celestine:happy Thank you, my friend! I shall donate it to the poor! ...Unless you\'d rather I kept it? I could keep it.',
     hate: ['She takes a step back, hands clasped.', '@celestine:sad Oh — no, I couldn\'t possibly — Sisters of the Radiant Heart are forbidden such things. I\'m sorry. I\'ll... say a prayer for you.'],
     special: {
-      candle: ['She cradles the Blessed Candle in both hands as if it might fly away.', '@celestine:happy Oh, you *remembered.* I burn one every night on my windowsill. The novices think it\'s for the Goddess.', '@celestine:blush It is *partly* for the Goddess.'],
-      novel: ['She sees the cover. She makes a sound like a kettle reaching the boil.', '@celestine:surprised *The Duke\'s Forbidden Passion, Volume IX?!* In PUBLIC? In the *Temple?*', 'She snatches it, glances around and slides it inside her prayer book, where it fits suspiciously well.', '@celestine:blush I confiscated volumes one through eight. From sinners. It would be irresponsible to leave the collection incomplete.'],
+      candle: ['She cradles the Blessed Candle in both hands as if it might fly away.', '@celestine:happy Oh! How did you *know?* I burn one every night on my windowsill. The novices think it\'s for the Goddess.', '@celestine:blush It is *partly* for the Goddess.'],
+      novel: ['She sees the cover and makes the sign of the Radiant Heart so fast she nearly blesses her own ear.', '@celestine:surprised *The Duke\'s Forbidden Passion, Volume IX?!* In PUBLIC? In the *Temple?*', 'She snatches it, glances around and slides it inside her prayer book, where it fits suspiciously well.', '@celestine:blush I confiscated volumes one through eight. From sinners. It would be irresponsible to leave the collection incomplete.'],
       wine: ['She holds the bottle away from herself like it might whisper something.', '@celestine:sad "Do not ask"? That\'s what it says on the label. Do you know who writes "do not ask" on a label? *Vampires,* that\'s who.', '@celestine I\'ll pour it out at the crossroads. With a prayer. Just to be safe.'],
       relic: ['She turns the little gilded reliquary over, very gently, and peers at the knucklebone inside. Her face softens.', '@celestine:smug Oh, this isn\'t holy at all. It\'s from a pig. A *nice* pig, probably.', '@celestine:happy But you bought it because you thought I\'d want something holy. That part\'s holy. I\'ll bless the rest myself. The pig deserves it.'],
       roses: ['She buries her face in the roses and breathes in so deeply she has to sit down.', '@celestine:blush Red roses. You do know what red roses *mean,* don\'t you? There\'s a whole chapter on it. In the — in a book. A gardening book.'],
@@ -32,7 +32,7 @@ FL.addCharacter({
   talk: [
     ['@celestine:happy Blessings upon you, {name}! Have you come to pray? Or confess? We have very comfortable confession booths. ...Not that you have anything to confess! Do you?'],
     ['@celestine:happy I rose at four this morning for dawn prayers! Then I fed the poor, healed six people, and blessed a goat. It was a wonderful day. The goat bit me.'],
-    ['@celestine:blush The Goddess of Love is our patron. Her teachings are... um... very *thorough.* Some of the scriptures are... illustrated. I\'m told it\'s symbolic.'],
+    ['@celestine:blush The Goddess of Love is our patron. Her teachings are... um... very *thorough.* Some of the Canticles are... illustrated. I\'m told it\'s symbolic.'],
     ['She drops her prayer book. Several loose pages flutter out. You catch a glimpse of one titled *The Duke\'s Forbidden Passion, Chapter Nine.*', '@celestine:surprised THAT\'S CONFISCATED. I CONFISCATED IT. FROM A SINNER. I WAS READING IT TO UNDERSTAND THE SIN.'],
     ['@celestine:sad Sometimes I wonder what life would be like if I hadn\'t joined the Temple at sixteen. ...But then I remember how much good I do here. And then I wonder again.'],
     ['@celestine:blush You have kind eyes. Did you know that? The Goddess says the eyes are windows to the soul. Yours are very... open windows. I\'m going to go pray now.'],
@@ -47,13 +47,13 @@ FL.addCharacter({
   afterTalk: [
     ["@celestine:smug The Abbess asked why I've been taking such long confessions lately. I told her I've been very *thorough* in my sinning. She laughed for ten minutes."],
     ["She leans close, pretending to bless you.", "@celestine:smug *May the Goddess keep you,*", "@celestine:blush ...and may you come to my room after vespers. That last bit isn't in the liturgy."],
-    ["@celestine:happy I climbed the cherry tree again today. And I thought about you the whole time. I nearly fell out. Twice. It was worth it."],
+    ["@celestine:happy I climbed the cherry tree today. And I thought about you the whole time. I nearly fell out. Twice. It was worth it."],
     ["@celestine:smug I've started reading the illustrated scriptures again. For *comparison.* We're doing much better than the illustrations. I've made notes."],
     ["@celestine:surprised The bells rang on their own again last night. The novices are calling it the Miracle of the Midnight Bells. They've started a little shrine.", "@celestine:blush The Abbess asked me, very kindly, whether the miracle might occur a little *earlier* in the evening. Some of the sisters need their sleep."],
     { if: 'celestine_slow', lines: ["@celestine:blush Ever since you kissed me in the bell tower, I've started saying my prayers more slowly. Every word. Like it matters.", "@celestine:smug The Goddess seems to appreciate it. The novices behind me in the queue do *not.*"] },
     { if: 'celestine_forgiven', lines: ["@celestine A woman came to confession today. She'd been carrying something for twenty years. Something small. Something silly. She cried the whole time.", "@celestine:happy I told her there was nothing to forgive. She looked at me like I'd performed a miracle. I didn't. I just remembered how it felt when someone said it to me."] },
     { if: 'celestine_face', lines: ["@celestine:smug I've started saying things to people's faces! Like you told me to! I told the Abbess her soup is too salty.", "@celestine:happy She looked at me over her spectacles for a very long time and then she said, \"*About time.*\" I've never been so frightened or so proud."] },
-    { if: 'celestine_date_harbor', lines: ["@celestine:happy I went back to the harbor and put my feet in the sea again. It's still cold. It's still enormous. I still love it.", "@celestine:blush I kept looking beside me for someone with their trousers rolled up. I'm going to need you to come back and stand in the sea with me. For spiritual reasons."] },
+    { if: 'celestine_date_harbor', lines: ["@celestine:happy I went back to the harbor today and stood in the sea. It's still cold. It's still enormous. It still doesn't stop.", "@celestine:blush I kept looking beside me for you. I'm going to need you to come back and stand in the sea with me. For spiritual reasons."] },
   ],
   dateFav: 'picnic',
   dates: {
@@ -148,7 +148,7 @@ FL.addCharacter({
         text: [
           '@celestine:surprised Overrated? He\'s been holding that discus for three hundred years! That\'s *devotion!*',
           'She considers the statue critically. She considers you critically.',
-          '@celestine:smug ...Mind you, I\'m not sure *he* would have caught me when I fell out of a tree. He\'d have had to put the discus down.',
+          { if: 'celestine_tree', text: '@celestine:smug ...Mind you, I\'m not sure *he* would have caught me when I fell out of a tree. He\'d have had to put the discus down.', else: '@celestine:smug ...Mind you, I\'m not sure *he* would have carried my bread basket all the way to the orchards. He\'d have had to put the discus down.' },
         ],
         next: 'close',
       },
@@ -164,7 +164,7 @@ FL.addCharacter({
       start: {
         text: [
           'Celestine has lived in Clichéton for nine years and has never once walked down to the harbor. "It always seemed so far," she says, which is not true. It is eleven minutes away.',
-          'At the end of the pier she stops and looks out at the sea turning gold under the setting sun, and doesn\'t say anything for a long time.',
+          'At the end of the pier she stops and looks out at the sea turning gold under the setting sun, and doesn\'t say anything at all. Not a prayer. Not a blessing.',
           '@celestine:surprised It doesn\'t *stop.* It just keeps going. All the way to the sky.',
           'A fisherman recognizes her and, cap in hand, asks if she might bless his boat. She blesses his boat. Then his nets. Then his cat. Then the fried fish in your paper cone, which you are fairly sure is now holy.',
         ],
@@ -189,14 +189,14 @@ FL.addCharacter({
           '@celestine Where do they all go?',
           '@you Everywhere. Places you\'ve never heard of.',
           '@celestine:sad I\'ve read about places I\'ve never heard of. In books. It\'s not the same, is it? It\'s like reading about the sea.',
-          'She leans her head on your shoulder and watches a sail disappear over the edge of the world.',
+          'She tucks herself against your side, veil fluttering, and watches a sail disappear over the edge of the world.',
         ],
         next: 'close',
       },
       close: {
         text: [
-          'By the time you walk her back up the hill, the stars are out and her hem has dried stiff with salt.',
-          '@celestine:blush I\'m going to have to explain this to the laundress. I\'m going to say I was *baptizing* something.',
+          'By the time you walk her back up the hill, the stars are out and she smells of salt spray and fried fish.',
+          '@celestine:blush I\'m going to have to explain this to the laundress. Salt *and* fish. I\'m going to say I was *baptizing* something.',
           '@celestine:happy ...Me. I was baptizing me.',
         ],
         end: true,
@@ -241,10 +241,12 @@ FL.addCharacter({
       never: {
         text: [
           '@you Never have I ever... climbed a tree.',
-          'She drinks her honey-water. You explain the next round. "Never have I ever kissed someone." She drinks. "Never have I ever been drunk." She does not drink. "Never have I ever stolen anything." She does not drink.',
+          { if: 'celestine_tree', text: 'She drinks her honey-water, smugly.', else: 'She does not drink. She looks at the nearest tree with sudden, dangerous interest.' },
+          { if: { any: [{ stage: 4 }, 'celestine_face'] }, text: 'You explain the next round. "Never have I ever kissed someone." She drinks, very pink, and does not look at you at all.', else: 'You explain the next round. "Never have I ever kissed someone." She does not drink. She looks at you over the rim of her cup for slightly too long.' },
+          '"Never have I ever been drunk." She does not drink. "Never have I ever stolen anything." She does not drink.',
           '@celestine:smug My turn! Never have I ever... lied to a high priestess about not hearing her prayers.',
           { if: 'celestine_forearms', text: '@celestine:sad Oh. You didn\'t, did you. You told me the truth. About the forearms. That\'s the problem with you. You always tell me the truth.' },
-          { if: '!celestine_forearms', text: 'You drink. She looks enormously pleased with herself.' },
+          { if: '!celestine_forearms', text: 'You drink. Whatever you did or didn\'t say at that altar, you *heard* about the forearms, and she knows it. She looks enormously pleased with herself.' },
           '@celestine:blush This game is very unfair to people who\'ve spent their whole lives being good. I shall have to go and *do* some things, so I have something to drink to next time.',
         ],
         next: 'close',
@@ -371,7 +373,7 @@ FL.addCharacter({
           '@celestine:sad No. I love serving the Goddess. I love healing people. But I joined when I was very young, and sometimes I feel like I never got to find out who I was *before* I decided who I\'d be.',
           '@celestine Does that make sense?',
           '@you It makes perfect sense. And for what it\'s worth, I like who you are.',
-          'She looks at you like you\'ve just performed a miracle.',
+          'She looks at you as if you\'ve just answered a prayer she never dared say out loud.',
         ],
         aff: 10,
         flag: 'celestine_regret',
@@ -434,7 +436,7 @@ FL.addCharacter({
       },
       write_fail: {
         text: [
-          'You try to help. Your first suggestion is "start with a joke." Your second is "the Goblin\'s Trousers, but holy." She giggles so hard she has to put the quill down.',
+          'You try to help. Your first suggestion is "start with a joke." Your second is "the Goblin\'s Trousers, but holy." She giggles until her veil slips over one eye.',
           '@celestine:happy You\'re terrible at this! You\'re so terrible! ...Thank you. I needed to laugh.',
         ],
         aff: 5,
@@ -446,7 +448,7 @@ FL.addCharacter({
           'She sets down her quill. She stands. She walks to the confession booth at the side of the chapel, steps inside, and closes the curtain.',
           '@celestine:blush Would you — would you sit on the other side? Please?',
           'You sit. Through the lattice, you can see her silhouette, hands clasped tight.',
-          { if: 'celestine_tree', text: '@celestine Forgive me, for I have... feelings. For a person. A very particular person who brings me candles and makes me laugh and caught me when I fell out of a cherry tree.', else: '@celestine Forgive me, for I have... feelings. For a person. A very particular person who brings me candles and makes me laugh and sat with me under a cherry tree until the vespers bells.' },
+          { if: 'celestine_tree', text: '@celestine Forgive me, for I have... feelings. For a person. A very particular person who listens to me and makes me laugh and caught me when I fell out of a cherry tree.', else: '@celestine Forgive me, for I have... feelings. For a person. A very particular person who listens to me and makes me laugh and sat with me under a cherry tree until the vespers bells.' },
           { if: 'celestine_forearms', text: '@celestine:sad A person who has *very good forearms,* which is not relevant, and I don\'t know why I said it, and I\'ll be confessing that separately.' },
           '@celestine:sad And I don\'t know if it\'s a sin. The scriptures say love is holy. But the Abbess says priestesses must be pure. And I don\'t know if being in love with you makes me *less* holy or *more.*',
           'A long silence.',
@@ -599,7 +601,8 @@ FL.addCharacter({
         text: [
           '@you What did you pray for?',
           '@celestine:happy I didn\'t pray *for* anything. I said *thank you.*',
-          '@celestine:blush For you. For this. For finding out who I am, after all this time. It turns out I\'m someone who climbs trees, and laughs too loud, and is very, very much in love.',
+          '@celestine:blush For you. For this. For finding out who I am, after all this time.',
+          { if: 'celestine_tree', text: '@celestine:happy It turns out I\'m someone who climbs trees, and laughs too loud, and is very, very much in love.', else: '@celestine:happy It turns out I\'m someone who laughs too loud, and asks too many questions, and is very, very much in love.' },
           'She lifts her face, and you kiss her under the falling stars. The candle in the lantern flares bright gold, all on its own.',
           'Somewhere, very far away, a goddess sighs happily into a bowl of popcorn.',
         ],
@@ -625,7 +628,7 @@ FL.addCharacter({
       abbess: {
         text: [
           'When the last star has fallen, an old woman in gray climbs the hill toward you, leaning on a stick. It is the Abbess. She has never been seen outside the Temple after dark.',
-          'She looks at Celestine for a long time over her spectacles. Then she takes the silver key from around her own neck and hangs it around Celestine\'s.',
+          'She regards Celestine over her spectacles with the look that makes people confess things they haven\'t done yet. Then she takes the silver key from around her own neck and hangs it around Celestine\'s.',
           '@celestine:surprised Mother? What — this is the — I can\'t —',
           'The Abbess only pats her cheek, nods at you once, and goes back down the hill to bed.',
           '*Some time later...*',

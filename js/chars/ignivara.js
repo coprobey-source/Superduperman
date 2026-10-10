@@ -38,12 +38,12 @@ FL.addCharacter({
     ['@ignivara:sad Do you know why dragons hoard? Because everything else leaves. Gold doesn\'t. Gold stays exactly where you put it.'],
     ['She looks you up and down with narrowed golden eyes, the way a pawnbroker looks at a watch.', '@ignivara:smug Boots: four coppers. Belt: two, and that\'s generous. Cloak: you should be paying *them.* Face...', 'She stops. She looks away.', '@ignivara:blush Face: not for sale. Moving on.'],
     ['@ignivara My cousin Verdigrax hoards spoons. Only spoons. Nine hundred thousand spoons in a cave in the north.', '@ignivara:angry The family does not discuss Verdigrax. At the last gathering, she brought a *ladle* and called it "a big spoon." There was a fire. Several fires.'],
-    ['@ignivara Do you know why I sleep on the gold? If anyone so much as touches a single coin, I *hear* it. Every coin has its own little voice.', '@ignivara:blush ...Also it\'s warm. Gold holds heat. A dragon likes to be warm. You are also warm. That is not relevant. I don\'t know why I said that.'],
+    ['@ignivara Shall I tell you why I sleep on the gold? If anyone so much as touches a single coin, I *hear* it. Every coin has its own little voice.', '@ignivara:blush ...Also it\'s warm. Gold holds heat. A dragon likes to be warm. You are also warm. That is not relevant. I don\'t know why I said that.'],
     { if: 'ignivara_copper', lines: ['She opens a small velvet-lined box and shows you what is inside: one copper coin, polished until it glows.', '@ignivara:blush Your coin. From the first day. It\'s worth one copper. I keep it in its own box, apart from the others.', '@ignivara:smug It is worth more than the crown of King Aldous the Bald. I have checked the market. The market is *wrong.*'] },
     { if: 'ignivara_tail', lines: ['@ignivara:angry I lifted my tail this morning and checked underneath. Nothing. Then I checked again at noon.', '@ignivara:sad It\'s your fault. You found a coin under there *once,* and now I can\'t stop *checking.* I have become paranoid about my own tail.'] },
     { if: 'ignivara_flattered', lines: ['@ignivara:smug Say the thing again. The first thing you ever said to me. "Your hoard is magnificent. So are you."', '@ignivara:blush ...Thank you. I\'m keeping a tally. That was fourteen. I\'m aiming for a round number. A *large* round number.'] },
     { if: 'ignivara_bluffed', lines: ['@ignivara:smug The Adventurers\' Guild sent me a form. A *Heritage Monster Registration* form. Your lie has become *paperwork.*', '@ignivara:happy I filled it in. Under "Species" I wrote "Magnificent." Under "Threat Level" I wrote "Yes." Under "Next of Kin" I wrote your name. I don\'t know why. The box was there.'] },
-    { if: { stage: 3 }, lines: ['A horse is standing in the back of the cave, chewing on a cushion. It is wearing a small golden crown.', '@ignivara:blush The knights left it. On the mountain. I didn\'t eat it. You were watching, so I didn\'t eat it, and then I just... kept not eating it.', '@ignivara:smug Its name is Biscuit. It is my second most valuable possession that isn\'t made of metal.'] },
+    { if: { stage: 3 }, lines: ['A horse is standing in the back of the cave, chewing on a cushion. It is wearing a small golden crown.', '@ignivara:blush The knights left it. On the mountain, the day you stood up for me. I didn\'t eat it. I thought about what you would say, so I didn\'t eat it, and then I just... kept not eating it.', '@ignivara:smug Its name is Biscuit. It is my second most valuable possession that isn\'t made of metal.'] },
   ],
   afterTalk: [
     ["@ignivara:blush I've started a new pile in the hoard. It's just things you've touched. A cup. A boot. A hair from your pillow. It is the most valuable pile. Do not tell the other dragons."],
@@ -51,10 +51,10 @@ FL.addCharacter({
     ["@ignivara:angry I counted my coins this morning. I got to forty-one thousand and then I started thinking about you and lost count. I had to start *over.* Three times."],
     ["@ignivara I've cleared a new space in the nest. Bigger. More silks. Further from the gold.", "A small, smug curl of smoke.", "@ignivara:smug Fewer melting incidents."],
     ["@ignivara:happy I've changed my morning count. It used to be twice: once for accuracy and once for pleasure.", "@ignivara:blush Now it's once for accuracy, and then I come and find you. The pleasure part has *moved.*"],
-    { if: 'ignivara_ring', lines: ["She holds up her hand. The lopsided little ring from that night's gold is on her finger. It used to sit on the highest pile.", "@ignivara:blush I took it off the pile. I wanted it *on me.* I have never once in three thousand years wanted to wear a treasure instead of sleep on it.", "@ignivara:smug It is ugly. It is lumpy. It is the best thing anyone has ever made me. Hilde offered to fix the shape. I threatened her. Politely."] },
+    { if: 'ignivara_ring', lines: ["She holds up her hand. The lopsided little ring from that night's gold is on her finger. It used to sit on the highest pile.", "@ignivara:blush I took it off the pile. I wanted it *on me.* I have never once in three thousand years wanted to wear a treasure instead of sleep on it.", "@ignivara:smug It is ugly. It is lumpy. It is the best thing anyone has ever made me.", { if: { met: 'hilde' }, text: "@ignivara:smug Hilde offered to fix the shape. I threatened her. Politely.", else: "@ignivara:smug The smith offered to fix the shape. I threatened the smith. Politely." }] },
     { if: 'ignivara_hoarded', lines: ["She reaches out and polishes the little brass tag at your wrist with her sleeve.", "@ignivara:happy Item forty-one thousand, six hundred and nine. Condition: excellent. Value: incalculable. Location: *right here.*", "@ignivara:smug I polish it every morning. Some items need more care than others. You are a *high-maintenance* item."] },
     { if: 'ignivara_free', lines: ["@ignivara:sad You walked down the mountain yesterday. To town. And I sat at the cave mouth and I counted the hours. Nineteen.", "@ignivara:happy And then you came back. You *always* come back. I keep waiting to need to hold on tighter, and I keep not needing to. It's the strangest thing that has ever happened to me."] },
-    { if: 'ignivara_date_dinner', lines: ["@ignivara:smug I went back to the tavern. Alone. In disguise. I ordered the gold-leaf platter.", "@ignivara:sad It was not the same. I kept looking across the table for somebody to steal the spoons for. Come back with me. I need an *accomplice.*"] },
+    { if: 'ignivara_date_dinner', lines: ["@ignivara:smug I went back to the tavern. Alone. In disguise. I ordered the gold-leaf platter.", "@ignivara:sad It was not the same. There was nobody across the table to scold me about the spoons, or to help. Come back with me. I need an *accomplice.*"] },
   ],
   dateFav: 'dinner',
   dates: {
@@ -75,7 +75,7 @@ FL.addCharacter({
       },
       gold: {
         text: [
-          'The platter arrives glittering. The gold leaf is so thin it trembles when she breathes. She stares at it for a long, long time.',
+          'The platter arrives glittering. The gold leaf is so thin it trembles when she breathes. She does not touch it. She breathes on it, very gently, again and again, just to watch it shiver.',
           '@ignivara:surprised You can *eat* it? Mortals *eat* gold? Here? In the *open?*',
           'She takes one flake on the tip of her claw, places it on her tongue and closes her eyes.',
           '@ignivara:happy It tastes like *nothing.* It tastes like *being rich.* It\'s the most delicious nothing I have ever eaten.',
@@ -96,7 +96,7 @@ FL.addCharacter({
       back: {
         text: [
           '@ignivara:angry *Back?* Give *back?* Do you know how many times in three thousand years I have given anything *back?*',
-          'She stares at you. You stare back. The salt cellar wobbles in her sleeve.',
+          'Her pupils narrow to slits. You hold her gaze. The salt cellar wobbles in her sleeve.',
           'Very, very slowly, she lays the spoon, the fork and the salt cellar on the table. Then she reaches into her bracelets, takes off a gold coin, and puts it next to them, as if she has paid a ransom.',
           '@ignivara:sad There. I bought them. Now they are *legally* mine, and I am leaving them here. On purpose. To be *generous.* Look at me being generous.',
           'She looks absolutely miserable. The barkeep looks at the coin and nearly weeps with joy.',
@@ -105,7 +105,7 @@ FL.addCharacter({
       },
       close: {
         text: [
-          'On the walk out, she clanks. She also, unmistakably, swings your joined hands like a girl half her age, or a three-thousandth of it.',
+          'On the walk out, she clanks. She also, unmistakably, swings your joined hands like a dragon a quarter of her age, which is to say a giddy seven hundred and fifty.',
           '@ignivara:happy That was a successful raid. Let\'s do it again. Next time, I\'ll bring a *bag.*',
         ],
         end: true,
@@ -143,9 +143,9 @@ FL.addCharacter({
       fish: {
         text: [
           'You hold her bracelets while she rolls up her sleeves and plunges both arms into the fountain to the elbow. She works fast. Gold, gold, silver she pockets anyway, gold.',
-          'A city guard comes around the hedge.',
-          'There is a short and very polite conversation, after which Ignivara puts every single coin back into the fountain, one by one, while the guard watches, and you both receive a written warning.',
-          '@ignivara:angry Do you know, in three thousand years, I have never once been *told off?*',
+          'A watchman comes around the hedge.',
+          'There is a short and very polite conversation, after which Ignivara puts every single coin back into the fountain, one by one, while the watchman watches, and you both receive a written warning.',
+          '@ignivara:angry Three thousand years. Three thousand *years,* and I have never once been *told off.*',
           '@ignivara:smug ...It was quite thrilling. Let\'s get another one.',
         ],
         next: 'close',
@@ -231,7 +231,7 @@ FL.addCharacter({
           'You climb the oak, hand over hand, while the magpie screams abuse at you from the top branch. You get the coin. You also get pecked four times, but you get the coin.',
           'When you drop down, she snatches it from you, inspects it, and then, unexpectedly, inspects *you*: every scratch, every peck.',
           '@ignivara:angry It *damaged* you. My treasure has *scratches.*',
-          '@ignivara:blush ...You climbed a tree for one coin. Again. You keep doing that. Spending yourself on my little things.',
+          { if: 'ignivara_searched', text: '@ignivara:blush ...You climbed a tree for one coin. Again. You keep doing that. Spending yourself on my little things.', else: '@ignivara:blush ...You climbed a tree for one coin. *One.* Nobody spends themselves on my little things. Nobody ever has.' },
         ],
         next: 'close',
       },
@@ -361,7 +361,7 @@ FL.addCharacter({
         text: [
           '@you Ignivara. Lift your tail.',
           'She lifts her tail. The coin is stuck to a scale underneath, glinting.',
-          'She stares at it. She stares at you. She stares at the coin again.',
+          'She looks at the coin. She looks at you. A slow, mortified curl of smoke rises from one nostril.',
           '@ignivara:surprised ...I have been *sitting on it.* All morning. Oh, how *mortifying.* If you tell anyone, I will eat you.',
           '@ignivara:blush ...You have sharp eyes, little mortal. Sharper than a dragon\'s. I didn\'t know that was possible.',
         ],
@@ -421,9 +421,9 @@ FL.addCharacter({
       },
       talk_win: {
         text: [
-          '@you Gentlemen! This dragon is under the official protection of the Adventurers\' Guild, as a registered Heritage Monster. Slaying her is a Class A offense. Mira at the Guild will have your licenses.',
+          '@you Gentlemen! This dragon is under the official protection of the Adventurers\' Guild, as a registered Heritage Monster. Slaying her is a Class A offense. The front desk at the Guild will have your licenses.',
           'The knights exchange nervous glances.',
-          '@knight ...Mira? *Mira Hartwell?*',
+          '@knight ...The front desk? *Mira Hartwell\'s* front desk?',
           '@you She has a very sharp stamp.',
           'The knights leave very quickly. It is entirely a lie. But from the cave above, you hear a sound that might be a dragon laughing.',
         ],
@@ -552,7 +552,7 @@ FL.addCharacter({
         text: [
           "Her pupils go wide and round.",
           "@ignivara:surprised From — from *our* gold? From last night's gold?",
-          "You take a lump of the cooled metal to Hilde's forge that afternoon and come back with a rough little ring. It's lopsided. It's beautiful.",
+          { if: { met: 'hilde' }, text: "You take a lump of the cooled metal to Hilde's forge that afternoon, borrow her anvil, and come back with a rough little ring. It's lopsided. It's beautiful.", else: "You take a lump of the cooled metal to a forge on Artisan's Row that afternoon, borrow an anvil, and come back with a rough little ring. It's lopsided. It's beautiful." },
           "Ignivara puts it on her finger, holds it up to the light, and doesn't speak for a full minute. Then she puts it in the very center of her hoard, on the highest pile, where the sunlight hits it first every morning.",
         ],
         end: true,
@@ -626,7 +626,7 @@ FL.addCharacter({
           'You are, officially and legally, a registered part of the Greatest Hoard in FantasyLandia. There is a ledger. You are on the first page. Your entry reads: *ITEM 41,609 — THE {NAME}. Acquired: by choice (theirs). Condition: excellent. Value: see attached* — and the attached is eleven pages long and in places tear-stained.',
           'Ignivara treats you exactly as she treats her finest treasure, which is to say: outrageously. She polishes your boots. She appraises your outfits and then buys you better ones. She has your portrait painted in gold leaf and hangs it in the center of the cave, where the sun hits it first. She growls at anyone who touches your sleeve at market, and then apologizes, and then growls again, a little.',
           'Every month she brings you a new treasure, laid at your feet like tribute: a crown, a sword, the deed to a vineyard, a very startled wizard\'s hat. You have started giving them away in town when she isn\'t looking. She knows. She pretends not to. She has started bringing two.',
-          'And every month, without fail, you climb into the vault beneath the hoard and add something of your own to her collection: a pressed flower, a sketch of her asleep, a perfectly ordinary pebble from the path she flew you along on the first day. She weeps over every single one.',
+          'And every month, without fail, you climb into the vault beneath the hoard and add something of your own to her collection: a pressed flower, a sketch of her asleep, a perfectly ordinary pebble from the mountain path you climbed on the first day. She weeps over every single one.',
           'The other dragons think she has gone soft. She tells them she has simply found the one thing in the world that appreciates in value every single day.',
           '@ignivara:happy I said I\'d add you to my hoard, didn\'t I? I always keep my treasure. And you always keep *me.*',
         ],
@@ -635,10 +635,10 @@ FL.addCharacter({
       letgo: {
         text: [
           'On the peak, with the last of the starlight fading, she looks back over her shoulder at the cave. All that gold, glittering in the dark.',
-          '@ignivara:sad Do you know, I haven\'t counted it for six days. I keep forgetting. I keep being *somewhere else,* with you.',
+          '@ignivara:sad I haven\'t counted it for six days, you know. I keep forgetting. I keep being *somewhere else,* with you.',
           '@ignivara:blush I think — I think I hoarded because nothing ever stayed. And now something has. So I don\'t need to *hold on* so hard. To anything.',
           '*Some time later...*',
-          'She gives it away. Not all at once — she is still a dragon — but over one long, astonishing year, the Greatest Hoard in FantasyLandia empties out into the world, one pile at a time. A hospital. A library. A harbor wall. Twenty thousand gold coins to the town, stamped on one side with a small, smug dragon. King Aldous the Bald\'s crown goes back to his great-great-great-granddaughter, who cries. Biscuit the horse is given, with great ceremony, a farm.',
+          'She gives it away. Not all at once — she is still a dragon — but over one long, astonishing year, the Greatest Hoard in FantasyLandia empties out into the world, one pile at a time. A hospital. A library. A harbor wall. Twenty thousand gold coins to the town, stamped on one side with a small, smug dragon. King Aldous the Bald\'s crown goes back to his great-great-great-granddaughter, who cries. Biscuit, the horse the knights left behind, is given, with great ceremony, a farm.',
           'Then the two of you leave the mountain. You fly. North, to see the ice. South, to see the jungles. East, to see where the sun comes up. She lands in a different place every week, in a different sky, and she does not take one single thing home, because there is no home to take it to, except wherever you are standing.',
           { if: 'ignivara_copper', text: 'She keeps only a handful of treasures. One copper coin, on a chain around her neck.', else: 'She keeps only a handful of treasures. A single gold coin from the old hoard, for luck, on a chain around her neck.' },
           { if: 'ignivara_ring', text: 'A lopsided ring, which has never once come off her finger.' },
@@ -695,7 +695,7 @@ FL.addScene('ignivara_jealous', {
   },
   tag: {
     text: [
-      'She stares at you, quill frozen.',
+      'Her tail, which has been lashing the whole time, stops dead.',
       '@ignivara:surprised You... *want* to be catalogued?',
       'You hold out your wrist. Very slowly, as if you might bolt, she loops the chain around it and fastens the clasp, and then she sits back on her heels and looks at the little brass tag on your skin with an expression of absolute wonder.',
       '@ignivara:happy Item forty-one thousand, six hundred and nine. Condition: *excellent.* Pile: the *good* one. The *very* good one. I\'m starting a new one, just for you. It\'s called "the best pile."',

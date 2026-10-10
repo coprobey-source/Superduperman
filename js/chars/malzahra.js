@@ -35,7 +35,7 @@ FL.addCharacter({
     ['@malzahra:happy MORTAL! You return to my lair! Do you come to beg for mercy? To swear fealty? To... just hang out?', '@malzahra:blush ...The third one is acceptable.'],
     ['@malzahra:angry My imps have been very bad today. They stole a goat. I told them "go forth and spread terror." I did not say *goat.*', '@malzahra:smug We are keeping the goat. His name is Lord Ruin.'],
     ['@malzahra:smug I have been practicing my evil laugh. Listen. MWAHAHAHA. ...Was that menacing? Be honest. The council says it is "giving community theatre."'],
-    ['@malzahra Do you know how long it has been since anyone challenged me? Nine hundred years! The last hero I fought was so terrified he fainted before I finished my monologue!', '@malzahra:sad It was a very good monologue. I rewrote it eleven times.'],
+    ['@malzahra Nine hundred years since anyone last challenged me, hero. *Nine hundred!* The last hero I fought was so terrified he fainted before I finished my monologue!', '@malzahra:sad It was a very good monologue. I rewrote it eleven times.'],
     ['She is sitting on the windowsill, chin in her hands, staring out at the lights of Clichéton.', '@malzahra:sad Your people laugh so much. In taverns. In the streets. Why do they laugh so much?'],
     ['@malzahra:smug I have decided that when I conquer this kingdom, I will spare you. And the chocolate shop. You are both too valuable to destroy.'],
     ['Gnarlbit is behind the throne, fanning her cape with a palm frond. He looks exhausted.', '@malzahra:smug Gnarlbit has requested a raise. I have given him a second fan.', '@gnarlbit She has given me a second *arm\'s worth of work,* Your Dreadness.', '@malzahra:angry INSOLENCE! ...Fan faster. The hero is watching.'],
@@ -82,7 +82,7 @@ FL.addCharacter({
           '@malzahra:surprised There is *more* cinnamon in the world. There is cinnamon *beyond the bakery.* Hero, how much cinnamon *is* there?',
           '@you Ships of it. Whole ships.',
           'She clutches the table. Her horns glow so brightly the next booth has to shade their eyes.',
-          '@malzahra:happy You remembered. Out of everything I have said to you, you remembered the *cinnamon.*',
+          '@malzahra:happy Of everything on that menu, you chose the *cinnamon.* Either you listen when I talk, or you are a seer. Both are acceptable.',
         ],
         next: 'close',
       },
@@ -100,7 +100,7 @@ FL.addCharacter({
         text: [
           '@malzahra:angry Fooling *no one?* It is a magnificent hat! I bought it at the market from a man who said it was "very slimming for horns"!',
           'She glances around at the staring tavern. Her shoulders drop a little.',
-          '@malzahra:sad ...They are all looking at me the way the townsfolk looked at me in the square. As if I am about to set something on fire.',
+          '@malzahra:sad ...They are all looking at me the way the townsfolk looked up at me on that rooftop. As if I am about to set something on fire.',
           '@you Then let them look. You\'re with me.',
           'She takes the hat off. After a minute, the bard starts playing again.',
         ],
@@ -227,7 +227,7 @@ FL.addCharacter({
       },
       share: {
         text: [
-          'You break it carefully in two and hold out the bigger half. She stares at it for a long time.',
+          'You break it carefully in two and hold out the bigger half. Her tail stops twitching. She studies the chocolate as if it were a treaty with very small print.',
           '@malzahra:surprised Gnarlbit packed it for you. And you are giving it to *me.*',
           '@malzahra:blush In the Underrealm, when food is scarce, you do not share the last of it. You *guard* it. I have been guarding things for a thousand years.',
           'She eats her half in tiny, reverent bites, making it last. Lord Ruin eats the skull.',
@@ -317,7 +317,7 @@ FL.addCharacter({
         text: [
           '@malzahra:angry It was a *test!* Of your town\'s defenses! A reconnaissance mission! Very strategic!',
           '@you Your imps said they were claiming the bakery.',
-          '@malzahra:blush ...The bakery was also strategic.',
+          '@malzahra:blush ...The bakery was not in my orders. But now that you mention it, the bakery was *also* strategic.',
           'There is a long pause.',
           '@malzahra:sad Have you *had* the cinnamon rolls? We do not have cinnamon in the Underrealm. We have *ash.*',
         ],
@@ -444,7 +444,7 @@ FL.addCharacter({
         text: [
           '@malzahra:surprised *Help* me? The hero, helping the Dread Queen? That is — that is not how the story goes!',
           '@you Maybe it\'s a different story.',
-          'She looks at you for a long moment, her amber eyes glowing softly in the dim tower.',
+          'Her tail goes still. Her amber eyes glow softly in the dim tower.',
           '@malzahra:blush ...I think I would like to be in a different story.',
         ],
         next: 'baalgrim',
@@ -461,7 +461,7 @@ FL.addCharacter({
       },
       baalgrim: {
         text: [
-          'The tower shakes. Green fire bursts through the window, and a huge, brutish demon with four horns and a jeweled breastplate steps out of the flames. Lord Baalgrim.',
+          'The tower shakes. Green fire bursts through the window, and a towering, immaculately groomed demon with four polished horns and a jeweled breastplate steps out of the flames. Lord Baalgrim.',
           '@baalgrim So THIS is why the young queen delays the invasion. A *pet mortal.* How pathetic. The council has voted. You are deposed, girl. I will lead the conquest myself — and I will burn this town to the ground.',
           'Malzahra goes pale. For a moment, the Dread Queen looks very young indeed.',
         ],
@@ -508,7 +508,7 @@ FL.addCharacter({
           { if: 'malzahra_serious', text: 'She glances at you. You told her once that you take her seriously. You can see her remember it.' },
           'She looks at you. Something hardens in her eyes — not cruelty. Certainty.',
           'She raises one hand, and the shadows in the room rise with it. Baalgrim takes a step back. Then another.',
-          '@malzahra:angry I have ruled the Underrealm for one thousand years. I was ruling while your grandfather was still an egg, Baalgrim. KNEEL.',
+          '@malzahra:angry I have ruled the Underrealm for one thousand years. You have served it for two, and you are still only a *treasurer*, Baalgrim. KNEEL.',
           'He kneels. Then he flees. Malzahra stands trembling in the wreckage of her lair.',
           '@malzahra:surprised I have never... done that before. Without a monologue. Without the cape.',
           '@malzahra:blush It was because you were standing next to me.',
@@ -525,7 +525,7 @@ FL.addCharacter({
           'She doesn\'t look at you. Her tail is curling and uncurling nervously around her ankle.',
           { if: 'malzahra_defended', text: '@malzahra:sad Every night since Baalgrim came, I see it again. You, standing between me and a Duke of Hell, with a sword from the *market.* Nobody has ever stood in front of me. I have always been the thing people stand in front of *other* people to protect them from.' },
           { if: 'malzahra_beside', text: '@malzahra I made a Duke of Hell kneel, the other night. I have been trying to work out how. I think it was your hand on my shoulder. I think it was the weight of it. I did not know a hand could be that heavy, and that *light.*' },
-          '@malzahra:sad I am a thousand years old, {name}. I have commanded armies and burned the skies. And I have never once been courted. No one has ever brought me flowers, or held my hand, or kissed me except in victory. Everyone is too afraid.',
+          '@malzahra:sad I am a thousand years old, {name}. I have commanded armies and burned the skies. And I have never once been courted. No one has ever brought me flowers, or held my hand, or kissed me without a battle going on at the time. Everyone is too afraid.',
           '@malzahra Are you afraid of me?',
         ],
         choices: [
@@ -553,7 +553,7 @@ FL.addCharacter({
         text: [
           'You drop to one knee on the battlements, under the stars, and take her hand, and press your lips to her knuckles.',
           '@you Malzahra, Dread Queen of the Underrealm. I\'m not afraid of you. I\'m *in love* with you.',
-          'For the first time in a thousand years, the Dread Queen is completely, utterly speechless. Her amber eyes fill. Her horns flare with a soft violet glow.',
+          'The Dread Queen of the Underrealm, Devourer of Light, Breaker of Chains, is completely, utterly speechless. Her amber eyes fill. Her horns flare with a soft violet glow.',
           '@malzahra:surprised ...You knelt. Not out of fear. You knelt because you *chose* to.',
           '@malzahra:blush Get up. Get up, you ridiculous, wonderful hero, so I can kiss you properly.',
         ],
@@ -563,7 +563,7 @@ FL.addCharacter({
       },
       claim: {
         text: [
-          "She kisses you under the stars, and it's nothing like the victory kiss. It's slow and searching and almost shy, from a woman who has never once in a thousand years been shy about anything.",
+          "She kisses you on the battlements, and it's nothing like the way she duels. It's slow and searching and almost shy, from a woman who has never once in a thousand years been shy about anything.",
           "Then it is very much *not* shy.",
           "@malzahra:blush In the Underrealm, when a queen chooses a consort, she says it aloud. So.",
           "@malzahra:smug I, Malzahra, choose you. Let the heavens and hells take note. You are *mine.*",
@@ -664,7 +664,7 @@ FL.addCharacter({
           '@gnarlbit Your Dreadness. A message from below. The council... wishes to know whether you are coming home.',
           { if: 'plot_baalgrim_beaten', text: '@gnarlbit Since Lord Baalgrim\'s, ah, *recent difficulties,* they have become very eager to know. Very eager. Duke Ashmaw has sent a second fruit basket.' },
           { if: ['!plot_baalgrim_beaten', 'malzahra_beside'], text: '@gnarlbit They have heard how you made Lord Baalgrim kneel. Nobody has been rude about the "young queen" since. It is very quiet down there. I think they are frightened. Good.' },
-          'Malzahra looks at the crown for a long time. Then she looks at you.',
+          'Malzahra turns the crown over in her claws until the last sparks have gone out of the sky. Then she looks at you.',
           '@malzahra:sad A thousand years I wore that. Down there, under the smoke. Hero, I have no idea where I belong anymore. Up here. Down there. On a hill, holding your hand.',
           '@malzahra:blush You are my consort. My champion. My... friend. So tell me. Where does the Dread Queen go now?',
         ],
@@ -691,7 +691,7 @@ FL.addCharacter({
           '*Some time later...*',
           'The Underrealm has never seen a coronation like it. Ten thousand imps pack the Hall of Cinders, standing on each other\'s shoulders to see. The Twins of Cinder carry the train. Duke Ashmaw holds the fan. Malzahra mounts the obsidian throne, every inch the Dread Queen, and then she turns and holds out her hand to you, and the whole hall gasps, because no queen of the Underrealm has ever shared the throne. She has had a second one built. It is slightly shorter. She insists this is "tradition." It is not. She is enjoying it enormously.',
           { if: 'plot_baalgrim_beaten', text: 'Baalgrim is not invited. Baalgrim watches from the back, in a smock, holding a goat. Nobody tells you how that happened, and you have learned not to ask.' },
-          'Then she does the thing nobody in the Underrealm believed was possible. She has the imps dig. Up. For a year, ten thousand of them tunnel through the rock ceiling, and on the first day of the next spring the last stone falls away and a column of real daylight comes down into the Hall of Cinders for the first time in history.',
+          'Then she does the thing nobody in the Underrealm believed was possible. She has the imps dig. Up. For a year, ten thousand of them tunnel through the rock ceiling, and on the first day of the next spring the last stone falls away and a column of real daylight comes down into the Hall of Cinders, where no one has ever seen one.',
           'The imps scream. Then they cry. Then they hold a festival that lasts a month and burns down only one district.',
           'You rule beside her as Royal Consort, Champion of the Underrealm and Chief of Her Dreadness\'s Terrible Council, which has two members, both of you. She still monologues. She still conquers things, technically: a cheese shop on the surface, a hillside of wild cinnamon, one very confused neighboring duchy that surrendered because she asked nicely and it found her charming.',
           'Every night she sits with you at the bottom of the great shaft and watches the stars through it, a small circle of sky above an entire kingdom that had none.',
@@ -712,7 +712,7 @@ FL.addCharacter({
           'You build a farmhouse together on the very edge of the Badlands, close enough to Clichéton to walk to market. It has a red door, a vegetable patch, and a small sign that she painted herself: THE DREAD COTTAGE (NO LONGER DREAD). Lord Ruin has his own shed. It is nicer than the house.',
           'She enters the Clichéton pie contest. She does not win. She gives a twelve-minute speech about her defeat that wins her a standing ovation and a second-place ribbon "for drama," which she hangs over the fireplace. She grows cinnamon trees in the garden, badly, then well. She learns the names of the neighbors and their children and their dogs. She learns to knock.',
           'One afternoon you find her on the porch, chin in her hands, watching the lights come on in town.',
-          '@malzahra:blush Do you know why your people laugh so much, hero? I asked you once. I think I know now.',
+          '@malzahra:blush Why do your people laugh so much, hero? I used to wonder, from my tower window. I think I know now.',
           '@malzahra:happy It is because they are not alone. Neither am I. I have not been for a long time.',
         ],
         ending: 'malzahra_neighbor',

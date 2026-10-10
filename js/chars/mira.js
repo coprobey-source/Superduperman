@@ -19,7 +19,7 @@ FL.addCharacter({
     special: {
       novel: [
         "She sees the cover. She goes white, then pink, then a red so deep it's nearly purple.",
-        "@mira:blush *The Duke's Forbidden Passion, Volume Nine.* I have never heard of this series. I have certainly not read Volumes One through Eight on my lunch break inside a quest folder so Gerald thinks I'm reviewing goblin bounties.",
+        "@mira:blush *The Duke's Forbidden Passion, Volume Nine.* I have never heard of this series. I have certainly not read Volumes One through Eight on my lunch break inside a quest folder so Norbert thinks I'm reviewing goblin bounties.",
         "@mira:angry Volume Eight ended on a CLIFFHANGER. The Duke was *on a horse.* In the RAIN. Do you have ANY idea —",
         "She stops. She tucks the book inside a folder marked GOBLIN BOUNTIES (Q3).",
         "@mira:blush ...Thank you. If you spoil it, I will revoke your Guild membership.",
@@ -61,7 +61,7 @@ FL.addCharacter({
     ['She\'s eating lunch at her desk: a sad little sandwich.', '@mira:angry What? Receptionists eat. We\'re people. Stop staring. ...Do you want half?'],
     ['@mira:blush My twin-tails? They are a *professional hairstyle*, thank you very much. They are aerodynamic. ...What do you mean they\'re cute?! They are NOT cute! Go away!'],
     ['@mira:smug I heard you took down a whole pack of goblins yesterday. ...Not bad. For a rookie. Don\'t let it go to your head!'],
-    ["@mira:angry The desk next to mine is staffed by Gerald. Gerald stamps upside down. Gerald once registered a mimic as \"Chest (Hostile)\" and *gave it a quest.*", "@mira:angry The mimic is now Rank B. It has a better completion rate than you. I hate Gerald."],
+    ["@mira:angry The desk next to mine is staffed by Norbert. Norbert stamps upside down. Norbert once registered a mimic as \"Chest (Hostile)\" and *gave it a quest.*", "@mira:angry The mimic is now Rank B. It has a better completion rate than you. I hate Norbert."],
     ["@mira:smug I put the good quests on the board at eye level. *Your* eye level. I measured — I *estimated.* From across the room. Using professional instincts.", "She realizes what she's said, and stamps something that didn't need stamping."],
     ["@mira Do you know the most common cause of death among adventurers? Not dragons. Not curses.", "@mira:angry *Not reading the quest description.* \"Retrieve the Egg\" does NOT mean \"fight the mother.\" It says so in the SMALL PRINT. I wrote the small print. I wrote it *for you.*"],
     { if: 'mira_special', lines: ["@mira You asked me, on the very first day, if you were special.", "@mira:smug I've given it due consideration. You are filed under N. For Nuisance.", "@mira:blush ...There's a sub-folder. It's pink. Don't ask about the sub-folder."] },
@@ -78,7 +78,7 @@ FL.addCharacter({
     { if: 'mira_late', lines: ["@mira:angry The Guildmaster has started saying \"field audit\" with his fingers in the air. In MEETINGS. In front of the *Mages' Guild liaison.*", "@mira:blush ...Worth it. Don't tell him I said that."] },
     { if: 'mira_witness', lines: ["@mira The Relationship Disclosure Form came back from Records. *Approved.*", "@mira:blush I had it copied. In triplicate. One's in the archive. One's in my desk. One is under my pillow, which is a very secure location, and that is the only reason it's there."] },
     { if: 'mira_carried', lines: ["@mira I've been thinking about the spider mill. When you carried me all the way home.", "@mira:smug My *other* ankle's been feeling a bit twisty lately. Hypothetically.", "@mira:happy ...I'm fine. I just wanted to watch your face do that."] },
-    { if: 'mira_date_harbor', lines: ["@mira:angry That gull is back. The one from the harbor. It sits on the Guild windowsill and *watches me eat.*", "@mira:smug I've filed a restraining order. Gerald processed it. The gull is now technically registered as an adventurer. ...It has a better completion rate than Gerald."] },
+    { if: 'mira_date_harbor', lines: ["@mira:angry That gull is back. The one from the harbor. It sits on the Guild windowsill and *watches me eat.*", "@mira:smug I've filed a Form 9-D. *Nuisance, Avian.* Norbert processed it. The gull is now technically registered as an adventurer. ...It has a better completion rate than Norbert."] },
   ],
   dateFav: 'picnic',
   dates: {
@@ -86,7 +86,7 @@ FL.addCharacter({
       start: {
         text: [
           "The Tipsy Wyvern's private corner booth glows with candlelight. Mira sits bolt upright in it like she's attending a disciplinary hearing, menu held in front of her face.",
-          "@mira:angry I eat here every evening. I've never sat in *the booth.* The booth is for couples. And proposals. Last month Gerald proposed to a barmaid in this booth and she said \"who are you.\"",
+          "@mira:angry I eat here every evening. I've never sat in *the booth.* The booth is for couples. And proposals. Last month Norbert proposed to a barmaid in this booth and she said \"who are you.\"",
           "She lowers the menu an inch.",
           "@mira:blush This isn't a couple thing. This is a working dinner. I've brought your quest log to review.",
           "She has, in fact, brought your quest log. It's been annotated in three colors of ink.",
@@ -111,7 +111,7 @@ FL.addCharacter({
         text: [
           "@mira:angry Absolutely NOT.",
           "She snatches the menu out of your hand.",
-          "@mira:angry Do you know how many food-poisoning reimbursement claims I process from this *exact* dish? It's raw! It's wyvern! It's raw WYVERN! He's having the stew. With bread. *Cooked* bread.",
+          "@mira:angry I process food-poisoning reimbursement claims for this *exact* dish every single WEEK! It's raw! It's wyvern! It's raw WYVERN! *This one* is having the stew. With bread. *Cooked* bread.",
           "The barmaid writes it down without looking at you. Clearly this is not the first time Mira has overruled a diner.",
         ],
         next: 'end',
@@ -127,9 +127,9 @@ FL.addCharacter({
       },
       end: {
         text: [
-          "When you walk her home, she stops at the Guild door and fiddles with her keys for a long time.",
-          "@mira:blush That was... an adequate working dinner. I'm giving it a passing grade.",
-          { if: { stage: 4 }, text: "@mira:happy ...Fine. A *high* passing grade. Now kiss me before Gerald comes out for his evening sulk." },
+          "When you walk her home, she stops at the Guild door and drops her keys. Twice.",
+          "@mira:blush That was... an adequate working dinner. I'm logging it as *satisfactory.*",
+          { if: { stage: 4 }, text: "@mira:happy ...Fine. *Exemplary.* Now kiss me before Norbert comes out for his evening sulk." },
         ],
         end: true,
       },
@@ -138,7 +138,7 @@ FL.addCharacter({
       start: {
         text: [
           "The Moonlit Gardens of the Noble Quarter are all silver hedges, marble fountains and couples whispering on hidden benches. Mira walks through them with her arms crossed, glaring at the topiary.",
-          "@mira:angry I process the Noble Quarter's quest requests. \"Retrieve my peacock.\" \"Remove the gnome from my hedge.\" \"Slay my neighbor's ugly fountain.\" Do you know how many of these hedges I've *paid for* in bounty fees?",
+          "@mira:angry I process the Noble Quarter's quest requests. \"Retrieve my peacock.\" \"Remove the gnome from my hedge.\" \"Slay my neighbor's ugly fountain.\" Half these hedges were paid for in bounty fees. Fees *I* stamped.",
           "Ahead of you, the famous hedge maze looms. Couples go in giggling. Couples come out an hour later, flushed.",
           "@mira:smug I have a map. I drew it from the gardener's insurance claims.",
         ],
@@ -154,7 +154,7 @@ FL.addCharacter({
           "@mira:angry You did that on PURPOSE.",
           "@you I'd never.",
           "@mira:blush ...Fine. *Fine.* We're lost now. Officially. I'm noting the time.",
-          "You get lost for two hours. At one point she pulls you into a dead end and kisses you so hard a hedge rustles in protest, then marches out claiming she was \"checking for gnomes.\"",
+          { if: { stage: 4 }, text: "You get lost for two hours. At one point she pulls you into a dead end and kisses you so hard a hedge rustles in protest, then marches out claiming she was \"checking for gnomes.\"", else: "You get lost for two hours. At one point she pulls you into a dead end, stands much too close, goes very red, and marches straight back out claiming she was \"checking for gnomes.\"" },
         ],
         end: true,
       },
@@ -168,7 +168,7 @@ FL.addCharacter({
       },
       race_win: {
         text: [
-          "You win by a hedge. She arrives at the centre fountain thirty seconds later, twin-tails full of leaves, absolutely furious.",
+          "You win by a hedge. She arrives at the center fountain thirty seconds later, twin-tails full of leaves, absolutely furious.",
           "@mira:angry You CHEATED. You went *through* a hedge!",
           "@you There are no rules in a maze.",
           "@mira:smug There are SEVEN rules. They're on a sign at the entrance. I wrote them.",
@@ -178,7 +178,7 @@ FL.addCharacter({
       },
       race_lose: {
         text: [
-          "You sprint into the maze and immediately run face-first into a hedge. When you finally find the centre, Mira is sitting on the fountain's edge, legs crossed, reading a form.",
+          "You sprint into the maze and immediately run face-first into a hedge. When you finally find the center, Mira is sitting on the fountain's edge, legs crossed, reading a form.",
           "@mira:smug Eleven minutes. That's a new record for the slowest adventurer in the Guild. I'll update the board.",
           "@mira:blush ...You have leaves in your — come here. Hold still. *Honestly.*",
         ],
@@ -393,7 +393,7 @@ FL.addCharacter({
         text: [
           'You hurl your sandwich across the room. The spider pounces on it with eight-legged delight.',
           'While it\'s distracted, you climb up and cut Mira free.',
-          '@mira:surprised That was my sandwich recipe! I gave you that recipe! I — you made it? You actually made it?',
+          '@mira:surprised That was my sandwich! My *recipe!* From the Guild newsletter! Nobody reads the newsletter! You — you actually *made* it?',
           'For some reason, this seems to affect her more than the rescue.',
         ],
         aff: 6,
@@ -563,7 +563,7 @@ FL.addCharacter({
       confess: {
         text: [
           '@mira:angry I *like* you, okay?! I have liked you since the day you wrote "Romantic Lead" on your registration form, which was the stupidest thing I have ever read and I *kept it.* It\'s in my desk! I look at it on bad days!',
-          { if: 'mira_hugged', text: "@mira:blush And when you hugged me in the records room I didn't sleep for two nights! I reorganized the entire archive! By *colour!* Gerald cried!" },
+          { if: 'mira_hugged', text: "@mira:blush And when you hugged me in the records room I didn't sleep for two nights! I reorganized the entire archive! By *color!* Norbert cried!" },
           '@mira:sad I like you so much it makes me furious! Every time you go out that door I can\'t breathe until you come back! And I\'m terrible at saying it so I yell at you instead, and I\'m — I\'m sorry —',
           'She runs out of air. She stares at you, red-faced and trembling and utterly undone.',
         ],
@@ -600,8 +600,8 @@ FL.addCharacter({
           { if: 'mira_pamphlets', text: "@mira:smug *That* is how you bandage something. Page four of the pamphlet. I illustrated it. — Did you even read the pamphlets? You read the pamphlets. ...You *kept* the pamphlets?" },
           "@mira:blush I'm going to say something. And you're not going to laugh. Or tease me. Or say *anything* until I'm done.",
           "She takes off her spectacles. She pulls the ribbons out of her twin-tails, and her orange hair tumbles loose. You've never seen it down. Then, in a small, clear voice, without yelling at all, she tells you exactly what she wants. She's specific. She's *organized.* She clearly made a list.",
-          "@mira:blush — and then — and *then* — oh gods, stop *looking* at me like that, I'm going to die —",
-          "You stop her the only way that works. She makes a strangled little sound against your mouth, climbs into your lap, and starts undoing your buttons with the brisk efficiency of someone who has processed ten thousand forms. She gets impatient with the last three and just pulls.",
+          "@mira:blush — and then — and *then* — oh gods, stop *smiling*, I'm going to die —",
+          "You stop her the only way that works. She squeaks against your mouth, climbs into your lap, and starts undoing your buttons with the brisk efficiency of someone who has processed ten thousand forms. She gets impatient with the last three and just pulls.",
           "@mira:angry Don't. Say. *Anything.*",
           "It turns out that Mira Hartwell, Senior Registrar, is extremely thorough in every aspect of her life. She works through the entire list, checking things off in breathless little gasps. Then she throws the list away entirely...",
           "...",
@@ -620,7 +620,7 @@ FL.addCharacter({
           "@mira Don't move. I'm filing a Relationship Disclosure Form. Section 4, Paragraph 9 of the Guild Code. Staff must disclose relationships with registered adventurers.",
           "She shows you. She's filled out every box in her neat, tiny handwriting. In the box marked *Nature of Relationship*, she has written, very small: *I love them.*",
           { if: 'mira_tears', text: "Her spectacles, you notice, have been polished to a mirror shine, as if she's trying to erase all evidence they were ever fogged up. She catches you looking and polishes them again." },
-          { if: 'mira_yelled', text: "Clipped to the back is a second form: a noise complaint, filed by Mira Hartwell, against Mira Hartwell, for \"shouting OF COURSE I WAS WORRIED in a closed Guild hall after hours.\" She has fined herself two silver." },
+          { if: 'mira_yelled', text: "Clipped to the back is a second form: a noise complaint, filed by Mira Hartwell, against Mira Hartwell, for \"shouting OF COURSE I WAS WORRIED in a closed Guild hall after hours.\" She has fined herself two crowns." },
           "Then she sees you reading it and goes red to the roots of her hair.",
           "@mira:angry THAT'S AN OFFICIAL DOCUMENT. You're not supposed to READ it. — Also, your breakfast is on the table. I made too much. By accident.",
           { if: 'mira_octopus', text: "There are octopus sausages. There are a great many octopus sausages. One of them has a tiny paper sign stuck in it that reads: *I BELIEVE.*", else: "There are octopus sausages. There are a great many octopus sausages." },
@@ -634,7 +634,7 @@ FL.addCharacter({
       sign: {
         text: [
           "You take the quill and sign under her line: *Witnessed. Mutual. — {name}.*",
-          "She stares at it for a long time. Then she presses the form flat against her chest with both hands.",
+          "She reads it three times, the way she reads forms she suspects of fraud. Then she presses it flat against her chest with both hands.",
           "@mira:blush ...That's not how witnessing works. You can't witness your own feelings.",
           "@you File it anyway.",
           "@mira:happy I'm going to. I'm going to give it the best stamp I've ever stamped.",
@@ -706,11 +706,11 @@ FL.addCharacter({
         text: [
           "You sign the marriage form against the lid of the picnic basket. Then you reach under the sandwiches, where she keeps it now, and pull out the yellowed registration. *Mira Hartwell. Class: Fighter. Special Skills: Very Loud.*",
           "You've found a Guild stamp somewhere. You hold it out.",
-          "@mira:surprised What — where did you get a — that's *Gerald's* stamp —",
+          "@mira:surprised What — where did you get a — that's *Norbert's* stamp —",
           "@you Nine years is long enough to save up for a sword.",
           "@mira:angry I can't just *leave!* Who's going to run the desk? Who's going to make sure the idiots come home?",
           "@you You. From right next to the idiot.",
-          "She stares at the form for a long time while the stars fall. Then she snatches the stamp out of your hand and brings it down so hard the basket jumps. APPROVED.",
+          "She doesn't say a word for one whole falling star, then another. Then she snatches the stamp out of your hand and brings it down so hard the basket jumps. APPROVED.",
           "@mira:blush ...If you get me killed on our first quest, I'm filing a complaint.",
         ],
         next: 'partners_epilogue',
@@ -721,8 +721,8 @@ FL.addCharacter({
           "The Adventurers' Guild of Clichéton registers its most terrifying party in living memory: {name}, Fighter, and Mira Hartwell, Fighter (Senior), married, Rank C and climbing very, very fast.",
           "It turns out nine years of reading quest reports makes a person extremely dangerous. Mira knows every monster's weak point, every dungeon's floor plan and every bandit's outstanding fines. She fights with a sword, eventually. At first she fights with the Guild's heaviest iron stamp, which says DENIED, and the goblins of Whisperwood learn to fear the word.",
           "She audits everything. She audits a dragon. She informs a lich that his lair is in breach of three separate fire codes, and he is so flustered he lets you leave with the treasure.",
-          "She still yells at you. She yells \"LEFT!\" and \"DUCK!\" and \"THAT IS NOT IN THE QUEST DESCRIPTION!\" She yells at you most of all when you get hurt, and then she bandages you herself, using the technique from page four.",
-          "Gerald takes over the front desk. It goes about as well as you'd expect. The two of you come home from every quest to find the lobby in chaos, and Mira fixes it in eleven minutes flat before she's even taken her boots off.",
+          "She still yells at you. She yells \"LEFT!\" and \"DUCK!\" and \"THAT IS NOT IN THE QUEST DESCRIPTION!\" She yells at you most of all when you get hurt, and then she bandages you herself, glaring at the wound as if it has personally offended her.",
+          "Norbert takes over the front desk. It goes about as well as you'd expect. The two of you come home from every quest to find the lobby in chaos, and Mira fixes it in eleven minutes flat before she's even taken her boots off.",
           "She keeps the first form you ever gave her — *Class: Romantic Lead* — folded in her breastplate, over her heart. On bad days in the dungeon she takes it out and reads it, and laughs, and then she gets up and hits something.",
           "There's still a note in your lunchbox every morning. The handwriting's a bit shakier now, written by lantern light in a tent. It says something new.",
           "*Watch my back, idiot. I've got yours.*",
@@ -734,11 +734,11 @@ FL.addCharacter({
           "You sign the marriage form. Then you hand it back and ask, very seriously, where a person applies for the desk next to hers.",
           "@mira:surprised ...What?",
           "@you You checked the casualty reports seven times. I don't want to be the reason you can't breathe.",
-          { if: 'mira_yelled', text: "@you You fined *yourself* two silver for worrying about me, Mira." },
-          "@you And Gerald's terrible.",
-          "@mira:angry Gerald IS terrible. — No. No, you can't just — you *love* adventuring! You wrote *Romantic Lead!* You're supposed to go *out there* and do stupid, heroic —",
+          { if: 'mira_yelled', text: "@you You fined *yourself* two crowns for worrying about me, Mira." },
+          "@you And Norbert's terrible.",
+          "@mira:angry Norbert IS terrible. — No. No, you can't just — you *love* adventuring! You wrote *Romantic Lead!* You're supposed to go *out there* and do stupid, heroic —",
           "@you I'll still be the romantic lead. I'll just be doing it at a desk. Next to you. With a stamp.",
-          "She looks at you for a long moment. Then she produces, from her basket, a job application. Pre-filled. In her handwriting.",
+          "She takes off her spectacles, polishes them furiously on her dress, and puts them back on. Then she produces, from her basket, a job application. Pre-filled. In her handwriting.",
           "@mira:blush ...I wasn't going to show you this one. I've had it since the wyvern.",
         ],
         next: 'desk_epilogue',
@@ -746,11 +746,11 @@ FL.addCharacter({
       desk_epilogue: {
         text: [
           "*Some time later...*",
-          "The Adventurers' Guild of Clichéton gets a new Junior Registrar. Gerald is transferred to the Lost Property office, where he is very happy, and loses things.",
+          "The Adventurers' Guild of Clichéton gets a new Junior Registrar. Norbert is transferred to the Lost Property office, where he is very happy, and loses things.",
           "Mira trains you herself, and she is merciless. Your handwriting is a disgrace. Your stamping lacks conviction. You put a Goblin Removal form in the Gnome Removal tray and she doesn't speak to you for an entire lunch break, then shares her rice balls anyway.",
           "And then something strange happens. A rookie comes to your desk wanting the wyvern quest, and you hear yourself say, *absolutely not, you'll get yourself killed, take the rats.* You hear yourself yell \"YOU'RE LATE\" at a party staggering in after midnight. You catch yourself checking the casualty reports. Seven times.",
-          "@mira:blush ...Oh no. Oh no, you've become *me.* — Say it again. The bit about the small print. Say it in that voice.",
-          "It turns out Mira Hartwell finds it unbearably attractive when you're stern with rookies. The records room lock gets a great deal of use.",
+          "@mira:blush ...Oh no. Oh no, you've become *me.* — Say it again. The bit about the rats. Say it in that voice.",
+          "It turns out Mira Hartwell finds it unbearably attractive when you're stern with rookies. The records room, which locks from the inside, gets a great deal of use.",
           "Your first form — *Class: Romantic Lead* — hangs in a frame between your two desks. She has finally given it a stamp. It says APPROVED, and next to it, in ink she never scribbles out, there's a tiny heart.",
           "The Guild's survival rate goes up eleven percent in the first year. Mira files the statistics with enormous satisfaction and a very small note at the bottom.",
           "*Cause: Two of us now.*",

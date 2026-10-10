@@ -13,7 +13,7 @@ FL.addCharacter({
     rosalind_unmasked: 'Exit, Villainess',
   },
   teaser: 'A noblewoman with enormous golden drill-curls and a feathered fan is laughing "OHOHOHO!" at a footman.',
-  blurb: 'Heiress of House Ashcroft, publicly jilted by the Crown Prince six months ago in favor of a sweet commoner girl. Society has cast her as the villainess, and she plays the role magnificently: cutting remarks, dramatic laughter, a fan for every occasion. Few know she anonymously funds half the charities in Clichéton. She has no friends left. She tells herself she prefers it.',
+  blurb: 'Heiress of House Ashcroft, publicly jilted by Prince Cedric, the King\'s nephew, six months ago in favor of a sweet commoner girl. Society has cast her as the villainess, and she plays the role magnificently: cutting remarks, dramatic laughter, a fan for every occasion. Few know she anonymously funds half the charities in Clichéton. She has no friends left. She tells herself she prefers it.',
   schedule: ['noble', 'noble', 'noble'],
   gifts: { love: ['tea'], like: ['roses', 'mirror', 'perfume', 'comb', 'chocolate', 'quill', 'salts'], hate: ['fish', 'ale'] },
   giftLines: {
@@ -49,7 +49,7 @@ FL.addCharacter({
         "@rosalind:smug — *devastating.* I shall wear it to the Duchess's luncheon. She'll have to lie down. Ohohoho!",
       ],
       roses: [
-        "@rosalind:smug Red roses. The single most predictable gift a suitor can bring. Edmund sent me *forty dozen* of them on our engagement. His secretary chose them.",
+        "@rosalind:smug Red roses. The single most predictable gift a suitor can bring. Cedric sent me *forty dozen* of them on our engagement. His secretary chose them.",
         "She buries her nose in them anyway.",
         "@rosalind:blush ...You chose these yourself. One of them's slightly squashed. You held them too tightly on the way here, didn't you? Hmph. They're perfect.",
       ],
@@ -69,7 +69,7 @@ FL.addCharacter({
     ["@rosalind:sad Mother taught me the laugh. She said: a lady who laughs first is never laughed at.", "@rosalind ...She was wrong, as it turned out. But it's a very good laugh. It would be a shame to waste it."],
     ["She is reading a novel with a black cover and a scowl.", "@rosalind:angry In this book, the villainess is exiled to a convent in the third act and never mentioned again. *Never mentioned again!* She had the best dresses! She had all the good lines!", "@rosalind:smug I have written to the author. Eleven pages. I've suggested a sequel in which she burns the convent down and opens a hat shop."],
     { if: 'rosalind_honey', lines: ["She sips something golden from a bone-china cup.", "@rosalind:smug Honey water. I drink it in front of the servants now, quite openly. I've told them it's a poison I'm building up an immunity to.", "@rosalind:blush You're the only person alive who knows it's for my throat. Guard it with your life. Ohoho. Ow."] },
-    { if: 'rosalind_salons', lines: ["@rosalind:surprised Lady Wendlemoor's footman tells me you sat through a three-hour salon lecture on *fish knives.* Before our first tea. On purpose.", "@rosalind:blush Nobody has ever endured a fish-knife lecture for me. Edmund didn't know which end of a fish knife to hold. I'm — touched. Moderately. Don't let it go to your head."] },
+    { if: 'rosalind_salons', lines: ["@rosalind:surprised Lady Wendlemoor's footman tells me you sat through a three-hour salon lecture on *fish knives.* Before our first tea. On purpose.", "@rosalind:blush Nobody has ever endured a fish-knife lecture for me. Cedric didn't know which end of a fish knife to hold. I'm — touched. Moderately. Don't let it go to your head."] },
     { if: 'rosalind_pupil', lines: ["@rosalind Stand up straight. Fan up. *Diaphragm.* Again.", "@you Ohohoho!", "@rosalind:smug Better. You still sound like a goose with ambitions, but a goose that is *going places.* Lesson eleven next week: the scandalized laugh, with optional swoon."] },
     { if: 'rosalind_custard', lines: ["A confectioner's boy hurries past with a tray of custard tarts. Rosalind's fan snaps up to cover her entire face.", "@rosalind:blush I can't look at it. I can never look at custard again. Every time I see a custard tart I hear *pigeons.*", "@rosalind:smug ...Though I will admit it was the most fun I've had in a year. Tell no one."] },
     { if: { stage: 3 }, lines: ["@rosalind Lady Pemberton has started a rumor that I've been seen in the Gardens kissing a commoner in a *very* ordinary coat.", "@rosalind:happy I've decided to let it stand. It's the first rumor anyone's ever spread about me that's true. Ohohoho! It's *wonderful.* I may start a few more."] },
@@ -82,7 +82,7 @@ FL.addCharacter({
     ["@rosalind:smug The Prince's fiancée came to tea. She cried when I told her she was too good for him. I told her I meant it as an insult. She cried harder and hugged me. I have *no idea* how to make her stop liking me."],
     { if: 'rosalind_danced', lines: ["@rosalind:blush I've hired a string quartet to play in the rose garden at midnight. For dancing. With no one watching.", "@rosalind:smug They're extremely discreet. They're also blindfolded. I pay them double. Come tonight. I want to see if it still feels the way it did."] },
     { if: 'rosalind_accomplice', lines: ["She draws you behind a pillar and unrolls a tiny scroll.", "@rosalind:smug Operation Pemberton's Hat. Phase one: the pigeons. Phase two: a very small amount of glue. Phase three: we are *nowhere near* the scene, and we are having tea, and we are *magnificent.*", "@rosalind:happy I knew I chose my partner in crime well. Ohohohoho!"] },
-    { if: 'rosalind_unscripted', lines: ["@rosalind:surprised I went an entire day without saying *ohoho.* My maid sent for a physician.", "@rosalind:happy He said I was in perfect health and asked what had changed. I said I'd stopped waiting for the end of the story. He prescribed more of whatever that was. I've prescribed it *you.*"] },
+    { if: 'rosalind_unscripted', lines: ["@rosalind:surprised I went an entire day without saying *ohoho.* My maid sent for a physician.", "@rosalind:happy He said I was in perfect health and asked what had changed. I said I'd stopped waiting for the end of the story. He prescribed more of whatever that was. I've prescribed myself *you.*"] },
     { if: 'rosalind_date_picnic', lines: ["@rosalind:smug I had luncheon served on the *lawn* yesterday. On a blanket. In front of the Duchess.", "@rosalind:happy She asked whether the Ashcrofts had fallen on hard times. I told her we'd fallen on *soft* times, and they were vastly superior. Then I ate a sandwich with my hands. She had to be helped to her carriage."] },
     { if: 'rosalind_fingers', lines: ["@rosalind:smug I've started a new tradition. Fingers-only tea. No forks, no knives, no sugar tongs. Very exclusive.", "@rosalind:happy Three countesses have attended. One of them licked jam off her thumb and burst into tears of joy. Society is *crumbling,* darling, and it's all your fault."] },
   ],
@@ -195,7 +195,7 @@ FL.addCharacter({
           "She knows which bench before you reach it. Her steps slow.",
           "@rosalind:sad This is where I wept like a burst pipe and ruined your coat.",
           "@you This is where you let me see you.",
-          "She sits, carefully, the way she did that night. But this time she leans into your shoulder at once, as if it's already hers.",
+          "She sits, carefully, the way she did that day. But this time she leans into your shoulder at once, as if it's already hers.",
           "@rosalind:blush I used to avoid this part of the Gardens. Now I walk past it every evening on purpose. I tell the bench good evening. Isn't that *ridiculous?* I've become a woman who greets furniture.",
         ],
         next: 'end',
@@ -290,7 +290,7 @@ FL.addCharacter({
         text: [
           "You lie back side by side on the blanket and look up at the sky.",
           "@you That one looks like a dragon.",
-          "@rosalind:smug That one looks like Lady Pemberton. Look, it's even got her chin. And that one — ohoho — that's Edmund, see? Big, handsome and completely empty inside.",
+          "@rosalind:smug That one looks like Lady Pemberton. Look, it's even got her chin. And that one — ohoho — that's Cedric, see? Big, handsome and completely empty inside.",
           "She names every cloud in the sky after someone who wronged her, and then, when she runs out of enemies, she starts on the ones she likes. A small round cloud is the orphanage matron. A big soft one is her mother. The last one, drifting right overhead, she doesn't name at all. She just reaches over and takes your hand.",
         ],
         next: 'end',
@@ -345,7 +345,7 @@ FL.addCharacter({
         text: [
           'You snap open an imaginary fan and throw your head back.',
           '@you OHOHOHO!',
-          'She stares at you, utterly scandalized. Her footman covers his mouth. A passing noblewoman drops her parasol.',
+          'She gapes at you, utterly scandalized. Her footman covers his mouth. A passing noblewoman drops her parasol.',
           'Then — slowly, unwillingly — the corner of Rosalind\'s mouth begins to twitch. She hides it behind her fan.',
           '@rosalind:smug ...Your form is *atrocious.* The laugh comes from the diaphragm, not the throat. You must *project* your contempt.',
           '@rosalind:happy I suppose I shall have to *teach* you. Ohoho.',
@@ -389,8 +389,8 @@ FL.addCharacter({
       start: {
         text: [
           'An invitation arrives on thick cream paper, with gold edging and a wax seal: *Lady Rosalind Ashcroft requests the pleasure of your company for tea. Attendance is mandatory. Wear something decent. — R.A.*',
-          'The tea is served in a glass conservatory full of roses. The table is laid for twelve. There are only two chairs occupied.',
-          '@rosalind I invited the Duchess of Wendlemoor, Lady Pemberton, the Countess of Ash, and eight others. They all sent their regrets.',
+          'The tea is served in a glass conservatory full of roses. The table is laid for twelve. Only two chairs are occupied.',
+          '@rosalind I invited the Duchess of Wendlemoor, Lady Pemberton, the Countess of Ash, and seven others. They all sent their regrets.',
           'She says it lightly, pouring tea with perfect precision.',
           '@rosalind:smug No matter! More cake for us. Now. Let us see if you know how to behave in polite society. Which fork for the cake?',
         ],
@@ -434,8 +434,8 @@ FL.addCharacter({
       empty: {
         text: [
           'As the afternoon wears on, she runs out of etiquette lessons. She runs out of insults. Eventually she just sits, stirring her tea, looking at the ten empty chairs.',
-          '@rosalind:sad I used to host tea every Thursday. Twenty guests. Thirty. Everyone wanted to be seen with the future queen.',
-          '@rosalind:sad Then Edmund broke our engagement at the Royal Ball. In front of everyone. For a sweet little commoner who\'d never done anything wrong in her life.',
+          '@rosalind:sad I used to host tea every Thursday. Twenty guests. Thirty. Everyone wanted to be seen with the girl who was marrying a prince.',
+          '@rosalind:sad Then Cedric broke our engagement at the Royal Ball. In front of everyone. For a sweet little commoner who\'d never done anything wrong in her life.',
           '@rosalind And suddenly I was the villain of the story. And everyone remembered they were busy on Thursdays.',
         ],
         choices: [
@@ -474,7 +474,7 @@ FL.addCharacter({
           'The room goes deathly quiet.',
           '@rosalind:surprised ...The *what?*',
           '@noblewoman Oh, haven\'t you heard? The Prince\'s fiancée fell ill at the garden party last week. Everyone *knows* it was you. Jealousy is *such* an ugly color, darling.',
-          'Rosalind goes white. Her fan trembles in her hand. She opens her mouth for a cutting retort — and nothing comes out.',
+          'Rosalind goes white. Her fan trembles in her hand. Her fan comes up for a cutting retort — and stops halfway, quivering. Nothing comes out.',
         ],
         choices: [
           { text: 'Defend her publicly, with poise and wit. [Charm check 3]', check: { stat: 'charm', dc: 3 }, pass: 'defend', fail: 'defend_fail' },
@@ -517,7 +517,7 @@ FL.addCharacter({
         text: [
           'You find a quiet bench in the Moonlit Gardens. Rosalind sits down very carefully, very straight.',
           'And then, for the first time since you\'ve known her, Lady Rosalind Ashcroft cries.',
-          'Not prettily. Not elegantly. Great, ugly, hiccuping sobs that shake her whole body and wreck her makeup and make her drill-curls tremble.',
+          'Not prettily. Not elegantly. Great, ugly, hiccuping sobs that shake her whole body and wreck her powder and make her drill-curls tremble.',
           '@rosalind:sad I didn\'t — I would *never* — I *hate* poison, it\'s so *common* —',
           '@rosalind:sad Why does everyone always believe the worst of me? Why is it always so *easy* for them?',
         ],
@@ -529,7 +529,7 @@ FL.addCharacter({
       hold: {
         text: [
           'You put your arms around her. She stiffens — then collapses against you, burying her face in your shoulder, clutching your coat with both hands.',
-          'You stay like that a long time. When she finally pulls back, her face is blotchy and her mascara is everywhere and she looks more beautiful than you\'ve ever seen her.',
+          'You stay like that a long time. When she finally pulls back, her face is blotchy and her kohl is everywhere and she looks more beautiful than you\'ve ever seen her.',
           '@rosalind:angry ...If you tell *anyone* about this, I shall —',
           '@you Ruin me?',
           '@rosalind:blush ...*Kiss* you. I was going to say kiss you. Ohoho. How *unexpected.*',
@@ -541,7 +541,9 @@ FL.addCharacter({
         text: [
           'She looks at you through her tears.',
           '@rosalind:surprised You... *see* it?',
-          '@you The orphanage blankets. The fruit basket for your rival. The honey water. The pigeons you pretend are evil. Thursdays at three.',
+          '@you The orphanage blankets. The pigeons you pretend are evil. A tea table laid for twelve, every week, just in case.',
+          { if: 'rosalind_honey', text: "@you The honey water you threatened to ruin me over." },
+          { if: 'rosalind_thursday', text: "@you Thursdays at three." },
           { if: 'rosalind_hatboxes', text: "@you And the day we met, after you threatened to make me rue it, you said thank you for the hatboxes. Under your breath. I heard it." },
           '@rosalind:sad ...Nobody was ever supposed to notice any of that.',
           '@you I noticed.',
@@ -557,7 +559,7 @@ FL.addCharacter({
           'She\'s wearing a simple nightgown under a silk wrap, standing among the white roses with her arms folded tightly.',
           '@rosalind In every story, the villainess gets her comeuppance. She is exiled. Or imprisoned. Or dies alone in a tower. She never, *ever* gets a happy ending.',
           '@rosalind:sad I have been preparing for my comeuppance for six months.',
-          { if: 'rosalind_unscripted', text: "@rosalind:blush You told me there was no script. Behind the orange tree on Market Street, with custard everywhere. I've been trying very hard to believe you." },
+          { if: 'rosalind_unscripted', text: "@rosalind:blush You told me there was no script. Behind the orange tree on Market Street, beside a bucket of custard. I've been trying very hard to believe you." },
           { if: 'rosalind_accomplice', text: "@rosalind:smug Lady Pemberton is *still* finding custard in her ears, you know. I've never had an accomplice before. I didn't know scheming could be so... *companionable.*" },
           'She turns to face you.',
           '@rosalind And instead, you came along. And I don\'t know what to *do* with you.',
@@ -577,9 +579,9 @@ FL.addCharacter({
       },
       dance: {
         text: [
-          'She stares at your offered arm. Then, slowly, she places her hand on it.',
+          'Her fan hovers, half open, while she studies your offered arm as if it might be a trick. Then, slowly, she places her hand on it.',
           'There\'s no music. You dance anyway, among the roses, in the moonlight. She leads at first, out of habit. Then she lets you lead, and closes her eyes, and rests her head on your shoulder.',
-          '@rosalind:blush I danced with Edmund at a hundred balls. I never once felt like this.',
+          '@rosalind:blush I danced with Cedric at a hundred balls. I never once felt like this.',
           '@rosalind:blush I didn\'t know it was *supposed* to feel like this.',
           { if: 'rosalind_truth', text: "@rosalind:sad I told you once that I never loved him. I didn't know, then, what I was comparing him to." },
         ],
@@ -627,7 +629,7 @@ FL.addCharacter({
       },
       together: {
         text: [
-          "You walk into the drawing room hand in hand, you in your rumpled clothes, Rosalind in your shirt and a silk robe with her hair loose around her shoulders.",
+          "You walk into the drawing room hand in hand, you in last night's rumpled coat, Rosalind in your shirt and a silk robe with her hair loose around her shoulders.",
           "Lady Pemberton drops her teacup.",
           { if: 'rosalind_defended', text: "She sees you, and goes faintly plum-colored, clearly remembering the salon and the donor list." },
           "@rosalind:smug Good morning, Lady Pemberton! You've met my *lover*, I believe? Do sit down. Have a scone. Spread whatever you like about us. *Ohohohoho!*",
@@ -647,8 +649,8 @@ FL.addCharacter({
       },
       laugh: {
         text: [
-          "You throw your head back and laugh the villainess laugh: *OHOHOHO!* This time, after weeks of her lessons, it's perfect. It echoes through the whole estate.",
-          "Rosalind stares at you, utterly delighted.",
+          "You fill your lungs, plant a hand on your hip and laugh the villainess laugh: *OHOHOHO!* This time, by some miracle of the diaphragm, it's perfect. It echoes through the whole estate.",
+          "Rosalind claps her fan against her palm, utterly delighted.",
           "@rosalind:happy Your *form!* Your diaphragm! Your *projection!* Oh, I've created a monster.",
           { if: 'rosalind_pupil', text: "@rosalind:happy The very first day, you sounded like an affronted goose. And look at you now. I could weep. I *am* weeping. Don't look." },
           "Downstairs, Lady Pemberton hears the laugh, goes very pale, and decides to come back another day.",
@@ -660,7 +662,7 @@ FL.addCharacter({
       start: {
         text: [
           'Every head on the festival hill turns as Lady Rosalind Ashcroft arrives, in a gown of shimmering midnight blue, her drills more magnificent than ever, her fan glittering with sapphires.',
-          'She walks straight past the Crown Prince and his fiancée — pausing only to compliment the fiancée\'s dress, sincerely, which leaves the poor girl utterly baffled — and comes to you.',
+          'She walks straight past Prince Cedric and his fiancée — pausing only to compliment the fiancée\'s dress, sincerely, which leaves the poor girl utterly baffled — and comes to you.',
           '@rosalind:smug I\'m told this is where commoners watch the stars.',
           '@rosalind:smug How *quaint.* I shall watch them with you.',
           'She sits down on the grass. In silk. Several noblewomen faint.',
@@ -686,7 +688,7 @@ FL.addCharacter({
           '@rosalind:smug I have decided. I will remain the villainess. I am *very* good at it, and society needs someone to tell them their hats are hideous.',
           '@rosalind But every good villainess needs a partner in crime. Someone to help her ruin the reputations of horrible people and fund orphanages in secret.',
           '@rosalind:blush Will you be mine?',
-          'You answer by kissing her, and she drops her fan entirely for the second time in her life.',
+          'You answer by kissing her, and she drops her fan entirely, which a lady never does.',
           '@rosalind:happy ...Ohoho. *Yes.* Very good answer.',
         ],
         next: 'epilogue',
@@ -696,7 +698,7 @@ FL.addCharacter({
           '*Some time later...*',
           'You marry in the Ashcroft rose garden. The guest list is short. Every single guest attends.',
           'Lady Rosalind remains the most feared woman in high society. Her tea parties become legendary — not for who is invited, but for who *isn\'t.* Cruel gossips, petty tyrants and anyone who has ever kicked a dog are banned for life. Everyone else is welcome. Every Thursday. At three.',
-          'The Prince\'s former fiancée — now just a friend — becomes a regular. So does Lady Pemberton, eventually, after an apology that takes three hours and a great deal of crying.',
+          'The Prince\'s sweet commoner fiancée becomes a regular, and then, to everyone\'s astonishment, a friend. So does Lady Pemberton, eventually, after an apology that takes three hours and a great deal of crying.',
           'Rosalind still laughs "Ohohoho!" at people who annoy her. She still sets her drills every morning. You help now. It only takes an hour.',
           'And in the great Ashcroft library, there\'s a new book on the shelf, bound in violet leather. Its title is *The Villainess Who Got a Happy Ending.*',
           'She commissioned it herself. She says she wanted *someone* to finally write it properly.',
@@ -705,11 +707,11 @@ FL.addCharacter({
       },
       reign: {
         text: [
-          "You stand up on the hill, snap open an imaginary fan, throw back your head and laugh: *OHOHOHOHO!*",
+          "You stand up on the hill, snap open an imaginary fan, plant your feet and laugh from the diaphragm: *OHOHOHOHO!*",
           "The festival goes silent. A thousand faces turn toward you.",
           "Rosalind looks up at you, and something blazes in her eyes like the stars falling over her head. She rises in a rustle of midnight silk, snaps open her sapphire fan, and joins you.",
           "@rosalind:smug *OHOHOHOHOHO!*",
-          "Two perfect villainess laughs in harmony ring out across the hill, from the diaphragm, with *projection.* The Crown Prince takes a step backwards. Lady Pemberton grabs her husband's arm. Somewhere, a baby begins to laugh along.",
+          "Two perfect villainess laughs in harmony ring out across the hill, from the diaphragm, with *projection.* Prince Cedric takes a step backwards. Lady Pemberton grabs her husband's arm. Somewhere, a baby begins to laugh along.",
           "@rosalind:happy You *understand.* They want a villainess? Then they shall have *two!* We shall be *dreadful,* darling. We shall be the most dreadful couple this kingdom has ever seen!",
           "She kisses you there on the hill, fan raised to hide nothing at all, while the stars rain down like applause.",
         ],
@@ -724,7 +726,7 @@ FL.addCharacter({
           "You have matching fans. You have matching laughs. You have a scheme ledger, bound in violet leather, and an evil pigeon network that now covers three provinces. You plan your crimes on Thursdays, at three, in the conservatory, over Silver Needle tea.",
           "And every single coin your victims are made to repay goes, anonymously, to the orphanages, the widows' row and the free school on Market Street.",
           "Society still calls her the villainess. The orphans call her something else, though never where she can hear it.",
-          "When the Prince finally works up the courage to ask what she's been doing with her life, she smiles behind her fan and says: \"Oh, Edmund. *Ruining* people. With my partner.\"",
+          "When the Prince finally works up the courage to ask what she's been doing with her life, she smiles behind her fan and says: \"Oh, Cedric. *Ruining* people. With my partner.\"",
           "Then you both laugh, in harmony, and he has to sit down.",
         ],
         ending: 'rosalind_reign',
@@ -734,9 +736,9 @@ FL.addCharacter({
           "She looks down at the sapphire fan in her hand as though she has never seen it before.",
           "@rosalind:surprised Don't need it? I *always* need it. It's what I hide behind. Everyone knows that.",
           "@you I know. Not tonight.",
-          "For a long moment she doesn't move. Then she furls the fan, slowly, and lays it in the grass.",
+          "The fan stays where it is, half open, for three long breaths. Then she furls it, slowly, and lays it in the grass.",
           "And then, as the whole hill watches, she reaches up and begins taking the pins out of her hair. One. Two. Ten. The great golden drills come down one by one into loose, ordinary waves, until she's just a woman in a blue dress on a hillside, with stars in her hair.",
-          "@rosalind:sad I'm Rosalind. I'm not a villainess. I never was. I fund the orphanage on Wendel Street and the soup kitchen at the temple and the free school, and I've been doing it for years, and I didn't poison anyone, and I *never* loved Edmund, and I am —",
+          "@rosalind:sad I'm Rosalind. I'm not a villainess. I never was. I fund the orphanage on Wendel Street and the soup kitchen at the temple and the free school, and I've been doing it for years, and I didn't poison anyone, and I *never* loved Cedric, and I am —",
           "Her voice wobbles. She lifts her chin anyway.",
           "@rosalind:blush — I'm hopelessly in love with an adventurer in a very ordinary coat. There. Now *everyone* knows everything.",
           "The silence lasts forever. Then the Prince's fiancée starts to clap. Then the orphanage matron. Then, impossibly, Lady Pemberton. Then the whole hill.",
@@ -750,7 +752,7 @@ FL.addCharacter({
           '*Some time later...*',
           "It turns out that being liked is much harder than being hated. Rosalind is terrible at it, at first.",
           "People wave at her in the street, and she panics and snaps something cutting about their shoes, and they laugh, because they know now, and it makes her furious, and then it makes her laugh too. A real laugh. Small and surprised. It gets less small every month.",
-          "She stops setting the drills. Her maid weeps for a week and then takes up watercolors with the two hours she has back every morning. The sapphire fan goes into a glass case in the hall, labeled *RETIRED,* beside the daisy crown, which she has had preserved in resin at enormous expense.",
+          "She stops setting the drills. Her maid weeps for a week and then takes up watercolors with the two hours she has back every morning. The sapphire fan goes into a glass case in the hall, labeled *RETIRED,* where a footman dusts it daily at enormous expense.",
           "She runs the Ashcroft charities openly now, in plain dresses, with her sleeves rolled up. She is a ferocious administrator. Corrupt suppliers fear her more than they ever feared the villainess. The orphans adore her and call her Aunt Ros, and she pretends to hate it, and fails.",
           "She does still say \"ohoho.\" But only when something is genuinely funny, and only to you.",
           "On Thursdays at three, the conservatory table is laid for twelve, and every chair is full.",
@@ -789,7 +791,7 @@ FL.addCharacter({
           "She points up. There is, indeed, a bucket of custard wedged above the confectioner's door, with a long silk cord running from it to the orange tree. Three pigeons sit on the awning, looking shifty.",
           "@rosalind She'll be *custardy.* And you'll finally see her for what she truly is: a woman covered in custard. And then you'll —",
           "Her voice catches, just for a moment.",
-          "@rosalind:sad — you'll come back to Thursdays. Ohoho. Obviously.",
+          "@rosalind:sad — you'll come back to tea. Ohoho. Obviously.",
         ];
       },
       choices: [
@@ -802,13 +804,13 @@ FL.addCharacter({
       text: [
         "You take the silk cord gently out of her hand.",
         "@you There's no Heroine coming to steal me, Rosalind. Nobody's writing this. Nobody's going to make you the villain of it unless you hand them the pen.",
-        "@rosalind:angry You don't — you don't *know* that. That's what Edmund said. *Nothing will change, Ros.* And then it was the Royal Ball and the commoner girl and three hundred people *laughing* —",
-        "@you I'm not Edmund. And I'm not going anywhere.",
-        "She stares at you through the black lace. Then she rips the veil off, and her face crumples, and she sits down very suddenly on her cushion behind the orange tree.",
+        "@rosalind:angry You don't — you don't *know* that. That's what Cedric said. *Nothing will change, Ros.* And then it was the Royal Ball and the commoner girl and three hundred people *laughing* —",
+        "@you I'm not Cedric. And I'm not going anywhere.",
+        "Behind the black lace, her eyes go very bright. Then she rips the veil off, and her face crumples, and she sits down very suddenly on her cushion behind the orange tree.",
         "@rosalind:sad I don't even dislike her. Isn't that awful? She's perfectly lovely. I bought her a scarf last week. Anonymously. I just looked at the two of you and I thought, *oh, here it comes, here's my comeuppance,* and I panicked and bought a *bucket.*",
         "@rosalind:blush ...I'm a very stupid woman, aren't I.",
         "@you You're a frightened one. That's different.",
-        "She laughs, wetly, and leans her head on your shoulder. At four o'clock, the two of you climb up and carefully take the custard down, and she donates it to the orphanage with a note: *For pudding. Do not ask.*",
+        "She laughs, wetly, and hides her face in your lapel instead of behind her fan. At four o'clock, the two of you climb up and carefully take the custard down, and she donates it to the orphanage with a note: *For pudding. Do not ask.*",
       ],
       flag: 'rosalind_unscripted',
       affTo: { rosalind: 8 },
@@ -824,7 +826,7 @@ FL.addCharacter({
         "There is a sound like a very large and very wet kiss.",
         "Lady Rosalind Ashcroft stands in the middle of Market Street, in a black lace veil, absolutely coated from her drills to her hem in yellow custard. A pigeon lands on her head and begins to eat.",
         "@rosalind:sad ...",
-        "@rosalind:sad Kill me. Somebody, please, just —",
+        "@rosalind:sad Exile me. Somebody, please, send me to a convent in the third act —",
         "You start to laugh. You can't help it. You try to stop and it gets worse. And then, to your astonishment, so does she: a helpless, custardy, completely undignified laugh that has nothing whatsoever of the villainess in it.",
         "@rosalind:happy I'm the Heroine. Oh, no. *I'm* the one in the custard. That makes me the — ohoho — *ohohoho* —",
         "You walk her home, dripping. She holds your hand the entire way and doesn't care who sees.",
@@ -837,7 +839,7 @@ FL.addCharacter({
       text: [
         "Rosalind's eyes go wide behind the veil. Then she seizes both your hands.",
         "@rosalind:happy An *accomplice?* I've never had an accomplice! Villainesses always scheme *alone!* You can work the cord! I'll handle the laugh!",
-        "You crouch behind the orange tree together, shoulder to shoulder, watching the confectioner's door through the spyglass. She narrates in a breathless whisper. She has also packed sandwiches. It's the most fun you've had all week.",
+        "You crouch behind the orange tree together, shoulder to shoulder, watching the confectioner's door through the spyglass. She narrates in a breathless whisper. She has also packed sandwiches, crusts off. You have rarely been happier crouching behind a shrub.",
         "At four o'clock exactly, the door swings open.",
         "@rosalind:smug *Now!*",
         "You pull the cord. The bucket tips. Custard descends.",
@@ -861,7 +863,7 @@ FL.addCharacter({
         "The bucket tips. You are, instantly and completely, custard.",
         "Market Street stops to stare. A pigeon lands on your shoulder. You wipe your eyes clear and turn to her, dripping.",
         "@you There. The Heroine's been humiliated. It's me. I'm the one who walked into your story out of nowhere, so I suppose I'm the Heroine. And here I am, covered in custard, and I'm still not going anywhere.",
-        "Rosalind stares at you for a very long time.",
+        "Rosalind's fan, for once, does not move. Neither does she.",
         "Then she walks out from behind the tree, in her best lace and her black veil, right into the puddle of custard, and takes your yellow, sticky face in both her gloved hands.",
         "@rosalind:sad You absolute *fool.* You ridiculous, impossible —",
         "She kisses you, custard and all, in the middle of Market Street, in front of a crowd. When she pulls away there is custard on her nose, and on her veil, and in her drills, and she doesn't seem to care at all.",

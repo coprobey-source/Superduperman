@@ -22,8 +22,7 @@ FL.addCharacter({
       herbs: [
         '@morwen:surprised MOONHERBS! Fresh ones! Picked under the waxing gibbous, by the smell! Do you know how hard these are to find?! Oh, I could kiss you!',
         'She freezes.',
-        { if: 'morwen_date_gardens', text: '@morwen:smug ...Wait. These are from the duchess\'s bed, aren\'t they. You went *back.* Without me. That\'s — that\'s *propagation!* I\'ve never been prouder.', else: '@morwen:blush ...Hypothetically! In a scientific sense! Croaksworth, stop *looking* at me like that.' },
-        '@croak I am looking at nothing. I am a toad. I look at flies and the void.',
+        { if: 'morwen_date_gardens', text: '@morwen:smug ...Wait. These are from the duchess\'s bed, aren\'t they. You went *back.* Without me. That\'s — that\'s *propagation!* I\'ve never been prouder.', else: ['@morwen:blush ...Hypothetically! In a scientific sense! Croaksworth, stop *looking* at me like that.', '@croak I am looking at nothing. I am a toad. I look at flies and the void.'] },
       ],
       roses: [
         '@morwen:surprised Oh no — roses — I\'m allergic — *ah — ah —*',
@@ -60,7 +59,7 @@ FL.addCharacter({
   talk: [
     ['@morwen Oh, hello! Mind the cauldron. And the floor. And that jar. And — actually, just don\'t touch anything. Or breathe too hard.'],
     ['@croak She set her own hat on fire twice this morning. A personal record.', '@morwen:angry CROAKSWORTH.', '@croak I merely report the facts, madam.'],
-    ['@morwen:smug I invented a potion that makes you smell colors! It worked perfectly! Unfortunately, it also makes you hear smells. Purple is *very* loud.'],
+    ['@morwen:smug I invented a potion that makes you smell colours! It worked perfectly! Unfortunately, it also makes you hear smells. Purple is *very* loud.'],
     ['@morwen:sad My mother was a witch, and her mother, and her mother. All very proper, very scary witches. Cackling, cursing, the works. I can\'t cackle. I tried. I sound like a goose.'],
     ['She\'s staring into her cauldron, chin propped on her broom handle.', '@morwen You know what\'s the hardest potion to brew? Courage. It takes nine years and a phoenix feather. Or you just... do the scary thing anyway. Which is cheaper but much harder.'],
     ['@morwen:happy You have the most interesting aura. Sort of a warm orange, with little sparkles. ...Oh, I said that out loud.', '@morwen:blush Please disregard.'],
@@ -80,7 +79,7 @@ FL.addCharacter({
     ["She presses a little vial into your hand. It glows faintly.", "@morwen:blush It's not a love potion! It's — it's a candle-floating draught. For ambiance. For later. Bring it tonight."],
     ["@morwen The goose has laid an egg. It's a very small teacup. I don't know what that means but I think it means you should come over."],
     { if: 'morwen_goose', lines: ["@morwen:happy The goose has learned to pour tea! From its beak! It isn't hygienic, but it's very *moving.*", "@croak It has also learned to bite. Me. Specifically and exclusively me."] },
-    { if: 'morwen_amazing', lines: ["@morwen:blush You told me I was amazing when I brew. That first day, with the orphans' potion. I set the curtains on fire.", "@morwen I think about it every time I pick up a ladle. Croaksworth says I've stopped shaking when I measure.", "@croak She has. Mostly. The curtains remain cautious."] },
+    { if: 'morwen_amazing', lines: ["@morwen:blush You told me I was amazing when I brew. That day, with the orphans' potion. I set the curtains on fire.", "@morwen I think about it every time I pick up a ladle. Croaksworth says I've stopped shaking when I measure.", "@croak She has. Mostly. The curtains remain cautious."] },
     { if: 'morwen_list', lines: ["She hands you a folded piece of paper.", "@morwen:smug A new list. For tonight. I brewed a potion to stop me losing it and everything.", "You unfold it. *Number one: don't explode anything. Number two: say it again. Number three: and again.*"] },
     { if: 'morwen_date_gardens', lines: ["@morwen:happy The moonherb cuttings from the gardens took! I've got a whole bed of them behind the cottage now. They glow at night and hum when you walk past.", "@morwen:blush I named the biggest one after you. It's *very* good-looking. For a herb."] },
     { if: 'morwen_drank', lines: ["@morwen You drank the antidote. That day in the smoke. Without even thinking. Just to prove it to me.", "@morwen:blush I keep the empty bottle on my desk. Croaksworth says that's sentimental. Croaksworth keeps a dried fly from the Long Summer in a locket.", "@croak It was a *very* good fly."] },
@@ -95,7 +94,7 @@ FL.addCharacter({
           '@morwen:sad Oh. Oh, it won\'t — hold on —',
           'She takes the hat off and sets it on the empty chair beside her. The barkeep, passing, puts a menu in front of it out of sheer habit.',
           'She unpacks her handbag: a pepper grinder, three little jars of salt in different colours, a vial of something green and a sprig of rosemary that is quietly singing to itself.',
-          '@morwen:smug Everyone thinks salt is just salt. *Everyone.* This one\'s from a dragon\'s tear duct. Very umami.',
+          '@morwen:smug Everyone thinks salt is just salt. *Everyone.* This one\'s from a dragon\'s tear duct. Very savoury. Faintly smoky. Slightly smug.',
           'The barkeep pours the house wine. Morwen sniffs it, frowns, and before you can stop her, adds a single pinch of something sparkly.',
           'The wine begins, very softly, to hum.',
           { if: { stage: 4 }, text: '@morwen:blush It\'s a love song. I didn\'t *tell* it to sing a love song. It just knows. Wine is very perceptive.' },
@@ -132,7 +131,7 @@ FL.addCharacter({
           'She puts the jars back in her bag one at a time, with the air of someone burying a pet. For three entire seconds she looks crestfallen. Then she takes a bite of the plain roast chicken.',
           '@morwen:surprised Oh. Oh, it\'s *good.* It\'s good just as it is!',
           '@morwen:smug ...It could use a *tiny* bit of dragon salt, though.',
-          'You let her have the dragon salt. It is, you have to admit, very umami.',
+          'You let her have the dragon salt. It is, you have to admit, very savoury.',
         ],
         next: 'done',
       },
@@ -237,7 +236,7 @@ FL.addCharacter({
       },
       watch: {
         text: [
-          'She shrugs, smiles, and takes off alone. You watch her from the pier: a small violet figure looping over the harbor against the burning sky, hat streaming, skirts flapping, whooping like a child.',
+          'She shrugs, smiles, and takes off alone. You watch her from the pier: a small violet figure looping over the harbor against the burning sky, hat streaming, skirts flapping, whooping like a sailor on shore leave.',
           'Halfway through a loop, she loses the hat. It falls slowly, spinning, and lands on the water, where Croaksworth climbs onto it and floats away into the sunset with great dignity.',
           'She lands beside you breathless, windswept and hatless, and steals a piece of your fried fish.',
           '@morwen:happy Next time you\'re coming *with* me. I needed someone to shout "look!" at.',
@@ -301,7 +300,7 @@ FL.addCharacter({
         text: [
           'You sniff the NOT CHEESE sandwich. Lavender. Thistle. A faint metallic edge, like air before a storm.',
           '@you This is the base for a levitation draught. Thistledown and storm-salt. If you eat it, you float for about an hour.',
-          'Morwen stares at you. Croaksworth stares at you.',
+          'Morwen\'s spectacles slide slowly down her nose. Croaksworth\'s throat stops pulsing.',
           '@morwen:surprised That\'s — you\'re *right.* That\'s exactly — how do you *know* that?',
           '@you Your field guide. Page forty.',
           '@morwen:blush ...Nobody gets to page forty.',
@@ -315,7 +314,7 @@ FL.addCharacter({
           'You are a frog again.',
           '@morwen:surprised Oh NO — oh, not *again* — hold still —',
           'She has the antidote out of her pocket before you\'ve finished your first indignant croak. *Pop.* You\'re sitting in the moss, damp and yourself, with a foxglove on your head.',
-          '@morwen:blush You were still the calmest frog I\'ve ever made, though. You just sat there and looked at me with your big eyes.',
+          { if: 'morwen_ribbit', text: '@morwen:blush You were still the calmest frog I\'ve ever made, though. You just sat there and looked at me with your big eyes.', else: '@morwen:blush You were a much calmer frog this time, though. Hardly any furious hopping. You\'re *improving.*' },
           '@croak Amateur. Again.',
         ],
         next: 'done',
@@ -345,7 +344,7 @@ FL.addCharacter({
       start: {
         text: [
           'Deep in the Whisperwood, a cottage with a crooked chimney is belching clouds of lavender smoke. The door bursts open, and a woman stumbles out in a cloud of sparkles, coughing.',
-          'She\'s wearing an enormous pointed hat (smoldering slightly), a patched violet dress with about a hundred pockets, and spectacles that have cracked in one lens. Her dark curly hair has a twig in it. And possibly a small bird.',
+          'She\'s wearing an enormous pointed hat (smouldering slightly), a patched violet dress with about a hundred pockets, and spectacles that have cracked in one lens. Her dark curly hair has a twig in it. And possibly a small bird.',
           '@morwen:angry That was NOT the right amount of newt. That was SO MUCH NEWT.',
           'She spots you. Her eyes go wide.',
           '@morwen:surprised Oh, a visitor! Wait — don\'t breathe! You might have inhaled some of the — ',
@@ -379,8 +378,8 @@ FL.addCharacter({
       },
       antidote: {
         text: [
-          'Frog-you hops through the cottage door, past a bubbling cauldron and a broom that\'s sweeping by itself, up a stack of books, and slaps one tiny webbed hand against a bottle labeled *UN-FROG (probably)*.',
-          'She stares at you.',
+          'Frog-you hops through the cottage door, past a bubbling cauldron and a broom that\'s sweeping by itself, up a stack of books, and slaps one tiny webbed hand against a bottle labelled *UN-FROG (probably)*.',
+          'Her mouth falls open. A small bird pokes its head out of her hair to have a look as well.',
           '@morwen:surprised You — you *read the label.* As a frog. That\'s *amazing.*',
           'She dumps the potion over your head. *Pop.* You\'re yourself again.',
           '@morwen:happy Most people just panic and hop into the pond. I spent a whole week fishing out a tax collector last spring.',
@@ -556,7 +555,7 @@ FL.addCharacter({
       list: {
         text: [
           'She bites her lip.',
-          '@morwen:blush Number one: don\'t explode anything. Number two: tell them about the time I flew my broom into the church bell, because it\'s funny and it\'ll break the ice. Number three...',
+          '@morwen:blush Number one: don\'t explode anything. Number two: tell them about the time I flew my broom into the Temple bell, because it\'s funny and it\'ll break the ice. Number three...',
           'Her cheeks go pink.',
           '@morwen Number three was "tell them you love them." I put it third so I\'d have time to work up the courage.',
           '@you Want to skip to number three?',
@@ -668,7 +667,7 @@ FL.addCharacter({
       epilogue: {
         text: [
           '*Some time later...*',
-          'You open an apothecary together on Market Street: *Hazelbrook\'s Remedies & Mostly Safe Wonders.* She brews; you handle customers, labels, and the fire extinguishers. The shop explodes only about once a month now. Everyone agrees it\'s a huge improvement.',
+          'You open an apothecary together on Market Street: *Hazelbrook\'s Remedies & Mostly Safe Wonders.* She brews; you handle customers, labels, and the fire buckets. The shop explodes only about once a month now. Everyone agrees it\'s a huge improvement.',
           'The orphanage never wants for medicine again. The baker\'s apprentice eventually gets married without a love potion. Morwen considers this her greatest professional achievement.',
           'You are turned into a frog roughly twice a year. You\'ve gotten quite good at reading labels with webbed hands.',
           'Sir Croaksworth remains a toad by choice. He officiates your wedding. His speech is cutting, merciless, and makes everyone cry.',
@@ -681,7 +680,7 @@ FL.addCharacter({
           '@you Teach me. Properly. I want to be a witch too.',
           'Morwen goes completely still. Croaksworth\'s eyes, which are mostly closed at all times, open fully for the first time in living memory.',
           '@morwen:surprised You — a *witch?* You\'d — do you know what you\'re *asking?* It\'s years of study! It\'s burns and smells and frogs! You\'d have to learn to *cackle!*',
-          '@you You worked out that I read your field guide from the way I looked at a mushroom.',
+          { if: 'morwen_guide', text: '@you I read your field guide. You worked that out from the way I looked at a mushroom.' },
           { if: 'morwen_label', text: '@you I read a potion label as a frog, on the first day I met you.' },
           '@you And I worked out that love potion. With the timing. I think I\'d be quite good.',
           '@morwen:blush ...You *would.* Oh, you\'d be *awful* and *wonderful* and we\'d explode *everything.*',

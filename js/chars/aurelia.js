@@ -42,7 +42,7 @@ FL.addCharacter({
     ["@aurelia:sad I keep a list. Of things I've never done. Climbed a tree. Owed somebody money. Been bored on purpose.", "@aurelia:happy I've crossed off nine since I came here. Don't ask me what number ten is. No — don't. It's *embarrassing.*"],
     { if: 'aurelia_mopped', lines: ["@aurelia:blush Bettina says a customer who picks up a mop on the first night is \"a keeper.\" She says it's an old tavern saying.", "@aurelia I think she made it up on the spot. She was looking straight at you when she said it."] },
     { if: 'aurelia_pirate', lines: ["@aurelia:smug Did you know the Royal Guard has been searching Saltbreeze Harbor for *eleven days?* For a pirate called \"Big Eyepatch\"?", "@aurelia:happy They arrested a parrot. It's been taken to the capital for questioning. I feel *dreadful.* I also cannot stop laughing."] },
-    { if: 'aurelia_pie', lines: ["@aurelia:happy I went back to the pie stall today. Alone! I paid in *coins!* The *correct* coins! The pie man shook my hand.", "@aurelia:blush ...Then I got gravy on my hat again. Some traditions must be honored."] },
+    { if: 'aurelia_pie', lines: ["@aurelia:happy I went back to the pie stall today. Alone! I paid in *coins!* The *correct* coins! The pie man shook my hand.", "@aurelia:blush ...Then I got gravy on my hat again. Some traditions must be honoured."] },
     { if: { stage: 3 }, lines: ["@aurelia:blush Now that you know who I am, you can stop pretending not to know who I am. And I can stop pretending not to be who I am.", "@aurelia:smug Shall we pretend to be strangers anyway? Just for fun? I'll spill something on you. You'll be charmed. It'll be like old times."] },
   ],
   afterTalk: [
@@ -54,7 +54,7 @@ FL.addCharacter({
     { if: 'aurelia_goat', lines: ["@aurelia I told Bettina you said you'd have me even if I were a goat. She said it was the most romantic thing she'd heard in twenty years behind a bar.", "@aurelia:surprised Then she asked whether I'd *considered* being a goat. I hadn't. Now I can't stop. I think I'd be a very good goat. Very sure-footed. Excellent posture."] },
     { if: 'aurelia_ate', lines: ["@aurelia:blush You ate the whole breakfast. The charcoal one. I still think about it at the strangest moments. During arithmetic. While mopping.", "@aurelia:sad A man asked me for change yesterday and I burst into *tears.* He gave me a copper. I kept it. I'm not sure who was serving whom."] },
     { if: 'aurelia_bow', lines: ["@aurelia:smug I've been issuing royal decrees again. Only to you. Only after midnight.", "@aurelia Decree the first: you're to stop looking at me like that in front of the customers.", "@aurelia:blush Decree the second: *don't* stop."] },
-    { if: 'aurelia_date_picnic', lines: ["@aurelia:happy I've climbed the oak in Whisperwood four times since our picnic. On my own! Only got stuck twice. A woodcutter had to get me down. I *tipped* him. He's started taking his lunch under that tree."] },
+    { if: 'aurelia_date_picnic', lines: ["@aurelia:happy I've been back to our picnic clearing four times. I climbed the big oak! On my own! Only got stuck twice. A woodcutter had to get me down. I *tipped* him. He's started taking his lunch under that tree."] },
   ],
   dateFav: 'picnic',
   dates: {
@@ -146,7 +146,7 @@ FL.addCharacter({
       hedge: {
         text: [
           "You grab her hand and duck through a gap in the yew hedge. It's very narrow. She's pressed flat against you, moustache askew, both of you shaking with silent laughter while lilac silk rustles past on the other side.",
-          "@aurelia:blush ...This is twice now. Twice you've hidden me in a small space. People will start to *talk.*",
+          { if: [{ stage: 3 }, '!aurelia_pirate'], text: "@aurelia:blush ...This is twice now. Twice you've hidden me in a small space. People will start to *talk.*", else: "@aurelia:blush ...You've hidden me in a hedge. A *noble* hedge. People will start to *talk.*" },
           "@you Do you want me to stop?",
           "@aurelia:smug I want you to find smaller spaces.",
         ],
@@ -155,8 +155,8 @@ FL.addCharacter({
       fountain: {
         text: [
           "You end up at the great marble fountain at the heart of the gardens, moustache retired to her pocket, the moon on the water.",
-          { if: 'aurelia_splash', text: ["She looks at the fountain. She looks at you. Her eyes narrow.", "@aurelia:smug Don't you *dare.* This is a *noble* fountain. If you splash me in a noble fountain it's practically a diplomatic incident.", "You don't. She splashes you anyway. It's a diplomatic incident."], else: "@aurelia:happy At the palace I was never allowed to touch the fountains. They were for *looking at.* She rolls up her sleeves and trails her fingers through the water like a child stealing cake." },
-          { if: { stage: 4 }, text: "@aurelia:blush Every lady in this garden came here hoping someone would kiss her by the fountain. I think I'm the only one who's going to get her wish. Hurry up, before Bertram comes back." },
+          { if: 'aurelia_splash', text: ["She looks at the fountain. She looks at you. Her eyes narrow.", "@aurelia:smug Don't you *dare.* This is a *noble* fountain. If you splash me in a noble fountain it's practically a diplomatic incident.", "You don't. She splashes you anyway. It's a diplomatic incident."], else: ["@aurelia:happy At the palace I was never allowed to touch the fountains. They were for *looking at.*", "She rolls up her sleeves and trails her fingers through the water like a burglar running her hands through a jewel box."] },
+          { if: { stage: 4 }, text: "@aurelia:blush Every lady in this garden came here hoping someone would kiss her by the fountain. I think I'm the only one who's going to get her wish. Hurry up, before the moustache comes back." },
         ],
         end: true,
       },
@@ -165,10 +165,10 @@ FL.addCharacter({
       start: {
         text: [
           "Saltbreeze Harbor at sunset is gulls and tar and the smell of fried fish, and Aura looks at all of it as though someone has unwrapped it for her personally.",
-          "You buy two portions of fish in paper. She holds hers as if it might be a live grenade.",
-          "@aurelia:surprised There's no fork. There's no plate. There's no *footman.* There's just — fish. In a *newspaper.* Is that today's? Is it bad luck to eat the news?",
+          "You buy two portions of fish in paper. She holds hers as if it might be a live eel.",
+          "@aurelia:surprised There's no fork. There's no plate. There's no *footman.* There's just — fish. In a *broadsheet.* Is that today's? Is it bad luck to eat the news?",
           { if: 'aurelia_pie', text: "@aurelia:smug No — wait. I know this. *Just bite it.* You taught me. I'm a seasoned eater of hand-food now." },
-          { if: 'aurelia_pirate', text: "A grizzled fishmonger leans over and winks at her. \"Evenin', miss. Any luck with that pirate of yours?\" She chokes on her fish. You have to pat her on the back for a very long time." },
+          { if: 'aurelia_pirate', text: "A grizzled fishmonger leans over and winks at her. \"Evenin', miss. Any luck with that pirate of yours?\" She chokes on her fish. You pat her on the back until the fishmonger, concerned, offers a bucket." },
         ],
         choices: [
           { text: "Teach her to skip stones off the end of the pier.", go: 'stones', aff: 5 },
@@ -301,7 +301,7 @@ FL.addCharacter({
           'She leans in close and whispers, panicked:',
           '@aurelia:blush ...How did you know?',
           '@you Lucky guess. Don\'t worry. I won\'t tell.',
-          'She stares at you for a long moment. Then she lets out a breath and laughs, very quietly.',
+          'She searches your face, one hand still clutching her ale-soaked apron like a royal sash. Then she lets out a breath and laughs, very quietly.',
         ],
         aff: 7,
         flag: 'aurelia_outed',
@@ -347,7 +347,7 @@ FL.addCharacter({
           'You approach the fruit seller. You compliment his apples. You lament your poverty. You walk away. He calls you back. You get six apples for the price of two and a free pear.',
           'Aura is staring at you like you\'ve just slain a dragon with your bare hands.',
           '@aurelia:surprised That was *magnificent!* That was *diplomacy!* My father\'s ambassadors couldn\'t have done better!',
-          'She tries it herself at the next stall. She offers the cheese merchant twice the asking price and then apologizes for insulting him. He gives her the cheese for free out of pure confusion.',
+          'She tries it herself at the next stall. She offers the cheese merchant twice the asking price and then apologises for insulting him. He gives her the cheese for free out of pure confusion.',
           '@aurelia:happy I WON!',
         ],
         aff: 8,
@@ -397,7 +397,7 @@ FL.addCharacter({
         text: [
           'You kick a spray of water at her. She shrieks. For one second, she looks absolutely scandalized, the full force of royal outrage in her face.',
           'Then she shoves you into the fountain.',
-          'You both end up soaked to the skin, laughing so hard you can\'t stand, while the pigeons scatter and a small crowd gathers to watch the barmaid and the adventurer splashing each other like children.',
+          'You both end up soaked to the skin, laughing so hard you can\'t stand, while the pigeons scatter and a small crowd gathers to watch the barmaid and the adventurer splashing each other like a pair of drunken otters.',
           '@aurelia:happy No one has *ever* splashed me! Not in my *whole life!* Do it again!',
         ],
         end: true,
@@ -496,6 +496,7 @@ FL.addCharacter({
       },
       goat: {
         text: [
+          '@you I\'d have you if you were a barmaid, a princess, or a goat.',
           'She bursts out laughing, then grabs your collar and kisses you.',
           '@aurelia:happy A *goat!* You romantic fool!',
         ],
@@ -524,13 +525,13 @@ FL.addCharacter({
           "Her barmaid's dress has only six laces, but you take your time with every one. Each tug sends a visible shiver down her spine. When the dress slips from her shoulders she doesn't reach to catch it, the way they must have taught her to. She lets it fall, and stands there in the moonlight with her chin up like a princess at her coronation.",
           "@aurelia:smug Well? Your future queen awaits your — no. No, that sounds ridiculous. Just — *come here.*",
           "She's tender and eager and full of wonder, as though discovering something no tutor or governess ever dared to teach her. She keeps saying *oh, is that allowed?* and then answering herself: *it is now, I've decided, royal decree.* She laughs often, a bright, unguarded, entirely un-royal laugh. You think you could listen to it forever.",
-          "And when you kiss your way down the curve of her neck and murmur *Your Highness* against her skin, half teasing, she grips your shoulders and makes a sound that would scandalize the entire royal court...",
+          "And when you kiss your way down the curve of her neck and murmur *Your Highness* against her skin, half teasing, she grips your shoulders and makes a sound that would scandalise the entire royal court...",
           "...",
           "The moon shines through the cracked window. Downstairs, the tavern cat knocks something over. Neither of you notices.",
           "Much later, she lies with her golden hair spread across your chest, tracing idle patterns on your skin.",
-          "@aurelia:smug You realize this is treason. Seducing the Crown Princess. They used to hang people for this.",
+          "@aurelia:smug You realise this is treason. Seducing the Crown Princess. They used to hang people for this.",
           "@you Should I be worried?",
-          "@aurelia:happy Terribly. I'm going to sentence you to a life of hard labor. In my bed. With no possibility of parole.",
+          "@aurelia:happy Terribly. I'm going to sentence you to a life of hard labour. In my bed. With no possibility of parole.",
           { if: 'aurelia_splash', text: "@aurelia:smug And let the record show that this was *revenge.* For the fountain. Long, slow, extremely thorough revenge. I'm heir to the Sunlit Throne. We hold grudges for *centuries.*" },
         ],
         end: true,
@@ -587,14 +588,14 @@ FL.addCharacter({
           '@aurelia:happy I told him. My father. Everything. About the tavern, and the mop, and the pie, and *you.*',
           { if: 'aurelia_outed', text: '@aurelia:smug I told him you saw through me the very first night. He said, "Everyone saw through you, darling. You curtsied to a *horse.*" That is *not* the point.' },
           'Behind her, an older man with a golden beard steps out of the carriage. The King. He looks at you with a very stern expression.',
-          '@king So. You are the one who taught my daughter to haggle.',
+          { if: 'aurelia_pie', text: '@king So. You are the one who has been teaching my daughter to be *common.*', else: '@king So. You are the one who taught my daughter to haggle.' },
         ],
         next: 'king',
       },
       king: {
         text: [
           '@you ...Yes, Your Majesty.',
-          { if: 'aurelia_splash', text: '@king And to drink rum. And to *splash people in fountains.*', else: '@king And to drink rum. She has sent me a *tasting report.* Four pages. The word "dreadful" appears nineteen times, always approvingly.' },
+          { if: 'aurelia_splash', text: '@king And to *splash people in fountains.*', else: '@king And to drink tavern ale. She has sent me a *tasting report.* Four pages. The word "dreadful" appears nineteen times, always approvingly.' },
           '@you ...Also yes.',
           { if: 'aurelia_pie', text: ['@king And to eat pie. With her *hands.* In the *street.*', '@aurelia:smug It had gravy, Father. You\'d have done the same.'] },
           { if: 'aurelia_pirate', text: ['@king I am also told it was *you* who sent the Royal Guard to search Saltbreeze Harbor for a pirate named "Big Eyepatch."', '@king My Captain of the Guard has not slept in a fortnight. He has questions about a parrot.'] },
@@ -613,7 +614,7 @@ FL.addCharacter({
       epilogue: {
         text: [
           '*Some time later...*',
-          'You are married in the great cathedral of the capital, with the whole kingdom watching. Bettina is the guest of honor. She cries into a handkerchief the size of a tablecloth.',
+          'You are married in the great cathedral of the capital, with the whole kingdom watching. Bettina is the guest of honour. She cries into a handkerchief the size of a tablecloth.',
           'Aurelia becomes the most beloved Crown Princess in FantasyLandia\'s history. She abolishes the snuffbox tax. She opens the palace gardens to the public. She founds the Royal Institute for Practical Skills, where nobles must learn to cook, mop, and haggle. Attendance is mandatory. The nobles are furious.',
           { if: 'aurelia_ate', text: 'Once a week she still makes you breakfast herself, in the palace kitchens, with the royal chef hovering behind her in visible agony. It\'s still terrible. You still eat every bite. She still watches you do it like it\'s the most romantic thing in the kingdom. It might be.' },
           'But on the first weekend of every month, she slips out of the palace with you, in a peasant dress three sizes too big and an enormous straw hat, and you ride to Clichéton.',
@@ -649,7 +650,7 @@ FL.addCharacter({
           { if: 'aurelia_pie', text: 'The pie man on Market Street names a pie after her. It is called *The Princess* and it has far too much gravy. She orders it every Thursday and eats it with her hands, on the fountain steps, in her straw hat.' },
           'On the first weekend of every month, a large man with a very obviously false beard comes in, sits at the end of the bar and orders "an ale, my good — er — guv." The regulars call him Goldie. He loses at cards to Gruk every single time and has never once been happier.',
           'Aura never does learn to count change. You do it for her. She learns to carry six tankards at once — well, five — well, four, reliably. She still curtsies to customers. Nobody minds.',
-          'The crown lives in a hatbox under your bed, next to the bucket you bought at the market on your first lesson. Once a year, on the anniversary of her renunciation, she puts it on and uses it to scrub the floor, because she says it\'s good for it to finally do some honest work.',
+          'The crown lives in a hatbox under your bed, next to the enormous straw hat she wore on your first lesson. Once a year, on the anniversary of her renunciation, she puts it on and uses it to scrub the floor, because she says it\'s good for it to finally do some honest work.',
         ],
         ending: 'aurelia_aura',
       },

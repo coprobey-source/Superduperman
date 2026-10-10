@@ -17,7 +17,7 @@ FL.addCharacter({
     love: ['She gasps so loudly that a gull falls off a piling.', '@coralie:surprised A *dinglehopper!* A real one! And it\'s so shiny! The surface people use them to comb their hair, you know. I\'m an expert.', 'She immediately starts combing her hair with it. You decide not to correct her.'],
     like: '@coralie:happy Ooooh! What is it? What does it do? Can I keep it? I\'m going to put it in my grotto with all my treasures!',
     neutral: '@coralie Oh, a surface thing! I don\'t know what it is but I love it! Probably! Is it a hat?',
-    hate: ['She stares at the fish in horror. The fish stares back.', '@coralie:angry *Gerald?!* — oh, no, not Gerald, but — that could have been someone\'s *Gerald!* How could you?!', 'She gently releases it into the sea and glares at you.'],
+    hate: ['She stares at the fish in horror. The fish stares back.', '@coralie:angry *Reginald?!* — oh, no, not Reginald, but — that could have been someone\'s *Reginald!* How could you?!', 'She gently releases it into the sea and glares at you.'],
     special: {
       fork: [
         'She gasps so loudly that a gull falls off a piling.',
@@ -32,7 +32,7 @@ FL.addCharacter({
       ],
       fish: [
         'She stares at the fish in horror. The fish stares back.',
-        '@coralie:angry *Gerald?!* — oh, no, not Gerald, but — that could have been someone\'s *Gerald!* How could you?!',
+        '@coralie:angry *Reginald?!* — oh, no, not Reginald, but — that could have been someone\'s *Reginald!* How could you?!',
         'She gently releases it into the sea and glares at you, then glares at the sea, as if it might tell on you.',
       ],
       mirror: [
@@ -66,11 +66,11 @@ FL.addCharacter({
     ['@coralie:happy I learned a new surface word from a fisherman! "Moist!"', '@coralie:surprised I said it in the fish market and everybody went *very* quiet. I think it\'s a powerful spell. I\'m only going to use it in emergencies.'],
     ['@coralie:sad Mermaids can\'t cry, you know. Not properly. It all just goes into the sea and nobody can tell.', '@coralie Up here, tears stay *on your face.* Everyone can see you\'re sad and come and help. That\'s so brave of you. Walking around with your feelings on the outside.'],
     ['@coralie Underwater, you don\'t *hear* music. You *feel* it. When the whales sing, it rattles your scales all the way to the tip of your tail.', '@coralie:happy The bard by the fountain sang today and it just went politely into my ears. Surface music is so *well-mannered.*'],
-    ['She has her tail up on a rock and is kicking it, very seriously, one fin at a time.', '@coralie:smug I\'m practising for legs. Left. Right. Left. Is this how you do it? Why are you laughing? This is *hard!*'],
+    ['She has her tail up on a rock and is kicking it, very seriously, one fin at a time.', '@coralie:smug I\'m practicing for legs. Left. Right. Left. Is this how you do it? Why are you laughing? This is *hard!*'],
     { if: 'coralie_spyglass', lines: ['@coralie:happy I looked at the moon through the spyglass! The right way round, like you showed me!', '@coralie:surprised It has *holes* in it! Somebody\'s been eating the moon! ...Is it you? You can tell me. I won\'t tell Daddy.'] },
     { if: 'coralie_along', lines: ['@coralie:smug I told my sisters the teapot is a little ship for soup. They didn\'t believe me. So I made soup in it and sailed it across the throne room.', '@coralie:happy It sank. But it sank *majestically.* My sisters had to admit it was very convincing.'] },
     { if: 'coralie_truth', lines: ['@coralie I explained corsets to my eldest sister. Properly, the way you explained them to me.', '@coralie:smug She has *nightmares* now. I\'m a very good teacher. I learned from the best.'] },
-    { if: 'coralie_rock', lines: ['@coralie:blush I\'ve been practising being a rock. For when the fishermen sail by.', '@coralie:smug I\'m a *very* pretty rock now. The prettiest. You said so. You can\'t take it back. Rocks remember everything.'] },
+    { if: 'coralie_rock', lines: ['@coralie:blush I\'ve been practicing being a rock. For when the fishermen sail by.', '@coralie:smug I\'m a *very* pretty rock now. The prettiest. You said so. You can\'t take it back. Rocks remember everything.'] },
     { if: { stage: 3 }, lines: ['@coralie:angry The swamp witch says she won\'t sell me any more legs. She says I "used them irresponsibly."', '@coralie I *danced* in them! And hugged a horse! What else are legs *for?*'] },
   ],
   afterTalk: [
@@ -79,10 +79,10 @@ FL.addCharacter({
     ["@coralie:sad I tried to explain last night to a seagull. It didn't understand. I don't think seagulls have romance. That's very sad for seagulls."],
     ["@coralie:blush I've decided my favorite surface thing isn't forks anymore. Or horses. It's you. Specifically, the dips. The little dips."],
     ["@coralie:smug I asked Daddy to come up and meet you properly. He said he would \"consider it.\"", "@coralie That's what he said about sea serpents, and now we have *eleven.*"],
-    { if: 'coralie_waved', lines: ["@coralie:happy The fisherman who threw me a kiss leaves a dinglehopper on my rock every morning now! I have *eleven!* I'm going to marry him!", "@coralie:smug ...Joking! I'm joking! You made the jealous face again! I *love* the jealous face! Do it again!"] },
+    { if: 'coralie_waved', lines: ["@coralie:happy The fisherman who threw me a kiss leaves a dinglehopper on my rock every morning now! I have *nine!* I'm going to marry him!", "@coralie:smug ...Joking! I'm joking! You made the jealous face again! I *love* the jealous face! Do it again!"] },
     { if: 'coralie_moonkiss', lines: ["@coralie:blush Daddy says when a mermaid kisses a human under the full moon, a little bit of them belongs to the sea forever.", "@coralie:smug So if you ever want to swim for no reason, or you get a sudden craving for kelp, that's me. Sorry. *Not* sorry."] },
     { if: 'coralie_specs', lines: ["She puts on the spectacles — the tiny face-windows — and studies you for a long, serious minute.", "@coralie:blush ...I know *exactly* what you're thinking. Every time. They're very good windows. You should be more careful what you think near me."] },
-    { if: 'coralie_date_dinner', lines: ["@coralie:happy The tavern keeper says I'm banned from the Tipsy Wyvern until the floor dries.", "@coralie:smug I asked him when that will be. He said \"never.\" I've never been banned from anything before! I'm so *dangerous!*"] },
+    { if: 'coralie_date_dinner', lines: ["@coralie:happy Madame Bettina says I'm banned from the Tipsy Wyvern until the floor dries.", "@coralie:smug I asked her when that will be. She said \"never.\" I've never been banned from anything before! I'm so *dangerous!*"] },
     { if: 'coralie_danced', lines: ["@coralie The fiddler in the square still plays our waltz when I come up the beach steps. I can't dance it without legs, so I wave my tail in time.", "@coralie:happy People throw coins! I keep them all. They're *flat treasure.*"] },
   ],
   dateFav: 'dinner',
@@ -96,8 +96,8 @@ FL.addCharacter({
           'You wheel her to the corner booth. Half the tavern moves its stools to get a better look. She sees the table settings and lets out a shriek that shatters a wine glass two tables away.',
           '@coralie:surprised *Dinglehoppers!* So many! Everyone has *two!* Are they *free?!*',
           'Within a minute, every fork on your table is in her hair. Within two, so are the forks from the next table, which the dwarves sitting there hand over in total silence.',
-          { if: 'coralie_along', text: '@coralie:smug Look, a little ship for soup! On that table! You were *right!* The dwarves look at you. You do not explain.' },
-          { if: 'coralie_truth', text: '@coralie You *eat* with them here, don\'t you. You told me. I\'m going to be very civilised. Watch.' },
+          { if: 'coralie_along', text: ['@coralie:smug Look, a little ship for soup! On that table! You were *right!*', 'The dwarves look at you. You do not explain.'] },
+          { if: 'coralie_truth', text: '@coralie You *eat* with them here, don\'t you. You told me. I\'m going to be very civilized. Watch.' },
           'The barkeep brings a menu. She holds it upside down, then right way up, then reads the first line aloud: *"Catch of the Day — Grilled Trout."* Her face goes very still.',
         ],
         choices: [
@@ -108,7 +108,8 @@ FL.addCharacter({
       },
       bread: {
         text: [
-          'Bread arrives: a warm, crusty loaf, then another, then a basket of rolls. Coralie bursts into tears exactly as she did the first time she ever tasted it.',
+          'Bread arrives: a warm, crusty loaf, then another, then a basket of rolls.',
+          { if: { stage: 3 }, text: 'Coralie bursts into tears exactly as she did the first time she ever tasted it.', else: 'Coralie takes one bite and bursts into tears.' },
           '@coralie:sad It\'s so *soft.* Why is it so soft? Who did this? I want to thank them personally.',
           'The cook comes out of the kitchen, wiping his hands. She hugs him from the bathtub. He goes back into the kitchen soaked to the waist and does not speak for an hour.',
           'She dunks a roll in her bathwater to see what happens. It goes soggy. She looks at the floating crumbs, then at you, delighted.',
@@ -129,11 +130,11 @@ FL.addCharacter({
       trout: {
         text: [
           'You lean over and murmur to the barkeep. Ten minutes later, a grilled trout arrives in front of you, garnished with lemon. You put your napkin over it. Coralie lifts the napkin.',
-          'She looks at the trout for a very long time.',
-          '@coralie:sad ...His name was Bartholomew.',
+          'Her tail goes perfectly still under the bathwater. She looks at the trout the way a sailor\'s widow looks at a ship that didn\'t come home.',
+          '@coralie:sad ...His name was Humphrey.',
           '@you You didn\'t know him.',
           '@coralie:angry He had a *wife.* He liked *currents.* He always swam a bit to the left.',
-          'She delivers a full, tearful eulogy to the trout, to the room. Several sailors remove their hats. The barkeep bows his head. At the end, she makes you carry Bartholomew down to the harbor and give him to the sea, which you do, and which takes until midnight.',
+          'She delivers a full, tearful eulogy to the trout, to the room. Several sailors remove their hats. The barkeep bows his head. At the end, she makes you carry Humphrey down to the harbor and give him to the sea, which you do, and which takes until midnight.',
           '@coralie:sad ...I forgive you. You didn\'t know. Just don\'t do it again where he can see.',
           'You decide not to ask who "he" is.',
         ],
@@ -141,7 +142,7 @@ FL.addCharacter({
       },
       done: {
         text: [
-          'When you finally roll her home down Market Street, the tub leaves a long wet stripe along the cobbles all the way to the docks. The barkeep watches you go from the empty doorway, holding his door.',
+          'When you finally roll her home down Market Street, the tub leaves a long wet stripe along the cobbles all the way to the docks. The barkeep watches you go from the empty doorway, holding the door.',
           '@coralie:happy The bill\'s paid! He says the door\'s extra!',
           { if: { stage: 4 }, text: 'At the top of the beach steps, she grabs you by the collar and pulls you down into the tub to kiss you, and you roll the last twenty yards down to the sea together, half in and half out, soaked and laughing.' },
           '@coralie:blush Can we come back tomorrow? I want to try "pudding." It sounds *squishy.*',
@@ -212,7 +213,7 @@ FL.addCharacter({
           'She is waiting in the water below the last plank, arms folded on the boards, chin on her arms, glaring past you at the stall.',
           '@coralie:angry He\'s *frying* them. In *batter.* With a *smile* on his face.',
           'The fishmonger, who has clearly met her before, waves a nervous greeting with his tongs.',
-          '@coralie:sad Oh, hello Mr Haddock. That\'s not his real name. I gave it to him. As a *warning.*',
+          '@coralie:sad Oh, hello, Mr. Haddock. That\'s not his real name. I gave it to him. As a *warning.*',
         ],
         choices: [
           { text: '"Chips. Just chips. No fish at all." Say it loudly, so she can hear.', go: 'chips', aff: 5 },
@@ -235,7 +236,7 @@ FL.addCharacter({
           'She takes your hand and pulls you off the end of the pier, clothes and all. The sea closes over your head, cool and green-gold.',
           'Underwater, she spins you round and points up. From below, the sunset is a wide, wavering disc of fire on the surface, the light slanting down through the water in long golden ladders, slowly going red, then violet, then dim.',
           'You hold your breath as long as you can. When you kick back up, gasping, she surfaces beside you with her hair plastered to her face.',
-          '@coralie Under the water, the sunset\'s just the light going away. I always thought it was sad.',
+          '@coralie I told you, didn\'t I? Under the water, the sunset\'s just the light going away. I always thought it was sad.',
           '@coralie:blush It isn\'t, when there\'s somebody to watch it go with. Then it\'s just... the light going away *together.*',
         ],
         next: 'done',
@@ -281,7 +282,7 @@ FL.addCharacter({
           'You shoo the otter off with a sandwich, as tribute, and stretch out on your stomach on the blanket. Coralie props her chin on her hands. You feed her a honey cake, a bite at a time.',
           '@coralie:happy Mmmmh. Surface food is all so *sticky.* Underwater, nothing is sticky. Everything just floats away.',
           'She licks the honey off your fingers, very thoroughly, purely for research, and then looks at you with great innocence as you go pink.',
-          '@coralie:smug Oh! You change colour too! Just like a mermaid! I *knew* we were compatible!',
+          '@coralie:smug Oh! You change color too! Just like a mermaid! I *knew* we were compatible!',
         ],
         next: 'done',
       },
@@ -298,7 +299,7 @@ FL.addCharacter({
         text: [
           'You lunge for the basket. The otter lunges for the basket. There is a brief, undignified tug-of-war that ends with you flat on your back in the mud, holding the basket over your head in triumph, and the otter retreating to the reeds to chitter insults.',
           '@coralie:happy MY HERO! You *fought* for the sandwiches! On *land!*',
-          'She rewards you by splashing an entire wave of river water over you, which she seems to consider a great honour.',
+          'She rewards you by splashing an entire wave of river water over you, which she seems to consider a great honor.',
         ],
         next: 'done',
       },
@@ -384,7 +385,7 @@ FL.addCharacter({
       },
       name: {
         text: [
-          '@coralie:happy I\'m Coralie! Princess Coralie of the Coral Throne, youngest daughter of King Triton-the-Third! But that\'s a secret! I\'m not supposed to be up here!',
+          '@coralie:happy I\'m Coralie! Princess Coralie of the Coral Throne, youngest daughter of King Triton the Third! But that\'s a secret! I\'m not supposed to be up here!',
           '@you {name}.',
           '@coralie {name}! That\'s such a *surface* name. I love it!',
           'She leans forward eagerly, tail swishing.',
@@ -619,9 +620,9 @@ FL.addCharacter({
       hide: {
         text: [
           "You pull her up out of the water and into your lap, tucked behind the tallest rock. She squeaks, then giggles, then winds her tail around both your legs.",
-          "@coralie:happy This is very *surface* of you. Hiding behind rocks. Sneaking. I love it.",
+          "@coralie:happy Hiding behind rocks! Sneaking! Daddy would be *appalled.* I\'m going to be such a bad influence on the reef.",
           "@coralie:blush ...Kiss me again. I want to see if I stay pink when the magic's gone.",
-          "She does. Very pink. For a very long time.",
+          "You do. She stays pink. Very pink. For a very long time.",
         ],
         end: true,
       },
@@ -678,7 +679,7 @@ FL.addCharacter({
           'The trident stops. The Sea King\'s eyebrows, which are made largely of foam, climb toward his crown.',
           '@seaking ...You wish to come *down?* A human? To *give up* the land? The land is my daughter\'s whole obsession. You *have* the land.',
           '@you She kissed me under the full moon. She said a bit of me belongs to the sea now. I\'d like the rest of me to catch up.',
-          'Coralie stares at you. Then she grabs your face in both wet hands.',
+          'Coralie\'s tail stops mid-swish. Her scales flash white, then deep pink. She grabs your face in both wet hands.',
           '@coralie:surprised NO! No — not the *knees!* You\'d lose the *knees!* And the little dips! And your *feet*, with their little fingers —',
           '@you You\'d still have me.',
           '@coralie:sad ...I would, wouldn\'t I.',
@@ -728,7 +729,7 @@ FL.addCharacter({
           'You travel the whole kingdom. Rivers, lakes, wells, hot springs, a duck pond in a village so small it doesn\'t have a name. Word travels ahead of you, and soon whole towns come out to meet "the Tub Princess" with buckets of water held over their heads like offerings.',
           'She sees mountains. She sees a desert, briefly, very nervously, at speed. She sees the Grand Library from the inside, by special arrangement, through a window, with her elbows on the sill. She sees four hundred and twelve horses and has opinions about every one of them.',
           'She writes a book: *A Mermaid\'s Guide to the Surface (Mostly Correct).* The chapter on forks is eleven pages long. You are not allowed to edit it.',
-          'At night you camp on riverbanks, you on the grass and her in the shallows, your hands meeting in the middle. She tells you what the river fish have said about you. It is usually rude. She defends your honour fiercely in Trout.',
+          'At night you camp on riverbanks, you on the grass and her in the shallows, your hands meeting in the middle. She tells you what the river fish have said about you. It is usually rude. She defends your honor fiercely in Trout.',
           'You never do blow the conch. You keep it anyway, on the edge of the tub. Sometimes, on very quiet nights, it hums, as if somebody on the other end is listening and pretending not to miss her.',
           'Every Starfall, you roll her down to the nearest sea, wherever in the kingdom you happen to be, and you sit half in the waves together and watch the stars fall into the water.',
           'Then you fill the tub back up, and keep going.',

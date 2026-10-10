@@ -22,7 +22,7 @@ FL.addCharacter({
     special: {
       axe: ['She takes the great axe in both hands, very slowly, the way other people hold a newborn.', '@brakka:surprised Double head. Good steel. Somebody *sharpened* this. For Brakka.', '@brakka:blush In clan, you give axe to warrior when you want warrior to come home safe. Brakka will come home safe. Brakka will come home to *you.*', 'She roars. A window breaks somewhere. She does not apologize.'],
       fork: ['She holds the ordinary fork up between her thumb and finger. It looks like a sewing needle.', '@brakka:happy TINY FORK! For tiny mouth! Ha!', 'She tries to eat with it, very seriously, frowning in concentration. The fork bends in half on the first bite.', '@brakka:sad ...Fork was weak. Brakka will bury fork with honors.'],
-      perfume: ['She sniffs the crystal vial once. Her eyes water. She sneezes so hard she sits down.', '@brakka:angry FLOWERS. Flowers attacked Brakka. In the *nose.*', '@brakka ...Gruk will love it. Gruk smells like a hedge already.'],
+      perfume: ['She sniffs the crystal vial once. Her eyes water. She sneezes so hard she staggers back three steps.', '@brakka:angry FLOWERS. Flowers attacked Brakka. In the *nose.*', '@brakka ...Gruk will love it. Gruk smells like a hedge already.'],
       plushie: ['She stares at the stuffed bunny. The bunny stares back with its button eyes.', '@brakka:angry Brakka is WARRIOR. Brakka does not want soft baby rabbit.', 'She tucks it inside her breastplate, where it fits snugly, and pats it twice.', '@brakka:blush ...Rabbit is called Stabby\'s Brother. Rabbit will guard Stabby. Say nothing.'],
       dagger: ['She holds the silver dagger up to the light, squinting.', '@brakka:smug Ha! Tiny axe! For tiny human! Brakka will teach you to throw it. You will miss! But you will miss *with style.*'],
       salts: ['She opens the little jar, sniffs it, and before you can stop her, eats a whole handful.', '@brakka:surprised ...Crunchy. Salty. Purple. Is this human candy? Humans have *strange* candy.', '@you They\'re bath salts.', '@brakka:blush ...Brakka knew this. Brakka was *testing* them. For poison. You are welcome.'],
@@ -47,14 +47,14 @@ FL.addCharacter({
   ],
   afterTalk: [
     ["@brakka:smug New bed is ready! Iron frame! Brakka tested it by jumping on it. Very sturdy. Now it needs *real* test. Tonight. Ha!"],
-    ["She lifts you up under the arms like a child, kisses you soundly, and puts you down again.", "@brakka:happy That is how orcs say hello to mate. Get used to it."],
+    ["She lifts you up under the arms like a prize from the arena, kisses you soundly, and puts you down again.", "@brakka:happy That is how orcs say hello to mate. Get used to it."],
     ["@brakka:happy Gruk asked why Brakka is smiling during fights. Brakka said, \"Thinking about mate.\" Gruk lost fight because he was laughing. Brakka still won. Good day."],
     ["@brakka:blush Brakka sang to Stabby last night. Love song. About you. Stabby bloomed. First time ever. Stabby knows."],
     ["@brakka:sad The iron bed broke.", "@brakka:angry It was not Brakka's fault. It was *iron's* fault. Iron is weak. Brakka has asked the blacksmith for a bed made out of a *mountain.* Blacksmith is thinking about it. Blacksmith is crying a little."],
     { if: 'brakka_threshold', lines: ["@brakka:smug Brakka told whole arena: Brakka is married. Arena asked, \"When?\" Brakka said, \"When mate carried Brakka over the door.\"", "@brakka:happy Arena did not believe. So Brakka picked up arena master and carried *him* over a door, to show what it means. He understands now. He was very quiet afterwards."] },
     { if: 'brakka_marks', lines: ["@brakka:sad The scratches on Brakka's back are healed. Brakka was sad about this.", "@brakka:smug So Gruk painted them back on. Every morning. With red paint. Gruk is very good at painting. Gruk does them *better* than you. You must practice."] },
     { if: 'brakka_both', lines: ["She holds up her wrist. Your handkerchief is still tied there, filthy, frayed, knotted three times.", "@brakka:blush Brakka will not wash it. Washing is how things get lost. Brakka is not losing it. Brakka is not losing *you.*"] },
-    { if: 'brakka_date_harbor', lines: ["@brakka:happy Brakka has been practicing floating! In the horse trough behind arena!", "@brakka:sad Horse was not happy. Water is mostly gone now. But Brakka floated for one heartbeat. One heartbeat is how everything starts. You taught Brakka that."] },
+    { if: 'brakka_date_harbor', lines: ["@brakka:happy Brakka has been practicing floating! In the horse trough behind arena! Because of harbor. Because of *you.*", "@brakka:sad Horse was not happy. Water is mostly gone now. But Brakka floated for one heartbeat. Next time, deep water. With you holding."] },
   ],
   dateFav: 'picnic',
   dates: {
@@ -63,7 +63,7 @@ FL.addCharacter({
         text: [
           'Brakka is waiting in the corner booth of the Tipsy Wyvern when you arrive. She has dressed up. She is wearing a dress. It is enormous, lilac, and has clearly been made by taking apart two other dresses and a sail.',
           '@brakka:blush Gruk made it. For *date.* Is it — does Brakka look —',
-          'She takes a deep breath, to say something brave. Several seams give way with a noise like a crossbow.',
+          'She takes a deep breath, to say something brave. Several seams give way with a noise like a crossbow, and one sleeve parts company with the rest of the dress entirely.',
           '@brakka:sad ...Gruk will fix it.',
           'The waiter brings candles, a white tablecloth, and a fork, a knife and a spoon laid out in a neat row. Brakka stares at the cutlery the way she stares at opponents.',
           { if: 'brakka_drink', text: '@brakka:smug You said, the first day, you wanted to buy Brakka a drink. Brakka remembers. Brakka has ordered a barrel. You will have a *cup.*' },
@@ -184,14 +184,14 @@ FL.addCharacter({
           '@brakka:surprised You do not laugh? About sad rock?',
           '@you Everybody\'s afraid of something.',
           'She thinks about this for a while, watching the sun sink into the water.',
-          '@brakka:blush Brakka thought being brave meant not being afraid. But you got up nine times, in the arena, and you were afraid every time. Brakka could tell. Your knees were shaking.',
+          { if: 'brakka_nine', text: '@brakka:blush Brakka thought being brave meant not being afraid. But you got up nine times, in the arena, and you were afraid every time. Brakka could tell. Your knees were shaking.', else: '@brakka:blush Brakka thought being brave meant not being afraid. But the first day, you walked up to Brakka in the arena, and you were afraid. Brakka could tell. Your knees were shaking. You came anyway.' },
           '@brakka:happy Maybe brave is sitting ten feet back, together.',
         ],
         next: 'close',
       },
       close: {
         text: [
-          'By the time you walk back along the pier the sky is purple and she is still dripping, or still smiling, or both.',
+          'By the time you walk back along the pier the sky is purple and Brakka is humming the war-lullaby under her breath, very quietly, so the sea will not hear.',
           '@brakka:smug Do not tell arena about sad rock. If arena asks, Brakka wrestled a *shark.*',
         ],
         end: true,
@@ -295,7 +295,7 @@ FL.addCharacter({
       },
       drink: {
         text: [
-          'She stares at you. Then she bursts out laughing — a huge booming laugh that echoes off the arena walls.',
+          'Her jaw drops, tusks and all. Then she bursts out laughing — a huge booming laugh that echoes off the arena walls.',
           '@brakka:happy HA! Tiny human wants to drink with Brakka? Brakka drinks a *barrel.* You will drink a *cup.* And then you will fall over!',
           '@brakka:smug ...Brakka accepts.',
         ],
@@ -387,7 +387,7 @@ FL.addCharacter({
       },
       enough: {
         text: [
-          'She looks at you for a long time. The fire crackles.',
+          'She doesn\'t answer. She turns the boar bone over and over in her huge hands while the fire crackles, and a dark green flush creeps up to the tips of her ears.',
           '@brakka:surprised ...Tiny human says big things.',
           'She shifts closer, until her huge shoulder is pressed against yours. She\'s warm as a furnace.',
           '@brakka:blush Brakka likes the big things you say.',
@@ -430,7 +430,7 @@ FL.addCharacter({
       court_win: {
         text: [
           'She leads you to the empty arena under the moon. You face each other on the sand.',
-          'It is nothing like your first fight. She is still impossibly strong, but you\'ve been training — and you meet her charge head on. You grapple. You trade blows. You get thrown and get back up, and get thrown and get back up, and on the fourth time you manage to throw *her*, and she hits the sand with a *whump* that echoes off the stands.',
+          'All those boulders and logs have done something to you. She is still impossibly strong, but you\'ve been training — and you meet her charge head on. You grapple. You trade blows. You get thrown and get back up, and get thrown and get back up, and on the fourth time you manage to throw *her*, and she hits the sand with a *whump* that echoes off the stands.',
           'She lies there on her back, laughing up at the moon.',
           '@brakka:happy HA! HA! You — you put Brakka *down!* On her *back!* In courting fight!',
           '@brakka:surprised You know what that means? In clan? If you put warrior down in courting fight?',
@@ -554,7 +554,7 @@ FL.addCharacter({
       },
       fine: {
         text: [
-          "She stares at you for a long moment. Then she drops the log and scoops you up into a hug that lifts you clean off the ground.",
+          "She drops the log. It lands on her foot. She does not notice. She just scoops you up into a hug that lifts you clean off the ground.",
           "@brakka:happy You did not say. Because it was GOOD. Ha! Brakka is a GOOD mate!",
           "She carries you around the clearing announcing this to the birds.",
         ],
@@ -571,7 +571,7 @@ FL.addCharacter({
       },
       bed: {
         text: [
-          "She grins with all her tusks.",
+          "She grins. It is a great deal of tusk.",
           "@brakka:smug *Overrated.* Ha! Brakka likes that! Brakka will make bed out of IRON!",
           "She finishes the bed by noon. It is enormous. It is magnificent. It lasts four days.",
         ],
@@ -614,9 +614,9 @@ FL.addCharacter({
         text: [
           '*Some time later...*',
           'You hold a proper Ironjaw wedding. It involves a lot of shouting, an axe ceremony, a feast that lasts three days, and a ritual headbutt that leaves you seeing stars for an hour. Brakka cries the entire time.',
-          'Her clan hears about it. Her father arrives, furious — until you arm-wrestle him for his blessing. You lose, obviously. But you last long enough that he laughs, claps you on the back, and calls you "son-of-my-bones," which you are told is a great honor.',
+          'Her clan hears about it. Her father arrives, furious — until you arm-wrestle him for his blessing. You lose, obviously. But you last long enough that he laughs, claps you on the back, and calls you "kin-of-my-bones," which you are told is a great honor.',
           'You live in the hut in the hills, which Brakka has expanded four times. The new bed is made of solid iron. It has not broken yet.',
-          'She still fights in the arena. She still wins. And every time, she points up into the stands where you\'re sitting and roars your name so loud the whole city hears it.',
+          'She still fights in the arena. She still wins. And every time, she points up into the stands where you\'re sitting and roars your name so loud the whole town hears it.',
           'Stabby the cactus is thriving. He has a little sibling now. Brakka sings to them both.',
         ],
         ending: 'brakka',
@@ -634,7 +634,7 @@ FL.addCharacter({
           'Brakka goes home. Not exiled. Invited. She challenges the Chieftain\'s son in the great ring under the mountain, and the fight lasts nine seconds, and she does not even sit on him. She just helps him up afterward and gives him a job looking after the goats.',
           'Warchief Brakka Ironjaw\'s first law is that nobody in the clan may ever again be called *too much.* Her second law is that courting fights may now go both ways. Her third law is about cactus care, and is very long.',
           'You are her mate, and her war-counsel, and the only person in the history of the Ironjaw who is allowed to tell the Warchief "no." You do it often. She loves it. Every time, she roars with laughter and picks you up and carries you around the great hall to show everyone the only creature on earth that Brakka Ironjaw is afraid of disappointing.',
-          'Stabby and Pokey sit on the Warchief\'s throne, on a little velvet cushion stitched by Gruk. Visitors are expected to bow to them. Most do.',
+          { if: 'brakka_date_gardens', text: 'Stabby and Pokey sit on the Warchief\'s throne, on a little velvet cushion stitched by Gruk. Visitors are expected to bow to them. Most do.', else: 'Stabby sits on the Warchief\'s throne, on a little velvet cushion stitched by Gruk. Visitors are expected to bow to him. Most do.' },
           '@brakka:happy Brakka did not go home for clan. Brakka went home because *you* made Brakka strong enough to go back. Ha! Now clan has to put up with *both* of us!',
         ],
         ending: 'brakka_warchief',
@@ -647,7 +647,7 @@ FL.addCharacter({
           '@you Then let\'s build one.',
           '*Some time later...*',
           'Brakka Ironjaw retires from the arena undefeated, in front of a crowd of thousands, by setting down her axe in the center of the sand and announcing that she is "going to go grow things now." There is a stunned silence. Then the whole arena gives her a standing ovation that lasts eleven minutes. Gruk weeps into his embroidery.',
-          'You open a nursery on the edge of town together: *Brakka\'s Prickly Friends.* It sells cactuses, mostly, and some herbs, and a few very sturdy roses that Brakka has personally threatened into blooming. Every plant comes with a handwritten care card. The handwriting is yours. The instructions are hers. Most of them say *SING TO IT.*',
+          'You open a nursery on the edge of town together: *Brakka\'s Prickly Friends.* It sells cacti, mostly, and some herbs, and a few very sturdy roses that Brakka has personally threatened into blooming. Every plant comes with a handwritten care card. The handwriting is yours. The instructions are hers. Most of them say *SING TO IT.*',
           'She is still enormous. She still breaks one doorframe a month. She still headbutts the customers she likes, gently, and they come back for more. Children climb on her like a tree. Animals follow her home. Once, a deer walks right into the shop and lies down at her feet, and she closes for the afternoon so as not to disturb it.',
           'Some evenings, she still arm-wrestles you for the last piece of pie. She lets you win exactly half the time, and you both pretend not to know.',
           'Stabby has eleven siblings now. Brakka knows all their names. She sings them the war-lullaby every night, about crushing your enemies and then having a nice nap, and it turns out that it is really mostly about the nap.',

@@ -66,10 +66,10 @@ FL.addCharacter({
     ['@valeria:smug The villagers call me "The Crimson Terror." I prefer "Countess." Or "Mistress." You may choose. Choose correctly.'],
     ['She is sprawled across her throne sideways, one leg dangling over the armrest, looking terribly bored.', '@valeria Entertain me. Sing. Dance. Juggle. Bleed a little. Anything.'],
     ['@valeria Sunlight? A *dreadful* thing. Hot, bright, cheerful. Everything I despise. You remind me of it a little. I haven\'t decided if that\'s a compliment.'],
-    ['@valeria Six hundred years, and do you know what I\'ve learned? Mortals are fragile, foolish, short-lived...', 'She trails a cold finger along your cheek.', '@valeria:smug ...and *so* warm.'],
+    ['@valeria Six hundred years, and shall I tell you what I\'ve learned? Mortals are fragile, foolish, short-lived...', 'She trails a cold finger along your cheek.', '@valeria:smug ...and *so* warm.'],
     ['@valeria My servants? Bats, mostly. A few ghouls. One very nervous butler named Gerald. Gerald, say hello.', 'Somewhere in the dark, someone squeaks.'],
     ['@valeria:angry Garlic. Everyone asks about garlic. Garlic is a lie spread by garlic merchants in 1411. I simply dislike it because it is *common.*', '@valeria Holy water, on the other hand, is real, and I would thank you not to bring any to dinner.'],
-    ['She is reclining on the throne while a coat rack in the corner holds her cloak. The coat rack has a very sad face carved into it.', '@valeria:smug You\'ve met Sir Bertram? The paladin. I told you about him. He holds my cloak beautifully. He\'s much more useful this way.'],
+    ['She is reclining on the throne while a coat rack in the corner holds her cloak. The coat rack has a very sad face carved into it.', '@valeria:smug You\'ve met Sir Bertram? The paladin. The last man who told me no. He holds my cloak beautifully. He\'s much more useful this way.'],
     ['@valeria Yes, I can turn into a bat. No, you may not see. It is one bat, darling. One *small* bat. It squeaks. It is the single most undignified thing about me, and if you ever tell anyone, I will turn you into a matching one.'],
     ['@valeria:sad I haven\'t seen my own face in six hundred years. No reflection, you see. Portrait painters lie, and I have eaten most of them.', '@valeria:smug Describe it. My face. Be accurate. Be *generous.*'],
     { if: 'valeria_defied', lines: ['@valeria:smug Do you know, I had a statistic. A hundred and twelve years without anyone telling me no. I was very proud of it.', '@valeria Then you walked in and smiled at me. Now the number is *days.* You\'ve ruined my statistic, pet. I\'m keeping a new one. It\'s about you.'] },
@@ -84,13 +84,13 @@ FL.addCharacter({
     ["@valeria:happy Ah, my sweetheart returns. Do you know, Gerald has started setting two places at dinner without being told. Insolent man. I've given him a raise."],
     ["She tilts your chin up with one cold finger and inspects your neck.", "@valeria:smug Healing nicely. What a shame. Come upstairs later and I'll... *redecorate.*"],
     ["@valeria:angry I've been dreadfully distracted all evening. I signed a decree ordering the village to plant *flowers.* Flowers! This is your fault. You've ruined me."],
-    ["@valeria I kept the ribbon, you know. The black one. It's on my nightstand.", "She smiles slowly.", "@valeria:smug For *emergencies.*"],
+    [{ if: 'valeria_obeyed', text: "@valeria I kept the ribbon, you know. The black one. It's on my nightstand.", else: "@valeria There is a black silk ribbon on my nightstand, you know. I have never used it. *Yet.*" }, "She smiles slowly.", "@valeria:smug For *emergencies.*"],
     { if: 'valeria_switched', lines: ["@valeria:blush I've been practicing saying *please*. In the mirror. I have no reflection, so it's very freeing. Nobody sees me do it.", "@valeria:smug Gerald heard me once. Gerald has been sent to the cellar to think about what he heard."] },
-    { if: 'valeria_sunrise', lines: ["@valeria You said it. The word. That night. And then you stayed.", "@valeria:sad Do you know how many people I gave that word to over the centuries? Three. Not one of them ever used it. They were too frightened. You were the first to trust that I meant it."] },
+    { if: 'valeria_sunrise', lines: ["@valeria You said it. The word. That night. And then you stayed.", "@valeria:sad Shall I tell you how many people I gave that word to over the centuries? Three. Not one of them ever used it. They were too frightened. You were the first to trust that I meant it."] },
     { if: 'valeria_jealous_offered', lines: ["She lifts your wrist to her face, absently, the way other people check a pocket watch, and breathes in.", "@valeria:happy Only you. Good.", "@valeria:smug What? It's a habit now. You gave it to me. In the carriage. You have only yourself to blame."] },
     { if: 'valeria_jealous_defied', lines: ["@valeria:smug \"You don't own me.\" I had it embroidered on a cushion. Black silk, red thread.", "@valeria I stab it with a hatpin some evenings. Lovingly. It helps."] },
     { if: 'valeria_jealous_sulked', lines: ["@valeria I had the carriage step lowered, you know. After I threw you out of it.", "@valeria:blush So that if it ever happens again, you won't land in the same puddle. I'm not apologizing. I'm *improving the carriage.*"] },
-    { if: 'valeria_date_harbor', lines: ["@valeria:sad I keep thinking about the harbor. The last sliver of sun going under the water, and you telling me what color it was.", "@valeria:smug \"Like the inside of a peach.\" I've never eaten a peach. I've decided they're my favorite fruit anyway."] },
+    { if: 'valeria_date_harbor', lines: ["@valeria:sad I keep thinking about the harbor. The last sliver of sun going under the water, and you beside me, sweating politely under my parasols.", "@valeria:smug Somebody once told me a sunset looks like the inside of a peach. I've never eaten a peach. I've decided they're my favorite fruit anyway."] },
     { if: 'valeria_bread_shared', lines: ["@valeria Gerald found me in the kitchen at four in the morning. Flour to the elbows. I told him I was conducting a *ritual.*", "@valeria:blush I was trying the recipe again. The honey bread. I still can't taste it. But the kitchen smells right, and you're asleep upstairs, and that's... rather close."] },
     ["@valeria:smug I've moved your name in the book, you know. To the front. On its own page. With a border.", "@valeria The border is bats. Don't laugh. It took a week."],
   ],
@@ -134,7 +134,7 @@ FL.addCharacter({
       },
       red: {
         text: [
-          'The house red arrives in a tankard. Valeria regards it the way a cat regards a bath.',
+          'The house red arrives in a tankard. Valeria regards it the way she might regard a peasant who has wandered into her ballroom.',
           'She takes one sip. Her face does not move. A single candle on the far side of the tavern goes out on its own.',
           '@valeria:angry That is not wine. That is a *rumor* of wine. Somebody heard about wine once and tried to describe it to a barrel.',
           '@valeria:smug ...But you were very brave to order it for me. I\'ll have you killed later. Gently.',
@@ -144,7 +144,7 @@ FL.addCharacter({
       first: {
         text: [
           '@valeria:surprised My first night out? After I was turned?',
-          'She swirls the untouched house red in its tankard, thinking.',
+          'She traces one nail slowly around the rim of her empty glass, thinking.',
           '@valeria I went to a tavern. Rather like this one. Smaller. Smokier. I sat in the corner and listened to everyone laughing and realized I would never be hungry for bread again.',
           '@valeria Then a drunk soldier tried to steal my purse, and I discovered I was hungry for something else entirely.',
           '@valeria:smug He lived, before you ask. He became a monk. Very devout. Wouldn\'t stop writing to me.',
@@ -164,7 +164,7 @@ FL.addCharacter({
         text: [
           'The Moonlit Gardens at midnight belong to Valeria. You can tell because the night watchman takes one look at her, hands you his lantern, and goes home.',
           'Moonlight silvers the white roses. Fountains whisper. Somewhere in the hedge maze, a nightingale is singing, slightly off-key, as if nervous.',
-          '@valeria:happy I paid for these gardens, you know. In 1502. I told the Duke it was a gift to the city. It was so that I had somewhere *beautiful* to brood.',
+          '@valeria:happy I paid for these gardens, you know. In 1502. I told the Duke it was a gift to the town. It was so that I had somewhere *beautiful* to brood.',
           '@valeria Brooding in a dungeon is so *obvious.* Anyone can brood in a dungeon.',
           'She walks with her arm through yours, slow and unhurried, as though the night has been set aside for exactly this.',
         ],
@@ -210,8 +210,8 @@ FL.addCharacter({
       end: {
         text: [
           'By the time you reach the great fountain at the center, the moon is low. She sits on its marble rim and pulls you down beside her.',
-          { if: { stage: 4 }, text: 'She kisses you there, slow and unhurried, while the fountain whispers secrets behind you. When she pulls back her lips are faintly warm, borrowed from yours.' },
-          '@valeria:happy This is my favorite place in the whole city, you know. I\'ve never brought anyone here. Don\'t make it strange.',
+          { if: { stage: 4 }, text: 'She kisses you there, slow and certain, while the fountain whispers secrets behind you. When she pulls back her lips are faintly warm, borrowed from yours.' },
+          '@valeria:happy This is my favorite place in the whole town, you know. I\'ve never brought anyone here. Don\'t make it strange.',
           '@valeria:smug ...Make it a *little* strange.',
         ],
         end: true,
@@ -376,7 +376,7 @@ FL.addCharacter({
       },
       flirt: {
         text: [
-          'She blinks. Once. Twice. Like a cat that has just been booped on the nose.',
+          'She blinks. Once. Twice. Six hundred years of composure visibly misplaces itself.',
           '@valeria:surprised Did you — are you *flirting* with me? In my own throne room? Moments from death?',
           '@you Is it working?',
           '@valeria:blush ...Absolutely not.',
@@ -437,7 +437,7 @@ FL.addCharacter({
       },
       q1c: {
         text: [
-          'She stares at you. Then she throws back her head and laughs.',
+          'Her goblet stops an inch from her lips. Then she sets it down, very carefully, and laughs until the candle flames lean away from her.',
           '@valeria:happy *Honesty!* Oh, it\'s so rare, I forgot what it tasted like. Have more pheasant, you ridiculous creature.',
         ],
         next: 'q2',
@@ -546,7 +546,7 @@ FL.addCharacter({
       yes: {
         text: [
           'You tilt your head. She stares at the offered skin for a long moment, like a starving woman before a feast she never expected to be invited to.',
-          'Then her fangs slide in — a sharp sting, then warmth flooding through you like the first sip of hot spiced wine. Her arms tighten around you. She makes a sound you will never forget.',
+          'Then her fangs slide in — a sharp sting, then warmth flooding through you like the first sip of hot spiced wine. Her arms tighten around you, and every candle in the ballroom bows its flame toward her.',
           'It lasts only seconds. She pulls away and presses a cold kiss to the tiny wound, sealing it. Her lips are red. Her eyes are wet.',
           '@valeria:sad No one has ever *offered.* Six hundred years. They scream. They pray. They run. No one has ever just... offered.',
           '@valeria:blush You stupid, wonderful creature.',
@@ -558,7 +558,7 @@ FL.addCharacter({
           'She freezes. You can practically feel the castle hold its breath.',
           'And then, slowly, she steps back and dips her head. It\'s the first time you\'ve seen her bow to anyone.',
           '@valeria:sad ...As you wish.',
-          '@valeria Do you know, the last mortal who told me no ran screaming from the castle. You simply stand there and keep holding my hand.',
+          '@valeria When mortals tell me no, pet, they usually say it over their shoulder, running. You simply stand there and keep holding my hand.',
           'She doesn\'t let go. Not for the rest of the night.',
         ],
         end: true,
@@ -568,7 +568,7 @@ FL.addCharacter({
           'Her eyebrows rise. Then, quietly:',
           '@valeria:sad ...I was a baker\'s daughter. Before. I used to make honey bread. I can\'t taste it anymore. I can\'t remember what it tasted like.',
           'She looks almost embarrassed at the admission. You tilt your head for her. Her bite is achingly gentle.',
-          'Afterward, she rests her forehead against your shoulder and doesn\'t say anything at all for a long, long time.',
+          'Afterward, she rests her forehead against your shoulder and doesn\'t say anything at all, not until the ghostly orchestra has quietly packed up its instruments and gone.',
         ],
         end: true,
       },
@@ -599,7 +599,7 @@ FL.addCharacter({
           "Something in her expression melts into a wicked, delighted smile.",
           "@valeria:smug Oh, *good.* Such good manners.",
           { if: 'valeria_knelt', text: "@valeria You knelt so prettily, that first night. As if it were a game. Let's find out how long you can keep playing." },
-          "She doesn't rush. That's the cruelest part. She circles you slowly, the way she did the night you met, and trails one sharp nail along your jaw, your throat, the line of your collar. She tells you exactly what she's going to do to you. Every word is soft and filthy and deliberate. Every time you lean toward her she pulls away, laughing low in her throat.",
+          "She doesn't rush. That's the cruelest part. She circles you slowly, the way a cat circles something it has already decided to keep, and trails one sharp nail along your jaw, your throat, the line of your collar. She tells you exactly what she's going to do to you. Every word is soft and filthy and deliberate. Every time you lean toward her she pulls away, laughing low in her throat.",
           "@valeria Don't move. I didn't say you could move.",
           "She unlaces your shirt herself, one tie at a time, watching your face. She binds your wrists loosely above your head with a black silk ribbon from her hair, and tests the knot with a fingertip.",
           "@valeria:sad Still with me, sweetheart?",
@@ -648,7 +648,7 @@ FL.addCharacter({
           "She sits on the edge of the bed, suddenly very small in all that black silk.",
           "@valeria:sad Because the festival is coming. Because you are mortal, and you will grow old and die, and I will still be here. Because I wanted to have *something* of you before that happens.",
           { if: 'valeria_honeybread', text: "@valeria I can't remember my mother's honey bread. I told you that. I am *terrified* of not remembering you." },
-          "You sit beside her and take her cold hand. After a long time she leans into you, and you kiss her slowly, and it's you who lays her back on the silk.",
+          "You sit beside her and take her cold hand. After a while she leans into you, and you kiss her slowly, and it's you who lays her back on the silk.",
           "There's no commanding this time. You undress each other carefully, like unwrapping something fragile. She shivers when your warm palms slide down her bare back. She keeps whispering *you're so warm, you're so warm*, as if it's the most astonishing thing in the world. It's tender and hungry and terribly, terribly sincere...",
           "...",
         ],
@@ -714,7 +714,7 @@ FL.addCharacter({
       },
       kiss: {
         text: [
-          "You set the tray aside and pull her down. She tastes of copper and dark wine. She makes a soft, surprised sound against your mouth and lets you keep her there.",
+          "You set the tray aside and pull her down. She tastes of copper and dark wine. She goes still with surprise against your mouth, and then she lets you keep her there.",
           "@valeria:smug Mm. That's cheating. You're supposed to be terrified of me.",
           "@you I'll work on it.",
           "@valeria:happy See that you don't.",
@@ -754,7 +754,7 @@ FL.addCharacter({
       },
       turn: {
         text: [
-          'She looks at you for a long time. Then she kisses you under the falling stars, and her fangs graze your lip, and she whispers:',
+          'She is quiet for so long that a star has time to cross the whole sky and burn out. Then she kisses you under the falling stars, and her fangs graze your lip, and she whispers:',
           '@valeria:blush Not tonight. Tonight, I want to feel how warm you are. But soon, sweetheart. *Soon.*',
         ],
         next: 'epilogue',
@@ -776,7 +776,7 @@ FL.addCharacter({
           '@valeria:surprised Tonight? You understand what you\'re saying. No more sunlight. No more honey, or pheasant, or *warm.* There\'s no taking it back, sweetheart. Not even with the word.',
           '@you I understand. I want it. I want you, for as long as there is.',
           '@valeria:sad Then say "sunrise" if you change your mind. Right up until the last moment. I will stop. I will *always* stop for you.',
-          'You don\'t say it. You tilt your head back, the way you did in the ballroom, and she gathers you into her arms like something precious and terribly fragile.',
+          { if: 'valeria_offered', text: 'You don\'t say it. You tilt your head back, the way you did in the ballroom, and she gathers you into her arms like something precious and terribly fragile.', else: 'You don\'t say it. You tilt your head back and bare your throat, the way you once bared your wrist to her in the carriage, and she gathers you into her arms like something precious and terribly fragile.' },
           'The bite is slow. It is not like the other times. It is cold, and then it is very warm, and then it is the warmest thing you have ever felt, like falling asleep in a sunbeam you will never see again. The stars wheel overhead. Her voice is in your ear the whole time, saying your name, not *pet*, your real name, over and over, as if she is writing it down.',
           'The last thing you hear with a beating heart is her whisper: *mine. Mine. And I am yours.*',
         ],
@@ -802,7 +802,7 @@ FL.addCharacter({
           '@you You\'ve spent six hundred years trying to remember it. I don\'t want forever with you if it means you stop wanting anything. I want to help you get it back.',
           '@valeria:sad I can\'t taste it. You know I can\'t taste it.',
           '@you No. But I can. And you can smell it. And you\'ve got six hundred years of being right about everything. Between us, I think we can get it right.',
-          'For a long time, the most feared woman in the Southern Vale looks at you as if you\'ve said the most unreasonable thing she has ever heard. Then she laughs, the startled laugh, and puts her face in her hands, and when she lifts it again her eyes are wet and shining under the falling stars.',
+          'For a moment, the most feared woman in the Southern Vale looks at you as if you\'ve said the most unreasonable thing she has ever heard. Then she laughs, the startled laugh, and puts her face in her hands, and when she lifts it again her eyes are wet and shining under the falling stars.',
           '@valeria:happy You absurd, *impossible* — fine. *Fine.* But I am warning you. My mother was a tyrant in the kitchen. I am much worse.',
         ],
         next: 'bakery_epilogue',
