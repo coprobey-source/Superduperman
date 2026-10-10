@@ -298,7 +298,7 @@ FL.charOrder.forEach(function (id) {
     ['intro', 's1', 's2', 's3'].forEach(function (sid, i) {
       if (s.chars[id].stage !== i) { err('sim ' + id + ': expected stage ' + i + ' before ' + sid); return; }
       s.chars[id].aff = Math.max(s.chars[id].aff, FL.CONFIG.affNeeded[i] || 0);
-      s.daily.scene = {};
+      s.daily.scene = {}; s.chars[id].lastScene = null;
       const st = FL.romanceStatus(s, id);
       if (st.scene !== sid) { err('sim ' + id + ': romanceStatus scene ' + st.scene + ' != ' + sid); return; }
       if (!st.ok) { err('sim ' + id + ': ' + sid + ' not unlockable: ' + st.needs.join(', ')); return; }
@@ -365,7 +365,7 @@ FL.charOrder.forEach(function (id) {
     try {
       ['intro', 's1', 's2', 's3'].forEach(function (sid, i) {
         s.chars[id].aff = Math.max(s.chars[id].aff, FL.CONFIG.affNeeded[i] || 0);
-        s.daily.scene = {};
+        s.daily.scene = {}; s.chars[id].lastScene = null;
         playRun(s, FL.startScene(s, { char: id, id: sid }, 'romance'), pick);
       });
       Object.keys(c.dates).forEach(function (k) { if (r() < 0.5) { s.daily.date = {}; playRun(s, FL.startDate(s, id, k), pick); } });

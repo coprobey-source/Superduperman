@@ -19,10 +19,10 @@ node tools/build-single.js            # -> dist/hearts-of-generic-fantasylandia.
 ## How it works
 
 - **30 days**, each with a Morning, Afternoon and Evening. Meeting someone, talking, romance scenes, jobs and training each use one part of the day. Travel, shopping and gifts are free (one gift per person per day).
-- **Affection (♥)** comes from talking, gifts and choices in scenes. Each heroine has an introduction, **three romance scenes** (unlocked at ♥25 / ♥50 / ♥75) and a **dedicated ending**. Scenes 2 and 3 also need her favorite stat (Might, Wits or Charm) at 2 and 3. You get one romance scene per heroine per day.
+- **Affection (♥)** comes from talking, gifts and choices in scenes. Each heroine has an introduction, **three romance scenes** (unlocked at ♥30 / ♥60 / ♥90) and her own endings. Scenes 2 and 3 also need her favorite stat (Might, Wits or Charm) at 2 and 3. After a romance scene, she needs a couple of days before the next one, so it pays to court more than one heroine at a time.
 - **Gifts:** everyone has things they love, like and hate. Repeating the same gift becomes less effective each time.
 - **Stats:** train Might at the Arena, Wits at the Library, and Charm at the Tavern, Temple or Noble Quarter. Higher stats also open stat-check options inside scenes.
-- **Gold:** take Guild quests, work tavern shifts, haul cargo, or hunt sewer rats.
+- **Gold:** take Guild quests, work tavern shifts, haul cargo, or hunt sewer rats. Spend it on gifts, dates, or private lessons (+1 stat, at a climbing price).
 - **Story events:** the festival announcement (day 5), a demon attack (day 10), a divine dream (day 15), the Grand Masquerade (day 20), an omen (day 25) and the Starfall Festival (day 30).
 - **She remembers.** Memorable choices in a heroine's scenes, on dates and in side events are remembered. They come back in later scenes and talk lines, and they decide which of her endings you get.
 - **Endings:** at the festival, choose a heroine who is *Devoted* (all three scenes seen) to get her ending. Almost every heroine has **two or three endings**, picked by how you played her route. Win over five or more and another option appears. There's also an ending for nobody at all, a bad end for anyone careless with a certain florist, and a secret ending for New Game+.
@@ -35,7 +35,9 @@ node tools/build-single.js            # -> dist/hearts-of-generic-fantasylandia.
 - **Locations:** every location has an illustrated backdrop that changes from morning to afternoon to evening (`js/backdrops.js`).
 - **Music:** 14 hand-composed location and story themes, plus a **leitmotif for every heroine** that plays in her romance scenes, dates and ending. Everything is synthesized live with Web Audio; there are no audio files. Plucked-string, FM, flute, string, choir, organ, brass and percussion instruments go through a reverb and mastering chain. Turn music on from the title screen or the 🎵 button.
 - **Sound effects:** soft synthesized UI sounds: page turns, heart chimes, coins, stat-ups, check results, a heartbeat, an ending fanfare and festival fireworks.
-- **Memories:** replay any romance or morning-after scene you've seen, from the title screen or the menu.
+- **Memories:** replay any romance scene, morning after, date or ending you've seen, from the title screen or the menu. Endings replay with the choices that led to them.
+- **Who's where:** the 👥 button shows everyone you've met, grouped by where they are right now and where they'll be next, with one-click travel. A ★ badge counts heroines with a romance scene ready. The journal can be filtered the same way.
+- **Accessibility:** screen-reader labels for portraits, affection and buttons; dialogs trap and return keyboard focus; new scene text is announced; a skip link; visible focus outlines; and reduced-motion and high-contrast modes are respected. Automated audits (axe-core, WCAG 2 AA) pass on every main screen.
 - Three save slots plus an autosave, **save codes** for backups and moving between browsers, a journal tracking where everyone is and what they like, an endings gallery grouped by heroine, a **heroine gallery** to view every portrait and expression, **31 achievements**, and **New Game+**, which carries over your stats and gold (and the Narrator remembers).
 - **Settings:** text size, text pacing (gentle fade, line by line, or instant), sound-effect and music volume.
 

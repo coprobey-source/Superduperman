@@ -106,6 +106,38 @@
     ui.lastChoice = null;
     renderScene();
   }
+  // Endings remember the choices that led to them, so they can be replayed from Memories.
+  const SNAP_KEY = 'hgf_ending_snaps';
+  function endingSnaps() { try { return JSON.parse(store(SNAP_KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function snapEnding(s, run) {
+    const chars = {};
+    FL.charOrder.forEach(function (id) { const c = s.chars[id]; if (c.stage > 0) chars[id] = { stage: c.stage, aff: c.aff, dates: c.dates || 0 }; });
+    // replay the scene the ending lives in: her ending scene, the festival, or a side story
+    const ref = run.char ? { char: run.char, id: run.id } : { id: run.id };
+    const snaps = endingSnaps();
+    snaps[run.ending] = { ref: ref, kind: run.kind, when: Date.now(), state: { name: s.name, title: s.title, flags: s.flags, chars: chars, stats: s.stats, ngplus: s.ngplus || 0, meta: s.meta, gold: s.gold, inv: s.inv } };
+    try { store(SNAP_KEY, JSON.stringify(snaps)); } catch (e) { /* storage full: skip */ }
+  }
+  function replayEnding(endingId) {
+    const snap = endingSnaps()[endingId];
+    if (!snap) return;
+    closeModal();
+    ui.replay = { saved: ui.s, savedRun: ui.run };
+    bumpLifetime('replays');
+    const st = snap.state;
+    const s = FL.newState({ name: st.name, title: st.title, ngplus: st.ngplus, meta: st.meta });
+    s.flags = JSON.parse(JSON.stringify(st.flags || {}));
+    s.stats = Object.assign(s.stats, st.stats || {});
+    s.gold = st.gold || 0; s.inv = JSON.parse(JSON.stringify(st.inv || {}));
+    Object.keys(st.chars || {}).forEach(function (id) { if (s.chars[id]) Object.assign(s.chars[id], st.chars[id]); });
+    s.day = FL.CONFIG.maxDay; s.slot = 2;
+    FL.events.forEach(function (ev) { s.seenEvents[ev.id] = true; });
+    ui.s = s;
+    ui.run = FL.startScene(s, snap.ref, snap.kind || 'ending');
+    ui.lastChoice = null;
+    renderScene();
+  }
+
   function finishReplay() {
     const r = ui.replay;
     ui.replay = null;
@@ -164,7 +196,7 @@
       else if (h >= i - 0.5) out += '<span class="h half">♥</span>';
       else out += '<span class="h empty">♡</span>';
     }
-    return '<span class="hearts" title="' + aff + '/100">' + out + '</span>';
+    return '<span class="hearts" role="img" aria-label="Affection ' + aff + ' of 100" title="' + aff + '/100">' + out + '</span>';
   }
   function avatar(id, big, mood) {
     const c = FL.characters[id];
@@ -216,12 +248,23 @@
     }).join('');
     const inScene = !!ui.run;
     $('#btn-save').disabled = inScene;
+    $('#btn-people').disabled = inScene;
+    const ready = readyNow(s).length;
+    const badge = $('#ready-badge');
+    if (badge) {
+      badge.hidden = !ready;
+      badge.textContent = ready ? '★' + ready : '';
+      $('#btn-people').setAttribute('aria-label', 'Who\'s where' + (ready ? ', ' + ready + ' romance scene' + (ready === 1 ? '' : 's') + ' ready' : ''));
+    }
   }
 
   /* ------------------------------------------------------------------ screens */
   function setMain(node) {
+    const pt = $('#page-title');
     const main = $('#main');
     main.innerHTML = '';
+    // the page heading lives inside <main> so it sits in a landmark; the title screen has its own
+    if (pt) { pt.hidden = !!node.classList.contains('title-screen'); main.appendChild(pt); }
     main.appendChild(node);
     main.scrollTop = 0;
     window.scrollTo(0, 0);
@@ -229,6 +272,7 @@
 
   function titleScreen() {
     ui.s = null; ui.run = null;
+    const pt = $('#page-title'); if (pt) pt.hidden = true;
     renderHud();
     const box = el('div', 'title-screen');
     box.innerHTML =
@@ -347,6 +391,7 @@
 
     if (ui.log.length) {
       const log = el('div', 'log');
+      log.setAttribute('role', 'status');
       log.innerHTML = ui.log.map(function (l) { return typeof l === 'string' && l.charAt(0) === '<' ? l : para(s, l); }).join('');
       box.appendChild(log);
     }
@@ -510,14 +555,32 @@
         FL.STAT_NAMES[lc.stat] + ' check: ' + lc.val + ' vs ' + lc.dc + ' — ' + (lc.pass ? 'Success!' : 'Failed.')));
     }
     const text = el('div', 'text');
+    text.setAttribute('aria-live', 'polite');
+    text.tabIndex = -1;
     text.innerHTML = lines.map(function (p) { return para(s, p); }).join('');
     box.appendChild(text);
     if (run.notes && run.notes.length) {
       box.appendChild(el('div', 'notes', run.notes.map(noteHtml).join(' ')));
     }
 
+    if (run.ending && ui.replay) {
+      // the end of a replayed memory: nothing is unlocked or overwritten
+      sfx('ending');
+      const e = FL.endings[run.ending];
+      const end = el('div', 'ending-card');
+      end.style.setProperty('--c', e.color);
+      end.innerHTML = '<div class="ending-label">MEMORY</div><h2>' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) + '</div>';
+      const row = el('div', 'btns center');
+      row.appendChild(btn('Back to Memories', finishReplay, { cls: 'primary' }));
+      end.appendChild(row);
+      box.appendChild(end);
+      setMain(box);
+      paceScene(box);
+      return;
+    }
     if (run.ending) {
       sfx('ending');
+      snapEnding(s, run);
       unlockEnding(run.ending);
       store(SAVE_PREFIX + 'auto', null);
       const e = FL.endings[run.ending];
@@ -557,6 +620,8 @@
     box.appendChild(list);
     setMain(box);
     paceScene(box);
+    // screen readers start on the new text; keyboard users can Tab straight to the choices
+    if ($('#modal').hidden) text.focus({ preventScroll: true });
   }
 
   function pick(ch) {
@@ -595,22 +660,44 @@
   }
 
   /* ------------------------------------------------------------------ modals */
+  let modalReturn = null;
   function openModal(title, body) {
     const m = $('#modal');
+    if (m.hidden) modalReturn = document.activeElement;
     m.innerHTML = '';
     const box = el('div', 'modal-box');
-    const head = el('div', 'modal-head', '<h2>' + title + '</h2>');
-    head.appendChild(btn('✕', closeModal, { cls: 'close' }));
+    const head = el('div', 'modal-head', '<h2 id="modal-title">' + title + '</h2>');
+    const close = btn('✕', closeModal, { cls: 'close' });
+    close.setAttribute('aria-label', 'Close');
+    head.appendChild(close);
     box.appendChild(head);
     const inner = el('div', 'modal-body');
     if (typeof body === 'string') inner.innerHTML = body; else inner.appendChild(body);
     box.appendChild(inner);
     m.appendChild(box);
     m.hidden = false;
+    // move keyboard focus into the dialog
+    const first = inner.querySelector('button:not([disabled]), input, textarea, select, a[href]') || close;
+    first.focus({ preventScroll: true });
   }
   function closeModal() {
-    $('#modal').hidden = true;
-    $('#modal').innerHTML = '';
+    const m = $('#modal');
+    const was = !m.hidden;
+    m.hidden = true;
+    m.innerHTML = '';
+    if (was && modalReturn && document.contains(modalReturn)) modalReturn.focus({ preventScroll: true });
+    modalReturn = null;
+  }
+  // keep Tab inside an open dialog
+  function trapFocus(e) {
+    const m = $('#modal');
+    if (e.key !== 'Tab' || m.hidden) return;
+    const items = Array.prototype.filter.call(m.querySelectorAll('button, input, textarea, select, a[href]'), function (x) { return !x.disabled && x.offsetParent !== null; });
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    else if (!m.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
   }
 
   function giftModal(id) {
@@ -679,6 +766,20 @@
       }, { disabled: s.gold < item.price }));
       wrap.appendChild(row);
     });
+    wrap.appendChild(el('h3', 'shop-sub', 'Private lessons'));
+    wrap.appendChild(el('p', 'muted small', 'Pay a tutor for +1 to a stat, no time needed. Each lesson in the same stat costs more than the last.'));
+    FL.STATS.forEach(function (k) {
+      const L = FL.LESSONS[k];
+      const price = FL.lessonPrice(s, k);
+      const maxed = s.stats[k] >= 10;
+      const row = el('div', 'shop-row');
+      row.innerHTML = '<div><b>' + esc(L.name) + '</b> <span class="price">🪙 ' + price + '</span>' +
+        '<div class="muted small">+1 ' + FL.STAT_NAMES[k] + ' (now ' + s.stats[k] + (maxed ? ', the maximum' : '') + ')</div></div>';
+      row.appendChild(btn('Buy', function () {
+        if (FL.buyLesson(s, k)) { sfx('stat'); renderHub(); shopModal(); }
+      }, { disabled: maxed || s.gold < price }));
+      wrap.appendChild(row);
+    });
     openModal('Market Street Shops', wrap);
   }
 
@@ -692,12 +793,88 @@
     openModal('Inventory', html);
   }
 
-  function journalModal() {
+  /* ------------------------------------------------------------------ who's where */
+  function readyNow(s) {
+    return FL.metChars(s).filter(function (id) { return FL.romanceStatus(s, id).ok; });
+  }
+  function statusOf(s, id) {
+    const st = s.chars[id];
+    if (st.stage >= 4) return 'devoted';
+    if (FL.romanceStatus(s, id).ok) return 'ready';
+    return 'progress';
+  }
+  function goTo(loc, id) {
     const s = ui.s;
+    if (!FL.locOpen(s, loc)) return;
+    closeModal();
+    s.loc = loc; ui.sel = id || null; ui.log = []; ui.moods = {};
+    afterAction();
+  }
+  function peopleModal(filter) {
+    const s = ui.s;
+    filter = filter || (readyNow(s).length ? 'ready' : 'all');
+    const wrap = el('div', 'people-modal');
+    const tabs = el('div', 'btns tabs');
+    const counts = { all: 0, ready: 0, progress: 0, devoted: 0 };
     const met = FL.metChars(s);
-    let html = '<p class="muted">Hearts discovered: ' + met.length + ' / ' + FL.charOrder.length +
-      ' · Devoted: ' + FL.readyChars(s).length + '</p>';
-    if (!met.length) html += '<p>You haven\'t met anyone yet. Explore the town — strangers are waiting.</p>';
+    met.forEach(function (id) { counts.all++; counts[statusOf(s, id)]++; });
+    [['all', 'Everyone'], ['ready', '★ Scene ready'], ['progress', 'In progress'], ['devoted', '♥ Devoted']].forEach(function (t) {
+      tabs.appendChild(btn(t[1] + ' <span class="muted">' + counts[t[0]] + '</span>', function () { peopleModal(t[0]); },
+        { cls: filter === t[0] ? 'here' : '' }));
+    });
+    wrap.appendChild(tabs);
+    const list = met.filter(function (id) { return filter === 'all' || statusOf(s, id) === filter; });
+    if (!met.length) wrap.appendChild(el('p', 'muted', 'You haven\'t met anyone yet. Explore the town: strangers are waiting.'));
+    else if (!list.length) wrap.appendChild(el('p', 'muted', 'Nobody in this group right now.'));
+    // group by where they are right now
+    const groups = {};
+    list.forEach(function (id) {
+      const loc = FL.charLocation(s, id);
+      const key = loc && FL.locOpen(s, loc) ? loc : '_away';
+      (groups[key] = groups[key] || []).push(id);
+    });
+    const order = FL.locOrder.filter(function (l) { return groups[l]; }).concat(groups._away ? ['_away'] : []);
+    order.forEach(function (key) {
+      const sec = el('div', 'pm-group');
+      if (key === '_away') sec.appendChild(el('h3', null, 'Not around right now'));
+      else {
+        const L = FL.locations[key];
+        const h = el('div', 'pm-head', '<h3>' + L.icon + ' ' + esc(L.name) + (key === s.loc ? ' <span class="muted">(you are here)</span>' : '') + '</h3>');
+        if (key !== s.loc) h.appendChild(btn('Go there', function () { goTo(key); }, { cls: 'small-btn' }));
+        sec.appendChild(h);
+      }
+      groups[key].forEach(function (id) {
+        const c = FL.characters[id];
+        const st = s.chars[id];
+        const rs = FL.romanceStatus(s, id);
+        const nextSlot = (s.slot + 1) % 3, nextDay = s.slot === 2 ? s.day + 1 : s.day;
+        const later = FL.charUnlocked(s, id) ? FL.charLocationAt(s, id, nextSlot, nextDay) : null;
+        const row = el('div', 'pm-row');
+        row.style.setProperty('--c', c.color);
+        row.innerHTML = avatar(id) + '<div class="pm-body"><b>' + esc(c.short) + '</b> ' + heartBar(st.aff) +
+          (rs.ok ? ' <span class="ready">★ Romance ready</span>' : '') + (st.stage >= 4 ? ' <span class="ready">♥ Devoted</span>' : '') +
+          '<div class="muted small">' + (key === '_away' ? 'Away. ' : '') + 'Next (' + FL.CONFIG.slots[nextSlot] + '): ' +
+          (later ? esc(FL.locations[later].name) : 'nowhere to be found') +
+          (!rs.ok && rs.needs && rs.needs.length ? ' · Needs: ' + esc(rs.needs.join(', ')) : '') + '</div></div>';
+        if (key !== '_away' && key !== s.loc) row.appendChild(btn('Go', function () { goTo(key, id); }, { cls: 'small-btn' }));
+        sec.appendChild(row);
+      });
+      wrap.appendChild(sec);
+    });
+    openModal('Who\'s Where · ' + FL.timeName(s) + ', Day ' + s.day, wrap);
+  }
+
+  function journalModal(filter) {
+    const s = ui.s;
+    filter = filter || 'all';
+    const met = FL.metChars(s).filter(function (id) { return filter === 'all' || statusOf(s, id) === filter; });
+    let html = '<p class="muted">Hearts discovered: ' + FL.metChars(s).length + ' / ' + FL.charOrder.length +
+      ' · Devoted: ' + FL.readyChars(s).length + '</p>' +
+      '<div class="btns tabs" id="j-tabs">' + [['all', 'Everyone'], ['ready', '★ Scene ready'], ['progress', 'In progress'], ['devoted', '♥ Devoted']].map(function (t) {
+        return '<button class="btn' + (t[0] === filter ? ' here' : '') + '" data-f="' + t[0] + '">' + t[1] + '</button>';
+      }).join('') + '</div>';
+    if (!FL.metChars(s).length) html += '<p>You haven\'t met anyone yet. Explore the town — strangers are waiting.</p>';
+    else if (!met.length) html += '<p class="muted">Nobody in this group right now.</p>';
     met.forEach(function (id) {
       const c = FL.characters[id];
       const st = s.chars[id];
@@ -721,6 +898,9 @@
           esc((rs.needs || []).join(', '))) + '</div></div>';
     });
     openModal('Journal', html);
+    document.querySelectorAll('#j-tabs button').forEach(function (b) {
+      b.addEventListener('click', function () { journalModal(b.dataset.f); });
+    });
   }
 
   function saveModal(canSave) {
@@ -772,16 +952,29 @@
     FL.charOrder.forEach(function (id) {
       const c = FL.characters[id];
       const seen = MEMORY_SCENES.filter(function (sc) { return FL.getScene({ char: id, id: sc }) && got.indexOf(id + '.' + sc) >= 0; });
-      if (!seen.length) return;
+      const snaps = endingSnaps();
+      const ends = c.endingIds.filter(function (e) { return snaps[e]; });
+      if (!seen.length && !ends.length) return;
       const row = el('div', 'mem-row');
       row.style.setProperty('--c', c.color);
       row.innerHTML = avatar(id) + '<div class="mem-body"><b>' + esc(c.name) + '</b> <span class="trope">' + esc(c.trope) + '</span></div>';
       const btns = el('div', 'btns');
       seen.forEach(function (sc) { btns.appendChild(btn(MEMORY_LABELS[sc], function () { replayScene(id, sc); })); });
+      ends.forEach(function (e) { btns.appendChild(btn('★ ' + esc(FL.endings[e].title), function () { replayEnding(e); }, { cls: 'end-mem' })); });
       row.querySelector('.mem-body').appendChild(btns);
       wrap.appendChild(row);
     });
-    if (!got.length) wrap.appendChild(el('p', null, 'No memories yet. Every romance scene you finish is saved here.'));
+    const snapsAll = endingSnaps();
+    const others = FL.endingOrder.filter(function (e) { return !FL.endings[e].char && snapsAll[e]; });
+    if (others.length) {
+      const row = el('div', 'mem-row');
+      row.innerHTML = '<span class="avatar">★</span><div class="mem-body"><b>Other endings</b></div>';
+      const b2 = el('div', 'btns');
+      others.forEach(function (e) { b2.appendChild(btn('★ ' + esc(FL.endings[e].title), function () { replayEnding(e); }, { cls: 'end-mem' })); });
+      row.querySelector('.mem-body').appendChild(b2);
+      wrap.appendChild(row);
+    }
+    if (!got.length && !Object.keys(snapsAll).length) wrap.appendChild(el('p', null, 'No memories yet. Every romance scene, date and ending you finish is saved here.'));
     openModal('Memories', wrap);
   }
 
@@ -789,10 +982,10 @@
     openModal('How to Play', [
       '<p>You have <b>30 days</b> until the Starfall Festival. Each day has a <b>Morning</b>, <b>Afternoon</b> and <b>Evening</b>.</p>',
       '<p><b>Actions marked ⏳ take up one part of the day:</b> meeting someone, talking, romance scenes, working and training. Travel, shopping and giving gifts are free (one gift per person per day).</p>',
-      '<p><b>Affection (♥)</b> grows when you talk, give gifts, and make choices in scenes. Each heroine has three romance scenes. They unlock at ♥25, ♥50 and ♥75. The second and third also need her favorite stat (Might, Wits or Charm) at 2 and 3. You can only share one romance scene with each heroine per day.</p>',
+      '<p><b>Affection (♥)</b> grows when you talk, give gifts, and make choices in scenes. Each heroine has three romance scenes. They unlock at ♥30, ♥60 and ♥90. The second and third also need her favorite stat (Might, Wits or Charm) at 2 and 3. Relationships need time, too: after a romance scene, wait a couple of days before the next one with her. That\'s a good moment to court someone else.</p>',
       '<p>Talking and gifts can only take a relationship so far. To grow closer, you have to see the next romance scene.</p>',
       '<p><b>Stats:</b> Train <b>Might</b> at the Arena, <b>Wits</b> at the Library and <b>Charm</b> at the Tavern, Temple or Noble Quarter. Stats also open up special options in scenes.</p>',
-      '<p><b>Gold:</b> Take quests at the Guild, work shifts, unload cargo. Buy gifts on Market Street. Everyone has a gift they love — and one they hate. Giving the same gift again and again gets less effective, so mix it up.</p>',
+      '<p><b>Gold:</b> Take quests at the Guild, work shifts, unload cargo. Buy gifts on Market Street, or pay for private lessons there (+1 to a stat; each lesson costs more than the last). Everyone has a gift they love — and one they hate. Giving the same gift again and again gets less effective, so mix it up.</p>',
       '<p>See all three romance scenes with a heroine to make her <b>Devoted</b>. At the Starfall Festival on Day 30, choose who to watch the stars with to see her ending. Win over five or more and you can try for... a different kind of ending.</p>',
       '<p>Some heroines only appear after certain events, or only at night. Check the Journal (📖) to see where everyone can be found.</p>',
       '<p>After your third romance scene with a heroine, look for her the next morning, and talk to her afterwards. She\'ll have things to say.</p>',
@@ -1005,7 +1198,7 @@
   }
   function toast(title, body) {
     let host = $('#toasts');
-    if (!host) { host = el('div', null); host.id = 'toasts'; document.body.appendChild(host); }
+    if (!host) { host = el('div', null); host.id = 'toasts'; host.setAttribute('role', 'status'); host.setAttribute('aria-live', 'polite'); document.body.appendChild(host); }
     const t = el('div', 'toast', '<b>' + esc(title) + '</b><div class="small">' + esc(body) + '</div>');
     host.appendChild(t);
     setTimeout(function () { t.classList.add('out'); }, 3600);
@@ -1077,6 +1270,7 @@
   /* ------------------------------------------------------------------ boot */
   function boot() {
     $('#btn-journal').addEventListener('click', function () { if (ui.s) journalModal(); });
+    $('#btn-people').addEventListener('click', function () { if (ui.s && !ui.run) peopleModal(); });
     $('#btn-inv').addEventListener('click', function () { if (ui.s) inventoryModal(); });
     $('#btn-save').addEventListener('click', function () { if (ui.s && !ui.run) saveModal(true); });
     $('#btn-music').addEventListener('click', toggleMusic);
@@ -1100,6 +1294,7 @@
     });
     $('#modal').addEventListener('click', function (e) { if (e.target.id === 'modal') closeModal(); });
     document.addEventListener('keydown', function (e) {
+      trapFocus(e);
       if (e.key === 'Escape') { closeModal(); return; }
       if (!ui.run || !$('#modal').hidden) return;
       const n = parseInt(e.key, 10);

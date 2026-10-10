@@ -22,11 +22,13 @@
     maxDay: 30,
     slots: ['Morning', 'Afternoon', 'Evening'],
     // affection needed to unlock the scene for the current stage (stage 1 -> s1, ...)
-    affNeeded: [0, 25, 50, 75],
+    affNeeded: [0, 30, 60, 90],
+    // days that must pass after a romance scene before the next one (indexed by the next scene's stage)
+    sceneGap: [0, 2, 3, 3],
     // favourite-stat needed to unlock the scene for the current stage
     statNeeded: [0, 0, 2, 3],
     // talk/gift affection can't push past this cap until the next scene is seen
-    affCap: [0, 35, 60, 85, 100],
+    affCap: [0, 40, 70, 95, 100],
     talkAff: 5,
     giftAff: { love: 12, like: 6, neutral: 2, hate: -10 },
     haremMin: 5,
@@ -174,7 +176,7 @@
   };
 
   FL.freshChar = function () {
-    return { aff: 0, stage: 0, talks: 0, afterTalks: 0, seenTalk: [], seenAfter: [], dates: 0 };
+    return { aff: 0, stage: 0, talks: 0, afterTalks: 0, seenTalk: [], seenAfter: [], dates: 0, lastScene: null };
   };
 
   // Bring an older/partial save up to date with the current roster.
@@ -186,6 +188,7 @@
       if (!st.seenTalk) st.seenTalk = [];
       if (!st.seenAfter) st.seenAfter = [];
       if (st.dates == null) st.dates = 0;
+      if (st.lastScene === undefined) st.lastScene = null;
       if (!s.known[id]) s.known[id] = {};
     });
     s.daily = s.daily || { talk: {}, gift: {}, scene: {}, date: {} };
@@ -285,6 +288,9 @@
     const needStat = FL.CONFIG.statNeeded[st.stage];
     const reasons = [];
     if (s.daily.scene && s.daily.scene[id]) reasons.push('a new day (one scene per day)');
+    else if (st.lastScene != null && s.day < st.lastScene + FL.CONFIG.sceneGap[st.stage]) {
+      reasons.push('time (she\'ll be ready on day ' + (st.lastScene + FL.CONFIG.sceneGap[st.stage]) + ')');
+    }
     if (st.aff < needAff) reasons.push('♥ ' + needAff + ' affection');
     if (needStat && s.stats[c.favStat] < needStat) reasons.push(FL.STAT_NAMES[c.favStat] + ' ' + needStat);
     const extra = c.sceneReq && c.sceneReq[scene];
@@ -429,6 +435,27 @@
     return true;
   };
 
+  // Private lessons: turn gold into stats, at a price that climbs with each lesson.
+  FL.LESSONS = {
+    might: { name: 'Private Lesson with a Retired Champion', base: 60, step: 45 },
+    wits: { name: 'Private Tutoring at the Academy', base: 60, step: 45 },
+    charm: { name: 'Etiquette & Wit with a Courtesan', base: 60, step: 45 },
+  };
+  FL.lessonPrice = function (s, stat) {
+    const L = FL.LESSONS[stat];
+    const n = (s.lessons && s.lessons[stat]) || 0;
+    return L.base + L.step * n;
+  };
+  FL.buyLesson = function (s, stat) {
+    const price = FL.lessonPrice(s, stat);
+    if (s.gold < price || s.stats[stat] >= 10) return false;
+    s.gold -= price;
+    s.lessons = s.lessons || {};
+    s.lessons[stat] = (s.lessons[stat] || 0) + 1;
+    s.stats[stat] = Math.min(10, s.stats[stat] + 1);
+    return true;
+  };
+
   FL.doActivity = function (s, act) {
     const res = { lines: [] };
     if (act.cost && s.gold < act.cost) return null;
@@ -549,8 +576,16 @@
     if (!fx) return [];
     const notes = [];
     if (fx.aff && run && run.char) {
-      // dates can't push past the current stage's cap; romance scenes can
-      const got = FL.addAff(s, run.char, fx.aff, run.kind !== 'date');
+      // Dates can't push past the current stage's cap. Romance scenes can go one stage
+      // further (to the cap of the stage the scene leads to); later scenes are uncapped.
+      let got;
+      const st = s.chars[run.char];
+      if (run.kind === 'romance' && st && st.stage < 4 && FL.SCENE_FOR_STAGE[st.stage] === run.id && fx.aff > 0) {
+        const cap = FL.CONFIG.affCap[st.stage + 1];
+        const before = st.aff;
+        st.aff = Math.min(100, Math.max(st.aff, Math.min(cap, st.aff + fx.aff)));
+        got = st.aff - before;
+      } else got = FL.addAff(s, run.char, fx.aff, run.kind !== 'date');
       if (got) notes.push({ type: 'aff', char: run.char, n: got });
     }
     if (fx.affTo) {
@@ -693,6 +728,7 @@
       s.daily.scene = s.daily.scene || {};
       s.daily.scene[run.char] = true;
       const st = s.chars[run.char];
+      st.lastScene = s.day;
       const expected = FL.SCENE_FOR_STAGE[st.stage];
       if (expected === run.id) st.stage += 1;
       if (run.id === 's3' && st.stage >= 4 && s.flags['morningDue_' + run.char] == null) {

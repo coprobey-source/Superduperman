@@ -886,7 +886,9 @@
     if (p.ghost) figure = '<g opacity="0.8">' + figure + '</g>';
     if (p.slime) figure = '<g opacity="0.9">' + figure + '<path d="M76 70 C84 60 96 58 104 62" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.5" stroke-linecap="round"/></g>';
     const bgLayer = background(b, p, color);
-    return '<svg viewBox="12 6 176 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portrait">' +
+    const who = FL.characters && FL.characters[id] ? FL.characters[id].short : id;
+    const label = who + (mood && mood !== 'neutral' ? ', looking ' + ({ happy: 'happy', blush: 'flustered', angry: 'angry', sad: 'sad', smug: 'smug', surprised: 'surprised' }[mood] || mood) : '');
+    return '<svg viewBox="12 6 176 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + label + '">' +
       '<defs>' + b.defs.join('') + '</defs>' + bgLayer + figure + '</svg>';
   };
 })(typeof window !== 'undefined' ? window : globalThis);
