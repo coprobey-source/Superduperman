@@ -507,8 +507,18 @@ FL.addCharacter({
         ],
         choices: [
           { text: '"I don\'t want you to lose yourself for me."', go: 'lose', aff: 10 },
-          { text: 'Make her laugh. "Being mortal\'s great. We have naps." [Charm check 3]', check: { stat: 'charm', dc: 3 }, pass: 'naps', fail: 'lose' },
+          { text: 'Make her laugh. "Being mortal\'s great. We have naps." [Charm check 3]', check: { stat: 'charm', dc: 3 }, pass: 'naps', fail: 'lose_try' },
         ],
+      },
+      lose_try: {
+        text: [
+          "@you Being mortal's great. We have naps.",
+          "She doesn't laugh. She smiles, which is worse, because it's the smile of someone being brave.",
+          "@amorette:sad That's lovely, darling. It isn't an answer.",
+          "So you give her the true one instead.",
+          "@you I don't want you to lose yourself for me. If going back is what you need, go.",
+        ],
+        next: 'lose',
       },
       lose: {
         text: [

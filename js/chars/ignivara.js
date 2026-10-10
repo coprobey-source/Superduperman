@@ -334,8 +334,14 @@ FL.addCharacter({
         choices: [
           { text: 'Help her search the hoard, methodically, pile by pile.', go: 'search', aff: 6, flag: 'ignivara_searched' },
           { text: '"Maybe you just miscounted?"', go: 'miscount', aff: 3 },
-          { text: 'Notice a coin glinting under her own tail. [Wits check 2]', check: { stat: 'wits', dc: 2 }, pass: 'tail', fail: 'search' },
+          { text: 'Notice a coin glinting under her own tail. [Wits check 2]', check: { stat: 'wits', dc: 2 }, pass: 'tail', fail: 'search_try' },
         ],
+      },
+      search_try: {
+        text: [
+          "Something glints under her tail. You squint, lean closer, and she shifts, and whatever it was is gone into the pile. So you roll up your sleeves instead.",
+        ],
+        next: 'search',
       },
       search: {
         text: [

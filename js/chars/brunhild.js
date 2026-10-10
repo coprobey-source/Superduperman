@@ -583,8 +583,16 @@ FL.addCharacter({
         ],
         choices: [
           { text: 'Take the sword and knight her: touch each shoulder. "I accept."', go: 'accept', aff: 10 },
-          { text: 'Lay the sword aside and kneel down in front of her, as an equal. [Might check 4]', check: { stat: 'might', dc: 4 }, pass: 'equal', fail: 'accept' },
+          { text: 'Lay the sword aside and kneel down in front of her, as an equal. [Might check 4]', check: { stat: 'might', dc: 4 }, pass: 'equal', fail: 'accept_try' },
         ],
+      },
+      accept_try: {
+        text: [
+          "You set the sword down and start to kneel. She catches your arm before your knee touches the floor, and pulls you up with one hand.",
+          "@brunhild:blush No. Not you. If anyone kneels tonight, it is me. I will not be argued with on this point, and I outrank everyone in this room except you.",
+          "She presses the hilt back into your hands, bows her head, and waits.",
+        ],
+        next: 'accept',
       },
       accept: {
         text: [

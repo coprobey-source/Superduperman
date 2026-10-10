@@ -460,8 +460,16 @@ FL.addCharacter({
         ],
         choices: [
           { text: '"You don\'t have to be human. I love you the way you are."', go: 'asyouare', aff: 12 },
-          { text: 'Help her hold her shape — talk her through it, piece by piece. [Wits check 4]', check: { stat: 'wits', dc: 4 }, pass: 'shape', fail: 'asyouare' },
+          { text: 'Help her hold her shape — talk her through it, piece by piece. [Wits check 4]', check: { stat: 'wits', dc: 4 }, pass: 'shape', fail: 'asyouare_try' },
         ],
+      },
+      asyouare_try: {
+        text: [
+          "You talk her through it, piece by piece: elbow, wrist, fingers. But every time she fixes one part, another slides. Her knees go first. Then an ear.",
+          "@gloria:sad It's not working. It never works for long. I'm sorry, I'm so —",
+          "@you Gloria. Stop. You don't have to be human. I love you as you are.",
+        ],
+        next: 'asyouare',
       },
       asyouare: {
         text: [

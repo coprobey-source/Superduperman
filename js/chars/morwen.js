@@ -496,8 +496,17 @@ FL.addCharacter({
         ],
         choices: [
           { text: '"Morwen. Make the antidote. I\'ll drink it right now."', go: 'antidote', aff: 10, flag: 'morwen_drank' },
-          { text: 'Reason it out. "When did the cauldron explode? How long does the potion take?" [Wits check 3]', check: { stat: 'wits', dc: 3 }, pass: 'reason', fail: 'antidote' },
+          { text: 'Reason it out. "When did the cauldron explode? How long does the potion take?" [Wits check 3]', check: { stat: 'wits', dc: 3 }, pass: 'reason', fail: 'antidote_try' },
         ],
+      },
+      antidote_try: {
+        text: [
+          "@you When did the cauldron explode? How long does the potion —",
+          "Morwen isn't listening. She's already pulling jars off the shelves, muttering measurements, knocking over a stuffed owl.",
+          "@morwen:sad No time, no time, I can fix it, I *have* to fix it —",
+          "@you Okay. Okay. Make the antidote. I'll drink it.",
+        ],
+        next: 'antidote',
       },
       antidote: {
         text: [

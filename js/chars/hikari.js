@@ -482,8 +482,18 @@ FL.addCharacter({
         choices: [
           { text: '"Whatever you choose, I\'ll support you."', go: 'support', aff: 10 },
           { text: '"Stay. Please. Stay with me."', go: 'stay', aff: 8, flag: 'hikari_stay' },
-          { text: '"What do you *want*, Hikari? Not the hero. You." [Might check 4]', check: { stat: 'might', dc: 4 }, pass: 'want', fail: 'support' },
+          { text: '"What do you *want*, Hikari? Not the hero. You." [Might check 4]', check: { stat: 'might', dc: 4 }, pass: 'want', fail: 'support_try' },
         ],
+      },
+      support_try: {
+        text: [
+          "@you What do you *want*, Hika—",
+          "@hikari:sad Don't. Please. If you ask me that, I'll actually answer, and then I'll have to *do* it.",
+          "She wipes her eyes with the heel of her hand.",
+          "@hikari Say something easier. Anything.",
+          "@you ...Whatever you choose, I'll support you.",
+        ],
+        next: 'support',
       },
       support: {
         text: [

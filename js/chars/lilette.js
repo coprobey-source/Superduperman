@@ -462,8 +462,18 @@ FL.addCharacter({
         ],
         choices: [
           { text: '"Go ahead, Lilette. I trust you."', go: 'trust', aff: 10, flag: 'lilette_trusted' },
-          { text: 'Stand up to the Dean. "She doesn\'t need to drain anyone to be worth something." [Charm check 3]', check: { stat: 'charm', dc: 3 }, pass: 'defend', fail: 'trust' },
+          { text: 'Stand up to the Dean. "She doesn\'t need to drain anyone to be worth something." [Charm check 3]', check: { stat: 'charm', dc: 3 }, pass: 'defend', fail: 'trust_try' },
         ],
+      },
+      trust_try: {
+        text: [
+          "@you She doesn't need to drain anyone to be worth —",
+          "The Dean turns her eyes on you, and your voice simply stops working. It is like being looked at by a winter.",
+          "Lilette's hand finds yours under the table, squeezing hard.",
+          "@lilette:sad It's okay. I can do this. I *have* to do this.",
+          "@you ...Go ahead, Lilette. I trust you.",
+        ],
+        next: 'trust',
       },
       trust: {
         text: [
@@ -516,8 +526,17 @@ FL.addCharacter({
         ],
         choices: [
           { text: 'Sit beside her. "Throw out the handbook. Just be you."', go: 'handbook', aff: 10, flag: 'lilette_tossed' },
-          { text: 'Gently tilt her chin up and give her a *perfect* smoldering glance. [Charm check 4]', check: { stat: 'charm', dc: 4 }, pass: 'smolder', fail: 'handbook' },
+          { text: 'Gently tilt her chin up and give her a *perfect* smoldering glance. [Charm check 4]', check: { stat: 'charm', dc: 4 }, pass: 'smolder', fail: 'handbook_try' },
         ],
+      },
+      handbook_try: {
+        text: [
+          "You tilt her chin up and give her your most smoldering look. Something goes wrong with one eyebrow.",
+          "Lilette stares. Then she claps both hands over her mouth and dissolves into helpless giggles.",
+          "@lilette:happy Is *that* what I look like when I do it?! Oh no. Oh, that's so much worse than the handbook said.",
+          "@you Then throw out the handbook.",
+        ],
+        next: 'handbook',
       },
       handbook: {
         text: [

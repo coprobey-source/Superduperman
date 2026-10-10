@@ -491,8 +491,17 @@ FL.addCharacter({
         ],
         choices: [
           { text: '"I\'d have you if you were a barmaid, a princess, or a goat."', go: 'goat', aff: 10 },
-          { text: 'Bow — a perfect court bow — and kiss her hand. "Your Highness." [Charm check 4]', check: { stat: 'charm', dc: 4 }, pass: 'bow', fail: 'goat' },
+          { text: 'Bow — a perfect court bow — and kiss her hand. "Your Highness." [Charm check 4]', check: { stat: 'charm', dc: 4 }, pass: 'bow', fail: 'goat_try' },
         ],
+      },
+      goat_try: {
+        text: [
+          "You sweep into your finest court bow. In a room this small, your elbow catches the tankard of wildflowers, your heel catches the washstand, and the bow becomes a sort of graceful collapse onto her narrow bed.",
+          "Aura laughs so loudly that a pigeon takes off.",
+          "@aurelia:smug *Your Highness,* says the person currently wearing my wildflowers.",
+          "@you Fine. Forget the bowing.",
+        ],
+        next: 'goat',
       },
       goat: {
         text: [
