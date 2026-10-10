@@ -25,6 +25,12 @@ FL.addCharacter({
     ['She is sitting on the windowsill, chin in her hands, staring out at the lights of Clichéton.', '@malzahra Your people laugh so much. In taverns. In the streets. Why do they laugh so much?'],
     ['@malzahra I have decided that when I conquer this kingdom, I will spare you. And the chocolate shop. You are both too valuable to destroy.'],
   ],
+  afterTalk: [
+    ["@malzahra HERO! I have drafted a new monologue. It is about you. It contains the phrase \"thine eyes are as twin suns of terrible beauty.\" Gnarlbit wept. Shall I perform it? ...Later. In private. Wearing less."],
+    ["@malzahra The imps have started calling you \"the Queen's Weakness.\" I have punished them by making them sweep the tower. I have not told them they are right."],
+    ["She leans close, horns glowing faintly.", "@malzahra I replaced the curtains. Fireproof, this time. Enchanted. You understand what that means, hero? It means *no more interruptions.*"],
+    ["@malzahra I conquered nothing today. Not one village. I sat on my throne and thought about you and smiled like an idiot. My council thinks I have been cursed."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -313,18 +319,68 @@ FL.addCharacter({
       },
       claim: {
         text: [
-          'She kisses you under the stars, and it is nothing like the victory kiss — it\'s slow and searching and almost shy, from a woman who has never once in a thousand years been shy about anything.',
-          'Then it is very much *not* shy.',
-          '@malzahra In the Underrealm, when a queen chooses a consort, she says it aloud. So.',
-          '@malzahra I, Malzahra, choose you. Let the heavens and hells take note. You are *mine.*',
-          'She carries you down into the tower — easily, as if you weigh nothing, laughing at your protest. Her chamber is warm and full of velvet and the smell of cinnamon.',
-          'What follows is passionate and fierce and occasionally on fire (only a little, only the curtains). She is commanding and then suddenly tender, like a storm breaking into soft rain. Her tail wraps around you. Her horns glow brighter with every whispered word.',
-          '...',
-          'Afterward, she lies with her head on your chest, tracing idle circles on your skin with one clawed fingertip.',
-          '@malzahra I have conquered a hundred kingdoms in my dreams. None of them felt like this.',
-          '@malzahra I think I have finally conquered something worth having.',
-          '@you What\'s that?',
-          '@malzahra *Loneliness.* Now go to sleep, hero. That is a royal command.',
+          "She kisses you under the stars, and it's nothing like the victory kiss. It's slow and searching and almost shy, from a woman who has never once in a thousand years been shy about anything.",
+          "Then it is very much *not* shy.",
+          "@malzahra In the Underrealm, when a queen chooses a consort, she says it aloud. So.",
+          "@malzahra I, Malzahra, choose you. Let the heavens and hells take note. You are *mine.*",
+          "She carries you down into the tower easily, as if you weigh nothing, laughing at your protests. Her chamber is warm and full of velvet and the smell of cinnamon and smoke.",
+          "She sets you on your feet beside the bed and looks down at you, horns glowing, eyes burning amber, every inch the Dread Queen. Then she sweeps her heavy gown off her shoulders in one dramatic motion. It is *clearly* rehearsed. She has definitely practiced it in a mirror.",
+          "@malzahra Kneel, hero.",
+          "@you Make me.",
+          "Her eyes flare. A slow, delighted, very dangerous grin spreads across her face.",
+          "@malzahra Oh, I *hoped* you would say that.",
+          "It's a battle in the best possible way: wrestling across the velvet, each of you trying to pin the other, her laughing in triumph when she wins and gasping in outrage when she doesn't. She's fierce and commanding, her tail wrapped around your thigh, her claws raking your back just hard enough. When you finally pin her and kiss the base of one horn, she makes a sound that shakes the tower stones.",
+          "@malzahra The *horns* — nobody has ever — do that again, *that is a royal command* —",
+          "The curtains catch fire, only a little. Neither of you stops to put them out...",
+          "...",
+          "Afterward, she lies with her head on your chest, tracing idle circles on your skin with one clawed fingertip.",
+          "@malzahra I have conquered a hundred kingdoms in my dreams. None of them felt like this.",
+          "@malzahra I think I have finally conquered something worth having.",
+          "@you What's that?",
+          "@malzahra *Loneliness.* Now go to sleep, hero. That is a royal command.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to the smell of smoke, a scorched curtain, and an imp standing at the foot of the bed holding a breakfast tray and staring determinedly at the ceiling.",
+          "@gnarlbit Breakfast for Her Dreadness and the... ah... *Royal Consort.* I have been instructed to say that the toast is *ominously* buttered.",
+          "Malzahra is sprawled across most of the bed, silver hair everywhere, one arm and her tail wrapped possessively around you. She opens one amber eye.",
+          "@malzahra Gnarlbit. If you speak of this to the council, I will have you guard the goat for a century.",
+          "@gnarlbit Of what, Your Dreadness? I have seen nothing. I am blind. I have always been blind.",
+          "He flees. Malzahra rolls over and props her chin on your chest.",
+          "@malzahra So. Hero. Tell me honestly. On a scale from one to ten, how *dreadful* was I?",
+        ],
+        choices: [
+          { text: "\"Eleven. Absolutely terrifying.\"", go: "eleven", aff: 6 },
+          { text: "\"I'd say we're tied. Rematch tonight?\"", go: "rematch", aff: 6 },
+          { text: "Kiss the base of her horn again, good morning.", go: "horn", aff: 6 },
+        ],
+      },
+      eleven: {
+        text: [
+          "She beams. Her horns glow bright violet.",
+          "@malzahra *ELEVEN.* I shall have it carved on a monument. A large one. Budgets be damned.",
+          "@malzahra ...You may also have the ominous toast. As a reward.",
+        ],
+        end: true,
+      },
+      rematch: {
+        text: [
+          "@malzahra *Tied?* TIED? I won *at least* three of those rounds. I have a list.",
+          "@you I won four.",
+          "@malzahra Then we must settle it. Tonight. In single combat. On this bed.",
+          "She looks enormously pleased by the prospect. She looks even more pleased when you pull her back down and start the rematch early.",
+        ],
+        end: true,
+      },
+      horn: {
+        text: [
+          "You reach up and press your lips to the base of her horn. Her whole body jolts. The breakfast tray rattles. Something outside the window explodes, small and purple.",
+          "@malzahra You — you can't just do that in the *morning* — I have a council meeting — I have a *goat* to inspect —",
+          "The council waits. The goat waits. The Dread Queen of the Underrealm cancels all her appointments for the day.",
         ],
         end: true,
       },

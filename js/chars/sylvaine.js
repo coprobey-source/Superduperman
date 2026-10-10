@@ -24,6 +24,12 @@ FL.addCharacter({
     ['She is lying in a patch of sunlight in the grass, eyes closed, perfectly still.', '@sylvaine I am not napping. I am *contemplating eternity.* Sit down. Contemplate with me.'],
     ['@sylvaine Your little brain is fascinating. You think so *fast.* Leaping to conclusions like a frog leaping to lily pads. Some of them are even right.'],
   ],
+  afterTalk: [
+    ["@sylvaine I caught myself humming in the library today. Out loud. A student stared at me. I stared back until he left. It was very satisfying."],
+    ["She tucks a leaf into your hair, very seriously.", "@sylvaine Silverbough. It means \"I am thinking of the glade.\" Elves have a whole language of leaves. You'll find I've been very *talkative* lately."],
+    ["@sylvaine I've been reconsidering my position on patience. Nine hundred years of it, and last night I found myself counting the hours until sunset. Like a child."],
+    ["@sylvaine The rings on my skin. A new one is forming. Very faint. Do you know what that means?", "She smiles.", "@sylvaine It means this year matters."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -289,16 +295,59 @@ FL.addCharacter({
       },
       together: {
         text: [
-          'She draws you close, and the stars in the pool swirl around you both.',
-          'Her kiss is slow and deep and patient, the kiss of someone who has all the time in the world and has decided to spend it here, with you. Every place she touches you, light blooms under your skin.',
-          'The glade seems to hold its breath. The flowers glow brighter. The water warms.',
-          '@sylvaine I have lived nine hundred years, and I\'ve never once felt so *young.*',
-          'What follows is hushed and luminous, like a secret the whole forest is keeping: her long hair sweeping over you both, starlight in the water, a slow unhurried exploring as if you were a new language she intends to learn perfectly.',
-          '...',
-          'Afterward, you lie together on the soft moss by the pool, her head on your chest. She\'s listening to your heartbeat.',
-          '@sylvaine It\'s so fast. Like a little bird. I\'ll memorize it.',
-          '@you Why?',
-          '@sylvaine So that in a thousand years, I\'ll still know exactly what it sounded like.',
+          "She draws you close, and the stars in the pool swirl around you both.",
+          "Her kiss is slow and deep and patient. It's the kiss of someone with all the time in the world who has decided to spend it here, on you, in no hurry at all. Wherever she touches you, light blooms under your skin. Her fingers trace the line of your jaw, your throat, the hollow between your collarbones, as if she's reading something written there.",
+          "@sylvaine Mortals rush. Always rushing. Let me show you what nine hundred years teaches you about *patience.*",
+          "And she does. She undresses you in the water with maddening slowness, one fastening at a time, and kisses each new inch of skin as it appears. She hums an old elven melody against your shoulder. When you try to hurry her, she laughs softly and catches both your hands.",
+          "@sylvaine No. Feel it. Every moment. I want you to remember every one of them the way I will.",
+          "The silver rings on her skin brighten wherever your mouth finds them. When you press your lips to the darkest ring, the year she lost Aldric, she gasps and arches against you, and the whole pool flares white.",
+          "The glade holds its breath. Her long hair sweeps over you both like a curtain of moonlight. The rest is hushed and luminous, a secret the whole forest keeps...",
+          "...",
+          "Afterward you lie together on the soft moss by the pool, her head on your chest, listening to your heartbeat.",
+          "@sylvaine It's so fast. Like a little bird. I'll memorize it.",
+          "@you Why?",
+          "@sylvaine So that in a thousand years, I'll still know exactly what it sounded like.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake in the glade at dawn, wrapped in a silver-green cloak that wasn't there when you fell asleep. Birds are singing. A deer is drinking from the pool and looking at you with polite interest.",
+          "Sylvaine is sitting cross-legged nearby, floating an inch above the grass, holding a cup of tea and absolutely not looking at you. Her ears are pink to the very tips.",
+          "@sylvaine Good morning. I made tea. I've also been sitting here for an hour trying to decide what nine-hundred-year-old archmages say on mornings like this.",
+          "@sylvaine The last time I had one, the printing press hadn't been invented. I find I'm out of practice.",
+        ],
+        choices: [
+          { text: "\"You could start with 'come back here.'\"", go: "comeback", aff: 6 },
+          { text: "\"How about 'good morning, my love'?\"", go: "love", aff: 6 },
+          { text: "Tease her: \"You're blushing. Archmages blush?\"", go: "blush", aff: 5 },
+        ],
+      },
+      comeback: {
+        text: [
+          "She considers this. She sets down the tea. She drifts over and settles beside you under the cloak, very primly, as though attending a lecture.",
+          "@sylvaine Come back here. ...Hm. Yes. That works rather well.",
+          "Her cool hand finds yours. Then her mouth finds yours. The tea goes cold. The deer leaves, scandalized.",
+        ],
+        end: true,
+      },
+      love: {
+        text: [
+          "She goes very still. Her cup trembles.",
+          "@sylvaine I haven't said those words aloud in seven hundred years.",
+          "@sylvaine ...Good morning, my love.",
+          "She says it carefully, testing it like ice on a pond. Then she says it again, more certain. Then she laughs, bright and astonished, as if she's discovered a spell she'd forgotten she knew.",
+        ],
+        end: true,
+      },
+      blush: {
+        text: [
+          "@sylvaine Archmages do *not* blush. It's — the dawn light. Refraction. A very complicated magical phenomenon you wouldn't understand.",
+          "@you Your ears are pink.",
+          "@sylvaine My ears are *contemplating eternity.*",
+          "She throws a cushion at you with a flick of her finger. It's very accurate. Then she comes and lies down beside you anyway, and spends the morning tracing the shapes of your old scars and asking about every one.",
         ],
         end: true,
       },

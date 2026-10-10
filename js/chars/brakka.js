@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@brakka Brakka was exiled from clan for refusing to marry Chieftain\'s son. He was weak. Cried when Brakka sat on him. Brakka only sat on him a *little.*'],
     ['She\'s gently tending a tiny potted cactus on the arena wall.', '@brakka This is Stabby. Brakka found him in desert. He is strong like orc. Don\'t tell anyone Brakka sings to him.'],
   ],
+  afterTalk: [
+    ["@brakka New bed is ready! Iron frame! Brakka tested it by jumping on it. Very sturdy. Now it needs *real* test. Tonight. Ha!"],
+    ["She lifts you up under the arms like a child, kisses you soundly, and puts you down again.", "@brakka That is how orcs say hello to mate. Get used to it."],
+    ["@brakka Gruk asked why Brakka is smiling during fights. Brakka said, \"Thinking about mate.\" Gruk lost fight because he was laughing. Brakka still won. Good day."],
+    ["@brakka Brakka sang to Stabby last night. Love song. About you. Stabby bloomed. First time ever. Stabby knows."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -280,17 +286,59 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'By the firelight, she is suddenly, adorably shy. She sits on the edge of the furs, fiddling with her braids.',
-          '@brakka Brakka is very strong. Brakka is afraid of... breaking you. You are so small. So soft.',
-          '@you You won\'t break me.',
-          '@brakka ...Promise?',
-          '@you Promise. And if you get too rough, I\'ll tell you.',
-          'She nods very seriously, and then she kisses you, very, very carefully, as if you were made of glass.',
-          'It doesn\'t stay careful for long. She is enormous and warm and wildly enthusiastic, and it is a little like being swept away by a friendly avalanche. She laughs a lot. She checks on you often. At one point the bed breaks, and she simply lifts both of you onto the furs on the floor without missing a beat, and keeps going.',
-          '...',
-          'In the morning, you wake up completely enveloped — draped across her chest like a blanket, one huge arm wrapped around you. She\'s already awake, watching you with a soft, goofy smile.',
-          '@brakka Good morning, mate.',
-          '@brakka Brakka will fix the bed. Brakka will make it stronger. *Much* stronger.',
+          "By the firelight she's suddenly, adorably shy. She sits on the edge of the furs, fiddling with her braids.",
+          "@brakka Brakka is very strong. Brakka is afraid of... breaking you. You are so small. So soft.",
+          "@you You won't break me.",
+          "@brakka ...Promise?",
+          "@you Promise. And if you get too rough, I'll tell you.",
+          "She nods very seriously, unbuckles her armor plate by plate, and sets each piece down with a heavy thunk. Then she kisses you, very, very carefully, as if you were made of glass.",
+          "It doesn't stay careful for long. You run your hands over her shoulders, over the scars of a hundred arena fights, over muscle like warm carved stone. She shudders. Nobody has ever touched her like she was something to be *admired* rather than feared.",
+          "@brakka More. Brakka wants — more of that. Hands. Everywhere.",
+          "She lifts you as if you weigh nothing, lays you down in the furs and looms over you, enormous and warm and grinning with all her tusks. It's a little like being swept away by a very friendly avalanche. She laughs a lot. She checks on you often, gruff and sweet: *good? still good?* At one point the bed breaks. She simply lifts both of you onto the furs on the floor without missing a beat, and keeps going...",
+          "...",
+          "Late in the night, you lie draped across her chest like a blanket, one huge arm wrapped around you, the fire burned down to embers.",
+          "@brakka Tiny human is not so tiny. Tiny human is very... *fierce.*",
+          "She sounds deeply, smugly impressed.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to the sound of hammering. Brakka is outside the hut, shirtless in the morning chill, rebuilding the bed frame out of a tree she has apparently just punched down.",
+          "@brakka MORNING, MATE! Brakka is making stronger bed! Iron-oak! Very sturdy! Will survive *anything!*",
+          "She waves a log at you cheerfully. Then she spots the bruises on your shoulders, the ones shaped exactly like her hands, and her face falls.",
+          "@brakka Oh no. Brakka marked you. Brakka was too strong. Does it hurt? Brakka is sorry. Brakka will be gentler. Brakka will be *so* gentle —",
+        ],
+        choices: [
+          { text: "\"I'm fine. I told you I'd say if it was too much. I didn't say.\"", go: "fine", aff: 6 },
+          { text: "Show her the claw marks *you* left on her back.", go: "marks", aff: 6 },
+          { text: "\"Gentle is overrated. Finish that bed.\"", go: "bed", aff: 5 },
+        ],
+      },
+      fine: {
+        text: [
+          "She stares at you for a long moment. Then she drops the log and scoops you up into a hug that lifts you clean off the ground.",
+          "@brakka You did not say. Because it was GOOD. Ha! Brakka is a GOOD mate!",
+          "She carries you around the clearing announcing this to the birds.",
+        ],
+        end: true,
+      },
+      marks: {
+        text: [
+          "You turn her around. Across her broad green shoulders are long red scratches, quite clearly from your fingernails.",
+          "Brakka cranes her neck to look. Her eyes go wide. Then she starts laughing so hard she has to sit down.",
+          "@brakka TINY HUMAN MARKED BRAKKA! In clan, this is great honor! Brakka will show EVERYONE!",
+          "She does. She wanders around the arena shirtless all afternoon. Several gladiators applaud.",
+        ],
+        end: true,
+      },
+      bed: {
+        text: [
+          "She grins with all her tusks.",
+          "@brakka *Overrated.* Ha! Brakka likes that! Brakka will make bed out of IRON!",
+          "She finishes the bed by noon. It is enormous. It is magnificent. It lasts four days.",
         ],
         end: true,
       },

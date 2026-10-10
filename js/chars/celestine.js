@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@celestine Sometimes I wonder what life would be like if I hadn\'t joined the Temple at sixteen. ...But then I remember how much good I do here. And then I wonder again.'],
     ['@celestine You have kind eyes. Did you know that? The Goddess says the eyes are windows to the soul. Yours are very... open windows. I\'m going to go pray now.'],
   ],
+  afterTalk: [
+    ["@celestine The Abbess asked why I've been taking such long confessions lately. I told her I've been very *thorough* in my sinning. She laughed for ten minutes."],
+    ["She leans close, pretending to bless you.", "@celestine *May the Goddess keep you,*" , "@celestine ...and may you come to my room after vespers. That last bit isn't in the liturgy."],
+    ["@celestine I climbed the cherry tree again today. And I thought about you the whole time. I nearly fell out. Twice. It was worth it."],
+    ["@celestine I've started reading the illustrated scriptures again. For *comparison.* We're doing much better than the illustrations. I've made notes."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -269,14 +275,59 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Her room in the Temple is small and simple: a narrow bed, a window full of stars, a single Blessed Candle burning on the sill. She sits on the edge of the bed and fumbles with the clasps of her robes, then laughs nervously.',
-          '@celestine I don\'t... I\'ve read about it. A lot. In a very scholarly way. But I\'ve never...',
-          '@you We\'ll figure it out together.',
-          'You do. She is shy at first, then wonderfully, hilariously enthusiastic, then overwhelmed in a way that makes her gasp prayers that are definitely not in any hymnal. At one point she whispers *oh, Goddess* and then claps a hand over her mouth, scandalized, and you both collapse in laughter.',
-          'Outside, the Temple bells begin to ring on their own, softly, for no reason anyone will ever explain.',
-          '...',
-          'In the morning, she wakes with her head on your shoulder and sunlight on her face, and she smiles up at you like she\'s just discovered a brand new sacrament.',
-          '@celestine Good morning. I have *so* much to confess.',
+          "Her room in the Temple is small and simple: a narrow bed, a window full of stars, a single Blessed Candle burning on the sill. She sits on the edge of the bed and fumbles with the clasps of her robes, then laughs nervously and gives up.",
+          "@celestine I can't — my hands won't — would you? Please?",
+          "You undo the clasps one by one. Each one seems to take a year. Beneath the stiff white robes is a simple linen shift, and beneath that the soft, warm, freckled skin of a woman who has spent her whole life being told it should never be seen.",
+          "@celestine The illustrated scriptures don't... they don't say what it *feels* like. Being looked at like that.",
+          "@you How does it feel?",
+          "@celestine Like being *blessed.*",
+          "She pulls you down onto the narrow bed. She's shy for exactly one minute, then wonderfully, hilariously enthusiastic, then overwhelmed in a way that makes her gasp prayers that are definitely not in any hymnal. Your mouth travels down her throat, and she grips the sheets and whispers *oh, Goddess*, then claps a hand over her mouth, scandalized. You both collapse into giggles.",
+          "@celestine Don't stop. I'll confess it all tomorrow. *Every* bit of it. In great detail.",
+          "Outside, the Temple bells begin to ring on their own, softly, for no reason anyone will ever explain...",
+          "...",
+          "Much later, she lies in your arms in the narrow bed, hair spilling silver-gold across the pillow, watching the candle burn down.",
+          "@celestine I always thought love was something you gave away. To the poor, the sick, the Goddess. I never knew you could *receive* it like that.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "The dawn bell wakes you. Celestine is already up, kneeling at the little altar under her window in nothing but a sheet, hands clasped, murmuring.",
+          "@celestine — and I'd like to confess to the second time, and the part with the — and the third time, which was my idea, and I'm not sorry, Goddess, I'm *really* not sorry —",
+          "She notices you watching. She turns the color of a sunrise.",
+          "@celestine Good morning! I'm — I'm doing my morning confession. It's taking a little longer than usual.",
+          "@celestine The statue in the chapel was smiling at me this morning. *Grinning,* really. I think she knows.",
+        ],
+        choices: [
+          { text: "\"Want me to confess too? I have plenty to add.\"", go: "confess", aff: 6 },
+          { text: "\"Come back to bed. You can confess this part later.\"", go: "bed", aff: 6 },
+          { text: "\"How do you feel?\"", go: "feel", aff: 5 },
+        ],
+      },
+      confess: {
+        text: [
+          "@celestine You — no! You'll make it worse! You'll add *details!*",
+          "You kneel beside her at the altar and begin, very solemnly: *Forgive me, Goddess, for last night I kissed your High Priestess on the —*",
+          "She tackles you before you can finish. You both end up on the floor, laughing, tangled in the sheet. Somewhere in the Temple, a bell rings once, as if in approval.",
+        ],
+        end: true,
+      },
+      bed: {
+        text: [
+          "She looks at the altar. She looks at you. She looks at the altar again.",
+          "@celestine The Goddess of *Love* would want me to... prioritize. Wouldn't she?",
+          "She's back under the covers before you can answer. The morning prayers start forty minutes late. The Abbess, passing in the corridor, simply sighs and smiles.",
+        ],
+        end: true,
+      },
+      feel: {
+        text: [
+          "She thinks about it seriously, the way she thinks about everything.",
+          "@celestine Like I've been reading about the sea my whole life. And then someone finally took me to the beach.",
+          "@celestine ...And then the sea took me *back to bed* several times.",
+          "She covers her face with her hands, horrified at her own joke. You laugh so hard that the Abbess knocks on the door to ask if everything is all right.",
         ],
         end: true,
       },

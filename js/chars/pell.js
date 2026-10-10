@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@pell People think libraries are quiet. They\'re not. Every book is someone shouting. You just have to... listen in the right way.'],
     ['@pell I... I had a dream about you. N-not a strange dream! A normal dream! We were... alphabetizing. ...It was nice.'],
   ],
+  afterTalk: [
+    ["She hands you a book without a word. There's a bookmark in it, on a page with one line underlined: *She wanted it again. She wanted it every night.* When you look up, she's very pink and very busy shelving."],
+    ["@pell M-my editor read the new chapter. She said it was \"suspiciously well-informed.\" I said I'd been doing a lot of research. She asked who with. I fainted a little."],
+    ["@pell Footnote has started sleeping on your side of the nook. He misses you. I mean — he — *I* — he misses you."],
+    ["@pell The library closes at sundown. And I have a key now. I'm just... telling you. For no reason. Purely informational."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -296,15 +302,63 @@ FL.addCharacter({
       },
       kiss: {
         text: [
-          'She kisses you this time — really kisses you, standing on tiptoe, her glasses bumping your nose, her hands trembling against your chest. She isn\'t hiding behind anything at all.',
-          'You end up in the reading nook among the cushions, by the light of a single candle and the moon through the tall windows. She is shy, and then she is curious, and then — to your delight — she is *astonishingly* well-read on the subject.',
-          '@pell I-I know the theory. Very well. Extensively. Forty-two chapters of theory.',
-          '@you And the practice?',
-          '@pell ...Please be patient with me.',
-          'You are. She is a very quick study. At one point she whispers, breathless, *oh, chapter nine was completely wrong*, and you both dissolve into helpless laughter.',
-          '...',
-          'In the morning the head librarian unlocks the door to find you both asleep in the nook, tangled in cushions, with Footnote the cat sitting on your chest like a judgmental loaf.',
-          'Pell wakes up, sees the head librarian, and pulls a book over her face. The book is upside down. It doesn\'t matter. She\'s smiling behind it.',
+          "She kisses you this time, really kisses you, on tiptoe, her glasses bumping your nose and her hands trembling against your chest. She isn't hiding behind anything at all.",
+          "You end up in the reading nook among the cushions, by the light of a single candle and the moon through the tall windows. She is shy at first: she sets her glasses aside very carefully, then fumbles with the buttons of her cardigan and gets two of them wrong.",
+          "@pell I-I know the theory. Very well. Extensively. Forty-two chapters of theory.",
+          "@you And the practice?",
+          "@pell ...Please be patient with me.",
+          "You are. You undo the buttons for her, one at a time, and kiss each new inch of soft skin. She whimpers so quietly you almost miss it. Then she's curious, then braver, and then, to your delight, she's *astonishingly* well-read. She murmurs things she's clearly only ever written down, and goes scarlet at each one, and says them anyway.",
+          "@pell Chapter six. Th-the part with the — would you — *oh.* Oh, that's much better in person.",
+          "At one point she whispers, breathless, *oh, chapter nine was completely wrong*, and you both dissolve into helpless laughter in the cushions. Then she pulls you back down, and she isn't laughing anymore. She is very, very far from quiet in her quiet library...",
+          "...",
+          "Hours later, she lies with her head on your chest, tracing words on your skin with one fingertip. You realize she's writing.",
+          "@you What are you writing?",
+          "@pell The first line of the next book. Don't read it. *Don't* — you're reading it.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to a click and a creak: the head librarian is unlocking the main door. You and Pell are tangled together in the reading nook, half-dressed under her cardigan, with Footnote the cat asleep on your chest like a judgmental loaf.",
+          "Pell's eyes snap open. She sees the head librarian's shadow at the end of the history aisle, and she makes a sound like a teakettle.",
+          "@pell Oh no. Oh no, oh no. Hide. *Hide.* We have to — my cardigan's inside out — where are my *glasses* —",
+          "The footsteps are getting closer.",
+        ],
+        choices: [
+          { text: "Grab a book, sit up straight, and pretend you're both studying.", go: "study", aff: 5 },
+          { text: "Pull the cushions over both of you and hold very still.", go: "hide", aff: 6 },
+          { text: "Kiss her, slowly. Let the head librarian find what she finds.", go: "caught", aff: 6 },
+        ],
+      },
+      study: {
+        text: [
+          "You snatch up the nearest book and open it. Pell does the same. You are both reading very intently when the head librarian rounds the corner.",
+          "Head librarian: Good morning, Miss Quill. You're in early.",
+          "@pell Y-yes! Research! Very early research!",
+          "The head librarian looks at you. At Pell's inside-out cardigan. At the book you're holding, which is upside down and titled *The Duke's Forbidden Passion.* She sighs.",
+          "Head librarian: Chapter nine is overrated, dear. Carry on.",
+          "Pell doesn't speak for an hour. Then she laughs until she cries.",
+        ],
+        end: true,
+      },
+      hide: {
+        text: [
+          "You pull the cushions over both of you. Pell burrows into your chest, shaking with silent, terrified giggles. The footsteps pause right outside the nook. Footnote yawns loudly. The footsteps move on.",
+          "@pell ...That was the most exciting thing that's ever happened to me in this library.",
+          "@you The most exciting thing?",
+          "@pell The *second* most exciting thing. Please stop smiling like that. I'm going to put it in a book.",
+        ],
+        end: true,
+      },
+      caught: {
+        text: [
+          "You kiss her. She stiffens, then melts. The footsteps stop at the edge of the nook. There's a long silence.",
+          "Head librarian: ...I'll come back after breakfast.",
+          "The footsteps retreat. Pell buries her face in your neck and screams into it, very quietly, for about thirty seconds.",
+          "@pell I'm never going to be able to look her in the eye again.",
+          "@pell ...That was very brave of us, wasn't it? I've never been brave before. I think I like it.",
         ],
         end: true,
       },

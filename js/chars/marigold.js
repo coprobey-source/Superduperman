@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@marigold You were talking to someone yesterday, by the fountain. You laughed. You never laugh like that with me. What did she say? Was it funny? Teach me the joke. ♡'],
     ['@marigold You know what I love about you? Everything. Every single thing. Your face, your voice, your footprints. I traced one. ♡'],
   ],
+  afterTalk: [
+    ["@marigold I made you a bouquet! Every flower means something. This one means \"I miss you.\" This one means \"come to the greenhouse.\" This one means... *you know.* ♡"],
+    ["@marigold I didn't follow you today! Not once! I sat in the shop and thought about last night instead. It was much nicer than following. ♡"],
+    ["She leans close and whispers, cheeks flaming.", "@marigold I've started a new album. It's just for us. It has a lock. Even Mr. Snips isn't allowed to see it. ♡"],
+    ["@marigold The priestess says I should tell you when I'm feeling jealous instead of sharpening things. So: I felt jealous yesterday for one minute. I told you. I didn't sharpen anything! ♡ ...Much."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -271,15 +277,63 @@ FL.addCharacter({
       },
       kiss: {
         text: [
-          'She kisses you like she\'s been planning it for weeks — which, you realize, she absolutely has. Every detail is perfect: the candles, the flowers, the soft blanket laid out between the rose beds, the exact angle she tilts her head.',
-          'But then her hands start trembling, and it stops being planned and becomes something real: shy and eager and overwhelming, whispered confessions against your skin, petals in your hair and hers.',
-          'She is intense in the way only Marigold can be: memorizing every reaction, every sigh, determined to know you more completely than anyone ever has. And somewhere in the candlelight, you stop minding at all.',
-          '...',
-          'Later, you lie together among the roses. She\'s tracing hearts on your chest with a fingertip.',
-          '@marigold I\'m still going to press a flower from tonight. Just one. For the album.',
-          '@you Just one?',
-          '@marigold ...Maybe a few. ♡',
-          'From under his cloth in the corner, Mr. Snips makes a sound suspiciously like a sigh of contentment.',
+          "She kisses you like she's been planning it for weeks, which, you realize, she absolutely has. Every detail is perfect: the candles, the flowers, the soft blanket between the rose beds, the exact angle she tilts her head. She has clearly practiced on a mirror.",
+          "Then her hands start trembling, and it stops being planned and becomes something real.",
+          "@marigold I've thought about this so many times. Every night. I know exactly what I want. Is that scary? You can tell me it's scary.",
+          "@you Tell me anyway.",
+          "So she does, in a breathless whisper against your ear, and it is extremely specific and not at all scary. She unbuttons your shirt one button at a time, kissing each new inch of skin as if she's pressing it into her album. Her white dress slips from her shoulders and pools among the petals. Petals stick to your skin and hers.",
+          "She's intense in the way only Marigold can be. She watches your face constantly, memorizing every reaction, and repeats anything that makes you gasp until you're begging. She keeps whispering your name like a promise. Every so often she grips your shoulders tightly and says *mine*, so fiercely it should be frightening. It isn't. Not tonight.",
+          "@marigold Look at me. Only me. Nobody else in the whole world. ♡",
+          "@you Only you.",
+          "In the candlelight, among the roses, you stop minding at all...",
+          "...",
+          "Later, you lie together among the petals. She's tracing hearts on your chest with a fingertip.",
+          "@marigold I'm still going to press a flower from tonight. Just one. For the album.",
+          "@you Just one?",
+          "@marigold ...Maybe a few. ♡",
+          "From under his cloth in the corner, Mr. Snips makes a sound suspiciously like a contented sigh.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake in the greenhouse to sunlight through glass and the smell of roses. Marigold is sitting beside you, fully dressed, chin on her knees, watching you. You get the feeling she's been doing it for some time.",
+          "@marigold Good morning! You sleep on your left side, you sigh twice before you wake up, and you said \"five more minutes\" to a rose. It was adorable. I wrote it down. ♡",
+          "She holds up her album. There's a new page, with a single red rose pressed flat. The tag reads: *Day 1. Forever.*",
+          "Then she bites her lip.",
+          "@marigold I didn't follow you home last night, because you didn't *go* home. So that counts as not following. Right? I've been really good. Am I being good?",
+        ],
+        choices: [
+          { text: "\"You're being wonderful. Come back down here.\"", go: "wonderful", aff: 6 },
+          { text: "Gently: \"You're doing great. Now let me watch *you* for a while.\"", go: "watch", aff: 6 },
+          { text: "\"Five more minutes?\" (to her, this time)", go: "five", aff: 5 },
+        ],
+      },
+      wonderful: {
+        text: [
+          "She curls up against you with a happy little noise, like a kettle reaching a very satisfying boil.",
+          "@marigold Wonderful. I'm *wonderful.* Nobody has ever called me wonderful. I'm putting it on a tag.",
+          "She does. It's very small, very neat, and pinned to the inside of your collar. You find it three days later and don't take it out.",
+        ],
+        end: true,
+      },
+      watch: {
+        text: [
+          "She blinks. Nobody has ever wanted to watch *her.* She goes pink and fidgets and doesn't know where to put her hands.",
+          "@marigold That's — oh. Is this what it feels like? It's very — I feel very — *seen.* Is that why you get flustered when I do it?",
+          "@you Exactly why.",
+          "@marigold ...Oh. I'll try to do it less. Maybe. A *little* less. ♡",
+          "It's the most self-aware thing you've ever heard her say. You kiss her for it. She presses that, too.",
+        ],
+        end: true,
+      },
+      five: {
+        text: [
+          "She giggles and wriggles back down under the blanket with you.",
+          "@marigold Five minutes. I'll count. I'm an *excellent* counter.",
+          "It's considerably more than five minutes. She counts out loud the entire time and loses track on purpose somewhere around three hundred.",
         ],
         end: true,
       },

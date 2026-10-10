@@ -7,6 +7,10 @@
   const SAVE_PREFIX = 'hgf_save_';
   const ENDINGS_KEY = 'hgf_endings';
   const AGE_KEY = 'hgf_age_ok';
+  const MEMORY_KEY = 'hgf_memories';
+  const MUSIC_KEY = 'hgf_music';
+  const MEMORY_SCENES = ['intro', 's1', 's2', 's3', 'morning'];
+  const MEMORY_LABELS = { intro: 'First Meeting', s1: 'Scene I', s2: 'Scene II', s3: 'Scene III', morning: 'Morning After' };
 
   const ui = {
     s: null,         // game state
@@ -32,6 +36,66 @@
     const list = unlockedEndings();
     if (list.indexOf(id) < 0) { list.push(id); store(ENDINGS_KEY, JSON.stringify(list)); }
   }
+  function memories() {
+    try { return JSON.parse(store(MEMORY_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function rememberScene(id, scene) {
+    const list = memories();
+    const key = id + '.' + scene;
+    if (list.indexOf(key) < 0) { list.push(key); store(MEMORY_KEY, JSON.stringify(list)); }
+  }
+
+  /* ------------------------------------------------------------------ music */
+  function musicOn() { return store(MUSIC_KEY) === 'on'; }
+  function music(theme) {
+    if (FL.music) FL.music.setTheme(theme);
+  }
+  function sceneTheme(run) {
+    if (run.id === 'festival' || run.kind === 'ending') return 'festival';
+    if (run.char && (run.id === 's1' || run.id === 's2' || run.id === 's3' || run.id === 'morning')) return 'romance';
+    if (run.id === 'prologue') return 'title';
+    if (run.id === 'demon_attack' || run.id === 'marigold_jealous') return 'tension';
+    if (run.id === 'masquerade') return 'romance';
+    const loc = ui.s && FL.locations[ui.s.loc];
+    return (loc && loc.music) || 'town';
+  }
+  function toggleMusic() {
+    const on = !musicOn();
+    store(MUSIC_KEY, on ? 'on' : 'off');
+    if (FL.music) { if (on) FL.music.start(); else FL.music.stop(); }
+    updateMusicButtons();
+  }
+  function updateMusicButtons() {
+    const on = musicOn();
+    document.querySelectorAll('.music-toggle').forEach(function (b) {
+      b.innerHTML = on ? '🎵<span> Music on</span>' : '🔇<span> Music off</span>';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  /* ------------------------------------------------------------------ memories (scene replay) */
+  function replayScene(id, scene) {
+    closeModal();
+    ui.replay = { saved: ui.s, savedRun: ui.run };
+    const s = FL.newState({ name: store('hgf_lastname') || 'Traveler', stats: { might: 10, wits: 10, charm: 10 } });
+    s.flags.demon_attack = true; s.flags.goddess_awake = true;
+    s.chars[id].stage = FL.SCENE_FOR_STAGE.indexOf(scene) >= 0 ? FL.SCENE_FOR_STAGE.indexOf(scene) : 4;
+    s.chars[id].aff = 90;
+    ui.s = s;
+    ui.run = FL.startScene(s, { char: id, id: scene }, scene === 'morning' ? 'event' : 'romance');
+    ui.lastChoice = null;
+    renderScene();
+  }
+  function finishReplay() {
+    const r = ui.replay;
+    ui.replay = null;
+    ui.s = r.saved; ui.run = r.savedRun;
+    if (ui.run) renderScene();
+    else if (ui.s) renderHub();
+    else titleScreen();
+    memoriesModal();
+  }
+
   function saveTo(slot) {
     const data = { when: Date.now(), state: ui.s };
     store(SAVE_PREFIX + slot, JSON.stringify(data));
@@ -72,6 +136,12 @@
     }
     return '<span class="hearts" title="' + aff + '/100">' + out + '</span>';
   }
+  function avatar(id, big) {
+    const c = FL.characters[id];
+    const cls = 'avatar' + (big ? ' big' : '');
+    if (FL.portrait) return '<span class="' + cls + ' pic">' + FL.portrait(id) + '</span>';
+    return '<span class="' + cls + '">' + esc(c.short.charAt(0)) + '</span>';
+  }
   function btn(label, onClick, opts) {
     opts = opts || {};
     const b = document.createElement('button');
@@ -104,7 +174,7 @@
   function renderHud() {
     const hud = $('#hud');
     const s = ui.s;
-    if (!s) { hud.hidden = true; return; }
+    if (!s || ui.replay) { hud.hidden = true; return; }
     hud.hidden = false;
     const left = FL.CONFIG.maxDay - s.day;
     $('#hud-time').innerHTML = '<b>Day ' + s.day + '</b>/' + FL.CONFIG.maxDay + ' · ' + FL.timeName(s) +
@@ -141,11 +211,15 @@
     menu.appendChild(btn('Load Game', function () { saveModal(false); }));
     const got = unlockedEndings().length;
     menu.appendChild(btn('Endings Gallery (' + got + '/' + FL.endingOrder.length + ')', galleryModal));
+    menu.appendChild(btn('Memories (' + memories().length + ')', memoriesModal));
     menu.appendChild(btn('How to Play', helpModal));
+    menu.appendChild(btn('', toggleMusic, { cls: 'music-toggle' }));
     box.appendChild(menu);
     box.appendChild(el('p', 'fine', FL.charOrder.length + ' romanceable heroines · ' + FL.endingOrder.length +
       ' endings · 30 days until Starfall'));
     setMain(box);
+    updateMusicButtons();
+    music('title');
   }
 
   function newGameScreen(ngplus) {
@@ -229,6 +303,7 @@
     renderHud();
     const loc = FL.locations[s.loc];
     const box = el('div', 'hub');
+    music(loc.music || 'town');
 
     const head = el('div', 'loc-head');
     head.innerHTML = '<div class="loc-icon">' + loc.icon + '</div><div><h2>' + esc(loc.name) + '</h2>' +
@@ -284,7 +359,7 @@
       const n = open ? FL.charsAt(s, id).filter(function (c) { return s.chars[c].stage > 0; }).length : 0;
       const b = btn('<span class="ti">' + l.icon + '</span>' + esc(l.name) +
         (n ? ' <span class="badge">' + n + '</span>' : '') + (open ? '' : '<span class="closed">closed</span>'),
-        function () { s.loc = id; ui.sel = null; ui.log = []; renderHub(); },
+        function () { s.loc = id; ui.sel = null; ui.log = []; afterAction(); },
         { disabled: !open || id === s.loc, cls: id === s.loc ? 'here' : '' });
       grid.appendChild(b);
     });
@@ -312,7 +387,7 @@
       return card;
     }
     const rs = FL.romanceStatus(s, id);
-    card.innerHTML = '<div class="card-head"><div class="avatar">' + esc(c.short.charAt(0)) + '</div><div><b>' + esc(c.name) +
+    card.innerHTML = '<div class="card-head">' + avatar(id) + '<div><b>' + esc(c.name) +
       '</b> <span class="trope">' + esc(c.trope) + '</span><div>' + heartBar(st.aff) +
       ' <span class="muted">' + FL.STAGE_NAMES[st.stage] + '</span>' +
       (rs.ok ? ' <span class="ready">★ Romance ready</span>' : '') +
@@ -350,12 +425,13 @@
     renderHud();
     const node = FL.currentNode(run);
     const box = el('div', 'scene');
+    music(sceneTheme(run));
     if (run.char) {
       const c = FL.characters[run.char];
-      const label = { intro: 'First Meeting', s1: 'Romance Scene I', s2: 'Romance Scene II', s3: 'Romance Scene III', ending: 'Ending' }[run.id] || '';
+      const label = { intro: 'First Meeting', s1: 'Romance Scene I', s2: 'Romance Scene II', s3: 'Romance Scene III', morning: 'The Morning After', ending: 'Ending' }[run.id] || (run.kind === 'event' ? 'Chance Encounter' : '');
       const head = el('div', 'scene-head');
       head.style.setProperty('--c', c.color);
-      head.innerHTML = '<span class="avatar">' + esc(c.short.charAt(0)) + '</span><div><b>' + esc(c.name) + '</b> · <span class="trope">' +
+      head.innerHTML = avatar(run.char, true) + '<div><b>' + esc(c.name) + '</b> · <span class="trope">' +
         esc(c.trope) + '</span><div class="muted">' + label + '</div></div>';
       box.appendChild(head);
     }
@@ -410,7 +486,9 @@
     ui.lastChoice = ch.text === 'Continue' || /^Begin/.test(ch.text) ? null : ch.text;
     const r = FL.choose(s, run, ch);
     if (r === 'blocked') return;
+    if (r === 'end' && ui.replay) { finishReplay(); return; }
     if (r === 'end') {
+      if (run.char && MEMORY_SCENES.indexOf(run.id) >= 0) rememberScene(run.char, run.id);
       FL.finishScene(s, run);
       const wasChar = run.char;
       const kind = run.kind;
@@ -556,6 +634,27 @@
     openModal('Endings Gallery', html);
   }
 
+  function memoriesModal() {
+    const got = memories();
+    const wrap = el('div', 'memories');
+    wrap.appendChild(el('p', 'muted', 'Replay any scene you\'ve already seen. Replays don\'t change your saved game. ' +
+      got.length + ' memories unlocked.'));
+    FL.charOrder.forEach(function (id) {
+      const c = FL.characters[id];
+      const seen = MEMORY_SCENES.filter(function (sc) { return c.scenes[sc] && got.indexOf(id + '.' + sc) >= 0; });
+      if (!seen.length) return;
+      const row = el('div', 'mem-row');
+      row.style.setProperty('--c', c.color);
+      row.innerHTML = avatar(id) + '<div class="mem-body"><b>' + esc(c.name) + '</b> <span class="trope">' + esc(c.trope) + '</span></div>';
+      const btns = el('div', 'btns');
+      seen.forEach(function (sc) { btns.appendChild(btn(MEMORY_LABELS[sc], function () { replayScene(id, sc); })); });
+      row.querySelector('.mem-body').appendChild(btns);
+      wrap.appendChild(row);
+    });
+    if (!got.length) wrap.appendChild(el('p', null, 'No memories yet. Every romance scene you finish is saved here.'));
+    openModal('Memories', wrap);
+  }
+
   function helpModal() {
     openModal('How to Play', [
       '<p>You have <b>30 days</b> until the Starfall Festival. Each day has a <b>Morning</b>, <b>Afternoon</b> and <b>Evening</b>.</p>',
@@ -566,6 +665,9 @@
       '<p><b>Gold:</b> Take quests at the Guild, work shifts, unload cargo. Buy gifts on Market Street. Everyone has a gift they love — and one they hate. Giving the same gift again and again gets less effective, so mix it up.</p>',
       '<p>See all three romance scenes with a heroine to make her <b>Devoted</b>. At the Starfall Festival on Day 30, choose who to watch the stars with to see her ending. Win over five or more and you can try for... a different kind of ending.</p>',
       '<p>Some heroines only appear after certain events, or only at night. Check the Journal (📖) to see where everyone can be found.</p>',
+      '<p>After your third romance scene with a heroine, look for her the next morning, and talk to her afterwards. She\'ll have things to say.</p>',
+      '<p>Heroines know each other. Visit the places they hang out and you may stumble into one of their run-ins.</p>',
+      '<p><b>Memories</b> (on the title screen and in the menu) lets you replay any romance scene you\'ve seen. Music can be switched on from the title screen or the 🎵 button.</p>',
       '<p>Keyboard: press <b>1–9</b> to pick choices in scenes.</p>',
     ].join(''));
   }
@@ -586,11 +688,24 @@
     $('#btn-journal').addEventListener('click', function () { if (ui.s) journalModal(); });
     $('#btn-inv').addEventListener('click', function () { if (ui.s) inventoryModal(); });
     $('#btn-save').addEventListener('click', function () { if (ui.s && !ui.run) saveModal(true); });
+    $('#btn-music').addEventListener('click', toggleMusic);
+    // Browsers only allow sound after the first interaction.
+    document.addEventListener('pointerdown', function first() {
+      document.removeEventListener('pointerdown', first);
+      if (musicOn() && FL.music) FL.music.start();
+    });
     $('#btn-menu').addEventListener('click', function () {
       if (!ui.s) return;
       const wrap = el('div', 'btns col');
       wrap.appendChild(btn('How to Play', helpModal));
       wrap.appendChild(btn('Endings Gallery', galleryModal));
+      wrap.appendChild(btn('Memories', memoriesModal));
+      if (FL.music) {
+        const vol = el('label', 'vol', 'Music volume <input id="music-vol" type="range" min="0" max="100" value="' +
+          Math.round(FL.music.getVolume() * 100) + '">');
+        vol.querySelector('input').addEventListener('input', function (e) { FL.music.setVolume(e.target.value / 100); });
+        wrap.appendChild(vol);
+      }
       wrap.appendChild(btn('Quit to Title (unsaved progress since the last autosave is lost)', function () { closeModal(); titleScreen(); }));
       openModal('Menu', wrap);
     });
@@ -604,6 +719,7 @@
         if (b && !b.disabled) b.click();
       }
     });
+    updateMusicButtons();
     ageGate(titleScreen);
   }
 

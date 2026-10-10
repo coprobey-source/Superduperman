@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@ignivara Other dragons think I\'m vain. I am not vain. I am *accurately aware of my magnificence.* There\'s a difference.'],
     ['@ignivara Do you know why dragons hoard? Because everything else leaves. Gold doesn\'t. Gold stays exactly where you put it.'],
   ],
+  afterTalk: [
+    ["@ignivara I've started a new pile in the hoard. It's just things you've touched. A cup. A boot. A hair from your pillow. It is the most valuable pile. Do not tell the other dragons."],
+    ["She sniffs your neck, very pointedly.", "@ignivara You smell like smoke. *My* smoke. Good. Let everyone in town know whose treasure you are."],
+    ["@ignivara I counted my coins this morning. I got to forty-one thousand and then I started thinking about you and lost count. I had to start *over.* Three times."],
+    ["@ignivara I've cleared a new space in the nest. Bigger. More silks. Further from the gold.", "A small, smug curl of smoke.", "@ignivara Fewer melting incidents."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -272,13 +278,60 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'She kisses you with heat — real heat, her mouth almost too warm, smoke curling from her lips. Her scales are smooth and warm as sunlit stone under your hands. She makes a sound like a purr and a growl at once.',
-          'She is possessive and passionate and wildly proud, and she *will not* stop telling you how beautiful you are, how precious, how much finer than any gem. The candles flare every time she sighs. At one point the gold around you actually begins to melt, just a little, and you both have to pause, laughing, to move further from the edge.',
-          '...',
-          'Later, you lie in the warm nest, her tail wrapped around you twice, her head on your chest.',
-          '@ignivara Forty-one thousand, six hundred and eight gold coins.',
-          '@ignivara And one {name}.',
-          '@ignivara The {name} is worth more. I counted.',
+          "She kisses you with heat. Real heat: her mouth almost too warm, smoke curling from her lips, a low draconic rumble rolling through her chest and into yours. Her scales are smooth and warm as sunlit stone under your hands.",
+          "@ignivara Off. All of it. I want to *see* my treasure.",
+          "She doesn't wait for you to comply. She burns the laces of your shirt clean through with one fingertip, neatly, without singeing your skin. Then she pushes you back into the silks and coins and simply *looks* at you for a long, hungry moment, the way she looks at a perfect gemstone.",
+          "@ignivara Mine. Every inch. I'm going to count them all.",
+          "She does count them, out loud, with her mouth, starting at your throat and taking her time. She's possessive and passionate and wildly proud, and she *will not* stop telling you how beautiful you are, how precious, how much finer than any jewel in her hoard. Her tail coils around your leg and squeezes every time you gasp.",
+          "When you roll her over and trace the line of scales down her spine, she arches like a cat and lets out a startled roar that shakes coins loose from the cave ceiling.",
+          "@ignivara *There* — again — oh, you wicked little thief, you've found where I'm *vulnerable* —",
+          "The candles flare every time she sighs. At one point the gold around you actually begins to melt. You both have to pause, laughing, and shift away from the glowing edge before you go on...",
+          "...",
+          "Later, you lie in the warm nest, her tail wrapped around you twice, her head on your chest.",
+          "@ignivara Forty-one thousand, six hundred and eight gold coins.",
+          "@ignivara And one {name}.",
+          "@ignivara The {name} is worth more. I counted.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake up warm, very warm, with something heavy draped over you. It's Ignivara's tail. And her arm. And, you realize, a scattering of gold coins she has carefully arranged on your chest in a heart shape while you slept.",
+          "@ignivara Don't move. You'll ruin it. I spent an hour on that.",
+          "She is lying beside you, chin propped on her hand, looking smug and drowsy and rumpled. A small curl of smoke rises from her nostrils with each breath. Some of the gold near the nest's edge has cooled into a single lumpy puddle.",
+          "@ignivara I melted part of my hoard last night. Two hundred coins. I've *never* lost coins before. I should be furious.",
+          "@ignivara I'm not. Isn't that strange?",
+        ],
+        choices: [
+          { text: "\"I'll make you a new treasure from the melted gold.\"", go: "ring", aff: 6 },
+          { text: "\"Was it worth two hundred coins?\"", go: "worth", aff: 5 },
+          { text: "Move. Ruin the heart. Kiss her.", go: "ruin", aff: 6 },
+        ],
+      },
+      ring: {
+        text: [
+          "Her pupils go wide and round.",
+          "@ignivara From — from *our* gold? From last night's gold?",
+          "You take a lump of the cooled metal to Hilde's forge that afternoon and come back with a rough little ring. It's lopsided. It's beautiful.",
+          "Ignivara puts it on her finger, holds it up to the light, and doesn't speak for a full minute. Then she puts it in the very center of her hoard, on the highest pile, where the sunlight hits it first every morning.",
+        ],
+        end: true,
+      },
+      worth: {
+        text: [
+          "She considers the question with enormous seriousness, the way a merchant appraises a jewel.",
+          "@ignivara Two hundred coins... I've traded entire kingdoms for less.",
+          "@ignivara It was worth four hundred. At *least.* Possibly a thousand. We should do an appraisal again tonight. To be thorough.",
+        ],
+        end: true,
+      },
+      ruin: {
+        text: [
+          "You sit up. The coins slide everywhere. She lets out a scandalized hiss.",
+          "@ignivara My *heart!* You — that was a *masterpiece* —",
+          "You kiss her. She stops complaining. A few minutes later, more gold begins to melt.",
         ],
         end: true,
       },

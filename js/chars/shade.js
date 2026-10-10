@@ -24,6 +24,12 @@ FL.addCharacter({
     ['@shade Small talk. You enjoy it. I am attempting it. ...The weather is weather today. Correct?'],
     ['@shade I counted the exits in the tavern you visited last night. Nine. You sat with your back to all of them. Please stop doing that. It is distressing to watch.'],
   ],
+  afterTalk: [
+    ["A honey cake appears in your pocket. You didn't see her. You never see her.", "A note is pinned to it: *For later. Also: the attic. Tonight. — S.*"],
+    ["@shade I attempted to purchase a dress today. The shopkeeper asked what it was for. I said, \"Reconnaissance.\" ...I bought three."],
+    ["She drops from a rooftop and lands beside you, closer than strictly necessary.", "@shade Status report: I have been thinking about you at a rate of approximately once every forty seconds. This is a severe operational concern."],
+    ["@shade I know the location of every exit in this town. I have recently discovered that I do not want to use any of them. That is new."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -293,16 +299,67 @@ FL.addCharacter({
       },
       night: {
         text: [
-          'Her safehouse is a tiny attic room hidden behind a false wall. It has a bed, a weapons rack, and a jar of honey cakes. She locks the door, then hesitates, then unlocks it, then locks it again.',
-          '@shade I am... nervous. I have never been nervous before. I have walked into a room of twenty armed men without being nervous.',
-          '@you We can go as slow as you want.',
-          '@shade ...Slow. Yes. Slow is good.',
-          'You go slow. She is curious and intent and utterly focused, cataloguing every touch, every reaction, as if she means to memorize the whole of you. And then, somewhere in the dark, she stops cataloguing — and simply *feels*, for maybe the first time in her life.',
-          '...',
-          'In the small hours of the morning, she lies with her head on your chest, her back to the door.',
-          'You feel something shake against you, and for a moment you think she\'s crying.',
-          'She\'s laughing. Softly. Helplessly. Like she\'s just discovered how.',
-          '@shade Number four. Complete.',
+          "Her safehouse is a tiny attic room hidden behind a false wall. It has a bed, a weapons rack and a jar of honey cakes. She locks the door, hesitates, unlocks it, then locks it again.",
+          "@shade I am... nervous. I have never been nervous before. I have walked into a room of twenty armed men without being nervous.",
+          "@you We can go as slow as you want.",
+          "@shade ...Slow. Yes. Slow is good.",
+          "She approaches it the only way she knows how: like a mission. She disarms first. Two knives from her sleeves, one from her boot, one from her hair, one from somewhere you genuinely didn't see. Each one goes on the rack with a click. Then she starts on your buttons with steady fingers and total focus.",
+          "@shade Report each sensation. I need data.",
+          "You report. She listens with total concentration and adjusts accordingly, and she's devastatingly effective. She finds every sensitive point the way she'd find the gaps in a suit of armor. She marks each one with her mouth and files it away. She has, it turns out, studied anatomy *very* thoroughly.",
+          "Then you turn the tables. You slide your hands under her leathers and trace the scars along her ribs, slowly, one by one. The steady breathing she has trained for nine years finally breaks.",
+          "@shade That — that is not — I cannot catalogue this — *{name}* —",
+          "She stops cataloguing. She simply *feels*, maybe for the first time in her life. She's not silent at all...",
+          "...",
+          "In the small hours of the morning she lies with her head on your chest and her back to the door.",
+          "You feel her shaking against you, and for a moment you think she's crying.",
+          "She's laughing, softly and helplessly, as if she's just discovered how.",
+          "@shade Number four. Complete.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake up because someone is watching you. It's the same prickle on the back of your neck you felt the day you met her.",
+          "Shade is sitting on the windowsill in one of your shirts, knees drawn up, a honey cake in each hand. She is not wearing her mask. The early light makes her look very young and very soft.",
+          "@shade Report: you slept seven hours and twelve minutes. You stole the blanket four times. I allowed it.",
+          "@shade Additional report: I slept. Actually slept. Facing away from the door. For the first time in nine years.",
+          "She stares at the honey cake.",
+          "@shade I do not know what to do with this information. Or with my face. It keeps doing this.",
+          "She's smiling. She can't seem to stop.",
+        ],
+        choices: [
+          { text: "\"Keep doing it. It looks good on you.\"", go: "smile", aff: 6 },
+          { text: "\"Come back to bed. I'll keep watch this time.\"", go: "watch", aff: 6 },
+          { text: "Steal one of her honey cakes.", go: "steal", aff: 5 },
+        ],
+      },
+      smile: {
+        text: [
+          "@shade ...Acknowledged.",
+          "She tries to make her face stern. She fails completely. She pulls your shirt up over her nose instead, so only her eyes show, and they're crinkled at the corners.",
+          "@shade This is worse than the mask. I can't hide anything in this.",
+        ],
+        end: true,
+      },
+      watch: {
+        text: [
+          "She considers the offer with total seriousness. Then she crosses the room and slides back under the blanket beside you, her back against your chest. She takes your arm and places it over her waist, precisely, like adjusting a strap.",
+          "@shade You will wake me if anything moves.",
+          "@you Promise.",
+          "@shade ...I trust you. That is also new.",
+          "She's asleep in under a minute. You keep watch, and absolutely nothing moves, and it's one of the best hours of your life.",
+        ],
+        end: true,
+      },
+      steal: {
+        text: [
+          "You reach across and take one of her honey cakes. She doesn't stop you.",
+          "There's a long pause.",
+          "@shade I let you do that. Do you understand the significance? I have killed men for less. Well. Not killed. Very seriously inconvenienced.",
+          "Then she leans down and kisses the honey off your lips, very thoroughly.",
+          "@shade Retrieval complete.",
         ],
         end: true,
       },

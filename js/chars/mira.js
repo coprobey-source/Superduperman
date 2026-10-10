@@ -25,6 +25,12 @@ FL.addCharacter({
     ['@mira My twin-tails? They are a *professional hairstyle*, thank you very much. They are aerodynamic. ...What do you mean they\'re cute?! They are NOT cute! Go away!'],
     ['@mira I heard you took down a whole pack of goblins yesterday. ...Not bad. For a rookie. Don\'t let it go to your head!'],
   ],
+  afterTalk: [
+    ["@mira You're back. Good. I mean — your file needed updating. I updated it. Under \"distinguishing features\" I wrote — never mind what I wrote. It's classified."],
+    ["She slides a lunchbox across the desk without looking at you. Inside, the sausages are shaped like hearts.", "@mira THE KNIFE SLIPPED. Several times. In a pattern."],
+    ["@mira The other receptionists keep asking why I'm *humming.* I'm not humming. I've never hummed in my life.", "She is, in fact, humming."],
+    ["@mira My apartment door will be unlocked tonight. For administrative reasons.", "She stamps a form so hard the desk shakes.", "@mira *Don't be late.*"],
+  ],
   scenes: {
     intro: {
       start: {
@@ -306,16 +312,66 @@ FL.addCharacter({
       },
       upstairs: {
         text: [
-          'When you finally come up for air, her spectacles are crooked and her twin-tails are a mess.',
-          '@mira My — my apartment is upstairs. Above the Guild. I have bandages. For your arm. *Medical* reasons.',
-          '@you Medical reasons.',
-          '@mira Shut up and come upstairs.',
-          'She does bandage your arm, very carefully. And then she sits in your lap and takes off her spectacles and, for the first time since you\'ve known her, says exactly what she wants in a small, clear voice, without yelling at all.',
-          'It turns out that Mira Hartwell, Senior Registrar, is extremely thorough in every aspect of her life.',
-          '...',
-          'In the morning, you wake to find her already dressed for work, sitting on the edge of the bed, holding a form.',
-          '@mira This is a Relationship Disclosure Form. Section 4, Paragraph 9 of the Guild Code. Staff must disclose relationships with registered adventurers.',
-          'She\'s already filled it out. In the box marked "Nature of Relationship," she has written, very small: *I love them.*',
+          "When you finally come up for air, her spectacles are crooked and her twin-tails are a mess.",
+          "@mira My — my apartment is upstairs. Above the Guild. I have bandages. For your arm. *Medical* reasons.",
+          "@you Medical reasons.",
+          "@mira Shut up and come upstairs.",
+          "She does bandage your arm, very carefully, glaring the whole time as if the wound personally offends her. Then she ties off the bandage, stays kneeling between your knees on the rug, and looks up at you. Her face is flushed and furious and frightened all at once.",
+          "@mira I'm going to say something. And you're not going to laugh. Or tease me. Or say *anything* until I'm done.",
+          "She takes off her spectacles. She pulls the ribbons out of her twin-tails, and her orange hair tumbles loose. You've never seen it down. Then, in a small, clear voice, without yelling at all, she tells you exactly what she wants. She's specific. She's *organized.* She clearly made a list.",
+          "@mira — and then — and *then* — oh gods, stop *looking* at me like that, I'm going to die —",
+          "You stop her the only way that works. She makes a strangled little sound against your mouth, climbs into your lap, and starts undoing your buttons with the brisk efficiency of someone who has processed ten thousand forms. She gets impatient with the last three and just pulls.",
+          "@mira Don't. Say. *Anything.*",
+          "It turns out that Mira Hartwell, Senior Registrar, is extremely thorough in every aspect of her life. She works through the entire list, checking things off in breathless little gasps. Then she throws the list away entirely...",
+          "...",
+          "Some time later, she lies sprawled across your chest in her tiny bed, hair everywhere, still flushed.",
+          "@mira That was... adequate. Highly adequate. I'm giving it a passing grade.",
+          "@you Just passing?",
+          "@mira *Shut up.* It's the highest grade I've ever given anyone.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to the sound of furious scribbling. Mira is sitting on the edge of the bed in her uniform, hair already pinned back into perfect twin-tails, writing on a form.",
+          "@mira Don't move. I'm filing a Relationship Disclosure Form. Section 4, Paragraph 9 of the Guild Code. Staff must disclose relationships with registered adventurers.",
+          "She shows you. She's filled out every box in her neat, tiny handwriting. In the box marked *Nature of Relationship*, she has written, very small: *I love them.*",
+          "Then she sees you reading it and goes red to the roots of her hair.",
+          "@mira THAT'S AN OFFICIAL DOCUMENT. You're not supposed to READ it. — Also, your breakfast is on the table. I made too much. By accident.",
+          "There are octopus sausages. There are a great many octopus sausages.",
+        ],
+        choices: [
+          { text: "Sign the form as witness, right under her line.", go: "sign", aff: 6 },
+          { text: "\"You love me?\" (Make her say it out loud.)", go: "say", aff: 5 },
+          { text: "Pull her back into bed. She has ten minutes before her shift.", go: "late", aff: 6 },
+        ],
+      },
+      sign: {
+        text: [
+          "You take the quill and sign under her line: *Witnessed. Mutual. — {name}.*",
+          "She stares at it for a long time. Then she presses the form flat against her chest with both hands.",
+          "@mira ...That's not how witnessing works. You can't witness your own feelings.",
+          "@you File it anyway.",
+          "@mira I'm going to. I'm going to give it the best stamp I've ever stamped.",
+        ],
+        end: true,
+      },
+      say: {
+        text: [
+          "@mira I — it says it right *there* — I don't have to —",
+          "@you Say it.",
+          "@mira ...I love you. There. Happy? I love you, you reckless, idiotic, *wonderful* — I'm going to be late. You've made me late. I've never been late in nine years.",
+          "She kisses you hard and storms out. She comes back ten seconds later for her stamp. She kisses you again. She leaves.",
+        ],
+        end: true,
+      },
+      late: {
+        text: [
+          "@mira No. No, absolutely not, I have a nine o'clock with the Mages' Guild liaison, I have forty forms, I have —",
+          "She's back under the covers in about four seconds.",
+          "She's forty minutes late to her shift. When the Guildmaster asks why, she tells him, with a perfectly straight face, that she was conducting a field audit. He decides not to ask.",
         ],
         end: true,
       },

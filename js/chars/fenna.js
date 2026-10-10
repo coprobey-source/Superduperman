@@ -25,6 +25,12 @@ FL.addCharacter({
     ['@fenna When the moon is full, Fenna gets... more. More teeth. More hungry. More *feelings*. It is very annoying.'],
     ['@fenna Fenna practiced the human thing. The "hello." *Hel-lo.* Good? Fenna did not bite the shopkeeper this time. Progress.'],
   ],
+  afterTalk: [
+    ["Fenna presses her nose to your neck the moment you arrive and breathes in, eyes closed.", "@fenna Still smells like Fenna. Good. The mark is fading, though. We will have to fix that."],
+    ["@fenna Fenna told the butcher about you. Fenna said, *that one is my mate.* He gave Fenna a free bone. Humans are strange about mates but nice about bones."],
+    ["She bumps her hip against yours, hard, and nearly knocks you over.", "@fenna That is wolf for \"come to the den tonight.\" Fenna is teaching you wolf. You are a slow learner. Fenna likes repeating lessons."],
+    ["@fenna Fenna keeps dreaming about you. Not the running dreams. The *other* dreams. Fenna wakes up and bites the pillow."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -323,34 +329,84 @@ FL.addCharacter({
       },
       kiss: {
         text: [
-          'Then she kisses you — hungry, clumsy, a little too much teeth, like she\'s only ever read about kissing in a book and decided to go for it anyway. She tastes like rain and wild honey.',
-          'You kiss her back, and she makes a low, rumbling sound against your mouth that you feel all the way down to your toes.',
-          'She pulls back just long enough to look into your eyes, panting.',
-          '@fenna Wolves choose once. Only once. Forever. Fenna chooses you. Fenna chose you a long time ago, at the first sniff.',
-          '@fenna Do you — choose Fenna back?',
+          "Then she kisses you. It's hungry and clumsy, with a little too much teeth, like she's only ever read about kissing and decided to go for it anyway. She tastes like rain and wild honey.",
+          "You kiss her back, and a low rumble starts in her chest. You feel it in your own ribs, all the way down to your toes. Her hands fist in your shirt, then slide under it, claws held back with what's clearly enormous effort. She's running hot, as if the moon itself is burning her up from the inside.",
+          "She breaks off to bury her nose in the curve of your neck and breathes you in, long and deep, and her whole body shivers against yours.",
+          "@fenna Smell changed. You smell like *wanting.* Like Fenna smells.",
+          "She pulls back just far enough to look you in the eye. Her pupils are huge and gold.",
+          "@fenna Wolves choose once. Only once. Forever. Fenna chooses you. Fenna chose you a long time ago, at the first sniff.",
+          "@fenna Do you choose Fenna back?",
         ],
         choices: [
-          { text: '"I choose you, Fenna. Forever."', go: 'night', aff: 10 },
-          { text: 'Answer by tilting your head back, baring your throat to her.', go: 'mark', aff: 12 },
+          { text: "\"I choose you, Fenna. Forever.\"", go: "night", aff: 10 },
+          { text: "Answer by tilting your head back and baring your throat to her.", go: "mark", aff: 12 },
         ],
       },
       mark: {
         text: [
-          'Her eyes go wide. She knows exactly what it means — total trust, wolf-to-wolf.',
-          'Slowly, so gently it makes your heart ache, she lowers her mouth to the curve of your neck and *bites* — not hard enough to break skin, just enough to leave a mark. A claim. A promise.',
-          '@fenna Mine. *Mine.* And Fenna is yours.',
+          "Her eyes go wide. She knows exactly what it means, wolf to wolf: total trust.",
+          "For a long moment she just breathes against your skin. Then her lips brush the hollow of your throat, then the side of your neck, slow and reverent, working up to it. When she finally *bites*, it isn't hard enough to break the skin. It's just hard enough to leave a mark, and to make your knees buckle so badly she has to catch you.",
+          "She growls, pleased, deep in her chest.",
+          "@fenna Mine. *Mine.* Everyone will smell it. And Fenna is yours. Bite back, if you want. Fenna wants you to.",
+          "You do, gently, on the warm curve of her shoulder. The sound she makes is not a sound you will ever forget.",
         ],
-        next: 'night',
+        next: "night",
       },
       night: {
         text: [
-          'She pulls you down into the soft moss of her den beneath the roots, and the moonlight pours over you both like water.',
-          'What follows is wild and tender in equal measure: her laughter against your skin, the heat of her, her tail curling possessively around your leg, her claws so careful, careful, careful as they trace your back.',
-          'Somewhere out in the forest, the wolves begin to howl. Fenna throws back her head and howls with them, and you\'ve never heard anything so joyful in your life.',
-          '...',
-          'When dawn comes, you wake tangled in furs and limbs, a heavy head pillowed on your chest. Fenna is human-shaped again, snoring softly, a little drool on your shirt.',
-          'One golden eye opens.',
-          '@fenna *Mine.* Good morning, mine.',
+          "She pulls you down into the soft moss of her den beneath the roots. The moonlight pours over you both like water.",
+          "She has no patience at all for buttons. Your shirt doesn't survive. She's pressing herself against your bare chest before you can laugh about it, skin to skin, and she is *so warm.* Her tail curls possessively around your leg. She noses down your collarbone, your sternum, your ribs, learning you by scent, licking and nipping wherever you gasp. And she finds every place that makes you gasp.",
+          "She's wild, but she listens, and her ears flick toward every sound you make. When you tangle your fingers in her hair and pull, just a little, her eyes roll back and she *whines.* When she pins your wrists to the moss, she checks your face, just once, before she leans in again.",
+          "@fenna Tell Fenna if it's too much.",
+          "@you It's not too much.",
+          "@fenna *Good.*",
+          "Somewhere out in the forest, the wolves begin to howl. Fenna throws back her head and howls with them, and then she's on you again, and the rest of the night is heat and moonlight and laughter and teeth...",
+          "...",
+          "Much later, you lie tangled in furs and limbs. Her head rests on your chest, and her breathing slows to a contented rumble.",
+          "@fenna Pack. *Mine.* Sleep now. Fenna keeps watch.",
+          "She's snoring within thirty seconds.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake to sunlight through the oak roots, a heavy weight across your chest, and something warm and wet licking your cheek.",
+          "@fenna Morning. You sleep like a dead thing. Fenna checked twice that you were breathing.",
+          "She's human-shaped again, sprawled half on top of you in a nest of furs, her hair a disaster of leaves. There's a clear bite-mark on her shoulder, and when you touch your own neck you find its twin. She sees you notice and grins with every one of her teeth.",
+          "@fenna Everyone in the forest knows now. A squirrel saw. Squirrels are terrible gossips.",
+          "Then her ears droop a little.",
+          "@fenna Last night. Fenna was very... *loud.* Very wolf. You are not scared of Fenna now? Not sorry?",
+        ],
+        choices: [
+          { text: "\"Not sorry. Not even a little. Come here.\"", go: "notsorry", aff: 6 },
+          { text: "\"Scared? I'm planning to do it again tonight.\"", go: "again", aff: 6 },
+          { text: "Scratch behind her ears until her leg starts kicking.", go: "ears", aff: 5 },
+        ],
+      },
+      notsorry: {
+        text: [
+          "You pull her down and kiss her slowly. She melts against you with a happy whine, tail sweeping the furs.",
+          "@fenna Good. Because Fenna is keeping you. Fenna decided. It is very official in wolf.",
+          "She makes you breakfast: a whole raw rabbit, presented proudly on a leaf. You compromise and build a fire. She watches you cook it like you're performing powerful magic.",
+        ],
+        end: true,
+      },
+      again: {
+        text: [
+          "Her ears shoot straight up. Her tail starts thumping the ground so hard the roots shake.",
+          "@fenna *Tonight?* The moon will not be round tonight.",
+          "@you I don't think we need the moon.",
+          "She considers this with great seriousness. Then she tackles you back into the furs, and you're both very late leaving the den.",
+        ],
+        end: true,
+      },
+      ears: {
+        text: [
+          "You reach up and scratch behind her ear. Her eyes slide shut. Her leg starts kicking. Thump. Thump. Thump.",
+          "@fenna Not fair. Not fair. Fenna was being *serious* — oh. Oh, right there. Fenna forgives you. Fenna forgives everything forever.",
+          "She falls back asleep on your chest. You don't have the heart to move for another hour.",
         ],
         end: true,
       },

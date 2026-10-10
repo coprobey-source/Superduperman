@@ -197,3 +197,25 @@ section { margin-top: 22px; }
   .travel-grid { grid-template-columns: 1fr 1fr; }
   .title-screen h1 span { font-size: 1.9rem; }
 }
+
+/* ---------------- portraits */
+.avatar.pic { padding: 0; overflow: hidden; background: var(--bg2); width: 56px; height: 56px; box-shadow: 0 0 0 2px var(--c, var(--line)); }
+.avatar.pic svg { width: 100%; height: 100%; display: block; }
+.avatar.big { width: 88px; height: 88px; }
+.mem-row { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.mem-body { min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.mem-row .btn { font-size: .82rem; padding: 4px 10px; }
+.vol { display: flex; align-items: center; gap: 10px; font-size: .95rem; }
+.vol input { flex: 1; accent-color: var(--accent); }
+.music-toggle span { font-size: .9em; }
+
+/* ---------------- gentle text reveal */
+@media (prefers-reduced-motion: no-preference) {
+  .scene .text p, .log p { animation: rise .45s ease both; }
+  .scene .text p:nth-child(2) { animation-delay: .06s; }
+  .scene .text p:nth-child(3) { animation-delay: .12s; }
+  .scene .text p:nth-child(4) { animation-delay: .18s; }
+  .scene .text p:nth-child(n+5) { animation-delay: .24s; }
+  .choices { animation: rise .45s .2s ease both; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }

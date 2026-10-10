@@ -25,6 +25,12 @@ FL.addCharacter({
     ['She\'s curled up in a patch of sun on the fountain\'s edge, half asleep.', '@kit Mmmrrr... five more minutes... come sit in the warm spot... it\'s the best spot...'],
     ['@kit Sooo, are we friends? Like, real friends? I don\'t have a lot of those. People get mad when you steal their stuff. Weird, right?'],
   ],
+  afterTalk: [
+    ["Your coin purse is gone. In its place is a note: *IOU 1 coin purse. Collect in person. Attic. Tonight. Bring yourself. ♡ K*"],
+    ["@kit I haven't stolen anything in THREE DAYS. Except your socks. And your shirt. And your heart, obviously. Nyahaha! ...That was cheesy. I've been practicing it."],
+    ["She sidles up close and whispers in your ear.", "@kit I found a new rooftop. It's really high and really private and the stars are *so* bright. Just saying. No reason. Totally no reason."],
+    ["@kit The orphans asked why I'm so happy lately. I told them I found the biggest treasure in Clichéton. They asked if they could see it. I said NO, it's MINE."],
+  ],
   scenes: {
     intro: {
       start: {
@@ -239,17 +245,60 @@ FL.addCharacter({
       },
       accept: {
         text: [
-          'You fasten the locket around your neck. Kit watches you do it, and something in her face crumples and blooms at the same time.',
-          'Then she pounces — literally pounces, knocking you back into the cushions — and kisses you all over your face, quick and clumsy and delighted, purring the whole time.',
-          '@kit Mine! Mine-mine-mine! The best thing I ever stole! And you *let me!*',
-          'She slows down eventually. Her kisses get softer, deeper. Her tail winds around your waist.',
-          'She is playful and mischievous and endlessly curious, as quick with her hands as you\'d expect from the best pickpocket in Clichéton, and very, *very* vocal. At one point you laugh so hard you knock over a stolen candelabra, and she has to put out a very small fire with a stolen tablecloth.',
-          '...',
-          'Afterward she curls up on your chest like a cat in a sunbeam, purring softly, her tail draped over your legs.',
-          '@kit Hey. {name}.',
-          '@you Mm?',
-          '@kit I stole your shirt.',
-          'You look down. She\'s wearing it. You have no idea when that happened.',
+          "You fasten the locket around your neck. Kit watches you do it, and something in her face crumples and blooms at the same time.",
+          "Then she pounces. She literally pounces, knocks you back into the cushions, and kisses you all over your face, quick and clumsy and delighted, purring the whole time.",
+          "@kit Mine! Mine-mine-mine! The best thing I ever stole! And you *let me!*",
+          "She slows down eventually. Her kisses get softer and deeper. Her tail winds around your waist. Her quick, clever thief's fingers find your buttons and have your shirt open before you notice they're there.",
+          "@kit Ooh. Shiny. I mean — not shiny. *Better* than shiny.",
+          "She's playful about all of it: nipping at your ear, pinning your wrists and then letting you roll her over, laughing breathlessly into your neck. When you find the spot at the base of her tail, she goes completely boneless and lets out a long, astonished *mrrrrrow* that she will deny forever.",
+          "@kit Do that again. Do that *again.* — Don't stop, don't you *dare* stop, I'll steal everything you own —",
+          "At one point you knock over a stolen candelabra and she has to put out a very small fire with a stolen tablecloth. Then she climbs back on top of you, purring loud enough to rattle the shiny things on the shelves, and nothing in the attic gets any quieter for a long time...",
+          "...",
+          "Afterward she curls up on your chest like a cat in a sunbeam, purring softly, her tail draped over your legs.",
+          "@kit Hey. {name}.",
+          "@you Mm?",
+          "@kit I stole your shirt.",
+          "You look down. She's wearing it. You have no idea when that happened.",
+        ],
+        end: true,
+      },
+    },
+    morning: {
+      start: {
+        text: [
+          "You wake up because someone is sitting on your chest. Kit is perched there like a cat on a windowsill, wearing your shirt and nothing else, watching you with huge, delighted eyes.",
+          "@kit You're awake! Finally! I've been awake for HOURS. Well. Twenty minutes. I stole your breakfast. Sorry. It was a very good breakfast.",
+          "She looks down at you. Her ears go slightly pink at the tips.",
+          "@kit So, um. Last night. That was... that was the best heist ever. Right? It wasn't just me? Tell me it wasn't just me.",
+        ],
+        choices: [
+          { text: "\"Best heist ever. Want to plan the next job?\"", go: "next", aff: 6 },
+          { text: "Reach up and scratch the base of her tail.", go: "tail", aff: 6 },
+          { text: "\"Give me back my shirt.\"", go: "shirt", aff: 5 },
+        ],
+      },
+      next: {
+        text: [
+          "Her tail shoots straight up.",
+          "@kit A SEQUEL HEIST? Oh, oh, I have *ideas.* I have a whole list. I made it while you were sleeping. Number one is \"the bath at the inn has a really big tub.\"",
+          "She produces an actual list, written on a stolen napkin. It's long. It's illustrated.",
+        ],
+        end: true,
+      },
+      tail: {
+        text: [
+          "Her whole body goes limp. She collapses on top of you with a purr so loud the windowpane rattles.",
+          "@kit Cheating — that's *cheating* — mrrrrrr — you can't just — mrrrrrrr —",
+          "She doesn't finish the sentence. She doesn't move for an hour. Breakfast, what's left of it, goes cold.",
+        ],
+        end: true,
+      },
+      shirt: {
+        text: [
+          "@kit Nope! Finders keepers. It's *mine* now. Possession is nine-tenths of the law. I read that on a wanted poster. Mine.",
+          "She hugs it around herself and grins.",
+          "@kit You can come try to steal it back, though. If you're quick enough.",
+          "You are, eventually. It takes a while. She doesn't try very hard to stop you.",
         ],
         end: true,
       },

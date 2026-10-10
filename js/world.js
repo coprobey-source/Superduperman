@@ -51,6 +51,7 @@
   // open: list of slot indexes (0 morning, 1 afternoon, 2 evening). Omitted = always open.
   FL.addLocation({
     id: 'square',
+    music: 'town',
     name: 'Town Square',
     icon: '⛲',
     desc: [
@@ -80,6 +81,7 @@
   });
   FL.addLocation({
     id: 'tavern',
+    music: 'tavern',
     name: 'The Tipsy Wyvern',
     icon: '🍺',
     desc: [
@@ -102,6 +104,7 @@
   });
   FL.addLocation({
     id: 'guild',
+    music: 'town',
     name: 'Adventurers\' Guild',
     icon: '🛡️',
     open: [0, 1],
@@ -121,6 +124,7 @@
   });
   FL.addLocation({
     id: 'market',
+    music: 'town',
     name: 'Market Street',
     icon: '🛒',
     open: [0, 1, 2],
@@ -134,6 +138,7 @@
   });
   FL.addLocation({
     id: 'artisan',
+    music: 'town',
     name: 'Artisan\'s Row',
     icon: '⚒️',
     open: [0, 1],
@@ -151,6 +156,7 @@
   });
   FL.addLocation({
     id: 'library',
+    music: 'library',
     name: 'Grand Library',
     icon: '📚',
     open: [0, 1],
@@ -173,6 +179,7 @@
   });
   FL.addLocation({
     id: 'temple',
+    music: 'temple',
     name: 'Temple of the Radiant Heart',
     icon: '⛪',
     desc: [
@@ -193,6 +200,7 @@
   });
   FL.addLocation({
     id: 'noble',
+    music: 'noble',
     name: 'Noble Quarter',
     icon: '🏰',
     desc: [
@@ -209,6 +217,7 @@
   });
   FL.addLocation({
     id: 'arena',
+    music: 'epic',
     name: 'Arena & Training Grounds',
     icon: '⚔️',
     desc: [
@@ -230,6 +239,7 @@
   });
   FL.addLocation({
     id: 'docks',
+    music: 'sea',
     name: 'Saltbreeze Harbor',
     icon: '⚓',
     desc: [
@@ -250,6 +260,7 @@
   });
   FL.addLocation({
     id: 'sewers',
+    music: 'cave',
     name: 'The Sewers',
     icon: '🕳️',
     desc: [
@@ -266,6 +277,7 @@
   });
   FL.addLocation({
     id: 'forest',
+    music: 'forest',
     name: 'Whisperwood Forest',
     icon: '🌲',
     desc: [
@@ -282,6 +294,7 @@
   });
   FL.addLocation({
     id: 'peak',
+    music: 'epic',
     name: 'Dragonspire Peak',
     icon: '🏔️',
     open: [0, 1],
@@ -298,6 +311,7 @@
   });
   FL.addLocation({
     id: 'castle',
+    music: 'night',
     name: 'Castle Nocturne',
     icon: '🦇',
     open: [2],
@@ -310,6 +324,7 @@
   });
   FL.addLocation({
     id: 'manor',
+    music: 'night',
     name: 'Hollowmere Manor',
     icon: '👻',
     open: [2],
@@ -322,6 +337,7 @@
   });
   FL.addLocation({
     id: 'watchtower',
+    music: 'tension',
     name: 'The Old Watchtower',
     icon: '🗼',
     open: [2],

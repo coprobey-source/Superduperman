@@ -45,8 +45,22 @@
     c.talk = c.talk || [];
     c.giftLines = c.giftLines || {};
     c.gifts = c.gifts || {};
+    c.afterTalk = c.afterTalk || [];
     FL.characters[c.id] = c;
     FL.charOrder.push(c.id);
+    if (c.scenes.morning) {
+      // The morning after the third romance scene, the heroine gets a scene of her own.
+      FL.addEvent({
+        id: 'morning_' + c.id,
+        slot: 0,
+        priority: 20,
+        ref: { char: c.id, id: 'morning' },
+        cond: function (s) {
+          const due = s.flags['morningDue_' + c.id];
+          return due != null && s.day > due;
+        },
+      });
+    }
     FL.addEnding(c.id, c.endingTitle || c.short + "'s Ending", c.short, c.color);
   };
 
@@ -111,7 +125,7 @@
       over: false,
     };
     FL.charOrder.forEach(function (id) {
-      s.chars[id] = { aff: 0, stage: 0, talks: 0 };
+      s.chars[id] = { aff: 0, stage: 0, talks: 0, afterTalks: 0 };
       s.known[id] = {};
     });
     if (opts.stats) FL.STATS.forEach(function (k) { s.stats[k] += opts.stats[k] || 0; });
@@ -122,7 +136,8 @@
   // Bring an older/partial save up to date with the current roster.
   FL.normalizeState = function (s) {
     FL.charOrder.forEach(function (id) {
-      if (!s.chars[id]) s.chars[id] = { aff: 0, stage: 0, talks: 0 };
+      if (!s.chars[id]) s.chars[id] = { aff: 0, stage: 0, talks: 0, afterTalks: 0 };
+      if (s.chars[id].afterTalks == null) s.chars[id].afterTalks = 0;
       if (!s.known[id]) s.known[id] = {};
     });
     s.daily = s.daily || { talk: {}, gift: {}, scene: {} };
@@ -259,8 +274,15 @@
   FL.talk = function (s, id) {
     const c = FL.characters[id];
     const st = s.chars[id];
-    const lines = c.talk.length ? c.talk[st.talks % c.talk.length] : ['@' + id + ' ...'];
-    st.talks += 1;
+    let lines;
+    if (st.stage >= 4 && c.afterTalk.length) {
+      // Once devoted, she talks about what you've shared.
+      lines = c.afterTalk[st.afterTalks % c.afterTalk.length];
+      st.afterTalks += 1;
+    } else {
+      lines = c.talk.length ? c.talk[st.talks % c.talk.length] : ['@' + id + ' ...'];
+      st.talks += 1;
+    }
     s.daily.talk[id] = true;
     let gain = FL.CONFIG.talkAff;
     if (s.stats.charm >= 3) gain += 1;
@@ -522,6 +544,9 @@
       const st = s.chars[run.char];
       const expected = FL.SCENE_FOR_STAGE[st.stage];
       if (expected === run.id) st.stage += 1;
+      if (run.id === 's3' && st.stage >= 4 && s.flags['morningDue_' + run.char] == null) {
+        s.flags['morningDue_' + run.char] = s.day;
+      }
     }
   };
 
