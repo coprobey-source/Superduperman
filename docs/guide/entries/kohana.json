@@ -1,0 +1,43 @@
+{
+  "id": "kohana",
+  "overview": "Kohana is a lonely, centuries-old kitsune trickster who answers everything with a riddle and wears other people's faces for fun. Her route is about being seen as her real self, so meet her cleverness with warmth rather than trying to out-trick her.",
+  "tips": [
+    "Her favourite gift is Fried Tofu Pockets; she also likes Honey Cakes, a Cute Plushie and a Steamy Romance Novel. Never give her a Gilded Hand Mirror or a Spell Scroll.",
+    "Take her for a stroll through the Moonlit Gardens, her favourite date.",
+    "Her stat is Wits, but the branching happens in the romance scenes: Scene I needs a Charm 2 or Wits 2 check, while Scene II's shrine choices and Scene III's kiss set up the tail ending.",
+    "Decide early which variant you want: the shrine and kiss choices lead to The Fourth Tail, while the Scene I street-con leads to Partners in Mischief."
+  ],
+  "endings": [
+    {
+      "id": "kohana",
+      "title": "Right Every Time",
+      "kind": "main",
+      "summary": "Kohana comes to the Starfall Festival as herself for the first time in four hundred years, no glamour at all, and simply stays. She keeps pranking the town but stops hiding, becoming openly, happily yours rather than earning a tail or turning outlaw.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Just hold her, and watch the sky.\""
+      ]
+    },
+    {
+      "id": "kohana_tail",
+      "title": "The Fourth Tail",
+      "kind": "variant",
+      "summary": "By letting her be truly known, you help Kohana grow an impossible fourth tail on Starfall night and she becomes a proper guardian spirit again. Unlike the main ending, this one restores her shrine and her sacred role, not just her honesty.",
+      "howTo": [
+        "In Romance Scene III, choose \"I want you. Just you.\" and count her tails with a kiss for each.",
+        "Also in Romance Scene II at the shrine, do at least one of: \"Show me your real face. No illusions at all.\" or \"Leave an offering of fried tofu in the bowl.\"",
+        "At the festival, choose \"Three tails or three hundred, I'll count every one.\""
+      ]
+    },
+    {
+      "id": "kohana_crime",
+      "title": "Partners in Mischief",
+      "kind": "variant",
+      "summary": "You become Kohana's full accomplice, pulling a town-wide Starfall prank so nobody watches the stars alone. Where the other endings have her settle or grow sacred, this one keeps the chaos and makes it a two-person act.",
+      "howTo": [
+        "In Romance Scene I, pass one of: the Charm check 2 (\"Be her plant in the crowd, and sell it\") or the Wits check 2 (\"make the statue demand an offering\").",
+        "At the festival, choose \"Want to pull one last trick on the whole town?\""
+      ]
+    }
+  ]
+}

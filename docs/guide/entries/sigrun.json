@@ -1,0 +1,42 @@
+{
+  "id": "sigrun",
+  "overview": "Sigrun is a loud, winged valkyrie who keeps trying to get you killed gloriously as a compliment, having never stayed with anyone still breathing. Her route is about teaching her that a long life is worth more than a heroic death; all three endings turn on a single Romance Scene II conversation.",
+  "tips": [
+    "She unlocks on day 6, so don't expect to meet her in your first week.",
+    "Her favourite gift is a Horn of Honey Mead; she also likes a Keg of Dwarven Ale, a Raw Wyvern Steak, a Great Battle Axe and Honey Cakes. Avoid Rare Moonherbs and Exotic Perfume.",
+    "Take her on a picnic in Whisperwood, her favourite date.",
+    "Her stat is Might, but her variant endings need no stat checks: the two Romance Scene II choices are what decide them."
+  ],
+  "endings": [
+    {
+      "id": "sigrun",
+      "title": "Valkyrie of the Living",
+      "kind": "main",
+      "summary": "Sigrun refuses the Hall-Father's summons, keeps her wings, and reinvents herself as a valkyrie who rescues the living instead of collecting the dead. It is the default outcome, keeping both her immortality and her wings where the variants trade one away.",
+      "howTo": [
+        "This is the default ending, reached when you haven't chosen either Romance Scene II line below (or whenever you pick its final option).",
+        "At the festival, choose \"Don't go back. Keep your wings. Stay here with me, and catch people instead of collecting them.\""
+      ]
+    },
+    {
+      "id": "sigrun_wings",
+      "title": "Feet on the Ground",
+      "kind": "variant",
+      "summary": "Sigrun gives her wings back to the High Hall to become mortal and grow old with you, savouring every blister, cold and grey hair. Unlike the main ending, she trades her immortality for an ordinary human lifetime at your side.",
+      "howTo": [
+        "In Romance Scene II, choose \"Then stay. Watch me get old. Find out what happens to a hero who lives.\"",
+        "At the festival, choose \"Stay with me. Really stay. Grow old with me, Sigrun.\""
+      ]
+    },
+    {
+      "id": "sigrun_bargain",
+      "title": "Until the Very End",
+      "kind": "variant",
+      "summary": "Sigrun strikes a deal with the gods: she stays with her wings, you live a long mortal life, and she herself will be the one to carry you to the feast at the very end. This ending keeps both her wings and her promise, where the others give one up.",
+      "howTo": [
+        "In Romance Scene II, choose \"When my time comes, a very long time from now, I want it to be you who comes for me.\"",
+        "At the festival, choose \"Go and tell them about our promise. You'll come for me at the very end...\""
+      ]
+    }
+  ]
+}

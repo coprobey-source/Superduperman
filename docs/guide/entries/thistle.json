@@ -1,0 +1,42 @@
+{
+  "id": "thistle",
+  "overview": "Thistle is a teacup-sized, nine-hundred-year-old fairy queen who makes bargains the way others breathe and never says thank you. Her route is about love that isn't a transaction, so the winning move is refusing to turn affection into a price.",
+  "tips": [
+    "Her favourite gift is Moonflower Nectar; she also likes a Bouquet of Roses, Honey Cakes, a Gilded Hand Mirror, a Sparkling Gemstone, Exotic Perfume and a Cute Plushie. Avoid an Ordinary Fork, a Great Battle Axe and Clockwork Gears (she sneezes at iron).",
+    "Take her for a stroll through the Moonlit Gardens, her favourite date.",
+    "Her stat is Wits; Romance Scene II offers a Wits 3 counter-offer, though you can reach the same flag by simply refusing to sign her bargain.",
+    "Scene II is the fork: coaxing out her true name leads to Consort Under the Hill, while refusing her bargain leads to The Queen Who Set Down Her Crown."
+  ],
+  "endings": [
+    {
+      "id": "thistle",
+      "title": "No Debts Between Us",
+      "kind": "main",
+      "summary": "Thistle keeps her crown, her court and her temper, and loves you with no contract and no price, running a lifelong ledger that never balances on purpose. It is the default ending, where she stays queen rather than taking you under the hill or abdicating.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"We'll make it up as we go. No debts between us.\""
+      ]
+    },
+    {
+      "id": "thistle_consort",
+      "title": "Consort Under the Hill",
+      "kind": "variant",
+      "summary": "You follow Thistle into the timeless Seelie palace beneath the hill to become her consort, where a night can be a year. Unlike the main ending, you leave the mortal world for fairyland rather than keeping her in Clicheton.",
+      "howTo": [
+        "In Romance Scene II, when she offers her true name, choose \"Tell me. I'll keep it safe.\"",
+        "At the festival, choose \"Take me under the hill. Make me your consort.\""
+      ]
+    },
+    {
+      "id": "thistle_crown",
+      "title": "The Queen Who Set Down Her Crown",
+      "kind": "variant",
+      "summary": "Thistle gives up her crown and nine centuries of rule to live a full-sized mortal life with you in town, iron and sneezes and all. This ending frees her from the throne entirely, the opposite of taking you into her court.",
+      "howTo": [
+        "In Romance Scene II, refuse her bargain: either \"No. I won't sign it.\" or the Wits 3 counter-offer \"I'll love you, and you give me nothing. Write that in.\" (either outcome of the check works).",
+        "At the festival, choose \"What if you didn't have to go back to the Court at all?\""
+      ]
+    }
+  ]
+}

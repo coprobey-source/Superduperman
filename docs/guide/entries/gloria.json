@@ -1,0 +1,44 @@
+{
+  "id": "gloria",
+  "overview": "Gloria is a sweet, desperately lonely slime girl who keeps the town plague-free from the sewers and is fascinated by clever people. Wits is the key to her heart, and her route asks one question: does she rise up into your world, or do you sink happily into hers?",
+  "tips": [
+    "Her favourite gift is a Sparkling Gemstone (she keeps it where her heart would be). She likes most cute or shiny things, from Honey Cakes to an Ordinary Fork, but avoid the Bottle of Rum and Scented Bath Salts.",
+    "Take her to Sunset at Saltbreeze Harbor, her favourite date.",
+    "She's in the Sewers all day, every day. Wits is her stat: you need Wits 2 for Romance Scene II and Wits 3 for Scene III, and every scene has a Wits check (1 to 4).",
+    "Romance Scene III's Wits 4 check decides which variant you can reach: pass it for Professor Bloop, skip or fail it for Down the Drain."
+  ],
+  "endings": [
+    {
+      "id": "gloria",
+      "title": "A Perfect Fit",
+      "kind": "main",
+      "summary": "Gloria leaves the sewers for the first time, and the falling stars swirl inside her like a stained-glass window. The town builds her a canal house with a heated pool and a private pipe to her old tunnels. It's the gentle middle path, half in her world and half in yours.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Hold her hand and watch the stars together.\""
+      ]
+    },
+    {
+      "id": "gloria_professor",
+      "title": "Professor Bloop",
+      "kind": "variant",
+      "summary": "Told she could learn anything, Gloria pulls out the soggy Academy prospectus she's read four hundred times. She becomes the first slime student, then Clichéton's Chief Engineer of Waterworks, sure of her shape and her mind. This is the bright, ambitious take on her story.",
+      "howTo": [
+        "In Romance Scene III, pass \"Help her hold her shape, piece by piece\" (Wits check 4).",
+        "Also do any one of: in First Meeting, pass \"Are you the reason the town doesn't smell?\" (Wits 1); in Romance Scene I, pass \"Help her figure out who it belongs to\" (Wits 2); or in Romance Scene II, pass \"Make the case with facts\" (Wits 3).",
+        "At the festival, choose \"You could come up here every day, you know. You could learn anything.\""
+      ]
+    },
+    {
+      "id": "gloria_drain",
+      "title": "Down the Drain (Happily)",
+      "kind": "variant",
+      "summary": "You offer to come down for good, and Gloria melts joyfully into your lap. The old cistern becomes a lantern-lit Museum of Lost Things, and you're sworn in as Warden of the Underworks. The coziest ending: she never has to hold a shape again, and the stars shine down through the grates.",
+      "howTo": [
+        "In Romance Scene III, choose \"You don't have to be human. I love you the way you are.\" (Failing the Wits 4 shape check also counts.)",
+        "Also do any one of: in First Meeting, choose \"I'm okay! This is actually kind of comfortable.\"; in The Morning After, choose \"Ask her to give you back your belt, too.\"; or in Romance Scene II, choose \"Hug her tight, slime and all\" instead of \"I think I love you too.\"",
+        "At the festival, choose \"Or I could come down there. For good.\""
+      ]
+    }
+  ]
+}

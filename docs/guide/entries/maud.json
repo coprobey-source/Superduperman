@@ -1,0 +1,42 @@
+{
+  "id": "maud",
+  "overview": "Sister Maud is a cheerful, six-and-a-half-foot battle nun who has matched hundreds of couples but has never once been courted, because everyone is too scared of her. Her route is about being the one brave enough to pursue her; the fork is whether she stays, leads, or roams.",
+  "tips": [
+    "Her favourite gift is a Saintly Relic (Probably); she also likes a Blessed Candle, a Raw Wyvern Steak, a Bouquet of Roses and Honey Cakes. Avoid Vintage Bloodwine and Exotic Perfume.",
+    "Take her for a stroll through the Moonlit Gardens, her favourite date.",
+    "Her stat is Might, but her variants need no stat checks: they come from a Romance Scene I question and a Romance Scene II line.",
+    "Ask what she'd do if she weren't a Sister (Scene I) to open the road ending; tell her the Order should be led by her (Scene II) to open the Abbess ending."
+  ],
+  "endings": [
+    {
+      "id": "maud",
+      "title": "Courted at Last",
+      "kind": "main",
+      "summary": "You court Maud for a full year by every rite in the scriptures, and the town slowly stops fearing her as they watch someone stand beside her. It is the default ending, keeping her in Clicheton as a Sister rather than making her Abbess or a wanderer.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Stay just as you are, Maud. And let me court you properly. Every rite in the book.\""
+      ]
+    },
+    {
+      "id": "maud_abbess",
+      "title": "Mother Abbess, Plus One",
+      "kind": "variant",
+      "summary": "Maud accepts the crozier to lead her Order with you right beside her, opening Smiting Tuesdays to the public and founding a festival of asking. Unlike the main ending, she rises to Abbess rather than remaining a rank-and-file Sister.",
+      "howTo": [
+        "In Romance Scene II, choose \"Your Order should be led by someone like you. Someone who goes down into the dark for people.\"",
+        "At the festival, choose \"Take the crozier. Lead them. I'll be right beside you.\""
+      ]
+    },
+    {
+      "id": "maud_road",
+      "title": "Have Hammer, Will Travel",
+      "kind": "variant",
+      "summary": "Maud hangs up her veil to go monster-hunting with you, crossing names off the wish-list she's carried for years. Where the others keep her at the Temple, this ending takes her adventuring across the kingdom.",
+      "howTo": [
+        "In Romance Scene I, choose \"What would you do, if you weren't a Sister?\"",
+        "At the festival, choose \"Hang up the veil. Let's go and find that lich.\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "hikari",
+  "overview": "Hikari is an earnest, dramatic young woman from \"Tokyo\" who is certain she's the Chosen Hero, and has been waiting six months for her cheat skill to kick in. Play along with her story, back her up with Might, and be ready for Starfall, when a door home finally opens.",
+  "tips": [
+    "Her favourite gift is a Spell Scroll; she also likes Fried Tofu Pockets, Honey Cakes, a Cute Plushie and a Steamy Romance Novel. Avoid Raw Wyvern Steak.",
+    "Take her for a stroll through the Moonlit Gardens, her favourite date.",
+    "Might is her stat (Might 2 for Romance Scene II, Might 3 for Scene III). The Might 3 back-to-back fight in Scene II is the key to The Hero After All.",
+    "Find her at the Adventurers' Guild in the morning, the Town Square in the afternoon and the Tipsy Wyvern in the evening."
+  ],
+  "endings": [
+    {
+      "id": "hikari",
+      "title": "Isekai'd Into Love",
+      "kind": "main",
+      "summary": "A portal to Tokyo opens over the festival; Hikari sends her mother a letter and stays. The goddess reveals she was never meant to be the hero, but the heroine. You become a famous adventuring duo, and she opens a ramen shop that's never quite right. It's the classic \"stay for love\" ending.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final options).",
+        "At the festival, choose \"Squeeze her hand, and let her say goodbye.\"",
+        "When the goddess appears, choose \"Kiss her back while the stars fall.\""
+      ]
+    },
+    {
+      "id": "hikari_hero",
+      "title": "The Hero After All",
+      "kind": "variant",
+      "summary": "You ask why she can't be hero and heroine both, and the delighted goddess snaps her fingers: STATUS OPEN finally works. Hikari gets her status window, real quests and a party of two. She still stays in FantasyLandia, but this time she gets every single thing she wished for.",
+      "howTo": [
+        "In Romance Scene II, pass \"Fight at her side, back to back\" (Might check 3).",
+        "Also do any one of: in First Meeting, choose \"I'm your mysterious rival.\" or \"Climb onto the table with her and shout 'STATUS OPEN!' too\"; or in Romance Scene I, choose \"You were pretty heroic with that river throw.\"",
+        "At the festival, choose \"Squeeze her hand, and let her say goodbye.\" Then, when the goddess appears, choose \"Why can't she be both?\""
+      ]
+    },
+    {
+      "id": "hikari_home",
+      "title": "Reverse Isekai",
+      "kind": "variant",
+      "summary": "You offer to go with her, and you step through the portal together into rain and neon. Now you're the weird one: you can't open a rice ball, get lost on trains, and eat her mother's very carroty curry. It's the only ending where you leave FantasyLandia, coming back each Starfall.",
+      "howTo": [
+        "In Romance Scene II, choose \"Tell me about your mom's bad curry.\"",
+        "In Romance Scene III, choose \"Whatever you choose, I'll support you.\" or pass \"What do you want, Hikari? Not the hero. You.\" (Might check 4; failing it also works). Just don't choose \"Stay. Please. Stay with me.\"",
+        "At the festival, as soon as the portal opens, choose \"...Or we could both go.\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "sesha",
+  "overview": "Sesha is a huge, shy lamia who runs the Steamwhistle Bathhouse and is used to people screaming at the sight of her. Her route rewards warmth and staying put: she values being accepted as she is, so the kind, patient choices matter more than bravado.",
+  "tips": [
+    "Her favourite gift is Scented Bath Salts; she also likes a Blessed Candle, an Imported Tea Set, a Cute Plushie and a Steamy Romance Novel. Avoid Exotic Perfume and a Great Battle Axe.",
+    "Take her on a picnic in Whisperwood, her favourite date.",
+    "Her stat is Charm, but her partner route hinges on Romance Scene I's boiler crisis (a Wits 3 or Charm 2 check).",
+    "If your stats are low, you can still get the partner route the easy way: a no-check choice the morning after also works."
+  ],
+  "endings": [
+    {
+      "id": "sesha",
+      "title": "The Warmest Place in Town",
+      "kind": "main",
+      "summary": "Sesha braves her first Starfall Festival on your arm, and the two of you settle into the bathhouse exactly as it is, cozy and unchanged. It is the quiet, stay-at-home ending, without the shared sign or the travelling of her two variants.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Lean back into her coils and watch the stars.\""
+      ]
+    },
+    {
+      "id": "sesha_bathhouse",
+      "title": "Under New Management",
+      "kind": "variant",
+      "summary": "You become Sesha's business partner, your name carved on the sign beside hers, and together you open the Steamwhistle to every monster who's ever been turned away. Unlike the main ending, this one makes the bathhouse a shared project and a refuge.",
+      "howTo": [
+        "In Romance Scene I's boiler crisis, do any one of: pass the Wits check 3 (\"Fix the boiler yourself\"), pass the Charm check 2 (\"Rally the guests\"), or the morning after choose \"Your boiler needs a new valve. I'll pick one up tomorrow.\"",
+        "At the festival, choose \"Let's run the Steamwhistle together. Partners.\""
+      ]
+    },
+    {
+      "id": "sesha_world",
+      "title": "Wrapped Around the World",
+      "kind": "variant",
+      "summary": "You coax Sesha out of the bathhouse to see the warm, far-off places she's always dreamed of, meeting each town's fear together. Where the others keep her home, this ending takes her adventuring across deserts and seas.",
+      "howTo": [
+        "In Romance Scene II, choose \"Have you ever been somewhere really warm? Somewhere far away?\"",
+        "At the festival, choose \"The world's out there, Sesha. Let's go and see it.\""
+      ]
+    }
+  ]
+}

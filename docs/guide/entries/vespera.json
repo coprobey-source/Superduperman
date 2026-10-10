@@ -1,0 +1,32 @@
+{
+  "id": "vespera",
+  "overview": "Vespera is the Arcane Academy's top student who declared you her Eternal Rival after you beat her by accident, and she keeps the score in a leather ledger she's thrilled about. Her route is rivals-to-lovers; the choice is whether your rivalry becomes an endless, joyful contest or something you both set down.",
+  "tips": [
+    "Her favourite gift is an Enchanted Quill; she also likes an Ancient Tome, a Spell Scroll, Honey Cakes, a Blessed Candle and an Imported Tea Set. Avoid a Keg of Dwarven Ale and a Bottle of Rum.",
+    "Take her for a stroll through the Moonlit Gardens, her favourite date.",
+    "Her stat is Wits, but her single variant needs no check: it hinges on one Romance Scene II choice with the ledger.",
+    "To open the variant, take the quill in Scene II and rule a third column labelled TOGETHER."
+  ],
+  "endings": [
+    {
+      "id": "vespera",
+      "title": "Best of Infinity",
+      "kind": "main",
+      "summary": "You start a brand-new ledger with Vespera and spend a lifetime cheerfully competing at everything, proposing to each other at the exact same moment. It is the default ending, keeping the rivalry alive forever rather than closing the book on it.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up the variant below (or whenever you pick its final option).",
+        "At the festival, choose \"Best of infinity. Starting now.\" and write the first tally of a new volume."
+      ]
+    },
+    {
+      "id": "vespera_closed",
+      "title": "The Ledger, Closed",
+      "kind": "variant",
+      "summary": "Together you write a final line, close the ledger for good and stop keeping score at all, which for Vespera feels like flying. Unlike the main ending, she lays the rivalry to rest instead of carrying it on into infinity.",
+      "howTo": [
+        "In Romance Scene II, choose \"Take the quill and rule a third column: TOGETHER.\"",
+        "At the festival, choose \"Write one final line, and close the ledger together.\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "endings": [
+    {
+      "id": "harem",
+      "title": "The Many-Hearted Household",
+      "kind": "special",
+      "summary": "You climb onto a crate at the festival and ask them all. After a very long silence, the stars fall, and everyone ends up on one enormous picnic blanket. Your household becomes the talk of the kingdom: loud, chaotic, occasionally on fire, with a cooking rota that takes up an entire wall.",
+      "howTo": [
+        "Have at least five heroines Devoted (all three romance scenes seen) by the Starfall Festival on day 30.",
+        "At the festival, choose \"Why not... all of you?\"",
+        "Plan for it: five routes take careful juggling. Use the waiting days between one heroine's scenes to court the others, keep gifts flowing to everyone, and check the Who's Where panel each morning."
+      ]
+    },
+    {
+      "id": "alone",
+      "title": "Stargazing with a Cat",
+      "kind": "special",
+      "summary": "You watch the Starfall from the edge of the hill with no one beside you except a stray cat. The Narrator offers some gentle advice. It isn't true love, but it isn't nothing.",
+      "howTo": [
+        "Reach the festival without any Devoted heroine, or choose \"Watch the stars alone\" at the festival even if someone is waiting for you."
+      ]
+    },
+    {
+      "id": "greenhouse",
+      "title": "The Greenhouse",
+      "kind": "special",
+      "summary": "The game's one bad end. Marigold takes the news that you love someone else very, very badly. You get to see her greenhouse up close. Permanently.",
+      "howTo": [
+        "Get Marigold to Friend or Close (her first or second romance scene seen, but not yet Devoted) while another heroine reaches Close or higher.",
+        "One evening she pulls you into an alley (her jealousy scene). Choose \"I'm sorry, Marigold. I'm in love with someone else.\"",
+        "To avoid it: soothe her (Charm 3), or ask her to put the knife down. Either way the scene ends and your run continues."
+      ]
+    },
+    {
+      "id": "true_end",
+      "title": "Happily Ever After (Unabridged)",
+      "kind": "special",
+      "summary": "The secret ending. On a New Game+ run, you look past the falling stars at the one who has been telling this story, and find out why every Starfall starts over. You give the Narrator an ending of her own, and everyone you've met gets their happily-ever-after. It works whether or not you romanced Amorette, and acknowledges it if you did.",
+      "howTo": [
+        "Finish any run, then choose \"New Game+\" on the ending screen. These choices only appear on a New Game+ run.",
+        "Day 1, the prologue: when the Narrator greets you, choose \"Welcome... back?\"",
+        "Day 7, evening (the imp spy): choose \"What else do you remember?\"",
+        "Day 13, morning (the investigation): after you follow your lead, choose \"There's a folded note under your door. Read it.\"",
+        "Day 15, morning (the goddess dream): choose \"We've done this before, haven't we?\"",
+        "With all four loose threads found, a new option appears at the festival: \"Look past the stars, at the one telling this story.\" Choose it."
+      ]
+    }
+  ]
+}

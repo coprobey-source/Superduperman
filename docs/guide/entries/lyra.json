@@ -1,0 +1,32 @@
+{
+  "id": "lyra",
+  "overview": "Lyra is Clicheton's dazzling, flirty bard who writes wildly inaccurate love songs about everyone in town. Her route is about being the one person she sings the true, quiet songs for, so honesty and sharing her music matter most.",
+  "tips": [
+    "Her favourite gift is Silver Lute Strings; she also likes a Bouquet of Roses, a Keg of Dwarven Ale, Vintage Bloodwine, a Box of Fine Chocolates, a Gilded Hand Mirror and a Steamy Romance Novel. Avoid Fresh Fish and Clockwork Gears.",
+    "Take her on a picnic in Whisperwood, her favourite date.",
+    "Her stat is Charm. Romance Scene I offers a Charm 3 duet, but the duet sets its flag whether you pass or flub it, so you can sing along even with low Charm.",
+    "Her single variant has several triggers, so it's easy to reach: the duet, a Scene II line, or a harbor-date question all qualify."
+  ],
+  "endings": [
+    {
+      "id": "lyra",
+      "title": "The One True Song",
+      "kind": "main",
+      "summary": "Lyra debuts her first true love song at the Starfall stage, then stays in Clicheton to play the Tipsy Wyvern every night and write you a hundred more. It is the default, homebody ending, where she settles in town rather than taking to the road.",
+      "howTo": [
+        "This is the default ending, reached when you haven't triggered the variant below (or whenever you pick its final option).",
+        "At the festival, choose \"It was perfect. Stay. Write me a hundred more.\""
+      ]
+    },
+    {
+      "id": "lyra_tour",
+      "title": "Two for the Road",
+      "kind": "variant",
+      "summary": "You and Lyra leave Clicheton the morning after Starfall to travel and perform together, finding new towns that have never heard her songs. Unlike the main ending, this one puts you both on the road as a travelling duo.",
+      "howTo": [
+        "Do any one of: in Romance Scene I sing the duet (\"Jump up and sing the chorus with her\", a Charm 3 check that counts win or lose); in Romance Scene II choose \"Maybe you need to go somewhere nobody knows your songs.\"; or on the Saltbreeze Harbor date choose \"Where would you go, if you could sail anywhere?\"",
+        "At the festival, choose \"Now let's go and sing it somewhere nobody's heard it.\""
+      ]
+    }
+  ]
+}

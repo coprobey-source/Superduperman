@@ -1,0 +1,43 @@
+{
+  "id": "brunhild",
+  "overview": "Dame Brunhild is a proud, rigid lady knight who demands to be slain at the slightest embarrassment, and who secretly adores kittens and plushies. Respect her honor, gently make room for her soft side, and keep your Might up: it gates her biggest moments.",
+  "tips": [
+    "Her favourite gift is a Cute Plushie; she also likes Honey Cakes, a Silver Dagger, a Great Battle Axe and Horn of Honey Mead. Avoid a Steamy Romance Novel and Exotic Perfume.",
+    "Take her on a picnic in Whisperwood, her favourite date.",
+    "Might is her stat (Might 2 for Romance Scene II, Might 3 for Scene III). Romance Scene III's Might 4 check decides between her two variants.",
+    "She drills at the Arena & Training Grounds in the morning and afternoon, and is in the Noble Quarter in the evening."
+  ],
+  "endings": [
+    {
+      "id": "brunhild",
+      "title": "Sworn to the Heart",
+      "kind": "main",
+      "summary": "Brunhild takes your hand in front of the whole town, declares her love, and gets a kiss under the falling stars. She becomes Knight-Commander with you beside her, writes a tenet protecting small soft things, and \"just kill me\"/\"not today\" becomes your public I-love-you. She stays a commander, just a gentler one.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up either variant (or whenever you pick its final option).",
+        "At the festival, choose \"Kiss her.\""
+      ]
+    },
+    {
+      "id": "brunhild_liege",
+      "title": "The Knight and Her Liege",
+      "kind": "variant",
+      "summary": "You ask her to kneel and swear again before everyone, and she does, loudly, Tuesday bakery trips included. She turns down Knight-Commander to serve as your devoted sworn sword, tasting your soup for poison and defending a tiny vegetable patch from rabbits. It's the most formal, devoted version of her love.",
+      "howTo": [
+        "In Romance Scene III, choose \"Take the sword and knight her: touch each shoulder. 'I accept.'\" (Failing the Might 4 \"kneel as an equal\" check also leads here.)",
+        "At the festival, choose \"Then kneel, Dame Brunhild. Swear it again, here, where everyone can hear.\""
+      ]
+    },
+    {
+      "id": "brunhild_shield",
+      "title": "The Order of the Soft Shield",
+      "kind": "variant",
+      "summary": "She unbuckles her breastplate in front of the town and lifts Sir Fluffington to see the stars, and half the hill pulls out plushies of their own. She founds an order of knights sworn to protect kittens, ducklings and lost children, with you as its first knight. Here she stops hiding her softness for good.",
+      "howTo": [
+        "In Romance Scene III, pass \"Lay the sword aside and kneel down in front of her, as an equal\" (Might check 4).",
+        "In Romance Scene I, choose either \"Kneel down and pet the kitten too.\" or \"Softness isn't weakness. Protecting small things is what knights are for.\" (one is enough).",
+        "At the festival, choose \"Unbuckle the breastplate. Let Sir Fluffington see the stars.\""
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "zyra",
+  "overview": "Zyra is a dark-elf gyaru who fled the Underdark, fell in love with the sun, and became Clicheton's loudest trend-chaser, while hiding that she was raised an assassin. Her route is about building the bright life she dreamed of; the fork is whether she stays in the sun or brings colour back down into the dark.",
+  "tips": [
+    "Her favourite gift is Glitter Nail Polish; she also likes a Sparkling Gemstone, Exotic Perfume, a Pearl Comb, a Gilded Hand Mirror and Honey Cakes. Avoid a Silver Dagger and a Great Battle Axe.",
+    "Take her to watch the Sunset at Saltbreeze Harbor, her favourite date.",
+    "Her stat is Charm, but her single variant needs no check: it turns on one Romance Scene II choice.",
+    "To open the variant, in Scene II encourage her to bring colour to her own people in the Underdark."
+  ],
+  "endings": [
+    {
+      "id": "zyra",
+      "title": "Literally Legendary",
+      "kind": "main",
+      "summary": "Zyra stays in Clicheton and opens her dazzling shop, Sunkiss & Co., winning over the very townsfolk who once crossed the street to avoid her. It is the default ending, keeping her up in the sun rather than returning to the Underdark.",
+      "howTo": [
+        "This is the default ending, reached when you haven't set up the variant below (or whenever you pick its final option).",
+        "At the festival, choose \"Now we stay. And we build the thing you dreamed about, right here.\""
+      ]
+    },
+    {
+      "id": "zyra_underdark",
+      "title": "Glitter in the Deep",
+      "kind": "variant",
+      "summary": "You go down into the Weeping Dark with Zyra to bring colour, kindness and a Festival of Colors to the people she fled, then return each Starfall to watch the real stars. Unlike the main ending, this one takes her triumphantly home to the Underdark.",
+      "howTo": [
+        "In Romance Scene II, choose \"Maybe your people need it more than anyone. Maybe the Dark could use a little color.\"",
+        "At the festival, choose \"Now we go down. Together. And we bring the sky with us.\""
+      ]
+    }
+  ]
+}
