@@ -38,11 +38,11 @@ FL.addCharacter({
     ["@gloria:surprised Guess how many socks went down the drains this week! Guess!", "@gloria Forty-one! And not *one* pair! Where do the other ones go?! It's the greatest mystery of the sewers! I have a *map.*"],
     ["@gloria:happy A lady in a funny sailor collar came down here once and held out her sandal and shouted \"BE MY TAMED MONSTER!\" So I ate the sandal. I thought it was a present!", "@gloria:sad She ran away screaming. I've still got the sandal. Digested a *little.* I'd give it back if she asked."],
     ["She's holding a soggy book right up against the moss-light, very close to where her nose would be.", "@gloria:happy I'm reading about *geography!* Did you know there's a whole ocean? It's like a sewer, but with no walls, and the fish aren't lost?"],
-    ["@gloria Do you want to know a secret? I can hear the whole town through the pipes. People singing in the bath, and arguing, and saying \"I love you\" into washbasins.", "@gloria:blush Clichéton says \"I love you\" four hundred and twelve times a day! I counted! It's my favourite thing to listen to. After you."],
+    ["@gloria Do you want to know a secret? I can hear the whole town through the pipes. People singing in the bath, and arguing, and saying \"I love you\" into washbasins.", "@gloria:blush Clichéton says \"I love you\" four hundred and twelve times a day! I counted! It's my favorite thing to listen to. After you."],
     { if: 'gloria_smart', lines: ["@gloria:blush You worked it out. The very first time. You fell in me, and the first thing you thought was *arithmetic.*", "@gloria:happy I think about that a lot. Most people's first thought is \"AAAAH.\""] },
     { if: 'gloria_facts', lines: ["@gloria:happy The Mayor sent me a certificate! It says *With The Thanks Of A Grateful Town, For Not Letting Us All Die Of Plague.*", "@gloria:surprised I put it in the treasure room. Then I hugged it. Then I absorbed the frame by accident. It's fine! I'm keeping it inside now. Where it's safe."] },
     { if: 'gloria_grate', lines: ["@gloria:happy Martin comes and talks to the grate in the square every morning now! He tells me the weather. I tell him how many socks went missing. It's our *thing.*", "@gloria:blush He calls me \"the young lady in the drain.\" Nobody's ever called me a young lady. Or a lady. Or *in* anything, except trouble."] },
-    { if: { stage: 3 }, lines: ["@gloria:blush I keep turning pinkish when you come in. Well — green-pink. Sort of brown. It's not a good colour on me.", "@gloria The letters say that means I'm in love. Or that I ate a beetroot. I *did* eat a beetroot. But I'm fairly sure it's the love."] },
+    { if: { stage: 3 }, lines: ["@gloria:blush I keep turning pinkish when you come in. Well — green-pink. Sort of brown. It's not a good color on me.", "@gloria The letters say that means I'm in love. Or that I ate a beetroot. I *did* eat a beetroot. But I'm fairly sure it's the love."] },
   ],
   afterTalk: [
     ["@gloria:happy I've been practising holding human shape for longer! Four hours now! I want to be able to walk with you in the sunshine. And then come back down here and be *squishy* with you."],
@@ -132,7 +132,7 @@ FL.addCharacter({
         text: [
           "You snap a red rose off a hedge and hold it out to her. She takes it very carefully in a newly formed hand, smells it, and then — of course — absorbs it.",
           "Slowly, from the middle outward, she flushes pink. Rose pink. All of her.",
-          "@gloria:happy Look! I'm *rose-flavoured!* I'm going to smell like a garden for a whole *day!* Smell me! No, *closer!*",
+          "@gloria:happy Look! I'm *rose-flavored!* I'm going to smell like a garden for a whole *day!* Smell me! No, *closer!*",
         ],
         next: 'end',
       },
@@ -157,7 +157,7 @@ FL.addCharacter({
         text: [
           "You wait on the beach below Saltbreeze Harbor, beside the big storm drain where the town's water runs out to sea. Gloria comes out of it slowly, in human shape, holding the edge of the pipe like someone about to step off a cliff.",
           "Then she sees the sea.",
-          "She doesn't say anything at all for a long time. The sun is going down into the water, and the whole huge shining width of it is gold and blue and green, and it reflects through her, so she glows the colours of the sunset.",
+          "She doesn't say anything at all for a long time. The sun is going down into the water, and the whole huge shining width of it is gold and blue and green, and it reflects through her, so she glows the colors of the sunset.",
           "@gloria:surprised It doesn't have any *walls.*",
           "@gloria:sad It just keeps going. All the way to the edge. Everything I ever cleaned went *here.* For eleven years. And I never knew what it was going *to.*",
         ],
@@ -320,7 +320,7 @@ FL.addCharacter({
           'She leads you through winding tunnels to a dry chamber lit by glowing moss. Every surface is covered with lost things, neatly arranged: rings, coins, buttons, keys, spectacles, a hundred letters, a child\'s wooden horse.',
           '@gloria Everything that falls down the drains comes to me! I don\'t eat any of it. I keep it safe. In case people come looking. But they never do.',
           'She holds up a gold ring.',
-          '@gloria:sad This one\'s my favourite. It\'s a wedding ring. It says "Forever, M." on the inside. I\'ve had it for a year. Someone must be so sad.',
+          '@gloria:sad This one\'s my favorite. It\'s a wedding ring. It says "Forever, M." on the inside. I\'ve had it for a year. Someone must be so sad.',
           { if: 'gloria_smart', text: '@gloria:happy And you\'re the clever one! You worked out the cleaning thing in about four seconds! So you\'ll be *perfect* for a mystery!' },
         ],
         choices: [
@@ -330,7 +330,7 @@ FL.addCharacter({
       },
       detective: {
         text: [
-          'You examine the ring. The goldsmith\'s mark belongs to a jeweller on Artisan\'s Row who retired decades ago. And "M" — you remember old Martin at the Temple, who wrote a love letter to his wife, Millicent, of fifty years.',
+          'You examine the ring. The goldsmith\'s mark belongs to a jeweler on Artisan\'s Row who retired decades ago. And "M" — you remember old Martin at the Temple, who wrote a love letter to his wife, Millicent, of fifty years.',
           'You track him down. When you hand him the ring, he bursts into tears. He lost it down a drain a year ago and thought it was gone forever. He hugs you. Then, when you explain who really found it, he walks to the nearest drain grate, kneels, and says "Thank you, Gloria" into it.',
           'Back in the sewers, Gloria is sobbing. Happy sobbing. It\'s a lot of liquid.',
           '@gloria:happy He said *thank you!* To *me!* Into the drain! I *heard* it!',
@@ -343,7 +343,7 @@ FL.addCharacter({
         text: [
           'You squint at the ring. You make a few guesses. They\'re all wrong. Eventually Gloria pats your head with a gentle squishy hand.',
           '@gloria:happy That\'s okay! You *tried!* Nobody else has ever even tried!',
-          'She puts the ring back in its place of honour, carefully, and you can tell she\'s touched just that you cared.',
+          'She puts the ring back in its place of honor, carefully, and you can tell she\'s touched just that you cared.',
         ],
         aff: 5,
         next: 'end',
@@ -380,7 +380,7 @@ FL.addCharacter({
     s2: {
       start: {
         text: [
-          'You hear the shouting from the sewer entrance. Torchlight. Armoured boots. A crowd.',
+          'You hear the shouting from the sewer entrance. Torchlight. Armored boots. A crowd.',
           'The Mayor of Clichéton, a round man in an enormous wig, is standing at the grate with a dozen guards and a priest with a bucket of holy salt.',
           { if: 'gloria_grate', text: '@mayor Citizens! A monster has been spotted in our sewers! A *slime!* Witnesses report it waved at an old man! Today, we purge the menace!', else: '@mayor Citizens! A monster has been spotted in our sewers! A *slime!* Witnesses report it hummed at a washerwoman! Today, we purge the menace!' },
           'From somewhere deep in the tunnels, you hear a tiny, terrified *bloop.*',
@@ -436,7 +436,7 @@ FL.addCharacter({
         text: [
           'Her body turns a bright, shining green, so bright the whole tunnel glows. She shapes her face very carefully, very precisely, and leans in and kisses you.',
           'It is cool and tingly and tastes faintly of mint, and she pulls back looking astonished.',
-          '@gloria:surprised I did it! I did a kiss! Was it right? I practised on a lamp post!',
+          '@gloria:surprised I did it! I did a kiss! Was it right? I practiced on a lamp post!',
         ],
         end: true,
       },
@@ -609,7 +609,7 @@ FL.addCharacter({
         text: [
           '*Some time later...*',
           'Gloria enrols at the Arcane Academy that autumn, the first slime ever to do so. For the first term she attends lectures from a large glass tank at the back of the hall, so as not to seep into the floor. By the second term she walks in on her own two feet, in a borrowed gown, and sits in the front row.',
-          'She asks an average of four hundred questions a lecture. The professors find this exhausting, then thrilling, then indispensable. She is the only student in history to correct a hydrology examiner on the behaviour of water *from the inside.*',
+          'She asks an average of four hundred questions a lecture. The professors find this exhausting, then thrilling, then indispensable. She is the only student in history to correct a hydrology examiner on the behavior of water *from the inside.*',
           'Her thesis, *On the Self-Cleaning City; or, A Natural History of the Lost Sock,* is the most borrowed book in the Grand Library. Several copies have fallen down drains. They always come back. Cleaner.',
           'She becomes Clichéton\'s first Chief Engineer of Waterworks. Every town in the kingdom sends for her advice. She writes back to all of them, in beautiful handwriting, with lots of exclamation marks.',
           'The students call her Professor Bloop. She pretends to disapprove, and has it painted on her office door in gold.',

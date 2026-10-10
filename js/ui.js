@@ -764,9 +764,9 @@
     const c = FL.characters[id];
     const wrap = el('div', 'gift-list');
     wrap.appendChild(el('p', 'muted', 'Where will you take ' + esc(c.short) + '? A date takes one part of the day. ' +
-      'Everyone has a favourite spot, and you\'ll only find out by trying.'));
+      'Everyone has a favorite spot, and you\'ll only find out by trying.'));
     FL.dateOptions(s, id).forEach(function (o) {
-      const tag = (o.fav && o.been ? ' <span class="ready">★ her favourite</span>' : '') + (o.been ? ' <span class="muted small">(been)</span>' : '');
+      const tag = (o.fav && o.been ? ' <span class="ready">★ her favorite</span>' : '') + (o.been ? ' <span class="muted small">(been)</span>' : '');
       wrap.appendChild(btn('<span class="ti">' + o.spot.icon + '</span><b>' + esc(o.spot.name) + '</b>' + tag +
         ' <span class="price">' + (o.spot.cost ? '🪙 ' + o.spot.cost : 'free') + '</span><div class="muted small">' + esc(o.spot.desc) + '</div>',
         function () {
@@ -921,7 +921,7 @@
         '<div class="small"><b>Found:</b> ' + esc(FL.scheduleSummary(id).join(' · ')) + '</div>' +
         '<div class="small"><b>Gift notes:</b> ' + (known || '<span class="muted">none yet</span>') + '</div>' +
         (st.stage >= FL.CONFIG.dateStage ? '<div class="small"><b>Dates:</b> ' + (st.dates || 0) +
-          (favKnown ? ' · favourite spot: ' + esc(FL.DATE_SPOTS[c.dateFav].name) : '') + '</div>' : '') +
+          (favKnown ? ' · favorite spot: ' + esc(FL.DATE_SPOTS[c.dateFav].name) : '') + '</div>' : '') +
         '<div class="small"><b>Endings found:</b> ' + endGot + ' / ' + c.endingIds.length + '</div>' +
         '<div class="small"><b>Next:</b> ' + (rs.done ? 'Devoted — meet her at the Starfall Festival.' : rs.ok ? '★ Romance scene ready!' :
           esc((rs.needs || []).join(', '))) + '</div></div>';
@@ -1034,7 +1034,7 @@
       '<p>Some heroines only appear after certain events, or only at night. Check the Journal (📖) to see where everyone can be found.</p>',
       '<p>After your third romance scene with a heroine, look for her the next morning, and talk to her afterwards. She\'ll have things to say.</p>',
       '<p>Heroines know each other. Visit the places they hang out and you may stumble into one of their run-ins.</p>',
-      '<p><b>Dates:</b> after your first romance scene with someone, you can ask her on a date (💕): dinner, the Moonlit Gardens, the harbor at sunset, or a picnic. Each heroine has a favourite.</p>',
+      '<p><b>Dates:</b> after your first romance scene with someone, you can ask her on a date (💕): dinner, the Moonlit Gardens, the harbor at sunset, or a picnic. Each heroine has a favorite.</p>',
       '<p><b>She remembers.</b> What you say and do in her scenes and on dates comes back later, and it decides which of her endings you get at the festival.</p>',
       '<p><b>Memories</b> (on the title screen and in the menu) lets you replay any romance scene you\'ve seen. Music can be switched on from the title screen or the 🎵 button.</p>',
       '<p>Keyboard: press <b>1–9</b> to pick choices in scenes.</p>',
@@ -1198,7 +1198,7 @@
     ['five', 'It’s Complicated', 'Have five heroines devoted at once.', function (s) { return s && FL.readyChars(s).length >= 5; }],
     ['morning', 'The Morning After', 'Wake up next to someone.', function () { return memories().some(function (m) { return /\.morning$/.test(m); }); }],
     ['date', 'First Date', 'Go on a date.', function (s) { return s && FL.charOrder.some(function (id) { return s.chars[id].dates > 0; }); }],
-    ['perfect', 'Perfect Date', 'Take someone to her favourite date spot.', function (s) { return s && FL.charOrder.some(function (id) { const c = FL.characters[id]; return c.dateFav && s.flags[id + '_date_' + c.dateFav]; }); }],
+    ['perfect', 'Perfect Date', 'Take someone to her favorite date spot.', function (s) { return s && FL.charOrder.some(function (id) { const c = FL.characters[id]; return c.dateFav && s.flags[id + '_date_' + c.dateFav]; }); }],
     ['dates10', 'Serial Romantic', 'Go on ten dates in one playthrough.', function (s) { return s && FL.charOrder.reduce(function (a, id) { return a + (s.chars[id].dates || 0); }, 0) >= 10; }],
     ['loved', 'Thoughtful', 'Give someone a gift she loves.', function () { return (lifetime().loved || 0) >= 1; }],
     ['fork', 'Forked', 'Give someone the fork.', function () { return (lifetime().fork || 0) >= 1; }],

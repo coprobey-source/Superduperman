@@ -42,7 +42,7 @@ FL.addCharacter({
     ["@aurelia:sad I keep a list. Of things I've never done. Climbed a tree. Owed somebody money. Been bored on purpose.", "@aurelia:happy I've crossed off nine since I came here. Don't ask me what number ten is. No — don't. It's *embarrassing.*"],
     { if: 'aurelia_mopped', lines: ["@aurelia:blush Bettina says a customer who picks up a mop on the first night is \"a keeper.\" She says it's an old tavern saying.", "@aurelia I think she made it up on the spot. She was looking straight at you when she said it."] },
     { if: 'aurelia_pirate', lines: ["@aurelia:smug Did you know the Royal Guard has been searching Saltbreeze Harbor for *eleven days?* For a pirate called \"Big Eyepatch\"?", "@aurelia:happy They arrested a parrot. It's been taken to the capital for questioning. I feel *dreadful.* I also cannot stop laughing."] },
-    { if: 'aurelia_pie', lines: ["@aurelia:happy I went back to the pie stall today. Alone! I paid in *coins!* The *correct* coins! The pie man shook my hand.", "@aurelia:blush ...Then I got gravy on my hat again. Some traditions must be honoured."] },
+    { if: 'aurelia_pie', lines: ["@aurelia:happy I went back to the pie stall today. Alone! I paid in *coins!* The *correct* coins! The pie man shook my hand.", "@aurelia:blush ...Then I got gravy on my hat again. Some traditions must be honored."] },
     { if: { stage: 3 }, lines: ["@aurelia:blush Now that you know who I am, you can stop pretending not to know who I am. And I can stop pretending not to be who I am.", "@aurelia:smug Shall we pretend to be strangers anyway? Just for fun? I'll spill something on you. You'll be charmed. It'll be like old times."] },
   ],
   afterTalk: [
@@ -78,7 +78,7 @@ FL.addCharacter({
           "You come back from the bar with two tankards and a plate of pie, and set them down in front of her with a little flourish of a bow.",
           "@aurelia:surprised You're — *serving* me.",
           "@you You looked like you needed someone to.",
-          "She stares at the plate. You realise that in twenty-four years of being served by a hundred people, this may be the first time she's ever been served by one she chose.",
+          "She stares at the plate. You realize that in twenty-four years of being served by a hundred people, this may be the first time she's ever been served by one she chose.",
           "@aurelia:blush ...You put the pie on the left. Proper banquet etiquette is the right.",
           "@aurelia:happy Never change. Never, *ever* learn that.",
         ],
@@ -114,7 +114,7 @@ FL.addCharacter({
       start: {
         text: [
           "The Moonlit Gardens are in the Noble Quarter, which is a problem, because the Noble Quarter is full of nobles, and half of them have dined with the Crown Princess.",
-          "Aura has prepared. She's wearing her enormous straw hat, a scarf, dark spectacles at night, and a false moustache she bought from a theatre troupe. It is ginger. It is enormous. She is very proud of it.",
+          "Aura has prepared. She's wearing her enormous straw hat, a scarf, dark spectacles at night, and a false moustache she bought from a theater troupe. It is ginger. It is enormous. She is very proud of it.",
           "@aurelia:smug Nobody will look twice. I'm a *gentleman of the country.* I've come to town about... turnips.",
           "Halfway down the rose walk, a baroness in lilac silk stops dead and squints at the moustache.",
           "\"...Your *Highness?*\"",
@@ -347,7 +347,7 @@ FL.addCharacter({
           'You approach the fruit seller. You compliment his apples. You lament your poverty. You walk away. He calls you back. You get six apples for the price of two and a free pear.',
           'Aura is staring at you like you\'ve just slain a dragon with your bare hands.',
           '@aurelia:surprised That was *magnificent!* That was *diplomacy!* My father\'s ambassadors couldn\'t have done better!',
-          'She tries it herself at the next stall. She offers the cheese merchant twice the asking price and then apologises for insulting him. He gives her the cheese for free out of pure confusion.',
+          'She tries it herself at the next stall. She offers the cheese merchant twice the asking price and then apologizes for insulting him. He gives her the cheese for free out of pure confusion.',
           '@aurelia:happy I WON!',
         ],
         aff: 8,
@@ -538,9 +538,9 @@ FL.addCharacter({
           "...",
           "The moon shines through the cracked window. Downstairs, the tavern cat knocks something over. Neither of you notices.",
           "Much later, she lies with her golden hair spread across your chest, tracing idle patterns on your skin.",
-          "@aurelia:smug You realise this is treason. Seducing the Crown Princess. They used to hang people for this.",
+          "@aurelia:smug You realize this is treason. Seducing the Crown Princess. They used to hang people for this.",
           "@you Should I be worried?",
-          "@aurelia:happy Terribly. I'm going to sentence you to a life of hard labour. In my bed. With no possibility of parole.",
+          "@aurelia:happy Terribly. I'm going to sentence you to a life of hard labor. In my bed. With no possibility of parole.",
           { if: 'aurelia_splash', text: "@aurelia:smug And let the record show that this was *revenge.* For the fountain. Long, slow, extremely thorough revenge. I'm heir to the Sunlit Throne. We hold grudges for *centuries.*" },
         ],
         end: true,
@@ -623,7 +623,7 @@ FL.addCharacter({
       epilogue: {
         text: [
           '*Some time later...*',
-          'You are married in the great cathedral of the capital, with the whole kingdom watching. Bettina is the guest of honour. She cries into a handkerchief the size of a tablecloth.',
+          'You are married in the great cathedral of the capital, with the whole kingdom watching. Bettina is the guest of honor. She cries into a handkerchief the size of a tablecloth.',
           'Aurelia becomes the most beloved Crown Princess in FantasyLandia\'s history. She abolishes the snuffbox tax. She opens the palace gardens to the public. She founds the Royal Institute for Practical Skills, where nobles must learn to cook, mop, and haggle. Attendance is mandatory. The nobles are furious.',
           { if: 'aurelia_ate', text: 'Once a week she still makes you breakfast herself, in the palace kitchens, with the royal chef hovering behind her in visible agony. It\'s still terrible. You still eat every bite. She still watches you do it like it\'s the most romantic thing in the kingdom. It might be.' },
           'But on the first weekend of every month, she slips out of the palace with you, in a peasant dress three sizes too big and an enormous straw hat, and you ride to Clichéton.',

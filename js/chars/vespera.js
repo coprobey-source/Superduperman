@@ -31,7 +31,7 @@ FL.addCharacter({
       fork: [
         "@vespera:surprised A fork.",
         "She turns it over, looking for an engraving or a hidden compartment or a code.",
-        "@vespera Prongs. Four prongs. Diverging paths. You're telling me I'm at a crossroads. You're telling me to choose. Is this a *gauntlet?* Did you just throw down a *fork?*",
+        "@vespera Prongs. Three prongs. Diverging paths. You're telling me I'm at a crossroads. You're telling me to choose. Is this a *gauntlet?* Did you just throw down a *fork?*",
         "@vespera:happy I accept! Whatever it is, I accept!",
         "She tucks it into her ribbon sash like a duelling pistol and wears it for the rest of the day.",
       ],
@@ -79,10 +79,10 @@ FL.addCharacter({
     ["@vespera I told Magister Oddwort I have a rival who's also my — and he said, *I know, Miss Thornquill, the whole Academy knows, you wrote it on the chalkboard.*", "@vespera:blush I did not write it on the chalkboard. I wrote it on *three* chalkboards. There's a difference."],
     ["@vespera:smug New contest: who can go the longest without kissing the other. Starting now.", "Four seconds pass.", "@vespera:blush ...I've lost. Rematch. Rematch immediately. Best of —", "She doesn't finish the sentence, because she's busy losing again."],
     ["@vespera My parents wrote back. I'd told them about you. All of it, in eleven pages, with diagrams.", "@vespera:happy They said: *Bring them home for the busy season.* They've never invited anyone. I think they're competing with me now. To see who likes you most. They're going to lose."],
-    { if: 'vespera_draw', lines: ["@vespera Draws since the hedge maze: eleven. You and me, dead level, eleven times.", "@vespera:blush I think draws might be my favourite result now. Don't tell the Academy. They'll revoke the sash."] },
+    { if: 'vespera_draw', lines: ["@vespera Draws since the hedge maze: eleven. You and me, dead level, eleven times.", "@vespera:blush I think draws might be my favorite result now. Don't tell the Academy. They'll revoke the sash."] },
     { if: 'vespera_wrote', lines: ["@vespera You wrote in my ledger. In *ink.* Nobody writes in my ledger.", "@vespera:happy I've read your entry forty times. Your handwriting is a disgrace and your tally marks lean. I've never loved a page more."] },
     { if: 'vespera_together', lines: ["She opens the ledger to your page. The third column, the one you drew on the observatory roof, is so full it's crawling up the margin.", "@vespera:happy *Together.* Thirty-one points. I've had to rule extra lines. I've never run out of room on the *good* side before."] },
-    { if: 'vespera_date_gardens', lines: ["@vespera:smug New hedge maze record. Well, a new category: *Both of Us, Holding Hands.* It's much slower. I checked.", "@vespera:blush It's still my favourite time. I've put it on the plaque. Unofficially. With chalk."] },
+    { if: 'vespera_date_gardens', lines: ["@vespera:smug The hedge maze plaque has a new category. *Both of Us, Holding Hands.* Unofficially. In chalk. I have to rewrite it every time it rains.", "@vespera:blush Walk it with me again. I want to set the slowest time in the history of the maze. It's the only record I've ever wanted to *lose* speed on."] },
     { if: 'vespera_threw', lines: ["@vespera Full effort today? Promise?", "@you Promise.", "@vespera:happy Good. Never *let* me win. Make me lose to you every single day. It's the nicest thing anyone's ever done for me."] },
     { if: 'vespera_yield', lines: ["@vespera:smug I've written six more pages of analysis on that night in the maze. The *yield.* In the first ten seconds.", "@vespera:blush My conclusion is that it was the single most devastating move in the history of competitive anything, and I'm never going to recover, and I don't want to."] },
   ],
@@ -133,7 +133,7 @@ FL.addCharacter({
       start: {
         text: [
           "The hedge maze in the Moonlit Gardens is twelve feet tall, silver in the moonlight, and, according to Vespera, *the only worthy opponent in the Noble Quarter.*",
-          "@vespera My record from the gate to the fountain at the centre is three minutes and four seconds. I've been running it every night for two years. The groundskeeper has stopped asking.",
+          "@vespera My record from the gate to the fountain at the center is three minutes and four seconds. I've been running it every night for two years. The groundskeeper has stopped asking.",
           "She holds up her pocket hourglass, already eager.",
           "@vespera:smug Tonight I have a rival. Tonight, *we race.*",
         ],
@@ -145,7 +145,7 @@ FL.addCharacter({
       },
       race: {
         text: [
-          "You run. She runs. She knows every turn; you know none of them. You pick the wrong path four times, sprint into a hedge, and burst into the centre clearing two whole minutes after she does, with leaves in your hair.",
+          "You run. She runs. She knows every turn; you know none of them. You pick the wrong path four times, sprint into a hedge, and burst into the center clearing two whole minutes after she does, with leaves in your hair.",
           "She's sitting on the edge of the fountain, completely calm, timing you.",
           "@vespera:happy You came in *second.* Do you know how long I've waited for someone to come in second? Everyone else just goes home.",
         ],
@@ -156,7 +156,7 @@ FL.addCharacter({
           "You catch her hand before she can start the hourglass. She looks down at your fingers laced through hers as if she's found an error in the textbook.",
           "@vespera:surprised Walking? We'll be *slow.*",
           "@you That's the idea.",
-          "So you walk. She points out the turns she discovered in her first week, the dead end where she cried once in her second year, and the bench where she does her revision. You reach the fountain at the centre in eleven minutes flat.",
+          "So you walk. She points out the turns she discovered in her first week, the dead end where she cried once in her second year, and the bench where she does her revision. You reach the fountain at the center in eleven minutes flat.",
           "@vespera:blush Slowest time I've ever recorded.",
           "She turns the hourglass over and over in her free hand. She doesn't let go of yours.",
           "@vespera It's going on the plaque. Under a new heading.",
@@ -204,7 +204,7 @@ FL.addCharacter({
           "Seven bounces. You turn, very slowly, and raise one eyebrow at her.",
           "She points at you, trembling with outrage and delight.",
           "@vespera:smug *Good.* Gloat. Gloat harder. Nobody's ever gloated at me. I've been gloating *at* people my whole life, and do you know, it's much better from this side? It means I've got something to beat.",
-          "She practises until it's too dark to see the water. By the end she can manage two bounces, and she is prouder of those two bounces than of any ribbon on her sash.",
+          "She practices until it's too dark to see the water. By the end she can manage two bounces, and she is prouder of those two bounces than of any ribbon on her sash.",
         ],
         end: true,
       },
@@ -288,7 +288,7 @@ FL.addCharacter({
           "@vespera Zero. Point. *Three.*",
           "@you I can explain. Actually, I can't. There was a chicken.",
           "Then her face does something you don't expect. It *lights up*, like a lantern with too much oil in it.",
-          "@vespera:happy Do you have *any* idea how long I've been waiting for this?",
+          "@vespera:happy Nine years. *Nine years* I've been waiting for this.",
           "She whips a fat leather ledger out of her satchel, flips past dozens of crowded pages to a fresh one, and uncorks an inkpot with her teeth.",
           "@vespera Vespera Thornquill. Top of the Arcane Academy, holder of eleven records, ten as of thirty seconds ago, *thanks to you.* And you, chicken-wearer, are hereby declared my ETERNAL RIVAL! Mark it!",
           "A raven drops onto the gargoyle's head, cocks an eye at you, and croaks.",
@@ -324,7 +324,7 @@ FL.addCharacter({
       riddle_win: {
         text: [
           "@you What has a neck but no head, and two arms but no hands?",
-          "Vespera opens her mouth. She shuts it. Her eyes go distant. One second. Two. Three.",
+          "Vespera's eyes go distant. Her lips move. One second. Two. Three.",
           "@vespera_footnote THREE.",
           "@vespera A SHIRT! It's a shirt! Three seconds! Footnote, did you —",
           "@vespera_footnote MARKED.",
@@ -366,7 +366,7 @@ FL.addCharacter({
         text: [
           "You draw a chicken in the box. It's a pretty good chicken. It has a determined expression.",
           "@vespera:surprised That's not a signature. That's *poultry.*",
-          "She studies it for a long moment.",
+          "She studies it with the full, terrible attention of a fifth-year scholar.",
           "@vespera:smug ...It's legally binding. I've decided. The chicken stays.",
         ],
         next: 'name',
@@ -440,7 +440,7 @@ FL.addCharacter({
           "Her eyes go wide with horror.",
           "@vespera:surprised — to a *sporange!* That's a botanical word! It's a spore case! It *counts* —",
           "@vespera_magister It is a half-rhyme at best, Miss Thornquill. Point to the challenger.",
-          "The students around the green gasp. One of them drops a sandwich. Vespera stares at you, then bursts out laughing so hard she has to bend over.",
+          "The students around the green gasp. One of them drops a sandwich. Vespera goes perfectly still, like a scholar who has just found an error on page one. Then she bursts out laughing, doubled over, ribbons clinking.",
           "@vespera:happy *Orange!* You used *orange!* Nothing rhymes with orange! That's so cheap! That's so — *brilliant!*",
           "She marches out of her circle, grabs you by both shoulders, and shakes you.",
           "@vespera I'm going to find a rhyme for orange if it takes me the rest of my life. Mark it!",
@@ -456,7 +456,7 @@ FL.addCharacter({
           "She doesn't even blink.",
           "@vespera *By cleverness and cunning strange, I turn your wand into an orange!*",
           "Your wand is now an orange. A ripe one.",
-          "@vespera:smug *Strange*, *orange*. Assonance. Page forty of my amendment. Point Thornquill.",
+          "@vespera:smug *Strange*, *orange*. Assonance. Page nine of my amendment. Point Thornquill.",
           "@vespera_magister ...I'll allow it.",
           "But she's grinning at you as if you've given her a present.",
           "@vespera:happy You tried *orange* on me. Nobody's ever tried orange on me. Nobody's ever tried *anything.* I'm going to lie awake tonight thinking of real rhymes, just in case. You've ruined my sleep. Thank you.",
@@ -535,7 +535,7 @@ FL.addCharacter({
         text: [
           "@vespera:smug Oh, *dozens.* Hundreds! I've had a rival in every class since I was six.",
           "@you And where are they now?",
-          "She opens her mouth. Shuts it. Taps the quill against the ledger.",
+          "She taps the quill against the ledger. Once. Twice. A third time, harder.",
           "@vespera Hollis Brack moved to the coast. The Pemmeridge twins asked to sit at a different table. Most of them didn't know they were my rivals. You have to tell people, I've found. And then they *leave.*",
           "@vespera:sad People don't like losing to me. And I don't know how to do anything except win.",
           "Then she looks at you, at your tally marks, and something in her face goes bright again.",
@@ -559,7 +559,7 @@ FL.addCharacter({
     s2: {
       start: {
         text: [
-          "The Great Hall of the Arcane Academy is hung with blue banners for End-of-Term Honours. You came because a note told you to.",
+          "The Great Hall of the Arcane Academy is hung with blue banners for End-of-Term Honors. You came because a note told you to.",
           "*Rival. Attend. Seat 14, Row C. Yes, I reserved it. Yes, it's the best seat in the hall. Read into that whatever you like. — V.T.*",
           "Magister Oddwort reads the results from a scroll that unrolls all the way to the floor.",
           "@vespera_magister First in Theoretical Conjuration: Vespera Thornquill. First in Practical Conjuration: Vespera Thornquill. First in Arcane History: Vespera Thornquill...",
@@ -589,7 +589,7 @@ FL.addCharacter({
       stare_win: {
         text: [
           "You don't blink. Neither does she. And because she can't look away, she starts to talk.",
-          "@vespera I've had a rival in every class since I was six. I already told you that. What I didn't tell you is that none of them ever *knew.*",
+          "@vespera I've had a rival in every class since I was six. And none of them ever *knew.* Not really.",
           "@vespera I'd pick someone, and work and work, and beat them, and go home and write it down. And they'd never know there'd been a game at all.",
           "A tear slides down her cheek. She still doesn't blink. Then a second one follows it, and she makes a furious little noise, and her eyes squeeze shut.",
           "@vespera:sad ...You win. *Good.* I wanted you to. I wanted to lose to someone who was really there.",
@@ -681,7 +681,7 @@ FL.addCharacter({
         text: [
           "You lean in and kiss her cheek, right on the ink-freckles.",
           "@you Point to me.",
-          "@vespera:surprised That — that's not a recognised event!",
+          "@vespera:surprised That — that's not a recognized event!",
           "@you It is now. I wrote an amendment.",
           "@vespera:blush How long?",
           "@you Fourteen pages.",
@@ -694,7 +694,7 @@ FL.addCharacter({
     s3: {
       start: {
         text: [
-          "The note on your door tonight is written in silver ink. *The Final Event. The centre of the hedge maze, the Moonlit Gardens. Midnight. Come alone. Footnote will be adjudicating, but he's agreed to face the other way.*",
+          "The note on your door tonight is written in silver ink. *The Final Event. The center of the hedge maze, the Moonlit Gardens. Midnight. Come alone. Footnote will be adjudicating, but he's agreed to face the other way.*",
           "You find her at the heart of the maze, by the little fountain. A single lantern burns on the stone bench beside a sheet of parchment, two goblets of water and her ledger, closed.",
           "She's not in her robes. She's wearing a plain dark dress with a great many buttons down the front, and her hair is still up, the quill still stabbed through the knot. She looks like she's about to sit the hardest exam of her life.",
           { if: 'vespera_cheek', text: "@vespera:blush You kissed my cheek on the roof, and I haven't slept properly since. That's a competitive disadvantage. I'm here to correct it." },
@@ -846,7 +846,7 @@ FL.addCharacter({
         text: [
           "@vespera:happy *Oh, thank the gods.*",
           "She's off the bed before you've finished the sentence. You're right behind her. The kitchen is one room away, and you collide in the doorway, wedged shoulder to shoulder, both refusing to give an inch.",
-          "@vespera Draw — that's a — *again?* We're *very* good at those —",
+          { if: 'vespera_draw', text: "@vespera Draw — that's a — *again?* We're *very* good at those —", else: "@vespera Draw — that's a — we *drew* — rematch, *rematch* —" },
           "Breakfast is eventually toast, slightly burnt, because you both spent too long kissing in the doorway to watch it.",
         ],
         end: true,
@@ -942,7 +942,7 @@ FL.addCharacter({
       close_epilogue: {
         text: [
           "*Some time later...*",
-          "Vespera graduates first in her year, of course. But she skips the Honours ceremony. She's at the harbor with you instead, skipping stones. She manages four bounces, and doesn't write it down.",
+          "Vespera graduates first in her year, of course. But she skips the Honors ceremony. She's at the harbor with you instead, skipping stones. She manages four bounces, and doesn't write it down.",
           "She takes a post teaching at the Academy, and on her first day she wipes the class rankings off the chalkboard and writes, in enormous letters: *THERE ARE NO RANKINGS IN THIS ROOM. THERE IS ONLY GETTING BETTER, TOGETHER.* The first-years are terrified of her for a week. By midterm, they adore her. Her classes have the highest marks in the Academy, which she pretends not to know, and which you know she knows to the decimal point.",
           "She still competes, but only on the same side as you. Every year the two of you enter the Clichéton Three-Legged Race, tied at the ankle, and every year you win, because she has been training you in secret since February. The trophies go in the attic. She doesn't even polish them.",
           "The ledger sits on the mantelpiece, still tied shut with the blue ribbon. Visitors sometimes ask what's inside.",

@@ -43,7 +43,7 @@ FL.addCharacter({
     ["@lyra You know what's funny? Everyone in this town can sing your ballad. Everyone knows your name. Nobody knows mine. They know *the bard.*", "She shrugs it off with a grin that comes a beat too fast.", "@lyra:smug Which is fine! Mysterious! Very alluring!"],
     { if: 'lyra_heckled', lines: ["@lyra:smug I've started testing new songs on you first. You're my official critic. The only person in Clichéton who'll tell me when a rhyme is a crime.", "@lyra Here's one. *My love, you are a dove / who flew down from above —*", "@you No.", "@lyra:happy See? *Invaluable.*"] },
     { if: 'demon_attack', lines: ["@lyra I've finished the imp ballad! *The Siege of the Fountain.* Fourteen verses, three key changes and a part where the whole tavern stamps.", "@lyra:smug The imps come off very badly. One of them wrote me a letter of complaint. I'm setting it to music."] },
-    { if: 'lyra_duet', lines: ["@lyra People keep asking when *the duet* is on again. As if we're an act. As if we're a *band.*", "@lyra:blush I've started telling them it's a limited engagement. Very exclusive. Only on nights my partner feels like honking."] },
+    { if: 'lyra_duet', lines: ["@lyra People keep asking when *the duet* is on again. As if we're an act. As if we're a *band.*", "@lyra:blush I've started telling them it's a limited engagement. Very exclusive. Only on nights my co-star can be dragged out of the audience."] },
     { if: 'lyra_offstage', lines: ["She's sitting on the edge of the fountain, but she isn't performing. No cap. Ink on her cuffs. When she sees you, she doesn't reach for the cap.", "@lyra:blush I'm on a *break.* Don't tell anyone. You're the only one who gets the break version."] },
     { if: { met: 'valeria' }, lines: ["@lyra I hear you've been up at Castle Nocturne. I serenaded the Countess once. She had her butler tip a bucket of ice water on me from the battlements.", "@lyra:smug I'm counting it as a callback."] },
   ],
@@ -54,9 +54,9 @@ FL.addCharacter({
     { if: 'lyra_offstage', lines: ["@lyra:blush I didn't wear the cap today. The whole square noticed. Four people asked if I was ill.", "@lyra:happy I said I'm not ill. I'm *off duty.* It's a new thing. My partner taught me."] },
     { if: 'lyra_road', lines: ["@lyra I bought a map. It's just a map. I'm just *looking* at it.", "She has circled eleven towns on it. Two are across the sea.", "@lyra:blush ...With you, I mean. If we went. Not that we're going. I'm just looking."] },
     ["@lyra:smug Love song number two hundred and fourteen. Want to hear it?", "@you Is it heart-glove?", "@lyra:happy No! It's about your hands! It's *good!*", "She plays it. It *is* good. It's really, genuinely good. She looks smugger than you have ever seen anyone look."],
-    { if: 'lyra_date_picnic', lines: ["@lyra Can we go back to that clearing in Whisperwood? The picnic one?", "@lyra:blush I want to play for nobody again. I've gotten very good at playing for nobody. Nobody and you."] },
+    { if: 'lyra_date_picnic', lines: ["@lyra Can we go back to that clearing in Whisperwood? The picnic one?", "@lyra:blush No tavern, no square, no audience. Just a squirrel with opinions, and you. I think I'm getting a taste for it."] },
     ["@lyra I realize I've never actually said it. Out loud. Not in a song.", "She opens her mouth. Closes it. Laughs.", "@lyra:blush It's *so* much harder without a lute. Hold on. I — I love you. There. *Gods.* My hands are shaking. I've played for *dukes.*"],
-    { if: 'lyra_duet', lines: ["@lyra:happy The Wyvern has a new tradition. Whenever we're both in, they bang their mugs until you get up and sing the chorus with me.", "@lyra:smug You're still terrible. They love you. *I* love you. That's three things."] },
+    { if: 'lyra_duet', lines: ["@lyra:happy The Wyvern has a new tradition. Whenever we're both in, they bang their mugs until you get up and sing the chorus with me.", "@lyra:smug You've got *stage presence,* darling. They love you. *I* love you. That's three things."] },
     ["@lyra:smug Do you know how many songs about you I've written? Forty-six. Do you know how many are accurate?", "@you How many?", "@lyra:blush Just the new ones."],
   ],
   dateFav: 'picnic',
@@ -97,7 +97,7 @@ FL.addCharacter({
         text: [
           "@you Everyone! The bard is off duty tonight!",
           "The tavern boos. Loudly. A crust of bread bounces off your ear.",
-          "Lyra stares at you with her hand over her mouth. You think she's horrified. Then you realize she's trying not to laugh.",
+          "Lyra has both hands clamped over her mouth. You think she's horrified. Then you notice her shoulders shaking, and the feather on her cap trembling with them.",
           "@lyra:blush You got *booed.* For me. To protect my night off.",
           "@lyra:smug ...That's the most romantic thing anyone's done in this tavern, and somebody once proposed here with a live goose.",
         ],
@@ -181,7 +181,7 @@ FL.addCharacter({
           "You sit on the edge of the pier with your legs over the water, and after a moment she sits beside you, and you both just listen.",
           "The sailors are terrible. The bass is flat. The harmony is a crime. And slowly, Lyra stops tapping.",
           "@lyra:surprised ...It's good, isn't it? It's *bad,* but it's good. They're not singing for anyone. They're just singing.",
-          "She leans her head on your shoulder and stays there until the sun is gone.",
+          "She tucks herself against your side, humming the bass line under her breath, a little flat on purpose, and stays there until the sun is gone.",
         ],
         next: 'end',
       },
@@ -357,7 +357,7 @@ FL.addCharacter({
     s1: {
       start: {
         text: [
-          "You haven't been to the Tipsy Wyvern in two days. In that time, you discover on walking in, you have become a folk hero.",
+          "It has been two days since the fountain. In that time, you discover on walking into the Tipsy Wyvern, you have become a folk hero.",
           "@lyra_fan It's *them!* It's actually them!",
           "A woman in the front row clutches her heart. Several people raise their mugs. A dwarf you've never met slaps your back and tells you he cried at the part with the kraken.",
           { if: 'lyra_pigeon', text: "There's a chalk drawing above the bar: you, enormously muscled, wrestling something with wings, a beak and, for some reason, tentacles. Underneath, someone has written THE BEAST OF FOUNTAIN SQUARE." },
@@ -541,7 +541,7 @@ FL.addCharacter({
         text: [
           "@lyra:surprised *Afterwards?* That's not how I — I write the song *first,* and then I go and do what the song says, and then the song's *true.*",
           "@you How's that been working?",
-          "She opens her mouth. Shuts it. Looks at the snowdrift of paper.",
+          "She looks at you. She looks at the snowdrift of paper. She plucks a single, accusing note on Margery.",
           "@lyra:smug ...Rude. Accurate. Rude.",
           "But she's laughing, and when she stands up she leaves the crumpled pages where they lie, and leans into your side as you walk back inside, and doesn't seem to notice she's doing it.",
         ],
@@ -566,7 +566,7 @@ FL.addCharacter({
           "@lyra:sad ...I've thought about that. Late at night. Just walking out of town with Margery and not playing a note until I got somewhere nobody had ever heard of me.",
           "@lyra:blush But I'd be scared to do it alone. Isn't that silly? I've played to a thousand drunk sailors at once, and I'm scared of an empty road.",
           "@you You wouldn't have to do it alone.",
-          "She looks at you for a long, long moment. Then the grin comes back, softer, a little lopsided.",
+          "She glances down at Margery, as if the lute might have an opinion. Then the grin comes back, softer, a little lopsided.",
           "@lyra:smug Careful, darling. That almost sounded like a lyric.",
         ],
         end: true,
@@ -705,7 +705,7 @@ FL.addCharacter({
       },
       read: {
         text: [
-          "She clears her throat. Opens her mouth. Closes it. For the first time since you've known her, Lyra Songsworth has stage fright.",
+          "She clears her throat. Tunes a string on a lute that isn't there. For the first time since you've known her, Lyra Songsworth has stage fright.",
           "@lyra:blush ...Don't laugh.",
           "@you I won't.",
           "She reads it very quietly, in the offstage voice.",
@@ -755,7 +755,7 @@ FL.addCharacter({
       song: {
         text: [
           "The first star falls as she plays the first chord.",
-          { if: 'lyra_tune', text: "You know the tune at once. It's the one from the alley, the one without a name, whose ending she found in an empty tavern with you. Now it has words." },
+          { if: 'lyra_tune', text: "You know the tune at once. It's the one from the alley, the one without a name, the one that used to just stop. Now it has an ending, and words." },
           "She sings it in the offstage voice: the low, soft, slightly rough one nobody in this town has ever heard.",
           { if: 'lyra_firstline', text: "*I spent my whole life singing to the back row,* she sings, *and you were the first one sitting close enough to hear.* You heard that line first, on a morning when she had ink on her nose. Now the whole hill hears it, and the whole hill goes quiet." },
           "It isn't a ballad. Nobody fights a griffin. It's about a stranger who told her the truth and stayed to hear the rest; about learning that the best part of a song is the rest between the notes; about being seen with ink on your sleeves and being wanted anyway. It doesn't have a single heart-glove in it.",
@@ -789,7 +789,7 @@ FL.addCharacter({
       },
       road: {
         text: [
-          "Her eyes go wide. Then she laughs, reaches behind the stage and pulls out a battered travelling pack, stuffed to bursting, with Margery's case strapped to the side.",
+          "Her eyes go wide. Then she laughs, reaches behind the stage and pulls out a battered traveling pack, stuffed to bursting, with Margery's case strapped to the side.",
           "@lyra:blush I packed it a week ago. Just in case you said that. I didn't dare *hope* you'd say that.",
           "@lyra:smug Two for the road, then. You find the melody. I'll harmonize.",
         ],

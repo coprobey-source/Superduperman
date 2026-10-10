@@ -83,7 +83,7 @@
           'The Grand Library is open mornings and afternoons. Studying sharpens the Wits. Sharp Wits impress certain scholarly hearts.',
           'The Arena is always looking for sparring partners. Might is respected by warriors, beasts, and at least one dragon.',
           'Mingling at the Tipsy Wyvern builds Charm. Charming folk find nobles, priestesses and certain undead much more agreeable.',
-          'Tip from the Guild: Most hearts have a favourite gift and one they truly hate. Pay attention to how people react!',
+          'Tip from the Guild: Most hearts have a favorite gift and one they truly hate. Pay attention to how people react!',
         ];
       } },
       { id: 'rest', label: 'Sit by the fountain and rest', lines: [
@@ -144,7 +144,7 @@
     open: [0, 1, 2],
     shop: true,
     desc: [
-      'Stalls unfold like flowers along Market Street: fruit, fabric, flasks of suspicious potions. Marigold\'s Flower Shop glows with colour on the corner.',
+      'Stalls unfold like flowers along Market Street: fruit, fabric, flasks of suspicious potions. Marigold\'s Flower Shop glows with color on the corner.',
       'The market is packed. A butcher shouts prices. A pickpocket with a tail is very obviously not pickpocketing anyone.',
       'Most stalls are closing, but the lantern-lit ones selling sweets, perfume and "romantic gifts" are doing brisk business.',
     ],
@@ -198,7 +198,7 @@
     icon: '⛪',
     desc: [
       'White marble and golden light. Morning prayers echo under the dome, and the air smells of incense and fresh bread from the soup kitchen.',
-      'The temple is peaceful in the afternoon. Sunlight paints stained-glass colours across the pews.',
+      'The temple is peaceful in the afternoon. Sunlight paints stained-glass colors across the pews.',
       'At night the temple is lit by a thousand candles. The statue of the Goddess of Love seems almost to be smiling. Almost smirking, actually.',
     ],
     activities: [
@@ -295,7 +295,7 @@
     name: 'Whisperwood Forest',
     icon: '🌲',
     desc: [
-      'Mist curls between ancient trees. Birds sing. A path leads deeper toward a hidden elven glade, and a crooked chimney puffs coloured smoke somewhere off to the left.',
+      'Mist curls between ancient trees. Birds sing. A path leads deeper toward a hidden elven glade, and a crooked chimney puffs colored smoke somewhere off to the left.',
       'Sunlight filters green-gold through the canopy. Somewhere a wolf howls — a little too cheerfully.',
       'The forest at night is all silver moonlight and glowing mushrooms. Eyes gleam in the undergrowth. Some of them seem friendly.',
     ],
@@ -1011,7 +1011,7 @@
           'Sylvaine drifts in behind you with three books floating at her shoulder and a look of mild nostalgia.',
           '@sylvaine:smug Ah. The Dark Lord prophecy. I was there when it was written, you know. The seer had been at the elderberry wine. Read it *carefully.*',
         ] },
-        'You find it at last: a brittle scroll in a glass case, so old the ink has faded to the colour of weak tea.',
+        'You find it at last: a brittle scroll in a glass case, so old the ink has faded to the color of weak tea.',
       ],
       choices: [
         { text: 'Decipher the original text. [Wits check 3]', check: { stat: 'wits', dc: 3 }, pass: 'lib_win', fail: 'lib_fail' },
@@ -1121,7 +1121,7 @@
         { if: 'plot_lead_library', text: 'And the Lens sends starlight wherever it\'s pointed. Hold it on festival night, and you could point every falling star in the sky into whatever you liked.' },
         { if: 'plot_lead_docks', text: 'And the jar is the size of a cottage, and has his own face painted on it.' },
         { if: 'plot_lead_sewers', text: 'And he has written at least twenty-two drafts of a speech about how much everyone is going to love him.' },
-        'You go to bed with the uneasy feeling that the villain of this story is a theatre kid.',
+        'You go to bed with the uneasy feeling that the villain of this story is a theater kid.',
       ],
       choices: [
         { text: 'Sleep.' },
@@ -1208,7 +1208,7 @@
     start: {
       text: [
         'Evening in the square. The lamplighter is halfway round the fountain when every lantern he has already lit turns green.',
-        'The fountain begins to boil. The pigeons leave as a single disgusted unit. And the sky above Clichéton tears open like a theatre curtain, and a face appears in it.',
+        'The fountain begins to boil. The pigeons leave as a single disgusted unit. And the sky above Clichéton tears open like a theater curtain, and a face appears in it.',
         'It is enormous. It has four horns, each polished to a mirror shine, and a small, carefully groomed beard, and the expression of a man who has been practising this exact moment in front of a looking-glass for several centuries.',
         '@baalgrim PEOPLE OF CLICHÉTON! BEHOLD — LORD BAALGRIM! DUKE OF THE FOURTH PIT! HIGH TREASURER OF THE UNDERREALM! THREE-TIME RUNNER-UP, MOST IMPOSING HORNS!',
         '@baalgrim On the night of your precious Starfall, every falling star in your sky will be MINE! Caught! Bottled! And poured over your kingdom like a SAUCE! And then, little mortals... you will all... LOVE ME!',
@@ -1248,7 +1248,7 @@
       text: [
         '@you Keep your money. I\'m going to stop you.',
         'Baalgrim looks at you the way a carriage might look at a small dog barking at its wheels.',
-        '@baalgrim *Stop* me? You? You are a *side character* in my story, deputy. You are an *obstacle.* You are, at best, a colourful minor setback somewhere in the second act.',
+        '@baalgrim *Stop* me? You? You are a *side character* in my story, deputy. You are an *obstacle.* You are, at best, a colorful minor setback somewhere in the second act.',
         '@you Then you\'d better hope this is still the second act.',
         'His beard twitches. Somewhere high above you, very faintly, somebody goes *ooooh.*',
         '@baalgrim ...We shall see.',
@@ -1259,7 +1259,7 @@
     horns_win: {
       text: [
         '@you Are those horns natural? They\'re magnificent. The symmetry. The *shine.*',
-        'Lord Baalgrim, Duke of the Fourth Pit, turns the colour of a sunset.',
+        'Lord Baalgrim, Duke of the Fourth Pit, turns the color of a sunset.',
         '@baalgrim They — well. Yes. I oil them. Twice daily. Nobody — *nobody* ever notices the *shine* —',
         '@you What kind of oil?',
         '@baalgrim Comet oil. Very rare. It can only be harvested on the night the Herald Star passes, two nights before your Starfall, which is *also* the only night the Lens can be aligned with the —',
@@ -1562,7 +1562,7 @@
       choices: [
         { text: 'Buy the gilded mirror. (20 gold)', if: 'plot_mirror_hint', req: { gold: 20 }, gold: -20, give: { mirror: 1 }, go: 'bought' },
         { text: 'Buy the ordinary fork. (3 gold)', req: { gold: 3 }, gold: -3, give: { fork: 1 }, go: 'fork' },
-        { text: 'Buy nothing. You have a badge. That\'s basically armour.' },
+        { text: 'Buy nothing. You have a badge. That\'s basically armor.' },
       ],
     },
     bought: {
@@ -1793,7 +1793,7 @@
     darklord: {
       text: [
         'It goes wrong immediately.',
-        'You slip on a scattering of imp marbles, skid across the roof and end up dangling from the edge of the tower by one hand, while Lord Baalgrim looms over you, laughing a big, round, practised laugh.',
+        'You slip on a scattering of imp marbles, skid across the roof and end up dangling from the edge of the tower by one hand, while Lord Baalgrim looms over you, laughing a big, round, practiced laugh.',
         '@baalgrim *This* is the hero? This is the meddler who has haunted my reports? MWAHAHAHA! I have *rehearsed* this laugh! It is *excellent!*',
         'The Herald Star reaches its height. The Lens begins to lock, with a rising note like a fingertip round the rim of a glass. It\'s over. It\'s all over.',
         'And then, from the battlement right beside your fingers, something says:',
@@ -1970,15 +1970,15 @@
     valeria: ['Countess Valeria discovers she can bear exactly one sunset a year, if it\'s a good one. She comes to every Starfall under an enormous black parasol, pretending to be bored.', '@valeria:smug I am not *enjoying* it. I am *tolerating* it. Magnificently.'],
     sylvaine: ['Sylvaine writes the history of these thirty days. It takes her two hundred years. It is the only history book in the Grand Library with a chapter called *Pies.*'],
     mira: ['Mira is made Guildmaster and reorganizes the entire filing system in a single afternoon. Adventurer mortality drops below thirty percent and stays there. She has the chart framed above her desk, where nobody is allowed to see it.', '@mira:blush Not because I CARE! For STATISTICAL reasons!'],
-    marigold: ['Marigold\'s flower shop wins Best in Show at the Spring Fair three years running. She knows the name, birthday and favourite flower of every single person in Clichéton. Everyone finds this lovely now. Mostly.', '@marigold:happy Everyone gets a flower! Forever! I made a list! ♡'],
-    shade: ['Shade chooses a name. She won\'t tell anyone what it is yet. She practises it quietly in the mirror every morning, to see if it fits.', '@shade:blush ...It fits.'],
+    marigold: ['Marigold\'s flower shop wins Best in Show at the Spring Fair three years running. She knows the name, birthday and favorite flower of every single person in Clichéton. Everyone finds this lovely now. Mostly.', '@marigold:happy Everyone gets a flower! Forever! I made a list! ♡'],
+    shade: ['Shade chooses a name. She won\'t tell anyone what it is yet. She practices it quietly in the mirror every morning, to see if it fits.', '@shade:blush ...It fits.'],
     pell: ['Pell reads every book in the Grand Library, and then, having run out, writes one under her own name at last. It\'s a love story. It\'s *extremely* good, and only half as scandalous as Volume Nine. She hides behind it at the launch.'],
     kit: ['Kit pulls off the greatest heist in Clichéton\'s history: she steals the Starfall Lens, polishes it, and puts it back before anyone notices. Nobody believes her. She doesn\'t mind in the slightest.', '@kit:smug Nyahaha! The *perfect* crime!'],
     malzahra: ['The Dread Queen Malzahra gets her lands, her treaty, and a monologue so good that the whole Underrealm learns it by heart. Gnarlbit weeps at every performance.', '@malzahra:happy MWAHAHAHA! ...That one was menacing. Do not answer. I *know* it was.'],
     celestine: ['Sister Celestine is made Abbess when the old Abbess finally retires, on the strength of having personally met the Goddess at Starfall and fainted only once. She confiscates a great many romance novels. She reads all of them. For research.'],
     brakka: ['Brakka finally finds a challenge worthy of her: teaching the children of Clichéton to arm-wrestle. She loses on purpose every single time, and roars with laughter.', '@brakka:happy TINY HUMANS ARE VERY STRONG! BRAKKA IS DEFEATED! AGAIN!'],
     ignivara: ['Ignivara adds a new treasure to her hoard: one small fallen star, caught in her own claws on Starfall night. She doesn\'t count it in the mornings. She just looks at it.'],
-    lilette: ['Lilette resits her final exam in Seduction and passes with honours, on the strength of a two-hundred-page essay arguing that the most seductive thing in the world is simply being kind. The examiners cried.'],
+    lilette: ['Lilette resits her final exam in Seduction and passes with honors, on the strength of a two-hundred-page essay arguing that the most seductive thing in the world is simply being kind. The examiners cried.'],
     hilde: ['Hilde forges a blade so fine the Mountain King sends an envoy to buy it. She sends the envoy home with a meat pie and a fresh grudge, and hangs the sword over her own fireplace.'],
     coralie: ['Princess Coralie talks her father into opening the first-ever embassy between the sea and the land. Its first official act is a horse-viewing ceremony.', '@coralie:happy FOUR LEGS! I will *never* get used to it!'],
     morwen: ['Morwen finally brews a potion that does exactly what it says on the label. She is so shocked that she sets her hat on fire. Sir Croaksworth notes, for the record, that this is a personal best.'],
@@ -1998,7 +1998,7 @@
     lyra: ['Lyra writes a ballad about the night the stars stopped and the narrator stepped down off the page. It\'s the first love song she\'s ever written that is any good. The whole tavern knows the words by midnight.'],
     maud: ['Sister Maud Ironveil is courted at last, properly, with flowers and poetry, and is so mortified she bends Mercy into a knot. Then she says yes.', '@maud:happy HA-HAAA! Somebody fetch me a new hammer!'],
     vespera: ['Vespera Thornquill closes her ledger at last. Final score: a draw. She has the page framed.', '@vespera:smug Don\'t get comfortable. I\'ve started a new one.'],
-    zyra: ['Zyra opens the trendiest shop in the kingdom and sells glitter to the Underdark by post. Somebody in House Ssivrin writes back. In colour. It is literally legendary.', '@zyra:happy No curse! Big crit energy! Forever!'],
+    zyra: ['Zyra opens the trendiest shop in the kingdom and sells glitter to the Underdark by post. Somebody in House Ssivrin writes back. In color. It is literally legendary.', '@zyra:happy No curse! Big crit energy! Forever!'],
   };
   function epilogueLines(id) {
     if (EPILOGUES[id]) return EPILOGUES[id];

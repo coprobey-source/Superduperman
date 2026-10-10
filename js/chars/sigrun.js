@@ -143,7 +143,7 @@ FL.addCharacter({
       },
       maze: {
         text: [
-          'Sigrun does not race through the hedge maze. Sigrun flies over the hedge maze, lands at the centre, and then gets bored waiting and cuts a straight path back to you through nine walls of privet.',
+          'Sigrun does not race through the hedge maze. Sigrun flies over the hedge maze, lands at the center, and then gets bored waiting and cuts a straight path back to you through nine walls of privet.',
           '@sigrun:smug I won!',
           'The head gardener is weeping. You spend the rest of the evening helping him replant.',
         ],
@@ -326,7 +326,7 @@ FL.addCharacter({
       },
       score: {
         text: [
-          'She squints at you for a long time, head tilted, the way a jeweller squints at a gem.',
+          'She squints at you for a long time, head tilted, the way a jeweler squints at a gem.',
           '@sigrun Four.',
           '@you Four?',
           '@sigrun:happy A FOUR is a promising number! A four with the right dragon becomes a nine! I have seen it happen!',
@@ -827,7 +827,7 @@ FL.addCharacter({
           'She walks back into Clichéton three days after the festival, footsore, sunburnt and grinning, with no wings at all. She stops in the square and announces, at the top of her lungs, that she has a blister.',
           '@sigrun:happy A BLISTER! On my HEEL! Look at it! It is MAGNIFICENT!',
           'Being mortal turns out to be the greatest adventure of her life. Her first cold is a saga. Her first hangover is an epic. When she finds her first grey hair, years later, she challenges it to single combat, loses, and declares it a worthy foe.',
-          'You buy a farm at the edge of Whisperwood with goats, a mead-cellar and a very low doorway that she never once ducks for, and hits her head on every time, laughing. She still yells HAIL at the neighbours every morning. The neighbours have started yelling it back.',
+          'You buy a farm at the edge of Whisperwood with goats, a mead-cellar and a very low doorway that she never once ducks for, and hits her head on every time, laughing. She still yells HAIL at the neighbors every morning. The neighbors have started yelling it back.',
           { if: 'sigrun_feather', text: 'The feather she gave you on the way home from the crags, the last one from her old wings, hangs over the hearth in a glass case. She says it isn\'t a reservation any more. Now it\'s just a feather. It\'s her favorite thing in the house, after you.' },
           'Every Tuesday afternoon, the two of you sit on the porch and do nothing at all.',
           'And many, many years later, she sits beside you with white braids, two bad knees and a horn of mead, and tells your grandchildren about the day a valkyrie found out what happens to a hero who lives.',

@@ -37,7 +37,7 @@ FL.addCharacter({
       fork: [
         '@marigold:surprised A fork! ♡',
         'She turns it over in her hands, delighted. Then she counts the tines, and the delight goes very still.',
-        "@marigold:smug Four prongs. Four. That's one for every day you didn't visit the shop last week. Is this a *message*, {name}? Hehe. I'm teasing. I'm mostly teasing. ♡",
+        "@marigold:smug Three prongs. Three. That's one for every day you didn't visit the shop last week. Is this a *message*, {name}? Hehe. I'm teasing. I'm mostly teasing. ♡",
         'She files it in a drawer behind the counter. The drawer is labeled FORKS (MESSAGES?).',
       ],
       nectar: [

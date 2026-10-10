@@ -1,6 +1,6 @@
 FL.addSpeaker('maud_wendell', 'Sir Wendell (Deceased)', '#9fb4c8');
 FL.addSpeaker('maud_rosamund', 'Lady Rosamund (Also Deceased)', '#d8b4c8');
-FL.addSpeaker('maud_pomfrey', 'Sir Pomfrey of the Forty Ribbons', '#c8a86b');
+FL.addSpeaker('maud_pomfrey', 'Sir Peregrine of the Forty Ribbons', '#c8a86b');
 
 FL.addCharacter({
   id: 'maud',
@@ -21,11 +21,11 @@ FL.addCharacter({
     neutral: '@maud A kind thought! I\'ll put it in the poor box. Unless — unless you meant it for *me* specifically? Then I shall keep it forever and also defend it with my life.',
     hate: ['She takes one sniff and holds it at arm\'s length, eyes narrowing.', '@maud:angry Friend. This smells like something I would usually be called in to *exorcise.*'],
     special: {
-      relic: ['@maud:surprised A knucklebone of — the label says — "Saint Probably." I don\'t know a Saint Probably.', 'She turns it over in her enormous fingers with the reverence of a jeweller.', '@maud:happy I shall pray to them every night. If they turn out to be a goat, the goat shall be very well prayed to. HA-HAAA! Oh, thank you, {name}. Nobody ever brings me anything that isn\'t a complaint about a crypt.'],
+      relic: ['@maud:surprised A knucklebone of — the label says — "Saint Probably." I don\'t know a Saint Probably.', 'She turns it over in her enormous fingers with the reverence of a jeweler.', '@maud:happy I shall pray to them every night. If they turn out to be a goat, the goat shall be very well prayed to. HA-HAAA! Oh, thank you, {name}. Nobody ever brings me anything that isn\'t a complaint about a crypt.'],
       roses: ['@maud:surprised Roses.', 'She stares at them. Then she stares at you. Then back at the roses, as if they might be a trap set by a necromancer.', '@maud:blush I have handed out four hundred bouquets on behalf of shy suitors. Nobody has ever... these are for *me?*', 'The vase she puts them in crunches slightly in her grip. She does not notice. She is too busy smiling.'],
       fork: ['@maud A fork. A single fork. Is this some kind of test?', '@maud:smug HA-HAAA! I see. A pilgrim\'s weapon! Humble, practical, three-pronged like the Goddess\'s Triple Heart. I shall bless it and use it to eat my soup.', '@you You eat soup with a fork?', '@maud:happy I eat soup with *faith*, lamb.'],
       novel: ['@maud:surprised The Duke\'s Forbidden Passion, Volume Nine.', '@maud:blush I have — I have *read* Volume Nine. In a professional capacity. I confiscated it from little Celestine. She said she\'d confiscated it from a sinner. We both had a very long talk with the Goddess that night.', 'She puts the book in her habit pocket anyway. It is a very large pocket.'],
-      candle: ['@maud:happy A Blessed Candle! For the crypt patrol! The dead hate these. Absolutely loathe them.', '@maud:blush ...Or perhaps for my windowsill. Celestine keeps one on hers for her sweetheart. I could. If I wanted to. Which I might.'],
+      candle: ['@maud:happy A Blessed Candle! For the crypt patrol! The dead hate these. Absolutely loathe them.', '@maud:blush ...Or perhaps for my windowsill. Celestine keeps one on hers. She won\'t say who it\'s for. I could. If I wanted to. Which I might.'],
       axe: ['@maud:smug A great axe! Ha! A fine piece of steel.', 'Behind her, propped against the wall, Mercy somehow manages to look offended.', '@maud:blush I shall keep it in the armory, far away from the bedroom. Mercy is very jealous. She once sulked for a week because I complimented a mace.'],
     },
     repeat: '@maud:happy Another one! HA-HAAA! Lamb, you will have me as spoiled as an abbot.',
@@ -35,7 +35,7 @@ FL.addCharacter({
     ['@maud I oil Mercy every night and sing to her. Hymns, mostly. She prefers the ones in a minor key.', '@you You sing to your hammer.', '@maud:happy She has sent eleven hundred restless souls to their rest, friend. The least I can do is a little harmony.'],
     ['@maud:happy Little Celestine is the gentlest soul in the whole Order. I tried to teach her to throw a punch once.', '@maud:smug She apologized to the sandbag. Then she healed it.'],
     ['@maud Skeletons are polite. Zombies are needy. Ghouls are rude. And liches are the worst of all.', '@maud:angry So *smug.* Every lich thinks it\'s the cleverest thing in the crypt. Then you hit it with a hammer and it isn\'t.'],
-    ['@maud:happy I am the Order\'s Counsel of Hearts. Two hundred and twelve couples matched, wed and happy! Two hundred and thirteen, if the cobbler\'s niece stops being stubborn.', '@maud:blush People come to me with their troubles of the heart because I give very good advice. And because I am large, and they feel safe hiding behind me.'],
+    [{ if: { stage: 2 }, text: '@maud:happy I am the Order\'s Counsel of Hearts. Two hundred and thirteen couples matched, wed and happy! One couple is deceased, but they count. Two hundred and fourteen, if the cobbler\'s niece stops being stubborn.', else: '@maud:happy I am the Order\'s Counsel of Hearts. Two hundred and twelve couples matched, wed and happy! Two hundred and thirteen, if the cobbler\'s niece stops being stubborn.' }, '@maud:blush People come to me with their troubles of the heart because I give very good advice. And because I am large, and they feel safe hiding behind me.'],
     ['@maud:sad A little girl gave me a dandelion once. Twelve years ago, in the square. Just walked up and held it out. Then her mother saw and dragged her away.', '@maud:blush I still have it. Pressed in my psalter. It is very flat now.'],
     ['@maud:smug The soup kitchen has a separate pot with my name painted on the side. MAUD. In red.', '@maud:happy It is not a joke. It is a *necessity.* Smiting is hungry work.'],
     ['@maud:blush I sneezed in the confession booth last spring. It is now two confession booths. Very small ones.', '@maud:happy The Abbess says it\'s good for the Order to have more booths. She says it through her teeth.'],
@@ -99,7 +99,7 @@ FL.addCharacter({
       contest: {
         text: [
           'You make it through one chicken. She makes it through four, then helps you with the rest of yours, then orders pudding.',
-          '@maud:smug A brave attempt, lamb! The Goddess loves a trier!',
+          '@maud:smug A brave attempt, lamb! Canticle Eleven: blessed is the one who attempts the second chicken!',
           'She has to carry you home. You\'re not drunk, just very, very full. She hums a hymn all the way, and it is, technically, a lullaby.',
         ],
         aff: 2,
@@ -168,7 +168,7 @@ FL.addCharacter({
         text: [
           '@maud I was bigger than every other child in the Temple by the age of eight. Bigger than most of the Sisters by twelve.',
           '@maud:sad The other girls were sweet to me, but they never asked me to play at weddings. You know the game: one is the bride, one the groom, someone does the vows. I always did the vows.',
-          '@maud:happy I was very good at the vows. HA-HAAA! I still am. Two hundred and twelve couples!',
+          '@maud:happy I was very good at the vows. HA-HAAA! I still am. Two hundred and thirteen couples! One pair of them deceased, but they count!',
           'She smiles out at the harbor. Then she glances sideways at you.',
           '@maud:blush I always wondered what it would be like to be one of the other two.',
         ],
@@ -282,7 +282,7 @@ FL.addCharacter({
       },
       compliment: {
         text: [
-          'She opens her mouth. Nothing comes out. Then:',
+          'Her jaw works. Nothing comes out. Then:',
           '@maud:blush *Eep.*',
           'It\'s the smallest sound you have ever heard come out of a person that size. Her whole face goes as red as her one escaped curl.',
           'Her free hand, which had been resting on a brass candlestick, closes. There\'s a crunch. When she opens her fingers, the candlestick is shaped like a pretzel.',
@@ -405,7 +405,7 @@ FL.addCharacter({
         text: [
           'At last, Sir Wendell squares his transparent shoulders. Then he hesitates and turns back to Maud.',
           '@maud_wendell Sister. One last thing. You know so much of love. What would *you* want to hear? If someone came to you like this?',
-          'Maud opens her mouth, and nothing at all comes out.',
+          'Maud, who has an answer for every heart in Clichéton, has nothing at all to say.',
           'You realize she has never once been asked that question.',
         ],
         choices: [
@@ -470,10 +470,10 @@ FL.addCharacter({
       advice: {
         text: [
           '@maud:surprised Take my own —',
-          'She opens her mouth. She closes it. She makes a small noise like a kettle.',
+          'She goes very still, skull and all. Then she makes a small noise like a kettle.',
           '@maud:blush HA — HA-HAAA! Me? Lamb, I\'m the *counsellor.* The counsellor doesn\'t need counselling. That\'s like a — a blacksmith needing a horseshoe.',
           '@you Blacksmiths\' horses need horseshoes.',
-          'She stares at you. Then at the skull in her hand, as if it might help.',
+          'She looks down at the skull in her hand, as if it might help.',
           '@maud:blush I\'m going to go and put this back in the crypt now. Goodnight, {name}. Blessings. Many blessings. I\'ll see you on Tuesday.',
           'She walks straight into the door frame on her way in. The door frame comes off worse.',
         ],
@@ -484,7 +484,7 @@ FL.addCharacter({
       start: {
         text: [
           'The Arena is draped in bunting for the Spring Tourney of Favors. Ribbons everywhere: red, gold, sky-blue. It\'s an old tradition, the herald explains to the crowd: before the melee, every champion rides out wearing the favors of those who admire them.',
-          'Sir Pomfrey canters past with forty ribbons streaming from his armor like a maypole.',
+          'Sir Peregrine canters past with forty ribbons streaming from his armor like a maypole.',
           '@maud_pomfrey Forty! A record! Good morning, Sister! Still unadorned, I see?',
           'Maud stands at the gate in full plate with Mercy over her shoulder. Her arms are bare of anything at all.',
           '@maud:happy Eleven tourneys, eleven wins! HA-HAAA! Who needs ribbons when you have Mercy?',
@@ -505,7 +505,7 @@ FL.addCharacter({
           '@maud:surprised For... me?',
           '@you For you. Unless Mercy wants it.',
           'She can\'t speak. She nods. You tie the ribbon around the haft of the hammer, just under the head, in a neat little bow. Her hands, the hands that crushed a ghoul to powder, are shaking.',
-          'The crowd has gone quiet. Sir Pomfrey\'s mouth is open.',
+          'The crowd has gone quiet. Sir Peregrine\'s mouth is open.',
           'Then she rides into the melee with a single ribbon on her hammer and fights like the wrath of the Goddess herself. She never once lets an opponent come near that ribbon. At one point she catches a knight\'s sword in her bare hand rather than let it nick the bow.',
           'She wins. Of course she wins. And when she raises Mercy over her head, the ribbon flutters in the sun, and for the first time ever, somebody in the stands cheers for her. Then somebody else. Then all of them.',
         ],
@@ -516,7 +516,7 @@ FL.addCharacter({
           'You stand up on your bench and bellow her name.',
           '@you MAUD! MAUD IRONVEIL! GO ON, MAUD!',
           'The people around you edge away. You keep going. You keep going all through the melee, as she flattens knight after knight, until you\'re hoarse.',
-          'In the middle of the fight, she hears you. She stops, turns, finds you in the stands, and waves Mercy at you with a huge, astonished grin. Unfortunately, Sir Pomfrey is standing behind her at the time and is knocked clean out of the ring and into a cart of turnips.',
+          'In the middle of the fight, she hears you. She stops, turns, finds you in the stands, and waves Mercy at you with a huge, astonished grin. Unfortunately, Sir Peregrine is standing behind her at the time and is knocked clean out of the ring and into a cart of turnips.',
           'She wins. When she raises the hammer, she isn\'t looking at the crowd. She\'s looking straight at you.',
         ],
         next: 'after',
@@ -526,7 +526,7 @@ FL.addCharacter({
           'The herald blinks at you, and then at the size of your partner, and writes your name down with a slightly shaky hand.',
           'You fight back to back. Every knight who gets past you meets Mercy. Every knight who sneaks round behind her meets you. Halfway through, you realize she\'s laughing, the full thunderclap laugh, in sheer delight.',
           '@maud:happy HA-HAAA! Duck, lamb!',
-          'You duck. Sir Pomfrey sails over your head, trailing forty ribbons.',
+          'You duck. Sir Peregrine sails over your head, trailing forty ribbons.',
           'When it\'s over, she hoists you up onto her shoulders in front of the whole Arena, and the crowd, bewildered, cheers.',
         ],
         aff: 8,
@@ -578,7 +578,7 @@ FL.addCharacter({
       },
       lead: {
         text: [
-          'She stares at you. Then she laughs, startled.',
+          'Mercy slides off her knees and thumps into the sand. She laughs, startled.',
           '@maud:surprised Me? Lead the Order? Lamb, I *smash* things.',
           '@you You go down into the dark so other people don\'t have to. You know every couple in this town by name. You stayed with a shy ghost for three hundred years\' worth of nerves. Who else would you want leading a temple of love?',
           'She opens her mouth to argue, and doesn\'t.',
@@ -638,7 +638,7 @@ FL.addCharacter({
           'Underneath, her hair is short and copper-red and absolutely wild, curls flattened on one side and sticking straight up on the other. She puts a hand up to it, mortified.',
           '@maud:blush Nobody sees it. It\'s a disgrace. It does what it likes.',
           '@you It\'s beautiful.',
-          'She makes the *eep* noise again. The bedpost she\'s holding creaks.',
+          { if: 'maud_candlestick', text: 'She makes the *eep* noise again. The bedpost she\'s holding creaks.', else: 'She makes a tiny noise, an *eep,* far too small for the size of her. The bedpost she\'s holding creaks.' },
         ],
         next: 'plates',
       },
@@ -646,7 +646,7 @@ FL.addCharacter({
         text: [
           'You pick up the hammer. It\'s as heavy as ever. You turn it round, very solemnly, so that it\'s facing the wall.',
           '@you She doesn\'t need to see this.',
-          'Maud stares at you. Then she laughs so hard that the candle goes out, and she has to relight it with shaking hands.',
+          'Maud\'s hand flies to her mouth. Then she laughs so hard that the candle goes out, and she has to relight it with shaking hands.',
           '@maud:happy HA-HAAA! Oh, Goddess. Oh, lamb. Nobody has ever made me laugh like that while I was this frightened.',
         ],
         aff: 8,
@@ -666,7 +666,7 @@ FL.addCharacter({
           'Piece by piece, you take her armor off.',
           'The vambraces come away from forearms like a blacksmith\'s, laced with old white scars. The pauldrons lift away from shoulders broad and freckled as a summer field. She holds still the whole time, the way a horse holds still for someone it trusts, and her breathing gets faster with every buckle.',
           'You have to stand on the prayer-stool to reach the straps at the back of the breastplate. When it comes away, the Radiant Heart engraved on it catches the candlelight, and underneath it she\'s just a woman in a sweat-damp linen shirt with her heart hammering so hard you can see it.',
-          '@maud:blush I\'ve stood in front of a lich, {name}. I\'ve stood in front of a bone dragon and a wight-king and the Bog Hag of Fennick. My hands didn\'t shake.',
+          '@maud:blush I\'ve stood in front of a lich, {name}. I\'ve stood in front of a bone dragon and a wight-king and a very angry abbot. My hands didn\'t shake.',
           'She holds them up. They\'re shaking.',
           '@maud There\'s a verse in the Canticles. The Canticle of the Open Door. "Ask, and ask again, and listen to the answer as though it were a hymn."',
           '@maud:blush So I\'m asking. With no armor on. Do you want me? Like this? All of me?',
@@ -759,7 +759,7 @@ FL.addCharacter({
           'There\'s a very long silence on the other side of the door.',
           '@celestine ...Good morning, {name}.',
           "@celestine I'm going to pray for you both. Very hard. And, um. Congratulations. On the — on everything.",
-          'Her footsteps patter away. Maud has buried her face in the pillow and is making a noise like a small earthquake.',
+          'Her footsteps patter away. Maud has buried her face in the pillow, and her shoulders are shaking so hard that what\'s left of the bed creaks in sympathy.',
           '@maud:blush She\'s going to be *unbearable.* She\'s going to wink at me during vespers. She can\'t wink. She does both eyes.',
           '@maud:happy ...Come here, lamb. The eggs can wait.',
         ],
@@ -775,7 +775,7 @@ FL.addCharacter({
           '@maud:blush {name}. I\'ve been practicing what to say for three days. I wrote it down. In the formal style of the Canticles. It is nine pages long.',
           'She pulls the pages out. Her hands are shaking so much they rattle.',
           '@maud:blush The Abbess retires at midsummer. Tonight she asked me if I would take the crozier and become the next Abbess of the Radiant Heart. I told her I had to ask someone first.',
-          '@maud:sad And I keep thinking about my list. The lich of Mournhollow. The kraken. The Bog Hag. And I keep thinking that if I stay here, I\'ll be the hammer on the wall forever.',
+          { if: 'maud_dream', text: '@maud:sad And I keep thinking about my list. The lich of Mournhollow. The kraken. The Bog Hag. And I keep thinking that if I stay here, I\'ll be the hammer on the wall forever.', else: '@maud:sad And part of me keeps thinking about the road. There are liches out there, lamb, and krakens, and nobody hitting them. And I keep thinking that if I stay here, I\'ll be the hammer on the wall forever.' },
           '@maud:blush But mostly, I keep thinking about you. And I don\'t know which way to go, lamb. For the first time in my life, I don\'t know where to swing.',
           'The first star falls. Then another. The crowd gasps and points.',
           'Maud doesn\'t look up at all. She is looking at you.',
@@ -803,7 +803,7 @@ FL.addCharacter({
           '*Some time later...*',
           'You court Sister Maud Ironveil for one full year, according to every rite in the Canticles of Love, and the whole of Clichéton watches.',
           'You bring her flowers every Tuesday. You walk her out in the Moonlit Gardens, very slowly, while couples on the benches nudge each other and whisper. You stand under the Warden\'s Tower at midnight and sing her "The Goblin\'s Trousers" with your whole heart, which is not technically in the Canticles, but she has it added to the next edition.',
-          'Something strange happens to the town over that year. The children stop running from her. Then they start following her. Then they start challenging her to arm-wrestling contests, which she loses on purpose, magnificently, with cries of anguish. A little girl hands her a dandelion in the square, and this time her mother just smiles.',
+          'Something strange happens to the town over that year. The children stop running from her. Then they start following her. Then they start challenging her to arm-wrestling contests, which she loses on purpose, magnificently, with cries of anguish. A little girl hands her a dandelion in the square, and her mother, instead of dragging her away, just smiles.',
           '@maud:happy They\'re not afraid! Lamb, they\'re not afraid of me any more!',
           '@you They never needed to be. They just needed to see someone standing next to you.',
           'You marry in the Temple of the Radiant Heart at the end of the year. Celestine officiates, and cries through the entire ceremony. The Abbess cries too. Mercy stands beside the altar with a wreath of white roses around her head, and the great statue of the Goddess is, beyond all argument, grinning.',

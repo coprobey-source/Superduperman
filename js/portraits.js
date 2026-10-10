@@ -867,7 +867,7 @@
     lyra: { skin: '#f8dfcb', hairColor: '#8a3aa8', hair: 'wavy', bangs: 'side', eyes: 'round', eyeColor: '#3a9a7a', mouth: 'grin', hat: 'bard', hatColor: '#2a6a8a', featherColor: '#e8505a', lute: true, outfit: '#2a6a8a', collar: 'v', trim: '#f2c14e', earring: true, blush: 0.35 },
     maud: { skin: '#f0cfae', hairColor: '#c4642b', hair: 'short', bangs: 'none', eyes: 'sharp', eyeColor: '#8a6a34', mouth: 'grin', brows: 'raised', veil: true, veilColor: '#f2f0ea', hammer: true, outfit: '#c8ccd8', collar: 'armor', blush: 0.25, freckles: true, braidFront: false },
     vespera: { skin: '#f9e8db', hairColor: '#1c1824', hair: 'ponytail', bangs: 'straight', eyes: 'sharp', eyeColor: '#8a5ae0', mouth: 'smirk', brows: 'raised', streak: '#d8dce8', quillPin: true, ribbon: '#1c1824', outfit: '#1e2a5a', collar: 'mage', trim: '#e8c45a', sash: '#c8283a', blush: 0.2 },
-    zyra: { skin: '#a898b4', hairColor: '#f8e6a0', hair: 'curly', bangs: 'side', eyes: 'round', eyeColor: '#e0303a', lash: '#1a0a14', mouth: 'grin', ears: 'elf', hoops: true, streak: '#ff5fa8', shades: '#ff5fa8', faceGem: '#ff8ac8', outfit: '#ff6fb0', collar: 'off', trim: '#ffffff', lip: '#ff4f8f', blush: 0.3 },
+    zyra: { skin: '#a898b4', hairColor: '#f8e6a0', hair: 'curly', bangs: 'side', eyes: 'round', eyeColor: '#e0303a', lash: '#1a0a14', mouth: 'grin', ears: 'elf', hoops: true, streak: '#ff5fa8', faceGem: '#ff8ac8', outfit: '#ff6fb0', collar: 'off', trim: '#ffffff', lip: '#ff4f8f', blush: 0.3 },
   };
 
   /* ------------------------------------------------------------------ main */

@@ -34,7 +34,7 @@ FL.addCharacter({
   talk: [
     ['@malzahra:happy MORTAL! You return to my lair! Do you come to beg for mercy? To swear fealty? To... just hang out?', '@malzahra:blush ...The third one is acceptable.'],
     ['@malzahra:angry My imps have been very bad today. They stole a goat. I told them "go forth and spread terror." I did not say *goat.*', '@malzahra:smug We are keeping the goat. His name is Lord Ruin.'],
-    ['@malzahra:smug I have been practicing my evil laugh. Listen. MWAHAHAHA. ...Was that menacing? Be honest. The council says it is "giving community theatre."'],
+    ['@malzahra:smug I have been practicing my evil laugh. Listen. MWAHAHAHA. ...Was that menacing? Be honest. The council says it is "giving community theater."'],
     ['@malzahra Nine hundred years since anyone last challenged me, hero. *Nine hundred!* The last hero I fought was so terrified he fainted before I finished my monologue!', '@malzahra:sad It was a very good monologue. I rewrote it eleven times.'],
     ['She is sitting on the windowsill, chin in her hands, staring out at the lights of Clichéton.', '@malzahra:sad Your people laugh so much. In taverns. In the streets. Why do they laugh so much?'],
     ['@malzahra:smug I have decided that when I conquer this kingdom, I will spare you. And the chocolate shop. You are both too valuable to destroy.'],

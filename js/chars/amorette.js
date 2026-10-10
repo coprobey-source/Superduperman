@@ -53,7 +53,7 @@ FL.addCharacter({
       ],
       relic: [
         "She peers into the little gilded box.",
-        "@amorette:surprised Oh! That's Saint Ebbert's knuckle. Hello, Ebbert! — He owes me twelve coppers from a dice game in the year four hundred. I'd recognise that knuckle anywhere. It's the one he cheated with.",
+        "@amorette:surprised Oh! That's Saint Ebbert's knuckle. Hello, Ebbert! — He owes me twelve coppers from a dice game in the year four hundred. I'd recognize that knuckle anywhere. It's the one he cheated with.",
         "@amorette:smug Holy? Probably not. *Valuable?* Enormously. To me. As leverage.",
       ],
       mirror: [
@@ -113,7 +113,7 @@ FL.addCharacter({
         text: [
           "@amorette:smug Oh, you *wicked* thing. Lean in.",
           "She narrates the room in a delicious whisper. The couple by the fire: forty years, six children, one magnificent argument about a goat. The two dwarves at the bar: they don't know it yet, but in about ninety seconds he's going to knock over her drink. The man eating alone: his wife's on the late coach, and he's ordered her favorite pie to be warm when she walks in.",
-          "Ninety seconds later the dwarf knocks over the drink. They both apologise at once. Amorette clutches your arm.",
+          "Ninety seconds later the dwarf knocks over the drink. They both apologize at once. Amorette clutches your arm.",
           "@amorette:happy *I love this part.*",
         ],
         end: true,
@@ -133,7 +133,7 @@ FL.addCharacter({
         text: [
           "She orders one of everything. The table groans. The barmaid looks at you with deep sympathy.",
           "@amorette:surprised What's *this?* Is this a potato? Have I been *missing potatoes* for ten thousand years?",
-          "She eats like someone discovering colour. She has opinions about every dish. She gives the pie a standing ovation. At the end of the night she leans back against you in the booth, very full and very pleased.",
+          "She eats like someone discovering color. She has opinions about every dish. She gives the pie a standing ovation. At the end of the night she leans back against you in the booth, very full and very pleased.",
           "@amorette:smug I'm adding a minor deity of gravy to the pantheon. I'll have to make one up. It'll be worth it.",
         ],
         end: true,
@@ -214,7 +214,7 @@ FL.addCharacter({
       narrate: {
         text: [
           "She brightens, and turns to the sky, and begins.",
-          "Her voice changes. It isn't the voice she speaks with; it's the other one, the one from everywhere and nowhere, the one you heard the day you arrived. She narrates the sunset, and the sea listens. The colours deepen as she describes them. A gull, mid-flight, stops to hear the end of a sentence.",
+          "Her voice changes. It isn't the voice she speaks with; it's the other one, the one from everywhere and nowhere, the one you heard the day you arrived. She narrates the sunset, and the sea listens. The colors deepen as she describes them. A gull, mid-flight, stops to hear the end of a sentence.",
           "@amorette:blush ...*and the protagonist, who had asked to hear the story, was the most beautiful thing on the pier.*",
           "@amorette:smug Sorry. Couldn't help it. Solenne can sign *that.*",
         ],
@@ -473,7 +473,7 @@ FL.addCharacter({
           'The temple is dim tonight. Half the candles have gone out. Amorette is sitting on the altar steps, and something is wrong: her hair isn\'t drifting. Her gown is just a dress. Her golden eyes have faded to warm brown.',
           '@amorette:surprised Oh. You\'re here. I didn\'t know you\'d come. I *always* know. I didn\'t know.',
           "@amorette:sad This has never — I don't *remember* this part. I mean — nothing like this has ever happened before. Obviously. That's what I meant.",
-          '@amorette:sad Something\'s happening to me. I\'m losing my divinity, darling. Bit by bit. I tried to narrate the baker rehearsing his proposal this morning — he practises it on a loaf every day — and I couldn\'t *see* it. I tried to fire an arrow and it just... fell on the floor.',
+          '@amorette:sad Something\'s happening to me. I\'m losing my divinity, darling. Bit by bit. I tried to narrate the baker rehearsing his proposal this morning — he practices it on a loaf every day — and I couldn\'t *see* it. I tried to fire an arrow and it just... fell on the floor.',
           '@amorette There\'s an old law. Gods who fall in love with mortals become a little mortal themselves. I always thought it was a myth.',
           { if: 'amorette_slowburn', text: "@amorette:sad You told me love takes time. Little moments, hundreds of them. I thought I had all the time in the world. I'm a *goddess.* And then the moments went and added up when I wasn't looking." },
           'She looks up at you. She looks frightened, and very young.',

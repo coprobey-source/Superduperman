@@ -59,11 +59,11 @@ FL.addCharacter({
   talk: [
     ['@morwen Oh, hello! Mind the cauldron. And the floor. And that jar. And — actually, just don\'t touch anything. Or breathe too hard.'],
     ['@croak She set her own hat on fire twice this morning. A personal record.', '@morwen:angry CROAKSWORTH.', '@croak I merely report the facts, madam.'],
-    ['@morwen:smug I invented a potion that makes you smell colours! It worked perfectly! Unfortunately, it also makes you hear smells. Purple is *very* loud.'],
+    ['@morwen:smug I invented a potion that makes you smell colors! It worked perfectly! Unfortunately, it also makes you hear smells. Purple is *very* loud.'],
     ['@morwen:sad My mother was a witch, and her mother, and her mother. All very proper, very scary witches. Cackling, cursing, the works. I can\'t cackle. I tried. I sound like a goose.'],
     ['She\'s staring into her cauldron, chin propped on her broom handle.', '@morwen You know what\'s the hardest potion to brew? Courage. It takes nine years and a phoenix feather. Or you just... do the scary thing anyway. Which is cheaper but much harder.'],
     ['@morwen:happy You have the most interesting aura. Sort of a warm orange, with little sparkles. ...Oh, I said that out loud.', '@morwen:blush Please disregard.'],
-    ['@morwen:smug I\'ve labelled every jar in the cottage! Very organised. Then I forgot which labels were which, so I labelled the labels.', '@croak There is one jar marked simply *DO NOT.* Not "do not open." Not "do not drink." Merely *DO NOT.* She does not remember what it is.', '@morwen:sad It\'s *probably* fine.'],
+    ['@morwen:smug I\'ve labelled every jar in the cottage! Very organized. Then I forgot which labels were which, so I labelled the labels.', '@croak There is one jar marked simply *DO NOT.* Not "do not open." Not "do not drink." Merely *DO NOT.* She does not remember what it is.', '@morwen:sad It\'s *probably* fine.'],
     ['@morwen My broom refuses to fly on Tuesdays. I\'ve never found out why. I\'ve asked it politely. It just sweeps away.', '@croak It was Grandmother\'s broom. Grandmother died on a Tuesday. I would also refuse.'],
     ['@croak Before you ask: yes, I could be a duke again. One potion. Madam has offered eleven times.', '@croak I decline. Dukes must attend dinners. Toads attend *flies.* The conversation is better.'],
     ['@morwen:smug Do you know the difference between a curse and a hex? A curse is permanent. A hex wears off. And a jinx is when you both say the same thing at once.', '@morwen That\'s real witch law. I didn\'t make it up. *Mostly.*'],
@@ -93,7 +93,7 @@ FL.addCharacter({
           'Morwen has never eaten at the Tipsy Wyvern before. She arrives at the corner booth with a handbag that clinks, and her enormous pointed hat, which does not fit under the low beams.',
           '@morwen:sad Oh. Oh, it won\'t — hold on —',
           'She takes the hat off and sets it on the empty chair beside her. The barkeep, passing, puts a menu in front of it out of sheer habit.',
-          'She unpacks her handbag: a pepper grinder, three little jars of salt in different colours, a vial of something green and a sprig of rosemary that is quietly singing to itself.',
+          'She unpacks her handbag: a pepper grinder, three little jars of salt in different colors, a vial of something green and a sprig of rosemary that is quietly singing to itself.',
           '@morwen:smug Everyone thinks salt is just salt. *Everyone.* This one\'s from a dragon\'s tear duct. Very savoury. Faintly smoky. Slightly smug.',
           'The barkeep pours the house wine. Morwen sniffs it, frowns, and before you can stop her, adds a single pinch of something sparkly.',
           'The wine begins, very softly, to hum.',
@@ -107,7 +107,7 @@ FL.addCharacter({
       },
       wine: {
         text: [
-          'You take a sip. It tastes like blackberries and woodsmoke, and then, unmistakably, like the colour purple. You hear it, too: a deep, warm violet hum, right at the back of your teeth.',
+          'You take a sip. It tastes like blackberries and woodsmoke, and then, unmistakably, like the color purple. You hear it, too: a deep, warm violet hum, right at the back of your teeth.',
           '@morwen:surprised Oh, you can hear it! You can! Isn\'t it *lovely?* Purple\'s so loud!',
           'By the time the second glass is poured, the whole table is humming in harmony. By the third, so is the next table. By the end of the night, the entire Tipsy Wyvern is singing a song that nobody knows the words to, and everybody knows the tune, and the barkeep is weeping into a dishcloth.',
           '@croak (from inside the hat) I warned the establishment. Nobody listens to the toad.',
@@ -333,7 +333,7 @@ FL.addCharacter({
         text: [
           'By sunset, you\'re lying in the foxgloves with your head in her lap. She\'s weaving a crown of clover and moonherb, and humming, and every few minutes a small harmless spark escapes her fingers and drifts up into the trees like a firefly.',
           { if: { stage: 4 }, text: 'She sets the crown on your head, then bends down and kisses you upside down, her curls falling round your face like a curtain, and the stream beside you starts, very briefly, to run uphill.' },
-          '@morwen:blush This is my favourite clearing. I\'ve never brought anyone here. I suppose that makes it ours now. That\'s how forests work. I don\'t make the rules.',
+          '@morwen:blush This is my favorite clearing. I\'ve never brought anyone here. I suppose that makes it ours now. That\'s how forests work. I don\'t make the rules.',
         ],
         end: true,
       },

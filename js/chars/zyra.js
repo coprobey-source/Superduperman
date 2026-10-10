@@ -48,7 +48,7 @@ FL.addCharacter({
       plushie: [
         "@zyra:surprised Is it a spider? Is it poisonous? Why does it have such big eyes?",
         "@you It's a bunny.",
-        "@zyra:happy A *bunny.* A soft, harmless, completely non-venomous bunny. Oh, I love him. Nothing in the Underdark is soft. His name is Sir Fluffington the Unstabbed.",
+        "@zyra:happy A *bunny.* A soft, harmless, completely non-venomous bunny. Oh, I love him. Nothing in the Underdark is soft. His name is Lord Snugglesworth the Unstabbed.",
       ],
       mirror: [
         "@zyra:happy A mirror! For checking my face! For checking *behind* me!",
@@ -212,7 +212,7 @@ FL.addCharacter({
       glasses: {
         text: [
           "You pluck the heart-shaped spectacles off her nose and put them on yourself. You turn to her with a serious expression.",
-          "She stares at you. Then she shrieks.",
+          "Every one of her eighteen earrings goes still. Then she shrieks.",
           "@zyra:happy Oh, that's *so* you. No — wait — give them — they're *mine* —",
           "She tackles you so enthusiastically that you both nearly go off the end of the pier. You miss the last bit of the sunset entirely. She keeps the spectacles. She lets you borrow them on Tuesdays.",
         ],
@@ -344,7 +344,7 @@ FL.addCharacter({
         text: [
           "@zyra:surprised You're... not scared?",
           "@you Scared? You did that in *platform shoes.*",
-          "She stares at you. Then she laughs. It isn't the big honking laugh this time. It's smaller, startled, and real.",
+          "She blinks at you, fast, the way someone checks a mirror for a trap. Then she laughs. It isn't the big honking laugh this time. It's smaller, startled, and real.",
           "@zyra:blush Okay. You're officially my favorite surface person. Don't tell the sun. It'll get jealous.",
         ],
         next: 'name',
@@ -469,7 +469,7 @@ FL.addCharacter({
       splash: {
         text: [
           "You send a great wave of hot water across the tiles. It catches both knights square in the back of the knees, and the one with the sword sits down hard on the floor.",
-          "Zyra stares at you. Then she laughs so loudly that the troll reading the newspaper in the deep pool lowers it to look.",
+          "Zyra's red eyes go perfectly round. Then she laughs so loudly that the troll reading the newspaper in the deep pool lowers it to look.",
           "@zyra:happy You *splashed* them! For *me!* That's so petty! That's the nicest petty thing anyone's ever done for me!",
           "She spends the rest of the afternoon recounting it to you, with gestures, and every time it gets bigger. By the fourth telling, the knights were giants, and you were a tidal wave.",
         ],
@@ -570,17 +570,17 @@ FL.addCharacter({
       },
       after: {
         text: [
-          "The pier is silent. A fisherman has dropped his net. A dockhand is staring, white-faced. Somebody behind a stack of crates whispers, *knew it.*",
+          { if: 'zyra_pink', text: "The pier is silent. A fisherman has dropped his net. The shadow of the mooring post is just a shadow again, the right shape and pointing the right way.", else: "The pier is silent. A fisherman has dropped his net. A dockhand is staring, white-faced. Somebody behind a stack of crates whispers, *knew it.*" },
           "Zyra stands with her back to you, looking out at the water. The sun is almost gone.",
-          "@zyra:sad So. That's the other me.",
+          { if: 'zyra_pink', text: "@zyra:sad So. That was my family. That's where the other me comes from.", else: "@zyra:sad So. That's the other me." },
           "She doesn't turn around.",
           "@zyra You can go, if you want. I won't be weird about it. People usually go.",
           "@you I'm not going anywhere.",
           "A long silence. Then she sits down on the edge of the pier, very small, and lets her feet dangle over the dark water.",
           "@zyra Three hundred years. Trained since I could walk. In the Underdark, everybody's smile has a knife behind it. *Everybody's.* My mother's. My sisters'. Mine.",
           "@zyra So when I came up here, and saw the sun, I wanted to be a smile with *nothing* behind it. That's what the pink is. It's not a disguise. The knife was the disguise. I just can't... take it off all the way. My hands remember.",
-          { if: 'zyra_knife', text: "@zyra:blush At the market, you asked me to teach you. You didn't even flinch. I told myself you just hadn't seen properly. But you saw it tonight, and you're *still sitting here.*" },
-          "@zyra:sad People see the ears and the skin and the eyes, and they wait for the knife. And now you've *seen* the knife.",
+          { if: 'zyra_knife', text: "@zyra:blush At the market, you asked me to teach you. You didn't even flinch. I told myself you just hadn't seen properly. But now you've seen where I come from, and you're *still sitting here.*" },
+          "@zyra:sad People see the ears and the skin and the eyes, and they wait for the knife. And now you've seen where the knife comes from.",
         ],
         choices: [
           { text: '"I saw all of it. I\'m still here. Both of you are mythic."', go: 'both_you', aff: 10 },
@@ -591,7 +591,7 @@ FL.addCharacter({
         text: [
           "She turns around so fast her curls whip across her face.",
           "@zyra:surprised Did you just use my *slang?* At me? *Correctly?*",
-          "@you Both of you. The one who argues about pink and the one who put her sister on the planks. Mythic. No curse.",
+          "@you Both of you. The one who argues about pink and the one with the knife. Mythic. No curse.",
           "Her face crumples. She laughs and cries at the same time, mascara running in two long glittery rivers, and she doesn't even try to fix it.",
           "@zyra:happy You're so — that's so — oh, you've ruined my *face* —",
         ],
@@ -605,7 +605,7 @@ FL.addCharacter({
           "@you It's beautiful.",
           "@zyra:smug It's *so* Underdark.",
           "@you It can be both.",
-          "She looks at you for a long time. Then she leans her head on your shoulder.",
+          "She's quiet for a while, turning one bangle round and round her wrist. Then she tips sideways until her temple rests against your arm, earrings chiming.",
           "@zyra:blush Nobody's ever said that name like it was *nice* before.",
         ],
         next: 'dream',
@@ -718,7 +718,7 @@ FL.addCharacter({
           "@zyra Tell me if anything's too much. I'm really, really good at reading people. But I want you to *tell* me.",
           "@you It's not too much.",
           "@zyra Then tell me what's *more.*",
-          { if: 'zyra_name', text: "At some point, breathless, she whispers into your ear: *say it.* The long one. And you do, every syllable of it, slowly and softly, and she makes a sound like something breaking open in the best possible way." },
+          { if: 'zyra_name', text: "At some point, breathless, she whispers into your ear: *say it.* The long one. And you do, every syllable of it, slowly and softly, and she shivers all the way down, as if something locked up tight for three hundred years has finally come open." },
           "The candles burn down one by one. Neither of you notices...",
           "...",
           "When you wake, the sky through the round window is turning grey, then gold. Zyra is sitting up in the tangled sheets beside you, knees to her chest, watching it.",
@@ -828,7 +828,7 @@ FL.addCharacter({
         text: [
           "@zyra:surprised Down. To the *Dark.* You'd come?",
           "@you You'll need a bodyguard. One who matches.",
-          { if: 'zyra_nails', text: "You hold up your hand, with its one glittery nail. She stares at it, and then she starts laughing and crying at the same time, and grabs your face, and kisses you while the sky falls down around you.", else: "She stares at you, and then she starts laughing and crying at the same time, and grabs your hand and paints one of your nails pink right there on the hill, and kisses you while the sky falls down around you." },
+          { if: 'zyra_nails', text: "You hold up your hand, with its one glittery nail. She goes very quiet, looking at it, and then she starts laughing, and then crying, and then both, and grabs your face, and kisses you while the sky falls down around you.", else: "For a second she can't say anything at all. Then she starts laughing, and then crying, and then both, and grabs your hand and paints one of your nails pink right there on the hill, and kisses you while the sky falls down around you." },
           "@zyra:happy Okay. *Okay.* We are going to need *so* much polish.",
         ],
         next: 'down_epilogue',

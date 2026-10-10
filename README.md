@@ -33,6 +33,7 @@ node tools/build-single.js            # -> dist/hearts-of-generic-fantasylandia.
 - **Crossover events:** 16 run-ins between heroines, such as Fenna vs. Kit over a salmon, Valeria meeting Celestine's holy-water bucket, or Malzahra finally meeting a "hero." They happen when you're in the right place at the right time and have met both heroines.
 - **Portraits & expressions:** every heroine has a soft-shaded anime-style SVG portrait with seven expressions (neutral, happy, blush, angry, sad, smug, surprised), generated from a config in `js/portraits.js`. Her face changes as the dialogue does.
 - **Locations:** every location has an illustrated backdrop that changes from morning to afternoon to evening (`js/backdrops.js`).
+- **Key moments:** every ending gets an illustration of her, in festival finery, under the falling stars. You can view endings again from the gallery. Third romance scenes get a candlelit setting of their own.
 - **Music:** 14 hand-composed location and story themes, plus a **leitmotif for every heroine** that plays in her romance scenes, dates and ending. Everything is synthesized live with Web Audio; there are no audio files. Plucked-string, FM, flute, string, choir, organ, brass and percussion instruments go through a reverb and mastering chain. Turn music on from the title screen or the 🎵 button.
 - **Sound effects:** soft synthesized UI sounds: page turns, heart chimes, coins, stat-ups, check results, a heartbeat, an ending fanfare and festival fireworks.
 - **Memories:** replay any romance scene, morning after, date or ending you've seen, from the title screen or the menu. Endings replay with the choices that led to them.
@@ -100,6 +101,7 @@ tools/validate.js     content validator + simulated playthroughs
 tools/build-single.js bundles everything into one HTML file
 tools/apply_patch.py  helper for bulk-editing scene nodes in character files
 docs/AUTHORING.md     the full authoring guide (format, conditions, callbacks, endings, dates, moods)
+docs/CANON.md         continuity canon: named NPCs, world facts and running gags shared across files
 ```
 
 ### Adding a heroine

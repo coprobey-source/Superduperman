@@ -80,7 +80,7 @@ FL.addCharacter({
     ["@kohana:blush Do you know what the worst part of being in love is? I can't lie to you anymore. I try. I tell you I'm not pleased to see you, and the bell goes *ting.*", "@kohana:angry It's mortifying. I've had that bell four hundred years and it's never been such a snitch."],
     ["@kohana You're the only person in Clichéton who knows what I look like first thing in the morning. I'm going to have to kill you, or marry you.", "@kohana:smug I'll flip a coin. A trick coin. Mm-hm-hm."],
     ["She's leaning against a wall with her eyes closed, and doesn't open them when you walk up.", "@kohana Hello, {name}.", "@you How did you know it was me?", "@kohana:happy You hum. Same four notes. I'd know them anywhere now."],
-    ["@kohana:smug I've started a rumour that you're secretly a dragon in disguise. Nobody will bother you now.", "@kohana You're welcome. Please don't breathe on anyone."],
+    ["@kohana:smug I've started a rumor that you're secretly a dragon in disguise. Nobody will bother you now.", "@kohana You're welcome. Please don't breathe on anyone."],
     ["@kohana Last night I dreamed I was nobody at all. Not a fox, not a goose, not you. Just a warm spot next to someone.", "@kohana:blush I woke up and it was true. Disgusting. Go away. Come back."],
     { if: 'kohana_counted', lines: ["She turns around and wiggles her tails at you, very deliberately.", "@kohana:blush Well? Go on. Count. It's been a whole day. Something might have changed.", "@you One, two, three.", "@kohana:happy Mm. Still right. You're always right. It's so tiresome. Do it again tomorrow."] },
     { if: 'kohana_offering', lines: ["@kohana:blush I've kept your tofu, you know. The first one, from the shrine bowl. I put a little glamour on it so it never goes stale.", "@kohana It's the only illusion I've ever made just to keep something, instead of to hide it."] },
@@ -105,7 +105,7 @@ FL.addCharacter({
       fox: {
         text: [
           "The waiter's face falls off. Underneath, Kohana is grinning ear to ear, which, in her case, is quite a lot of grin.",
-          "@kohana:happy You *always* know! It's very annoying! It's my favourite thing in the world!",
+          "@kohana:happy You *always* know! It's very annoying! It's my favorite thing in the world!",
           "She slides into the booth across from you, sets down two steaming plates of fried tofu, and steals a bite from yours before you've lifted your fork.",
           { if: { stage: 4 }, text: "Halfway through dinner, under the table, three tails curl around your ankle and stay there. She doesn't say anything about it. She doesn't have to." },
         ],
@@ -182,7 +182,7 @@ FL.addCharacter({
     harbor: {
       start: {
         text: [
-          "The sun is going down over Saltbreeze Harbor, painting the water persimmon-orange, which Kohana points out is *her* colour. She therefore owns the sunset now. It's the law.",
+          "The sun is going down over Saltbreeze Harbor, painting the water persimmon-orange, which Kohana points out is *her* color. She therefore owns the sunset now. It's the law.",
           "You sit at the end of the pier with your legs dangling and a paper cone of fried fish each. Kohana finishes hers in about four seconds. Then she looks at yours.",
           "@kohana:smug Goodness, what's that, over there? A mermaid? A sea serpent? A gull wearing a hat?",
         ],
@@ -255,7 +255,7 @@ FL.addCharacter({
           "Nothing happens. A bee wanders by. The brook chatters. Kohana, for the first time since you've known her, is completely still: no tricks, no riddles, no ears swivelling for an audience. Just a fox in the sun.",
           "@kohana Mm. Is this what people do? Just... lie about, being themselves, on purpose?",
           "@you Sometimes.",
-          "@kohana:blush It's terribly difficult. I'm going to practise very hard.",
+          "@kohana:blush It's terribly difficult. I'm going to practice very hard.",
           "She's asleep inside five minutes, snoring faintly, one ear twitching whenever a bee goes past.",
         ],
         end: true,
@@ -285,7 +285,7 @@ FL.addCharacter({
           "@you What was this clearing like four hundred years ago?",
           "@kohana:neutral Hm. Exactly like this. Clearings don't change much. I did, though.",
           "@kohana I was a little one-tailed kit, back then. A farmer's daughter used to leave fried tofu on that rock for me, every evening. I thought she was the most wonderful creature in the world.",
-          "@kohana:sad Then she grew up, and grew old, and her children did, and their children. And one day I realised I was still sitting on the rock, waiting for tofu, and everybody who'd ever known my name was gone.",
+          "@kohana:sad Then she grew up, and grew old, and her children did, and their children. And one day I realized I was still sitting on the rock, waiting for tofu, and everybody who'd ever known my name was gone.",
           "She's quiet for a moment. Then she takes a tofu pocket from the basket and sets it on the rock, very carefully.",
           "@kohana:blush ...That's when I got my second tail. You get them for being clever. Being alone is very good for being clever.",
           { if: { stage: 4 }, text: "@kohana:happy I'm getting terribly stupid lately. It's wonderful. Pass the plums." },
@@ -301,7 +301,7 @@ FL.addCharacter({
           "You stop to retie a bootlace. When you straighten up, you're looking at yourself.",
           "Not a reflection. A whole second you, standing a few paces away: same face, same pack, same road-dust, and the same hair doing the thing your hair does when it hasn't seen a comb since the hay cart. The other you is eating fried tofu pockets out of a paper cone and cheerfully greeting everything in sight.",
           "@kohana_you Good day! I'm {name}, the newcomer! I love this town! I have *opinions* about pigeons! Good day, madam! Good day, tree!",
-          "Your double spots you, freezes mid-wave, and gasps with tremendous theatre.",
+          "Your double spots you, freezes mid-wave, and gasps with tremendous theater.",
           "@kohana_you Oh, no. How awkward. One of us is an impostor.",
           "@kohana_you And I do hope it's *you*, because I've just bought three of these and they're delicious.",
           "Its eyes, you notice, aren't quite your eyes. They're red, a bright sly vermilion, with pupils like little slits.",
@@ -470,10 +470,10 @@ FL.addCharacter({
             if: 'kohana_partner',
             text: [
               "@kohana AND I DEMAND AN OFFERING OF FRIED TOFU. AT ONCE. *HOT.*",
-              "To your enormous delight, the baker runs. Actually runs. Within minutes there's a pile of tofu pockets on the fountain's rim, and a heap of flowers beside it, and an old man is weeping and apologising to the statue for never asking.",
+              "To your enormous delight, the baker runs. Actually runs. Within minutes there's a pile of tofu pockets on the fountain's rim, and a heap of flowers beside it, and an old man is weeping and apologizing to the statue for never asking.",
             ],
             else: [
-              "Somebody lays a flower on the fountain's rim. Then somebody else does. Within minutes there's a small, sheepish heap of them, and an old man is apologising to the statue for never asking.",
+              "Somebody lays a flower on the fountain's rim. Then somebody else does. Within minutes there's a small, sheepish heap of them, and an old man is apologizing to the statue for never asking.",
             ],
           },
           "Then a guard arrives at a run, drawing breath to shout, and the statue is a statue again: sword raised, stone-faced, a pigeon returning to its post with an air of wounded dignity. The guard stares at the flowers for a long time. Then he takes off his helmet, just in case.",
@@ -605,7 +605,7 @@ FL.addCharacter({
         text: [
           "You crouch down. \"Excuse me. I'm looking for a fox.\"",
           "The orange pigeon regards you with one flat, ancient, pigeon eye. Then it coos something that sounds a lot like a threat and waddles off to join a group of other pigeons who appear to be holding a meeting.",
-          "@you ...The cart driver was right. They *are* organising.",
+          "@you ...The cart driver was right. They *are* organizing.",
           "Behind you, the lamp-post you've been leaning on starts to giggle.",
           "@kohana:happy Oh, dumpling. You *asked the pigeon.* I wasn't any of them! I was the lamp-post! I've been the lamp-post the whole time, and you leaned on me and went *hmm* in a thoughtful voice!",
           "She hangs off your arm, helpless with giggles, all three tails wagging in different directions. You find you don't mind at all.",
@@ -926,7 +926,7 @@ FL.addCharacter({
       tail_epilogue: {
         text: [
           "*Some time later...*",
-          "The fourth tail grows in silver and fluffy and completely impossible to hide, which, it turns out, is the point. Kohana spends a week trying to glamour it orange to match the others. It refuses. It glows when she's happy. It glows when she's lying, too, in a different colour, which ends her career as a card-sharp overnight.",
+          "The fourth tail grows in silver and fluffy and completely impossible to hide, which, it turns out, is the point. Kohana spends a week trying to glamour it orange to match the others. It refuses. It glows when she's happy. It glows when she's lying, too, in a different color, which ends her career as a card-sharp overnight.",
           "She minds a lot less than she pretends to.",
           "Word gets around, the way word does: a fox grew a new tail on Starfall night. By spring, people from Clichéton have started walking out to the Hollow Shrine again. They leave rice and fried tofu and tell her their troubles. She keeps the foxes out of their hens and the bad luck out of their wells. The offering bowl is never empty again. You get rather sick of tofu, honestly. She makes you eat it anyway.",
           "She's a guardian spirit again, properly, for the first time in a century. You're the guardian spirit's mortal, a position that turns out to come with a ceremonial hat. You did not ask for the hat.",

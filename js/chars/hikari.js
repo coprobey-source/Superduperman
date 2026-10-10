@@ -220,7 +220,7 @@ FL.addCharacter({
       },
       eat: {
         text: [
-          "You eat the winking octopus first. Then the stars. Then the omelette, scorched bits and all. She watches you with her hands clasped together under her chin like someone watching the final episode of her favourite show.",
+          "You eat the winking octopus first. Then the stars. Then the omelette, scorched bits and all. She watches you with her hands clasped together under her chin like someone watching the final episode of her favorite show.",
           "@hikari:happy You *ate* it. You ate the *whole bento.* You *know* what that means, right?",
           "@you That I was hungry?",
           "@hikari:blush In my world it means — never mind what it means! Spoilers! You'll find out in a later arc!",
@@ -542,7 +542,7 @@ FL.addCharacter({
           "@hikari:blush Okay. Okay okay okay. This is the event. The big one. I've seen it a thousand times. I've *read* it a thousand times. I know exactly what happens.",
           "@hikari:surprised ...I have absolutely no idea what happens.",
           "You laugh, and she laughs, and the nerves break. She kisses you, bumping noses, then again, better. She tugs her sailor uniform's red neckerchief loose with a flourish she's obviously been saving.",
-          "@hikari:smug *Cast off armour!* — that sounded way cooler in my head.",
+          "@hikari:smug *Cast off armor!* — that sounded way cooler in my head.",
           "She's nervous and excitable and talks far too much. She narrates everything like an announcer: \"and then the heroine *bravely* unbuttons the — oh, oh *wow* — critical hit —\". Then you kiss down her neck and she runs out of words entirely. That takes a while, and it's very worth it.",
           "She's fearless, the same way she charged six goblins with a dented sword. She doesn't know the rules, so she makes them up as she goes, with total enthusiasm, and laughs breathlessly every time something works.",
           "@hikari:happy This is SO much better than the light novels. They skipped *everything.* They always cut to the morning! Who *does* that?!",
@@ -704,7 +704,7 @@ FL.addCharacter({
           'Her mother opens the door of a tiny apartment, sees her daughter, and drops a ladle. Then she holds on to Hikari as though an ox cart might come round the corner for her again. Then she looks up at you — a stranger in a travel-stained tunic, with a sword wrapped in a curtain — and says, after a moment\'s consideration, "Are you hungry? There\'s curry."',
           'There is far too much carrot. You have two helpings.',
           'You learn trains. You get lost on trains. You shout "STATUS OPEN!" at a ticket barrier and it opens for you, and you decide on the spot that this world has plenty of magic after all, it\'s just hidden in the walls. Her little brother teaches you to play the magic paintings. You are catastrophically bad. He is delighted.',
-          { if: 'hikari_rival', text: 'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And Fell In Love With My Mysterious Rival* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbours bang on the wall.', else: 'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And My Party Member Followed Me Home* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbours bang on the wall.' },
+          { if: 'hikari_rival', text: 'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And Fell In Love With My Mysterious Rival* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbors bang on the wall.', else: 'Hikari never goes back to spreadsheets. She writes a book instead — *I Was Hit By An Ox Cart And My Party Member Followed Me Home* — and it sells out in a week. Critics call the romance "wildly unrealistic." She reads the reviews aloud to you in bed and laughs until the neighbors bang on the wall.' },
           'And every Starfall, the air on a quiet rooftop shimmers, and the two of you step back through into Clichéton for a week, to the Tipsy Wyvern, where Madame Bettina always saves you the corner booth.',
           'She always said she wanted her life to mean something. It turns out it doesn\'t matter which world you\'re in. It matters who\'s holding your hand when the door opens.',
         ],
