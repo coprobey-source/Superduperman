@@ -538,7 +538,7 @@ FL.addCharacter({
       after: {
         text: [
           'You escort the farmer\'s family home and ride back to town together at sunset, Brunhild sitting behind you on your horse because hers ran away.',
-          'Her arms are wrapped around your waist. She\'s quiet for a long time.',
+          'Her arms are wrapped around your waist. She\'s quiet for three miles.',
           { if: 'brunhild_teased', text: ["@brunhild:blush ...You may say it. I know you are thinking it. I could hear you thinking it the whole time I was tied to that stake.", "@you Who's the bravest little warrior?", "@brunhild:blush *Hmph.* ...Not me. Not today. Today it was you."] },
           '@brunhild When they took me, I was not afraid of dying. Knights are trained not to fear death.',
           '@brunhild:sad I was afraid I would not see you again. I have no training for *that* fear. None at all.',
@@ -560,7 +560,7 @@ FL.addCharacter({
       },
       promise: {
         text: [
-          'She doesn\'t answer for a long time. Then, very quietly:',
+          'She doesn\'t answer for the length of a whole field. Then, very quietly:',
           '@brunhild That is an oath. Do you know what an oath means to a knight?',
           '@you Everything.',
           '@brunhild:sad ...Yes. Everything.',

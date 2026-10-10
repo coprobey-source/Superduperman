@@ -38,7 +38,7 @@ FL.addCharacter({
         '@marigold:surprised A fork! ♡',
         'She turns it over in her hands, delighted. Then she counts the tines, and the delight goes very still.',
         "@marigold:smug Four prongs. Four. That's one for every day you didn't visit the shop last week. Is this a *message*, {name}? Hehe. I'm teasing. I'm mostly teasing. ♡",
-        'She files it in a drawer behind the counter. The drawer is labelled FORKS (MESSAGES?).',
+        'She files it in a drawer behind the counter. The drawer is labeled FORKS (MESSAGES?).',
       ],
       nectar: [
         'She uncorks the tiny vial and breathes in, and her whole face goes soft.',
@@ -130,7 +130,7 @@ FL.addCharacter({
       "@marigold:happy I said it was *my* bar, and I cleared it, and she could write that down. She did! ♡",
     ] },
     { if: 'marigold_date_gardens', lines: [
-      "@marigold:smug I went back to the Moonlit Gardens this morning to check on that poor hedge. It's recovering beautifully. The baron says it's the best his topiary has looked in years.",
+      "@marigold:smug I went back to the Moonlit Gardens this morning to check on that poor screaming hedge. I gave it a tiny trim. Just a *tiny* one. The baron caught me, and he says it's the best his topiary has looked in years.",
       "@marigold:blush He asked if I'd come every week. I said only if you came too. He looked confused. I didn't explain. ♡",
     ] },
   ],
@@ -176,7 +176,7 @@ FL.addCharacter({
           "@marigold:blush {name}. We are in *public.*",
           'She does not move her foot. If anything, she hooks her ankle around yours and holds on.',
           "@marigold:smug ...I'm keeping this one. Not in an album. Just in me. ♡",
-          'You both forget to eat. The new carnation, in its clean water, watches over you.',
+          'You both forget to eat. The sad old carnation, which she has quietly moved into fresh water, watches over you.',
         ],
         end: true,
       },
@@ -200,7 +200,7 @@ FL.addCharacter({
           'She is a blur of silver blades. Leaves fly. Twigs surrender. In ninety seconds the baron\'s screaming stag has become a perfect, plump heart.',
           'Footsteps on the gravel. It\'s the baron, in his dressing gown, holding a lantern. He stares at his hedge. He stares at Marigold, who is holding a pair of shears and smiling very widely.',
           "@marigold:happy Good evening! ♡ I fixed it!",
-          'The baron looks at the heart for a long moment.',
+          'The baron raises his lantern to the heart. He walks all the way around it. Twice.',
           'Then, slowly, he begins to applaud.',
           "@marigold:blush ...You kept watch. You didn't run when he came. You just stood there next to me. ♡",
         ],
@@ -208,7 +208,7 @@ FL.addCharacter({
       },
       meaning: {
         text: [
-          'Her eyes light up like twin lanterns. She drags you from bed to bed, translating.',
+          'Her eyes go round and bright as night-lilies. She drags you from bed to bed, translating.',
           "@marigold:smug Lady Ashcroft's border is purple hyacinth and yellow tulips. That means *I'm sorry* and *I'm hopelessly in love.* Her husband planted it. He's apologizing for something. Something *big.*",
           "@marigold:happy And Sir Gavin's whole garden is basil and sweet pea. *Best wishes* and *goodbye.* He's leaving his wife for a horse breeder. Everyone knows. Well. The flowers know.",
           'She stops by a small, scruffy bed under a willow, full of daisies and forget-me-nots, and goes quiet.',
@@ -248,7 +248,7 @@ FL.addCharacter({
           "@marigold:surprised Oh. It's — it's going *with* them. Like it's waving them off.",
           "@marigold:happy I wished that every ship that leaves comes back. Every single one. Even the ones I don't know. ♡",
           '@marigold:blush ...What did you wish?',
-          'You tell her. She goes pink, and leans her head on your shoulder, and watches the sea like it might be a garden after all.',
+          'You tell her. She goes pink, and tucks herself firmly under your arm like a seedling being potted, and watches the sea like it might be a garden after all.',
         ],
         end: true,
       },
@@ -276,7 +276,7 @@ FL.addCharacter({
     picnic: {
       start: {
         text: [
-          'Marigold has packed a picnic for two in a wicker basket with a lace cloth, a seating plan and labelled sandwiches. She lays out the blanket in a Whisperwood clearing full of wildflowers, then stops and looks around, puzzled.',
+          'Marigold has packed a picnic for two in a wicker basket with a lace cloth, a seating plan and labeled sandwiches. She lays out the blanket in a Whisperwood clearing full of wildflowers, then stops and looks around, puzzled.',
           "@marigold:surprised Nobody planted these. Nobody waters them. Nobody sings to them. And they're... fine? They're *happy?*",
           'She kneels beside a clump of wild marigolds, golden and scruffy and thriving, and touches one very gently, as if it might bite.',
           "@marigold:sad How do they know they're loved if nobody's watching?",
@@ -293,7 +293,7 @@ FL.addCharacter({
           "@marigold:blush Wild ones. You picked the *wild* ones. For me.",
           '@you Maybe they know they\'re loved because somebody finds them.',
           "@marigold:sad Oh. *Oh.* Don't say things like that, {name}, I'm going to cry on the sandwiches —",
-          'She does cry on the sandwiches. She also kisses you so hard the crown falls off, and she spends ten minutes very carefully putting it back exactly the way you made it, lopsided and all.',
+          { if: { stage: 4 }, text: 'She does cry on the sandwiches. She also kisses you so hard the crown falls off, and she spends ten minutes very carefully putting it back exactly the way you made it, lopsided and all.', else: 'She does cry on the sandwiches. She also hugs you so hard the crown falls off, and she spends ten minutes very carefully putting it back exactly the way you made it, lopsided and all.' },
         ],
         aff: 6,
         end: true,
@@ -302,7 +302,7 @@ FL.addCharacter({
         text: [
           'You try to weave a flower crown. It comes apart in your hands. You try again. You accidentally include a stinging nettle.',
           "@marigold:happy Hehe! That's a nettle, silly. It means *cruelty.* ♡",
-          'She takes the wreckage gently out of your hands and fixes it in about four seconds, but she leaves your part in: the lumpy bit, the uneven bit, and the nettle, carefully defanged.',
+          'She takes the wreckage gently out of your hands and fixes it in the time it takes to blink, but she leaves your part in: the lumpy bit, the uneven bit, and the nettle, carefully defanged.',
           "@marigold:blush There. Now it's both of ours. ♡",
         ],
         aff: 3,
@@ -428,7 +428,7 @@ FL.addCharacter({
           '@marigold:surprised ...Really? You\'re not just saying it?',
           '@you Really. You made something beautiful here.',
           '@marigold:sad People don\'t usually... they buy flowers and leave. They don\'t look at *me.* They don\'t stay.',
-          'She hugs you — suddenly, tightly — and holds on for a long time. When she finally lets go, her eyes are wet, but her smile is soft. Normal. For a moment.',
+          'She hugs you — suddenly, tightly — and holds on long enough that a customer comes in, waits, and quietly leaves again. When she finally lets go, her eyes are wet, but her smile is soft. Normal. For a moment.',
           '@marigold:happy Thank you, {name}. ♡',
         ],
         aff: 10,
@@ -530,7 +530,7 @@ FL.addCharacter({
           'Mr. Snips, now wearing a tiny bow, waves a leaf.',
           { if: 'marigold_romantic', text: "@marigold:smug I know you said the following was romantic. And it *was!* But the priestess says if I really love you, I should practice doing without it, like a muscle. So I've been practicing. Just to prove I *can.* ♡" },
           { if: 'marigold_calmed', text: "@marigold:sad And ever since the alley, I've been doing the breathing. In, out. It helps with the loud feeling. Mostly." },
-          '@marigold:blush I\'ve been working really hard. I haven\'t followed you in four whole days. I only *thought* about following you, like, a hundred times. That\'s progress, right? ♡',
+          '@marigold:blush I\'ve been working really hard. I haven\'t followed you in four whole days. I only *thought* about following you, oh, a hundred times. That\'s progress, right? ♡',
         ],
         choices: [
           { text: '"That\'s huge progress. I\'m proud of you."', go: 'proud', aff: 10, flag: 'marigold_proud' },
@@ -564,7 +564,7 @@ FL.addCharacter({
       },
       yours: {
         text: [
-          'For a moment she just stares at you. Then something in her face changes — the frantic, too-bright edge melts away, and what\'s left is just a girl, very much in love, unbearably relieved.',
+          'For a moment she just stares at you. Then something in her face changes — the frantic, too-bright edge melts away, and what\'s left is just a young woman, very much in love, unbearably relieved.',
           '@marigold:surprised You mean it. You really, really mean it. I can tell. I can always tell.',
           '@marigold:blush ...Then I don\'t have to hold on so tight anymore. Do I?',
         ],
@@ -644,7 +644,7 @@ FL.addCharacter({
           'Marigold has claimed the very top of the festival hill. She has surrounded the spot with a ring of potted flowers. She has also, you notice, placed Mr. Snips at the edge of the ring, facing outward, like a guard dog.',
           '@marigold:smug Nobody\'s allowed in the circle except us! I asked very nicely! ♡ Most of them listened.',
           { if: 'marigold_snips', text: 'Mr. Snips sees you coming, lifts the edge of his cloth, and waves you through with a leaf. A man who tries to slip in behind you receives a firm, leafy slap. Loyalty, apparently, has been extended to you personally.' },
-          'You sit with her on a blanket strewn with petals. She snuggles under your arm, and when the first star falls, she gasps like a child.',
+          'You sit with her on a blanket strewn with petals. She snuggles under your arm, and when the first star falls, she gasps out loud, as if nobody has ever shown her the sky before.',
         ],
         next: 'vow',
       },
@@ -652,7 +652,7 @@ FL.addCharacter({
         text: [
           '@marigold:happy The legend says we\'ll be together forever now. Forever and ever. Bound by the stars.',
           '@marigold:smug ...I would have made sure of it anyway. But this is nicer. ♡',
-          { if: 'marigold_tucked', text: 'She touches the dried flower behind her ear, the one you gave her on the very first day. It has lasted all thirty days, crackling and lacquered and loved.' },
+          { if: 'marigold_tucked', text: 'She touches the dried flower behind her ear, the one you gave her on the very first day. It has lasted every single day since, crackling and lacquered and loved.' },
           '@marigold:blush I love you, {name}. I loved you first, and I\'ll love you longest, and I\'ll love you hardest. That\'s a promise. A marigold promise.',
           { if: 'marigold_boundaries', text: 'She kisses you as the sky fills with falling light, and for once, she doesn\'t grip too tight at all.', else: 'She kisses you as the sky fills with falling light, and she grips you exactly as tightly as she always does. You find you don\'t mind in the slightest.' },
         ],
@@ -686,7 +686,7 @@ FL.addCharacter({
           '@marigold:sad Three weeks.',
           '@marigold You\'ll write?',
           '@you Every day I can.',
-          "@marigold:sad And I won't follow you. Not to the coast. Not even to the city gate. I won't hide in the supply wagon. I won't bribe the cook. I've thought of eleven different ways, {name}. I'm not going to use a single one.",
+          "@marigold:sad And I won't follow you. Not to the coast. Not even to the town gate. I won't hide in the supply wagon. I won't bribe the cook. I've thought of eleven different ways, {name}. I'm not going to use a single one.",
           { if: 'marigold_grief', text: "@marigold You asked me once, on the first day, whether marigolds mean grief. They do. I lied. They mean grief *and* forever, because you can't really have one without the other. If you love something forever, then someday you have to let it out of your sight." },
           '@marigold:blush ...That\'s the scariest thing I\'ve ever said out loud. Kiss me before I take it back? ♡',
           'You do. Overhead the stars keep falling, and for the first time since the day you met her, she isn\'t holding on at all. She\'s just holding you.',
@@ -728,7 +728,7 @@ FL.addCharacter({
       garden_yes: {
         text: [
           '@you Yes. Forever. Lock and all.',
-          'Marigold makes a sound you will never be able to describe, a sort of joyful kettle-shriek, and tackles you flat into the petals.',
+          'Marigold lets out a shriek of joy so piercing that every pigeon on the hill takes off at once, and tackles you flat into the petals.',
           '@marigold:happy YES! Yes! ♡ ♡ ♡ You said yes! Out loud! On purpose!',
           'She presses the key into your palm and folds your fingers closed around it.',
           "@marigold:blush The lock's on the *inside.* You keep the key. That way it isn't keeping you in. It's keeping everybody else out. ♡",
@@ -811,7 +811,7 @@ FL.addScene('marigold_jealous', {
       'Marigold\'s smile doesn\'t change at all.',
       '@marigold:happy Oh. Okay! ♡ I understand.',
       'Something sweet-smelling puffs into your face — a crushed blossom from her apron pocket. Your knees go weak. The world goes soft and golden at the edges.',
-      '@marigold Sleeping-poppy. It\'s alright. It doesn\'t hurt. It\'s just so you\'ll rest.',
+      '@marigold Sleeping-poppy. It\'s all right. It doesn\'t hurt. It\'s just so you\'ll rest.',
       '@marigold:happy I\'ve made you a room, you see. In the greenhouse. With all the flowers. And a lock. ♡',
     ],
     next: 'bad2',

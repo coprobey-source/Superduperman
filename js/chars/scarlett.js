@@ -21,7 +21,7 @@ FL.addCharacter({
     hate: ['She stares at the tea set like it personally offended her mother.', '@scarlett:angry *Tea?* That\'s what the Royal Navy drinks. Pinky out, stiff upper lip, hanging pirates at dawn. Get it off my deck, love.'],
     special: {
       rum: [
-        "She snatches the bottle, holds it up to the light and squints at the label like a jeweller with a diamond.",
+        "She snatches the bottle, holds it up to the light and squints at the label like a jeweler with a diamond.",
         "@scarlett:happy Black Gully, twelve-year cask. Oh, you *beauty.* You've been asking around the docks, haven't you? Asking what the Captain drinks?",
         "She bites the cork out, takes a swig, and offers you the bottle with a flourish.",
         "@scarlett:smug Pirate law, love. Whoever brings the rum drinks second. ...Whoever brings the *good* rum gets kissed first. That's an older law. I just made it up, so it's very old.",
@@ -39,7 +39,7 @@ FL.addCharacter({
       fork: [
         "@scarlett:surprised A fork.",
         "She holds it up. She jabs it experimentally at the air.",
-        "@scarlett:smug Hah! A trident for cowards! I'll board the Navy's next frigate with this and tell 'em it's a *very* small Poseidon. ...Thank you, love. You're strange. I like strange.",
+        "@scarlett:smug Hah! A trident for cowards! I'll board the Navy's next frigate with this and tell 'em it's King Triton's *dessert* trident. ...Thank you, love. You're strange. I like strange.",
       ],
       tea: [
         "She looks at the tea set. She looks at you. She lifts the lid of the teapot with the very tip of her cutlass.",
@@ -66,11 +66,11 @@ FL.addCharacter({
     ['@scarlett:sad Every port I sail into, there\'s someone waving goodbye on the dock. Never someone waving hello. Funny thing, that.'],
     ['@scarlett My first mate, Bones, says I\'ve been docked in Clichéton three weeks longer than planned. He\'s asked why. I told him the rum\'s good.', 'She looks at you sideways.', '@scarlett:blush The rum\'s not *that* good.'],
     ["@scarlett:smug Rule two of piracy: a good hat is worth more than a good ship. You can steal a new ship any day of the week. A hat like this has *history.*", "@scarlett It's been shot four times. Once by me, by accident. We don't talk about it."],
-    ["She's leaning on the rail, watching a fat merchant galleon tack into the harbor.", "@scarlett:smug See the flag on that one? Lord Pomfrey's cousin. Three cannons, forty crew, and a hold full of other people's money.", "@scarlett:happy ...Not today, though. Today I'm *socialising.* With you. You should feel very honoured."],
+    ["She's leaning on the rail, watching a fat merchant galleon tack into the harbor.", "@scarlett:smug See the flag on that one? Lord Pomfrey's cousin. Three cannons, forty crew, and a hold full of other people's money.", "@scarlett:happy ...Not today, though. Today I'm *socializing.* With you. You should feel very honored."],
     ["@scarlett People think piracy's all swordfights and treasure. It's mostly *knots.* Ninety knots a sailor needs to know. I know a hundred and twelve.", "@scarlett:smug Six of 'em aren't for sailing. Ask me nicely one day and I'll show you."],
     { if: 'scarlett_ledger', lines: ["@scarlett:happy Remember the ledger I nicked the day we met? Magistrate read it. Lord Pomfrey's been arrested! His spice ships are impounded down at the Navy dock, and every soul in their holds walked free this morning.", "@scarlett:blush ...You could have shouted for the watch, that day. You didn't. I keep thinking about that."] },
     { if: 'scarlett_mackerel', lines: ["@scarlett:smug I had the mackerel stuffed. The one you threw at me. It's mounted above my cabin door with a little brass plaque.", "@scarlett:happy \"SLAIN IN SINGLE COMBAT. BY ACCIDENT.\" The crew salute it on the way in."] },
-    { if: 'scarlett_disarmed', lines: ["@crew Cap'n's been up at dawn every day since you knocked her blade out of her hand. Practisin'. On the mainmast. The mainmast's losing.", "@scarlett:angry *Bones!*", "@scarlett:blush ...Rematch. Soon. And this time I'm not going easy on you because you've got a nice face."] },
+    { if: 'scarlett_disarmed', lines: ["@crew Cap'n's been up at dawn every day since you knocked her blade out of her hand. Practicin'. On the mainmast. The mainmast's losing.", "@scarlett:angry *Bones!*", "@scarlett:blush ...Rematch. Soon. And this time I'm not going easy on you because you've got a nice face."] },
     { if: { stage: 3 }, lines: ["She pulls Blackheart's compass out of her coat, glances at it, and snaps it shut again with a little huff.", "@scarlett:blush It's still doing it. Pointing. I've tried *everything.* Held it upside down. Dunked it in rum. Showed it a very handsome map.", "@scarlett:happy Stubborn thing. Takes after its captain."] },
   ],
   afterTalk: [
@@ -81,7 +81,7 @@ FL.addCharacter({
     ["@scarlett I had a dream last night. I was at the wheel, and there was a storm, and I looked over and you were right there beside me, soaked through, laughing.", "@scarlett:blush Best dream I've had in nine years. ...Didn't even need the rum."],
     { if: 'scarlett_bet', lines: ["@crew Cap'n. Ten gold on \"honest pirate,\" from the landlubber. I'm told I should be payin' out.", "@scarlett:smug Pay 'em, Bones. They've earned it. They've *thoroughly* earned it.", "@crew ...I'm not going to ask, Cap'n.", "@scarlett:happy Wise man."] },
     { if: 'scarlett_boarded', lines: ["@scarlett:smug I've been using your line, you know. \"I'm just boarding your ship.\" Used it on a Navy captain this morning while I relieved him of his cargo.", "@scarlett:blush It didn't land the same. He didn't blush. I think it only works if *you* say it."] },
-    { if: 'scarlett_date_picnic', lines: ["@scarlett:happy Did you dig it up yet? The picnic basket. I left you the map. X marks the spot.", "@scarlett:smug Don't look at me like that, love. Every pirate buries treasure. That basket had a *very* good pie in it. Dig fast."] },
+    { if: 'scarlett_date_picnic', lines: ["@scarlett:happy I keep thinking about that picnic in Whisperwood. All those trees, not one scrap of horizon, and I didn't mind a bit.", "@scarlett:smug Next time I'm bringing a shovel. Every picnic should end in buried treasure, love. Don't look at me like that. It's just good cartography."] },
     { if: 'scarlett_right_here', lines: ["@scarlett:sad I climbed the crow's nest this morning. Looked at the horizon, same as always.", "@scarlett:blush Then I looked down at the dock. And you were on it. And for the first time in my whole life, love, the dock won."] },
   ],
   dateFav: 'harbor',
@@ -142,7 +142,7 @@ FL.addCharacter({
         text: [
           "The Moonlit Gardens are full of silver fountains and hedges and nobility. Scarlett strolls through them with her hat tipped low and her hands in her coat pockets, like a cat walking through a room full of pigeons.",
           "@scarlett:smug That fountain? Robbed it. That statue? Robbed the man who paid for it. That hedge shaped like a swan? Robbed the swan. Long story. The swan started it.",
-          "A pair of noblemen stroll around the corner. One of them squints at her coat, then at her hat.",
+          "A pair of noblemen stroll around the corner, escorted by a watchman with a lantern. The watchman squints at her coat, then at her hat.",
           "@watch Good evening, Lord Ashby, Lord — wait. Is that —",
           { if: 'scarlett_lied', text: "@scarlett:happy Oh, it's *him!* That's the watchman you sent to the fish market the day we met, love. He's been promoted to garden patrol. I wonder why." },
         ],
@@ -165,7 +165,7 @@ FL.addCharacter({
         text: [
           "@scarlett:surprised Your *aunt?!*",
           "@watch ...Your aunt.",
-          "@scarlett:smug — Yes. Aunt Scarlett. From the coast. I'm *very* eccentric. I collect hats. And other people's jewellery, but only when I'm confused. Good evening, gentlemen!",
+          "@scarlett:smug — Yes. Aunt Scarlett. From the coast. I'm *very* eccentric. I collect hats. And other people's jewelry, but only when I'm confused. Good evening, gentlemen!",
           "The watchman decides, wisely, that he hasn't seen anything. Scarlett waits until he's gone, then elbows you so hard you nearly fall in a fountain.",
           "@scarlett:angry *Aunt.* I'll make you pay for that one, love. Slowly.",
         ],
@@ -189,7 +189,7 @@ FL.addCharacter({
           "The sun is going down over Saltbreeze Harbor like a gold coin dropping into a pocket. Scarlett buys two paper cones of fried fish from a stall whose owner salutes her, and leads you right past the end of the pier, down a ladder, into a little red rowing boat.",
           "@scarlett:happy Can't see a proper sunset from a pier, love. Too many gulls. Too many *people.* Sit. Hold the fish. Mind your elbows.",
           "She rows you out until the town is a scatter of lights behind you and there's nothing ahead but the burning horizon.",
-          "@scarlett This is the bit I love. The minute between day and night when the sea goes the same colour as rum. Every sailor stops what they're doing. Even the Navy. Even the *pirates.*",
+          "@scarlett This is the bit I love. The minute between day and night when the sea goes the same color as rum. Every sailor stops what they're doing. Even the Navy. Even the *pirates.*",
           { if: { stage: 4 }, text: "She ships the oars and leans back against your knees, letting the boat drift, her hat over her eyes, perfectly content." },
         ],
         choices: [
@@ -433,7 +433,7 @@ FL.addCharacter({
       },
       here: {
         text: [
-          'She looks at you for a long moment, the grin fading into something softer and more thoughtful.',
+          'She pushes her hat back with one finger and studies you, the grin fading into something softer and more thoughtful.',
           '@scarlett:blush ...Funny. That\'s the first time in nine years anyone\'s made "right here" sound like an adventure.',
         ],
         flag: 'scarlett_right_here',
@@ -529,7 +529,7 @@ FL.addCharacter({
         text: [
           'The *Crimson Tide* lies at anchor in the bay under a full moon. Scarlett has given the whole crew shore leave. The ship is empty, creaking softly, lanterns swaying.',
           { if: 'scarlett_wheel', text: "As you pass the great wheel on your way below, you notice a new brass plate screwed to its hub. It reads: *HELD IN THE STORM BY {name}. FIRST TIME. NATURAL SAILOR.*" },
-          'She\'s waiting in the captain\'s cabin — a cozy, cluttered room of maps and brass instruments and a great bed under the stern windows. She\'s taken off her hat and her coat and her boots. She looks younger without them. Nervous.',
+          'She\'s waiting in the captain\'s cabin — a cozy, cluttered room of maps and brass instruments and a great bed under the stern windows. She\'s taken off her hat and her coat and her boots. Without them she looks less like a legend and more like a woman. Nervous.',
           '@scarlett:blush I\'ve never brought anyone in here. Not once. Captain\'s cabin\'s sacred. It\'s the only place on the sea that\'s mine.',
           'She pulls the compass out and sets it on the table. The needle swings toward you.',
           '@scarlett:sad I\'m a pirate, love. I take what I want. But I don\'t want to *take* you. I want you to *stay.*',
@@ -570,7 +570,7 @@ FL.addCharacter({
           "@scarlett:surprised ...Oh, you *cheeky* —",
           "She spins, grabs your collar and drags you onto the great bed under the stern windows. She's as bold in this as in everything: laughing, daring, demanding, swearing in at least four languages. Every so often she goes suddenly, sweetly quiet and just holds you, as if making sure you're real. You trace the old scars on her ribs, the sword cut, the bullet graze, the kraken's mark. She tells you the story of each one in a breathless whisper, and loses the thread of the last story halfway through...",
           "...",
-          "At one point the ship lurches on a swell and you both tumble off the bed onto a pile of maps. She's laughing so hard she can barely breathe.",
+          "At one point the ship lurches on a swell and you both tumble off the bed onto a pile of maps. She lies there wheezing with laughter, a chart of the Grey Sound stuck to her shoulder.",
           "@scarlett:happy Rule one of romance on the high seas: *always* tie down the bed.",
           "At dawn you lie together in a tangle of sheets and maps, her head on your chest, red curls everywhere, gulls crying outside.",
           { if: 'scarlett_mast', text: "@scarlett:sad When you went up that mast in the storm... I've never been afraid on my own ship before, love. Not once. Not even with a kraken on the foredeck. I was afraid for *you.* Didn't know I could be." },
@@ -604,7 +604,7 @@ FL.addCharacter({
       deck: {
         text: [
           "You walk out onto the deck together, hand in hand, still rumpled, in yesterday's clothes. The whole crew goes silent. Then the whole crew erupts.",
-          "Hats go flying. Somebody fires a cannon. Somebody else starts a shanty, very loudly, about a captain who lost her heart to a landlubber with a strong grip.",
+          "Hats go flying. Somebody fires a cannon. Somebody else starts a shanty, very loudly, about a captain who lost her heart in port to a landlubber.",
           "@scarlett:blush ...They've been writing that one for weeks, haven't they.",
           "@crew Aye, Cap'n. There's eleven verses.",
           { if: 'scarlett_mackerel', text: "@crew Verse six is about the mackerel, Cap'n. It rhymes with \"spectacle.\" Sort of." },
@@ -622,7 +622,7 @@ FL.addCharacter({
       },
       bet: {
         text: [
-          "Scarlett throws back her head and roars with laughter.",
+          "Scarlett slaps the mattress and roars with laughter.",
           "@scarlett:happy Ha! Betting on your own corruption! Bones, take the bet!",
           "@crew Aye, Cap'n. Ten gold on \"honest pirate.\" Very good odds.",
           "When the door closes, Scarlett pins you back down in the sheets.",
@@ -681,10 +681,10 @@ FL.addCharacter({
       home: {
         text: [
           "You say yes. The crew cheers. And then, while they're still cheering, you take her hands and say the other thing.",
-          "@you You told me once there's always someone on the dock waving goodbye. Never hello.",
+          "@you Every port you sail into, I'll bet there's someone on the dock waving goodbye. Never hello.",
           "@you What if there was a dock you came home to? What if somebody was always on it?",
           "The cheering dies away. Scarlett looks at you. Then she looks out at the open sea, the edge of the map, all that endless horizon she has chased for nine years.",
-          "Then she looks back at Clichéton: the little lights of the harbor, the Wyvern, the pier where you sat and ate fried fish.",
+          "Then she looks back at Clichéton: the little lights of the harbor, the Wyvern, the dock where she first dropped out of the rigging at your feet.",
           "@scarlett:sad ...I've never stayed anywhere, love. I don't know how. What if I'm terrible at it?",
           "@you Then you'll be terrible at it here. With me.",
           "She laughs, wet-eyed. She takes off her great feathered hat, turns, and drops it on Bones's head.",
@@ -711,10 +711,10 @@ FL.addCharacter({
       rival: {
         text: [
           "You say yes to the ring. Then you put your hand on your hip, exactly the way she does, and tip your head.",
-          "@you But first mate? Captain, I disarmed you on your own deck. I'm not taking orders from you. I'm taking *your hand.*",
-          "The crew goes very quiet. Scarlett stares at you. Then she throws back her head and laughs, the big wild laugh that started this whole thing.",
+          { if: 'scarlett_disarmed', text: "@you But first mate? Captain, I disarmed you on your own deck. I'm not taking orders from you. I'm taking *your hand.*", else: "@you But first mate? Captain, I boarded your ship and you *let* me. I'm not taking orders from you. I'm taking *your hand.*" },
+          "The crew goes very quiet. Scarlett's scarred eyebrow climbs all the way up. Then she laughs, the big wild laugh that started this whole thing, so loud the gulls lift off the yardarm.",
           "@scarlett:happy Oh, you *magnificent* — Bones! Tell them!",
-          "@crew Aye, Cap'n. There's a ship, love. Impounded at the Navy dock. Nobody's claimed her.",
+          "@crew Aye, Cap'n. There's a ship. Impounded at the Navy dock. Nobody's claimed her.",
           { if: 'scarlett_ledger', text: "@scarlett:smug Lord Pomfrey's old spice ship, love. The one that ledger sank. Fitting, don't you think? Turn a slaver into a free ship." },
           "@scarlett:smug I was going to steal her for you as a wedding present. Now I suppose you'll have to steal her *yourself.* Tonight. Before the Navy wakes up.",
           "@scarlett:blush ...Race you to the horizon, Captain {name}. Loser buys the rum.",

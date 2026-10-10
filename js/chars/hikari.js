@@ -645,7 +645,7 @@ FL.addCharacter({
       },
       hero: {
         text: [
-          'The goddess pauses. You get the distinct sense of a very old, very powerful being being *delighted.*',
+          'The goddess pauses. You get the distinct sense of a very old, very powerful entity being *delighted.*',
           '@narrator ...Oh, you *are* fun.',
           '@hikari:surprised Both? Hero *and* heroine? Is that — is that *allowed?*',
           '@narrator Well, there *is* a rule against it. I wrote it. But I\'m the Patron of Romantic Clichés, darling, and "the hero gets the girl" and "the girl is the hero" are *both* on my list. It seems a shame to choose.',

@@ -455,7 +455,7 @@ FL.addCharacter({
         text: [
           'Valeria goes very, very still. The candles flicker.',
           '@valeria:surprised What I *want?*',
-          'For a long moment, she doesn\'t answer. When she does, her voice is quieter. Almost unguarded.',
+          'She doesn\'t answer at once. A candle drips. When she does, her voice is quieter. Almost unguarded.',
           '@valeria:sad Something I haven\'t seen before. Something that surprises me. Do you know how *long* six hundred years is, pet? I have read every book. Seen every play. Every mortal who walks through those doors wants the same three things.',
           '@valeria And then you came along and asked me *that.*',
           'She sets down her goblet with a sharp little click.',
