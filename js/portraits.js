@@ -295,6 +295,12 @@
         for (let x = 80; x <= 120; x += 6) s += '<circle cx="' + x + '" cy="' + (160 + Math.abs(x - 100) * 0.12) + '" r="4.5"/>';
         return s + '</g><path fill="' + t + '" d="M100 166 l6 5 l-6 7 l-6 -7 Z"/>';
       }
+      case 'mage': {
+        const mc = b.lin([[0, shade(o, 0.15)], [1, shade(o, -0.35)]], 0, 0, 0, 1);
+        return base + '<path fill="' + mc + '" stroke="' + t + '" stroke-width="1.6" d="M78 166 L58 116 L84 140 L90 162 Z M122 166 L142 116 L116 140 L110 162 Z"/>' +
+          skinChest('M90 160 L100 176 L110 160 Z') +
+          '<path fill="' + t + '" stroke="' + shade(t, -0.4) + '" stroke-width="0.8" d="M100 170 l5 6 l-5 8 l-5 -8 Z"/>';
+      }
       case 'gears':
         return base + '<path fill="' + b.lin([[0, shade(t, 0.35)], [1, shade(t, -0.3)]], 0, 0, 0, 1) + '" stroke="' + od + '" stroke-width="1.2" d="M86 146 Q100 151 114 146 L118 164 Q100 172 82 164 Z"/>' +
           '<g fill="' + od + '"><circle cx="90" cy="159" r="1.8"/><circle cx="100" cy="161" r="1.8"/><circle cx="110" cy="159" r="1.8"/></g>' +
@@ -358,7 +364,8 @@
     const irisFill = style === 'glow'
       ? b.rad([[0, shade(ic, 0.8)], [0.55, ic], [1, shade(ic, -0.3)]], 0.5, 0.55, 0.6)
       : b.lin([[0, shade(ic, -0.6)], [0.35, shade(ic, -0.15)], [0.75, ic], [1, shade(ic, 0.55)]], 0, 0, 0, 1);
-    const ir = style === 'round' || style === 'yandere' ? 8 : 7.2;
+    let ir = style === 'round' || style === 'yandere' ? 8 : 7.2;
+    if (p.shock) ir *= 0.72;
     let s = '<path d="' + shape + '" fill="#fdfbfa"/>';
     s += '<g clip-path="' + clip + '">';
     // eyelid shadow on the white
@@ -371,12 +378,26 @@
       s += '<ellipse cx="' + (cx + 2.8) + '" cy="' + (cy - 3.6) + '" rx="2.8" ry="2.2" fill="#ffffff"/>';
       s += '<circle cx="' + (cx - 2.6) + '" cy="' + (cy + 4.4) + '" r="1.3" fill="#ffffff" opacity="0.85"/>';
     }
+    if (p.sparkleEyes && style !== 'yandere') s += '<ellipse cx="' + (cx - 2.4) + '" cy="' + (cy - 1.6) + '" rx="1.9" ry="1.6" fill="#ffffff" opacity="0.9"/><ellipse cx="' + (cx + 1.5) + '" cy="' + (cy + 3.5) + '" rx="3.4" ry="1.4" fill="#ffffff" opacity="0.35"/>';
     if (style === 'sleepy') s += '<path d="M' + (cx - 14) + ' ' + (cy - 16) + ' L' + (cx + 14) + ' ' + (cy - 16) + ' L' + (cx + 14) + ' ' + (cy - 3.5) + ' C' + (cx + 5) + ' ' + (cy - 5.5) + ' ' + (cx - 5) + ' ' + (cy - 5.5) + ' ' + (cx - 14) + ' ' + (cy - 3.5) + ' Z" fill="' + p.skin + '"/>';
+    let lidLine = '';
+    if (p.lid && style !== 'sleepy') {
+      // a lowered upper lid (sad, tired, unimpressed); slope > 0 droops toward the outer corner
+      const ly = cy - top + p.lid * (top + bot) * 0.62;
+      // the lid edge runs corner to corner; slope moves its low point toward the outer corner
+      const qx = f(cx + dir * (p.lidSlope || 0) * 4), qy = f(2 * ly - (iy + oy) / 2);
+      const edge = ' Q' + qx + ' ' + qy + ' ';
+      s += '<path d="M' + (ix - dir * 3) + ' ' + iy + ' L' + (ix - dir * 3) + ' ' + (cy - 22) + ' L' + (ox + dir * 3) + ' ' + (cy - 22) + ' L' + (ox + dir * 3) + ' ' + oy +
+        ' L' + ox + ' ' + oy + edge + ix + ' ' + iy + ' Z" fill="' + p.skin + '"/>';
+      lidLine = '<path fill="none" stroke="' + lash + '" stroke-width="2.5" stroke-linecap="round" d="M' + ix + ' ' + iy + edge + (ox + dir) + ' ' + (oy - 0.5) + '"/>';
+    }
     s += '</g>';
     if (style === 'glow') s += '<circle cx="' + cx + '" cy="' + cy + '" r="13" fill="' + b.rad([[0, ic, 0.35], [1, ic, 0]], 0.5, 0.5, 0.5) + '"/>';
     // upper lash line with a flick at the outer corner
     if (style === 'sleepy') {
       s += '<path fill="none" stroke="' + lash + '" stroke-width="2.6" stroke-linecap="round" d="M' + ix + ' ' + (iy - 3) + ' C' + (cx - dir * 4) + ' ' + (cy - 5.5) + ' ' + (cx + dir * 5) + ' ' + (cy - 5.5) + ' ' + (ox + dir) + ' ' + (oy - 2) + '"/>';
+    } else if (lidLine) {
+      s += lidLine;
     } else {
       s += '<path fill="none" stroke="' + lash + '" stroke-width="2.8" stroke-linecap="round" d="' + upper + '"/>';
     }
@@ -390,10 +411,11 @@
     const c = shade(p.hairColor, -0.45);
     const y = 83;
     // offsets for [outer, middle, inner] ends
-    const shapes = { neutral: [0, -4, -1], raised: [2, -6, 0], angry: [-3, -1, 3], worried: [3, -3, 0] };
-    const k = shapes[p.brows] || shapes.neutral;
+    const shapes = { neutral: [0, -4, -1], raised: [2, -6, 0], angry: [-3, -1, 3], worried: [3, -3, 0],
+      furious: [-6, -1, 5], high: [-5, -10, -5], sad: [5, -3, -3], arched: [1, -8, -1] };
     let s = '';
     [-1, 1].forEach(function (dir) {
+      const k = shapes[(dir > 0 && p.browsR) || p.brows] || shapes.neutral;
       const cx = 100 + dir * 16;
       const ox = cx + dir * 11, ix = cx - dir * 9;
       const oyy = y + k[0], myy = y + k[1], iyy = y + k[2];
@@ -424,6 +446,21 @@
         return '<ellipse cx="100" cy="132" rx="3.6" ry="4.4" fill="#5a1c28" stroke="' + ld + '" stroke-width="1.1"/><ellipse cx="100" cy="134" rx="2.2" ry="1.6" fill="#e8788a"/>';
       case 'cat':
         return '<path' + st + ' d="M90 129 Q95 134 100 129.5 Q105 134 110 129"/>';
+      case 'laugh':
+      case 'fanglaugh':
+        return '<path fill="#5a1c28" stroke="' + ld + '" stroke-width="1.4" d="M88 127 Q100 129 112 127 Q110 142 100 142 Q90 142 88 127 Z"/>' +
+          '<path fill="#e8788a" d="M92 136 Q100 131 108 136 Q105 141 100 141 Q95 141 92 136 Z"/>' +
+          (p.mouth === 'fanglaugh' ? '<path fill="#ffffff" stroke="' + ld + '" stroke-width="0.5" d="M93 128 L94.8 133 L96.8 128.4 Z"/>' : '');
+      case 'fangsmirk':
+        return '<path' + st + ' d="M92 131 Q102 134 110 127"/><path' + st + ' stroke-width="1" d="M110 127 l2 -1"/>' +
+          '<path fill="#ffffff" stroke="' + ld + '" stroke-width="0.6" d="M103 132.4 L104.4 136.4 L106 131.4 Z"/>';
+      case 'wobble':
+        return '<path' + st + ' stroke-width="1.6" d="M92 132 q2 -2.4 4 0 t4 0 t4 0 t4 0"/>';
+      case 'grit':
+        return '<path fill="#ffffff" stroke="' + ld + '" stroke-width="1.4" d="M89 129 Q100 127 111 129 L110 135 Q100 137 90 135 Z"/>' +
+          '<path fill="none" stroke="' + shade(ld, 0.3) + '" stroke-width="0.8" d="M90 132 L110 132 M95 129 L95 136 M100 128.6 L100 136.6 M105 129 L105 136"/>';
+      case 'frown':
+        return '<path' + st + ' d="M93 134 Q100 128 107 134"/>';
       case 'none':
         return '';
       default:
@@ -461,6 +498,17 @@
   function topBits(b, p) {
     const h = p.hairColor, hd = shade(h, -0.5);
     let s = '';
+    if (p.animal === 'fox') {
+      const ear = function (dir) {
+        const bx = 100 + dir * 24, tx = 100 + dir * 50, ty = 4, by = 38;
+        const outer = 'M' + (bx - dir * 16) + ' ' + (by - 4) + ' Q' + (tx - dir * 14) + ' ' + (ty + 14) + ' ' + tx + ' ' + ty + ' Q' + (tx + dir * 2) + ' ' + (by - 2) + ' ' + (bx + dir * 14) + ' ' + (by + 18) + ' Z';
+        const tipClip = b.clip(outer);
+        return '<path fill="' + hairFill(b, h) + '" stroke="' + hd + '" stroke-width="1.4" stroke-linejoin="round" d="' + outer + '"/>' +
+          '<g clip-path="' + tipClip + '"><circle cx="' + tx + '" cy="' + (ty + 2) + '" r="13" fill="' + (p.tipColor || '#fbf4ea') + '"/></g>' +
+          '<path fill="' + (p.tipColor || '#fbf4ea') + '" opacity="0.9" d="M' + (bx - dir * 6) + ' ' + (by) + ' Q' + (tx - dir * 9) + ' ' + (ty + 20) + ' ' + (tx - dir * 3) + ' ' + (ty + 14) + ' Q' + (tx - dir * 3) + ' ' + (by) + ' ' + (bx + dir * 7) + ' ' + (by + 12) + ' Z"/>';
+      };
+      s += ear(-1) + ear(1);
+    }
     if (p.animal === 'wolf' || p.animal === 'cat') {
       const tall = p.animal === 'wolf';
       const ear = function (dir) {
@@ -500,10 +548,58 @@
         '<path fill="' + hf + '" stroke="#000" stroke-width="1" d="M36 52 C52 30 72 20 100 20 C128 20 148 30 164 52 C144 46 124 48 100 54 C76 48 56 46 36 52 Z"/>' +
         '<path fill="none" stroke="#f2c14e" stroke-width="2" d="M40 50 C62 42 82 46 100 52 C118 46 138 42 160 50"/>';
     }
-    if (p.veil) {
+    if (p.veil && p.veilColor) {
+      // a nun's wimple: dark veil over a white band
+      const vc = p.veilColor;
+      const vf = b.lin([[0, shade(vc, 0.2)], [1, shade(vc, -0.35)]], 0, 0, 0, 1);
+      s += '<path fill="' + vf + '" stroke="' + shade(vc, -0.6) + '" stroke-width="1.6" d="M56 124 C46 56 70 26 100 26 C130 26 154 56 144 124 C140 90 128 62 100 58 C72 62 60 90 56 124 Z"/>' +
+        '<path fill="#f8f6f0" stroke="#c8c2b4" stroke-width="1.2" d="M66 66 C80 52 120 52 134 66 L132 74 C118 62 82 62 68 74 Z"/>' +
+        '<path fill="#e8c45a" stroke="#9a7a2a" stroke-width="0.6" d="M98 40 h4 v6 h5 v4 h-5 v8 h-4 v-8 h-5 v-4 h5 Z"/>';
+    } else if (p.veil) {
       const vf = b.lin([[0, '#ffffff'], [1, '#e6e1d4']], 0, 0, 0, 1);
       s += '<path fill="' + vf + '" stroke="#cdb874" stroke-width="2" d="M58 114 C50 56 70 28 100 28 C130 28 150 56 142 114 C140 84 128 58 100 54 C72 58 60 84 58 114 Z"/>' +
         '<path fill="none" stroke="#e8c45a" stroke-width="3" d="M70 54 C86 44 114 44 130 54"/><path fill="#e8c45a" d="M100 40 l4 6 l-4 6 l-4 -6 Z"/>';
+    }
+    if (p.hat === 'wingedhelm') {
+      const mf = b.lin([[0, '#ffffff'], [0.45, '#c8d0dc'], [1, '#7a8494']], 0, 0, 0, 1);
+      const wing = function (dir) {
+        const t = dir > 0 ? 'translate(200 0) scale(-1 1)' : '';
+        let w = '<g transform="' + t + '"><path fill="#fbfbff" stroke="#9aa4b8" stroke-width="1.1" d="M68 50 C54 40 40 22 30 4 C40 10 46 10 52 8 C50 16 54 20 60 20 C58 28 62 32 70 34 Z"/>';
+        w += '<path fill="none" stroke="#b8c0d0" stroke-width="1" d="M66 46 C56 36 46 24 38 12 M64 40 C58 32 54 26 52 18 M66 36 C64 30 62 26 60 22"/></g>';
+        return w;
+      };
+      s += wing(-1) + wing(1) +
+        '<path fill="' + mf + '" stroke="#5a6474" stroke-width="1.4" d="M62 64 C62 30 80 18 100 18 C120 18 138 30 138 64 C124 56 112 54 100 54 C88 54 76 56 62 64 Z"/>' +
+        '<path fill="none" stroke="#e8c45a" stroke-width="2.6" d="M64 60 C78 52 122 52 136 60"/><path fill="none" stroke="#ffffff" stroke-width="2" opacity="0.7" d="M78 30 C84 24 92 22 98 22"/>' +
+        '<path fill="#5aa0e0" stroke="#e8c45a" stroke-width="1" d="M100 46 l4 5 l-4 5 l-4 -5 Z"/>';
+    }
+    if (p.hat === 'bard') {
+      const hc = p.hatColor || '#2a6a8a';
+      const hf = b.lin([[0, shade(hc, 0.25)], [1, shade(hc, -0.35)]], 0, 0, 1, 1);
+      const fc = p.featherColor || '#e84a5a';
+      s += '<path fill="' + b.lin([[0, shade(fc, 0.35)], [1, shade(fc, -0.2)]], 0, 0, 1, 1) + '" stroke="' + shade(fc, -0.45) + '" stroke-width="1" d="M134 44 C140 26 156 8 182 0 C186 4 184 10 178 14 C166 24 152 36 140 48 Z"/>' +
+        '<path fill="none" stroke="' + shade(fc, -0.4) + '" stroke-width="1" d="M137 46 C150 30 164 16 180 4"/>' +
+        '<path fill="' + hf + '" stroke="' + shade(hc, -0.6) + '" stroke-width="1.4" d="M56 54 C54 30 84 16 112 20 C138 24 152 38 146 52 C130 46 76 46 56 54 Z"/>' +
+        '<path fill="none" stroke="' + (p.trim || '#e8c45a') + '" stroke-width="3" d="M58 52 C80 44 124 44 146 50"/>';
+    }
+    if (p.flowerCrown) {
+      const cols = p.flowerCrown;
+      s += '<path fill="none" stroke="#5a9a4a" stroke-width="2.4" d="M62 64 C76 50 124 50 138 64"/>';
+      [[64, 62], [76, 54], [88, 50], [100, 48], [112, 50], [124, 54], [136, 62]].forEach(function (c, i) {
+        const col = cols[i % cols.length];
+        s += '<g transform="translate(' + c[0] + ' ' + c[1] + ')">';
+        for (let k = 0; k < 5; k++) {
+          const a = k / 5 * Math.PI * 2;
+          s += '<circle cx="' + f(Math.cos(a) * 3.4) + '" cy="' + f(Math.sin(a) * 3.4) + '" r="2.8" fill="' + col + '" stroke="' + shade(col, -0.3) + '" stroke-width="0.5"/>';
+        }
+        s += '<circle r="1.8" fill="#ffe36a"/></g>';
+        if (i % 2) s += '<path fill="#6ab05a" d="M' + (c[0] + 4) + ' ' + (c[1] + 3) + ' q5 -1 7 3 q-5 1 -7 -3 Z"/>';
+      });
+    }
+    if (p.shades) {
+      s += '<g transform="translate(0 -2)"><path fill="' + p.shades + '" stroke="#2a1a2a" stroke-width="1.2" d="M70 52 C70 44 92 44 96 50 C96 58 86 60 78 58 C72 57 70 55 70 52 Z M130 52 C130 44 108 44 104 50 C104 58 114 60 122 58 C128 57 130 55 130 52 Z"/>' +
+        '<path fill="none" stroke="#2a1a2a" stroke-width="1.6" d="M96 50 Q100 47 104 50 M70 50 L62 54 M130 50 L138 54"/>' +
+        '<path fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.6" d="M76 49 l6 -1 M110 49 l6 -1"/></g>';
     }
     if (p.circlet) s += '<path fill="none" stroke="' + p.circlet + '" stroke-width="2.4" d="M66 70 C82 60 118 60 134 70"/><path fill="' + p.circlet + '" stroke="#8a90a0" stroke-width="0.6" d="M100 58 l4 5 l-4 5 l-4 -5 Z"/><circle cx="100" cy="63" r="1.6" fill="#7fd8b0"/>';
     if (p.tiara) s += '<path fill="' + b.lin([[0, '#fff0a8'], [1, '#c8961e']], 0, 0, 0, 1) + '" stroke="#9a6a10" stroke-width="0.8" d="M74 44 L80 34 L88 40 L100 26 L112 40 L120 34 L126 44 Q100 38 74 44 Z"/><circle cx="100" cy="35" r="2.6" fill="#5ab0ff" stroke="#2a6ab0" stroke-width="0.6"/>';
@@ -531,6 +627,7 @@
         '<path fill="none" stroke="' + c + '" stroke-width="2" d="M' + (84 + r) + ' 102 Q100 97 ' + (116 - r) + ' 102 M' + (84 - r) + ' 101 L66 97 M' + (116 + r) + ' 101 L134 97"/>' +
         '<path fill="none" stroke="#ffffff" stroke-width="1.6" opacity="0.6" stroke-linecap="round" d="M' + f(84 - r * 0.5) + ' ' + f(104 - r * 0.7) + ' l5 -1 M' + f(116 - r * 0.5) + ' ' + f(104 - r * 0.7) + ' l5 -1"/>';
       if (p.cracked) s += '<path fill="none" stroke="#ffffff" stroke-width="0.9" d="M110 95 L117 104 L113 112 M117 104 L127 106"/>';
+      if (p.fogged) s += '<g fill="#ffffff" opacity="0.22"><circle cx="84" cy="106" r="' + (r - 2) + '"/><circle cx="116" cy="106" r="' + (r - 2) + '"/></g>';
     }
     if (p.mask) {
       const mf = b.lin([[0, shade(p.mask, 0.15)], [1, shade(p.mask, -0.3)]], 0, 0, 0, 1);
@@ -561,10 +658,88 @@
       return '<path d="M' + x + ' ' + (y - r) + ' Q' + x + ' ' + y + ' ' + (x + r) + ' ' + y + ' Q' + x + ' ' + y + ' ' + x + ' ' + (y + r) + ' Q' + x + ' ' + y + ' ' + (x - r) + ' ' + y + ' Q' + x + ' ' + y + ' ' + x + ' ' + (y - r) + ' Z"/>';
     }).join('') + '</g>';
     if (p.bubbles) s += '<g fill="#ffffff" fill-opacity="0.15" stroke="#f0fff0" stroke-width="1" opacity="0.85"><circle cx="78" cy="176" r="4"/><circle cx="122" cy="186" r="3"/><circle cx="108" cy="70" r="2.4"/><circle cx="74" cy="132" r="2"/><circle cx="140" cy="150" r="2.6"/></g>';
+    if (p.monocle) s += '<circle cx="117" cy="104" r="13" fill="#ffffff" fill-opacity="0.1" stroke="' + p.monocle + '" stroke-width="2.2"/>' +
+      '<path fill="none" stroke="' + p.monocle + '" stroke-width="1" d="M129 110 C136 124 134 146 126 168"/><path fill="none" stroke="#ffffff" stroke-width="1.4" opacity="0.6" d="M110 96 l5 -1"/>';
+    if (p.hoops) s += '<g fill="none" stroke="#f2c14e" stroke-width="1.6"><circle cx="133" cy="126" r="5"/><circle cx="67" cy="126" r="5"/></g><g fill="#ffd8f0" stroke="#d04a9a" stroke-width="0.6"><circle cx="136" cy="112" r="1.6"/><circle cx="138" cy="106" r="1.4"/><circle cx="64" cy="112" r="1.6"/></g>';
+    if (p.faceGem) s += '<path fill="' + p.faceGem + '" stroke="#ffffff" stroke-width="0.7" d="M126 116 C126 113 129 112 130 114.5 C131 112 134 113 134 116 C134 119 130 121 130 122 C130 121 126 119 126 116 Z"/>';
+    s += moodMarks(p);
     return s;
   }
 
+  // Comic-style marks for expressions: anger vein, tears, sweat drop, shock lines.
+  function moodMarks(p) {
+    let s = '';
+    if (p.vein) s += '<g fill="none" stroke="#e8283a" stroke-width="2.4" stroke-linecap="round" transform="translate(146 56) rotate(10)">' +
+      '<path d="M-7 -2 Q-2 -2 -2 -7 M2 -7 Q2 -2 7 -2 M7 2 Q2 2 2 7 M-2 7 Q-2 2 -7 2"/></g>';
+    if (p.tear) s += '<path fill="#bfe6ff" stroke="#6ab0e0" stroke-width="0.8" d="M76 113 C73 120 72 124 75 126 C78 128 81 125 80 121 C79 118 77 115 76 113 Z"/>' +
+      '<path fill="none" stroke="#bfe6ff" stroke-width="2" opacity="0.7" stroke-linecap="round" d="M124 112 C125 118 124 124 125 128"/>';
+    if (p.sweat) s += '<path fill="#d8f0ff" stroke="#7ab8e0" stroke-width="0.9" d="M140 72 C135 82 134 88 139 90 C144 92 147 87 145 82 C144 79 142 76 140 72 Z"/><path fill="#ffffff" d="M139 84 a1.4 2 0 1 0 0.1 0 Z" opacity="0.8"/>';
+    if (p.shocklines) s += '<g stroke="#2a1a2a" stroke-width="2" stroke-linecap="round" opacity="0.7"><path d="M40 52 L50 60 M34 70 L46 72 M160 52 L150 60 M166 70 L154 72"/></g>';
+    return s;
+  }
+
+  /* ------------------------------------------------------------------ expressions */
+  // What each mood does to a heroine's base look. Per-heroine tweaks go in cfg.moods.
+  function bump(v, d) { return v === false ? false : Math.min(0.85, (v || 0.25) + d); }
+  const MOODS = {
+    happy: function (p) {
+      return { eyes: p.eyes === 'glow' || p.eyes === 'yandere' ? p.eyes : 'happy', brows: 'neutral', blush: bump(p.blush, 0.12),
+        mouth: p.mouth === 'none' ? 'none' : (p.mouth === 'fang' || p.mouth === 'fangsmirk' ? 'fanglaugh' : 'laugh') };
+    },
+    blush: function (p) {
+      return { brows: 'worried', blush: 0.78, sparkleEyes: true, mouth: p.mouth === 'none' ? 'none' : 'wobble', lid: p.eyes === 'sleepy' ? 0 : 0.18 };
+    },
+    angry: function (p) {
+      return { brows: 'furious', vein: true, eyes: p.eyes === 'happy' ? 'round' : p.eyes, lid: p.eyes === 'sleepy' ? 0 : 0.42, lidSlope: -1.2,
+        mouth: p.mouth === 'none' ? 'none' : 'grit', blush: p.blush === false ? false : Math.min(p.blush || 0.2, 0.35) };
+    },
+    sad: function (p) {
+      return { brows: 'sad', eyes: p.eyes === 'happy' || p.eyes === 'sleepy' ? 'round' : p.eyes, lid: 0.55, lidSlope: 1.4, tear: true,
+        mouth: p.mouth === 'none' ? 'none' : 'frown', blush: p.blush === false ? false : 0.2 };
+    },
+    smug: function (p) {
+      return { eyes: p.eyes === 'happy' || p.eyes === 'round' ? 'sleepy' : p.eyes, lid: p.eyes === 'sleepy' ? 0 : 0.6, brows: 'neutral', browsR: 'arched',
+        mouth: p.mouth === 'none' ? 'none' : (p.mouth === 'fang' ? 'fangsmirk' : 'smirk') };
+    },
+    surprised: function (p) {
+      return { eyes: p.eyes === 'happy' || p.eyes === 'sleepy' ? 'round' : p.eyes, shock: true, brows: 'high', lid: 0,
+        mouth: p.mouth === 'none' ? 'none' : 'o', shocklines: true };
+    },
+  };
+  function applyMood(p, mood, extra) {
+    if (!mood || mood === 'neutral') return extra && extra.neutral ? Object.assign(p, extra.neutral) : p;
+    const fn = MOODS[mood];
+    if (!fn) return p;
+    Object.assign(p, fn(p));
+    if (extra && extra[mood]) Object.assign(p, extra[mood]);
+    return p;
+  }
+
   function wings(b, p) {
+    if (p.wings === 'fairy') {
+      const wf = b.lin([[0, '#ffffff', 0.85], [0.45, p.wingColor || '#c8f0ff', 0.7], [1, '#e8a8ff', 0.6]], 0, 0, 1, 1);
+      const w = function (dir) {
+        const t = dir > 0 ? 'translate(200 0) scale(-1 1)' : '';
+        return '<g transform="' + t + '"><path fill="' + wf + '" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9" d="M72 150 C40 130 6 96 10 56 C14 40 34 44 46 60 C60 80 70 120 76 148 Z"/>' +
+          '<path fill="' + wf + '" stroke="#ffffff" stroke-width="1.2" stroke-opacity="0.9" d="M74 160 C48 166 20 186 16 200 L60 200 C66 186 72 172 76 162 Z"/>' +
+          '<path fill="none" stroke="#ffffff" stroke-width="0.9" opacity="0.7" d="M72 146 C54 120 30 86 22 58 M72 146 C60 120 50 96 46 72 M74 162 C56 172 38 186 30 198"/></g>';
+      };
+      return w(-1) + w(1);
+    }
+    if (p.wings === 'feather') {
+      const wf = b.lin([[0, '#ffffff'], [0.7, '#e8ecf4'], [1, '#b8c2d4']], 0, 0, 0, 1);
+      const w = function (dir) {
+        const t = dir > 0 ? 'translate(200 0) scale(-1 1)' : '';
+        let g = '<g transform="' + t + ' translate(20 26) scale(0.82)" fill="' + wf + '" stroke="#8a96ac" stroke-width="1">';
+        g += '<path d="M70 156 C40 140 10 100 2 40 C24 60 40 70 60 80 C66 104 70 130 74 154 Z"/>';
+        for (let i = 0; i < 6; i++) {
+          const y = 70 + i * 16, x = 6 + i * 7;
+          g += '<path d="M' + (72 - i) + ' ' + (y + 20) + ' C' + (x + 20) + ' ' + (y + 14) + ' ' + x + ' ' + (y + 4) + ' ' + (x - 6) + ' ' + (y + 18) + ' C' + (x + 6) + ' ' + (y + 26) + ' ' + (x + 26) + ' ' + (y + 30) + ' ' + (72 - i) + ' ' + (y + 28) + ' Z"/>';
+        }
+        return g + '</g>';
+      };
+      return w(-1) + w(1);
+    }
     if (p.wings !== 'bat') return '';
     const wf = b.lin([[0, '#5a2a5a'], [1, '#1e0c22']], 0, 0, 0, 1);
     const w = function (dir) {
@@ -573,6 +748,47 @@
         '<path fill="none" stroke="#7a4a7a" stroke-width="1" opacity="0.7" d="M60 166 L28 106 M64 162 L46 102 M56 168 L8 122"/></g>';
     };
     return w(-1) + w(1);
+  }
+
+  // Things behind the figure: fox tails, a lamia's coils, a hammer or lute over the shoulder.
+  function backProps(b, p) {
+    let s = '';
+    if (p.tails) {
+      const h = p.tailColor || p.hairColor;
+      const tf = b.lin([[0, shade(h, 0.25)], [0.6, h], [1, shade(h, -0.3)]], 0, 0, 1, 1);
+      // big plumes fanning up behind the shoulders, alternating sides
+      const fan = [[1, 0], [-1, 0], [1, 22], [-1, 22], [1, -18], [-1, -18], [1, 40], [-1, 40], [1, -34]].slice(0, Math.min(9, p.tails));
+      fan.forEach(function (t) {
+        const tr = (t[0] < 0 ? 'translate(200 0) scale(-1 1) ' : '') + 'rotate(' + t[1] + ' 118 200)';
+        s += '<g transform="' + tr + '"><path fill="' + tf + '" stroke="' + shade(h, -0.5) + '" stroke-width="1.3" d="M112 200 C118 150 140 110 158 74 C166 58 184 56 188 72 C192 92 172 120 160 150 C152 170 148 186 146 200 Z"/>' +
+          '<path fill="' + (p.tipColor || '#fbf4ea') + '" stroke="' + shade(h, -0.45) + '" stroke-width="1" d="M158 74 C166 58 184 56 188 72 C189 80 186 88 182 94 C176 86 168 80 158 74 Z"/>' +
+          '<path fill="none" stroke="' + shade(h, 0.4) + '" stroke-width="1.2" opacity="0.6" d="M126 186 C132 150 146 118 162 90"/></g>';
+      });
+    }
+    if (p.coil) {
+      const c = p.coil;
+      const cf = b.lin([[0, shade(c, 0.3)], [0.5, c], [1, shade(c, -0.35)]], 0, 0, 0, 1);
+      s += '<path fill="' + cf + '" stroke="' + shade(c, -0.5) + '" stroke-width="1.4" d="M-10 186 C10 150 40 142 64 156 L60 176 C42 164 22 168 4 200 L-10 200 Z"/>' +
+        '<path fill="' + cf + '" stroke="' + shade(c, -0.5) + '" stroke-width="1.4" d="M210 150 C186 128 156 128 140 146 C130 158 136 170 146 168 C154 152 176 148 196 168 L210 176 Z"/>' +
+        '<path fill="' + shade(c, 0.45) + '" opacity="0.6" d="M200 158 C184 144 162 142 150 152 C164 146 182 150 198 164 Z"/>';
+      // belly scales on the coils
+      s += '<g fill="none" stroke="' + shade(c, -0.35) + '" stroke-width="0.8" opacity="0.7">' +
+        '<path d="M16 170 l6 6 M28 162 l5 7 M40 156 l3 7 M170 140 l-2 7 M182 144 l-4 6 M192 152 l-5 5"/></g>';
+    }
+    if (p.hammer) {
+      s += '<path fill="#6a4a2a" stroke="#3a2614" stroke-width="1.2" d="M146 196 L170 40 L177 41 L154 197 Z"/>' +
+        '<path fill="' + b.lin([[0, '#e8ecf2'], [0.5, '#9aa2b0'], [1, '#5a6270']], 0, 0, 0, 1) + '" stroke="#3a4250" stroke-width="1.4" d="M150 22 L196 30 L192 58 L146 50 Z"/>' +
+        '<path fill="#e8c45a" stroke="#8a6a1a" stroke-width="0.8" d="M150 34 L194 41 L193 46 L149 39 Z"/>' +
+        '<path fill="none" stroke="#ffffff" stroke-width="1.6" opacity="0.6" d="M154 26 L190 32"/>';
+    }
+    if (p.lute) {
+      s += '<path fill="#b8783a" stroke="#5a3414" stroke-width="1.2" d="M38 150 L20 54 L28 52 L48 148 Z"/>' +
+        '<path fill="#7a4a1a" stroke="#3a2008" stroke-width="1.2" d="M16 56 L12 30 L30 24 L32 52 Z"/>' +
+        '<g fill="#f2e0a8" stroke="#5a3414" stroke-width="0.6"><circle cx="12" cy="38" r="2"/><circle cx="13" cy="46" r="2"/><circle cx="33" cy="32" r="2"/><circle cx="34" cy="42" r="2"/></g>' +
+        '<path fill="none" stroke="#f4f0e0" stroke-width="0.5" d="M24 54 L42 148 M26 54 L44 147 M28 53 L46 146"/>' +
+        '<ellipse cx="44" cy="176" rx="30" ry="24" fill="' + b.rad([[0, '#e0a050'], [1, '#8a5020']], 0.4, 0.4, 0.7) + '" stroke="#5a3414" stroke-width="1.4"/>';
+    }
+    return s;
   }
 
   function background(b, p, color) {
@@ -591,44 +807,55 @@
   /* ------------------------------------------------------------------ configs */
   FL.portraitConfigs = {
     fenna: { skin: '#e2b089', hairColor: '#d9b06a', hair: 'wild', bangs: 'messy', eyes: 'sharp', eyeColor: '#e8a420', mouth: 'fang', brows: 'angry', animal: 'wolf', outfit: '#7a5a3a', collar: 'fur', trim: '#c4a070', scar: 'cheek', blush: 0.25 },
-    valeria: { skin: '#f3e6ea', hairColor: '#2a2030', hair: 'long', bangs: 'parted', eyes: 'sleepy', eyeColor: '#e0263f', mouth: 'fang', brows: 'raised', outfit: '#4a0c1c', collar: 'gothic', trim: '#c2264b', lip: '#a3122f', blush: 0.12 },
+    valeria: { skin: '#f3e6ea', hairColor: '#2a2030', hair: 'long', bangs: 'parted', eyes: 'sleepy', eyeColor: '#e0263f', mouth: 'fang', brows: 'raised', outfit: '#4a0c1c', collar: 'gothic', trim: '#c2264b', lip: '#a3122f', blush: 0.12 , moods: { angry: { mouth: 'fang', vein: false } } },
     sylvaine: { skin: '#f7e2cf', hairColor: '#ece6c6', hair: 'long', bangs: 'parted', eyes: 'sleepy', eyeColor: '#3fae78', mouth: 'smile', ears: 'elf', outfit: '#3d7a52', collar: 'robe', trim: '#d8e8a8', circlet: '#dfe4ee', blush: 0.2 },
-    mira: { skin: '#f8dfcb', hairColor: '#ff8a3d', hair: 'twintails', bangs: 'straight', eyes: 'round', eyeColor: '#6e9a2c', mouth: 'pout', brows: 'angry', glasses: '#6a4a2a', outfit: '#2e4a7a', collar: 'v', trim: '#f3efe6', blush: 0.5, ribbon: '#3a6ad0' },
-    marigold: { skin: '#f8dfcb', hairColor: '#f3c24b', hair: 'wavy', bangs: 'straight', eyes: 'yandere', eyeColor: '#78a868', mouth: 'smile', flower: '#f6a21b', outfit: '#e8a33a', collar: 'apron', trim: '#fbf6ea', blush: 0.55 },
-    shade: { skin: '#f2d4b8', hairColor: '#4e5368', hair: 'bob', bangs: 'side', eyes: 'sharp', eyeColor: '#b3a3e8', mouth: 'none', mask: '#2e3140', outfit: '#3a3d4a', collar: 'high', scar: 'cheek', blush: false },
-    pell: { skin: '#f9e6d8', hairColor: '#b49ad9', hair: 'bun', bangs: 'straight', eyes: 'round', eyeColor: '#8a90a6', mouth: 'o', glasses: '#4a3a5a', bigGlasses: true, outfit: '#6b5a8a', collar: 'high', blush: 0.6 },
-    kit: { skin: '#f8dfcb', hairColor: '#ff9fce', hair: 'short', bangs: 'messy', eyes: 'cat', eyeColor: '#4fd0a0', mouth: 'cat', animal: 'cat', outfit: '#3d7a42', collar: 'coat', blush: 0.45 },
+    mira: { skin: '#f8dfcb', hairColor: '#ff8a3d', hair: 'twintails', bangs: 'straight', eyes: 'round', eyeColor: '#6e9a2c', mouth: 'pout', brows: 'angry', glasses: '#6a4a2a', outfit: '#2e4a7a', collar: 'v', trim: '#f3efe6', blush: 0.5, ribbon: '#3a6ad0' , moods: { angry: { mouth: 'pout' } } },
+    marigold: { skin: '#f8dfcb', hairColor: '#f3c24b', hair: 'wavy', bangs: 'straight', eyes: 'round', eyeColor: '#78a868', mouth: 'smile', flower: '#f6a21b', outfit: '#e8a33a', collar: 'apron', trim: '#fbf6ea', blush: 0.55 , moods: { angry: { eyes: 'yandere', mouth: 'smile', brows: 'neutral', vein: false, lid: 0, blush: 0.6 }, smug: { eyes: 'yandere', lid: 0.3 } } },
+    shade: { skin: '#f2d4b8', hairColor: '#4e5368', hair: 'bob', bangs: 'side', eyes: 'sharp', eyeColor: '#b3a3e8', mouth: 'none', mask: '#2e3140', outfit: '#3a3d4a', collar: 'high', scar: 'cheek', blush: false , moods: { happy: { eyes: 'sleepy', lid: 0 } } },
+    pell: { skin: '#f9e6d8', hairColor: '#b49ad9', hair: 'bun', bangs: 'straight', eyes: 'round', eyeColor: '#8a90a6', mouth: 'o', glasses: '#4a3a5a', bigGlasses: true, outfit: '#6b5a8a', collar: 'high', blush: 0.6 , moods: { angry: { mouth: 'pout' } } },
+    kit: { skin: '#f8dfcb', hairColor: '#ff9fce', hair: 'short', bangs: 'messy', eyes: 'cat', eyeColor: '#4fd0a0', mouth: 'cat', animal: 'cat', outfit: '#3d7a42', collar: 'coat', blush: 0.45 , moods: { angry: { mouth: 'pout' } } },
     malzahra: { skin: '#a08cb6', hairColor: '#f2f0f7', hair: 'wild', bangs: 'swept', eyes: 'glow', eyeColor: '#ffb02e', mouth: 'grin', brows: 'raised', horns: 'curl', outfit: '#3a1a5a', collar: 'gothic', trim: '#a35cff', lip: '#5a2a6a', blush: false },
-    celestine: { skin: '#f9e8db', hairColor: '#f5efd2', hair: 'long', bangs: 'parted', eyes: 'round', eyeColor: '#5aa0e8', mouth: 'smile', veil: true, outfit: '#fbfaf6', collar: 'robe', trim: '#e8c45a', blush: 0.5 },
+    celestine: { skin: '#f9e8db', hairColor: '#f5efd2', hair: 'long', bangs: 'parted', eyes: 'round', eyeColor: '#5aa0e8', mouth: 'smile', veil: true, outfit: '#fbfaf6', collar: 'robe', trim: '#e8c45a', blush: 0.5 , moods: { angry: { mouth: 'pout' } } },
     brakka: { skin: '#82b066', hairColor: '#2c2c2c', hair: 'mohawk', bangs: 'none', eyes: 'sharp', eyeColor: '#d04a24', mouth: 'grin', brows: 'angry', tusks: true, outfit: '#6b4a2a', collar: 'strap', trim: '#3a2a1a', blush: false, lip: '#3a5a2a' },
     ignivara: { skin: '#f2cdad', hairColor: '#d62a2a', hair: 'wild', bangs: 'swept', eyes: 'cat', eyeColor: '#ffc420', mouth: 'fang', brows: 'raised', horns: 'swept', scales: '#c8202a', outfit: '#a01f1f', collar: 'gold' },
-    lilette: { skin: '#cca6db', hairColor: '#ff7fb6', hair: 'bob', bangs: 'straight', eyes: 'round', eyeColor: '#ff4f8f', mouth: 'o', brows: 'worried', horns: 'small', wings: 'bat', outfit: '#1d1020', collar: 'off', trim: '#ff5fa2', blush: 0.65 },
+    lilette: { skin: '#cca6db', hairColor: '#ff7fb6', hair: 'bob', bangs: 'straight', eyes: 'round', eyeColor: '#ff4f8f', mouth: 'o', brows: 'worried', horns: 'small', wings: 'bat', outfit: '#1d1020', collar: 'off', trim: '#ff5fa2', blush: 0.65 , moods: { angry: { mouth: 'pout' } } },
     hilde: { skin: '#f2d4b8', hairColor: '#c4642b', hair: 'braid', bangs: 'side', eyes: 'sharp', eyeColor: '#5a7a9a', mouth: 'grin', freckles: true, soot: true, braidFront: true, outfit: '#5a3a24', collar: 'apron', trim: '#8a6a4a', ribbon: '#3a2a1a' },
-    coralie: { skin: '#f5dfd3', hairColor: '#3fc4b8', hair: 'wavy', bangs: 'parted', eyes: 'round', eyeColor: '#2f90d9', mouth: 'grin', ears: 'fin', finColor: '#7ee0d6', outfit: '#e88aa8', collar: 'shell', blush: 0.4 },
-    morwen: { skin: '#f8dfcb', hairColor: '#3c2c26', hair: 'curly', bangs: 'curly', eyes: 'round', eyeColor: '#8a6ad9', mouth: 'smile', glasses: '#8a7a6a', cracked: true, hat: 'witch', hatColor: '#4a2f7a', outfit: '#6a4aa0', collar: 'robe', trim: '#c8a8f0' },
-    aurelia: { skin: '#f9e6d8', hairColor: '#f2c14e', hair: 'braid', bangs: 'parted', eyes: 'round', eyeColor: '#4a8ee0', mouth: 'smile', braidFront: true, tiara: true, outfit: '#f0e6d0', collar: 'apron', trim: '#ffffff', blush: 0.35, ribbon: '#4a8ee0' },
+    coralie: { skin: '#f5dfd3', hairColor: '#3fc4b8', hair: 'wavy', bangs: 'parted', eyes: 'round', eyeColor: '#2f90d9', mouth: 'grin', ears: 'fin', finColor: '#7ee0d6', outfit: '#e88aa8', collar: 'shell', blush: 0.4 , moods: { angry: { mouth: 'pout' } } },
+    morwen: { skin: '#f8dfcb', hairColor: '#3c2c26', hair: 'curly', bangs: 'curly', eyes: 'round', eyeColor: '#8a6ad9', mouth: 'smile', glasses: '#8a7a6a', cracked: true, hat: 'witch', hatColor: '#4a2f7a', outfit: '#6a4aa0', collar: 'robe', trim: '#c8a8f0' , moods: { angry: { mouth: 'pout' } } },
+    aurelia: { skin: '#f9e6d8', hairColor: '#f2c14e', hair: 'braid', bangs: 'parted', eyes: 'round', eyeColor: '#4a8ee0', mouth: 'smile', braidFront: true, tiara: true, outfit: '#f0e6d0', collar: 'apron', trim: '#ffffff', blush: 0.35, ribbon: '#4a8ee0' , moods: { angry: { mouth: 'pout' } } },
     bettina: { skin: '#f0cbaa', hairColor: '#8a3324', hair: 'updo', bangs: 'side', eyes: 'sleepy', eyeColor: '#8a5a2a', mouth: 'smirk', mole: true, outfit: '#2f6b4a', collar: 'v', trim: '#e8c890', lip: '#b02a3a', blush: 0.25 },
-    gloria: { skin: '#9ae69a', hairColor: '#5fc65f', hair: 'bob', bangs: 'side', eyes: 'happy', eyeColor: '#2a6a2a', lash: '#1f5a2a', mouth: 'smile', lip: '#2f8a3f', outfit: '#6fd06f', collar: 'v', bubbles: true, blush: 0.3, slime: true },
+    gloria: { skin: '#9ae69a', hairColor: '#5fc65f', hair: 'bob', bangs: 'side', eyes: 'happy', eyeColor: '#2a6a2a', lash: '#1f5a2a', mouth: 'smile', lip: '#2f8a3f', outfit: '#6fd06f', collar: 'v', bubbles: true, blush: 0.3, slime: true , moods: { angry: { mouth: 'pout' } } },
     hikari: { skin: '#f8dfcb', hairColor: '#1c1c28', hair: 'ponytail', bangs: 'straight', eyes: 'round', eyeColor: '#6a442c', mouth: 'grin', brows: 'angry', outfit: '#fbfbfb', collar: 'sailor', trim: '#24365e', ribbon: '#d8283a', blush: 0.3 },
     brunhild: { skin: '#f7e2cf', hairColor: '#d8cfa8', hair: 'braid', bangs: 'swept', eyes: 'sharp', eyeColor: '#4a72b0', mouth: 'flat', brows: 'angry', braidFront: true, outfit: '#b9c2d0', collar: 'armor', cape: '#b01f2a', blush: 0.2, ribbon: '#b01f2a' },
     rosalind: { skin: '#f9e8db', hairColor: '#f2c94c', hair: 'drills', bangs: 'swept', eyes: 'sleepy', eyeColor: '#9a4ab0', mouth: 'smirk', brows: 'raised', outfit: '#5a2a6a', collar: 'lace', trim: '#c74bb0', blush: 0.2 },
-    seven: { skin: '#f5eee6', hairColor: '#c8833a', hair: 'bob', bangs: 'straight', eyes: 'glow', eyeColor: '#ffb84a', mouth: 'flat', seams: true, outfit: '#8a6a3a', collar: 'gears', trim: '#d8a850', blush: 0.15 },
+    seven: { skin: '#f5eee6', hairColor: '#c8833a', hair: 'bob', bangs: 'straight', eyes: 'glow', eyeColor: '#ffb84a', mouth: 'flat', seams: true, outfit: '#8a6a3a', collar: 'gears', trim: '#d8a850', blush: 0.15 , moods: { happy: { eyes: 'glow', mouth: 'smile', blush: 0.3 }, angry: { mouth: 'flat', vein: false }, sad: { tear: false, mouth: 'flat' } } },
     ophelia: { skin: '#dce9f7', hairColor: '#2c3c5c', hair: 'updo', bangs: 'parted', eyes: 'sleepy', eyeColor: '#7a9ac8', mouth: 'flat', brows: 'worried', outfit: '#b8c8e0', collar: 'off', trim: '#eef4fb', blush: 0.15, ghost: true, lip: '#6a7aa0' },
     scarlett: { skin: '#f0cbaa', hairColor: '#c8262b', hair: 'curly', bangs: 'curly', eyes: 'sharp', eyeColor: '#2f8a5a', mouth: 'smirk', brows: 'raised', scar: 'brow', earring: true, hat: 'tricorn', hatColor: '#2a1414', outfit: '#b0202a', collar: 'coat', blush: 0.2 },
     amorette: { skin: '#f9e6d8', hairColor: '#ff9ad5', hair: 'wavy', bangs: 'parted', eyes: 'glow', eyeColor: '#f2c14e', mouth: 'smile', halo: true, sparkles: true, outfit: '#ff7aa8', collar: 'off', trim: '#ffd27a', blush: 0.4 },
+    // the new heroines
+    kohana: { skin: '#fbe8da', hairColor: '#f08a2a', hair: 'long', bangs: 'parted', eyes: 'cat', eyeColor: '#d8402a', mouth: 'fangsmirk', brows: 'raised', animal: 'fox', tails: 3, tailColor: '#f7a644', tipColor: '#fdf6ec', outfit: '#fbf8f2', collar: 'robe', trim: '#d8283a', ribbon: '#d8283a', blush: 0.3, moods: { happy: { mouth: 'fanglaugh' } } },
+    sesha: { skin: '#eadcc4', hairColor: '#2f8a62', hair: 'wavy', bangs: 'side', eyes: 'cat', eyeColor: '#e8c43a', mouth: 'smile', brows: 'worried', glasses: '#8a6a3a', fogged: true, scales: '#3fa06a', coil: '#3f9a62', outfit: '#d8b870', collar: 'v', trim: '#8a5a2a', blush: 0.45, moods: { angry: { mouth: 'pout', vein: false } } },
+    sigrun: { skin: '#f7e2cf', hairColor: '#f0e6c4', hair: 'braid', bangs: 'swept', eyes: 'sharp', eyeColor: '#4aa8e8', mouth: 'grin', brows: 'raised', braidFront: true, hat: 'wingedhelm', wings: 'feather', outfit: '#a8b4c4', collar: 'armor', cape: '#2a4a8a', ribbon: '#2a4a8a', blush: 0.2 },
+    thistle: { skin: '#fdf0ea', hairColor: '#a8d860', hair: 'wavy', bangs: 'parted', eyes: 'round', eyeColor: '#a050d0', mouth: 'smirk', brows: 'raised', ears: 'elf', wings: 'fairy', wingColor: '#d8f8c8', flowerCrown: ['#f070b0', '#ffffff', '#b07af0'], outfit: '#5aa860', collar: 'off', trim: '#f8d0f0', sparkles: true, blush: 0.35 },
+    lyra: { skin: '#f8dfcb', hairColor: '#8a3aa8', hair: 'wavy', bangs: 'side', eyes: 'round', eyeColor: '#3a9a7a', mouth: 'grin', hat: 'bard', hatColor: '#2a6a8a', featherColor: '#e8505a', lute: true, outfit: '#2a6a8a', collar: 'v', trim: '#f2c14e', earring: true, blush: 0.35 },
+    maud: { skin: '#f0cfae', hairColor: '#7a4a2a', hair: 'short', bangs: 'none', eyes: 'sharp', eyeColor: '#5a8a3a', mouth: 'grin', brows: 'raised', veil: true, veilColor: '#22222e', hammer: true, outfit: '#c8ccd8', collar: 'armor', blush: 0.25, freckles: true },
+    vespera: { skin: '#f9e8db', hairColor: '#3a2860', hair: 'long', bangs: 'straight', eyes: 'sharp', eyeColor: '#c83a8a', mouth: 'smirk', brows: 'raised', monocle: '#e8c45a', outfit: '#3a2a6a', collar: 'mage', trim: '#e8c45a', blush: 0.2 },
+    zyra: { skin: '#8a5e6a', hairColor: '#f8e6a0', hair: 'long', bangs: 'side', eyes: 'round', eyeColor: '#ff5fa8', lash: '#1a0a14', mouth: 'grin', ears: 'elf', hoops: true, shades: '#ff5fa8', faceGem: '#ff8ac8', outfit: '#ff6fb0', collar: 'off', trim: '#ffffff', lip: '#ff4f8f', blush: 0.3 },
   };
 
   /* ------------------------------------------------------------------ main */
-  FL.portrait = function (id) {
+  FL.portraitMoods = ['neutral'].concat(Object.keys(MOODS));
+  FL.portrait = function (id, mood) {
     const cfg = FL.portraitConfigs[id];
     if (!cfg) return '';
-    const p = Object.assign({ eyes: 'round', mouth: 'smile', bangs: 'straight', collar: 'v', key: id }, cfg);
+    const p = applyMood(Object.assign({ eyes: 'round', mouth: 'smile', bangs: 'straight', collar: 'v', key: id }, cfg), mood, cfg.moods);
     const b = new Builder('pt' + (++uid) + '_');
     const color = FL.characters && FL.characters[id] ? FL.characters[id].color : '#8a7aa8';
     const skin = p.skin;
     const faceFill = b.rad([[0, shade(skin, 0.18)], [0.7, skin], [1, shade(skin, -0.1)]], 0.42, 0.42, 0.65);
     const faceClip = b.clip(FACE);
     let figure =
+      backProps(b, p) +
       wings(b, p) +
       backHair(b, p) +
       '<path fill="' + b.lin([[0, shade(skin, -0.3)], [0.45, shade(skin, -0.08)], [1, skin]], 0, 0, 0, 1) + '" d="' + NECK + '"/>' +
@@ -641,8 +868,10 @@
       faceDetails(b, p) +
       '<g transform="translate(83 104) scale(1.18) translate(-83 -104)">' + eye(b, 83, 104, -1, p) + '</g>' +
       '<g transform="translate(117 104) scale(1.18) translate(-117 -104)">' + eye(b, 117, 104, 1, p) + '</g>' +
-      brows(p) + '<g transform="translate(0 -3)">' + mouth(b, p) + '</g>' +
+      '<g transform="translate(0 -3)">' + mouth(b, p) + '</g>' +
       frontHair(b, p, faceClip) +
+      // brows sit on top of the fringe (an anime convention), so expressions read through bangs
+      '<g opacity="0.92">' + brows(p) + '</g>' +
       topBits(b, p) +
       overlays(b, p);
     if (p.ghost) figure = '<g opacity="0.8">' + figure + '</g>';

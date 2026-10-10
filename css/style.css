@@ -221,3 +221,62 @@ section { margin-top: 22px; }
 @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .cast-pics { display: inline-flex; }
 .cast-pics .avatar + .avatar { margin-left: -18px; }
+
+/* ---------------- endings gallery (grouped) */
+.g-list { display: flex; flex-direction: column; }
+.g-row { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.g-chip { display: inline-block; font-size: .8rem; padding: 1px 9px; margin: 3px 3px 0 0; border-radius: 12px; border: 1px dashed var(--line); color: var(--muted); }
+.g-chip.got { border: 1px solid var(--c); color: var(--c); background: var(--bg2); }
+
+/* ---------------- location backdrops & time of day */
+.backdrop { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--bg2); }
+.backdrop > svg { display: block; width: 100%; height: 100%; }
+.loc-head.backdrop { height: clamp(130px, 26vw, 210px); margin-top: 10px; display: block; }
+.bd-title { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 12px; padding: 22px 14px 10px;
+  background: linear-gradient(to top, rgba(12, 8, 18, .88), rgba(12, 8, 18, 0)); text-shadow: 0 1px 4px rgba(0, 0, 0, .8); }
+.bd-title .loc-icon { font-size: 1.8rem; }
+.bd-title .muted { color: #e2d8ef; }
+.scene-bd { height: 92px; margin-top: 10px; -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent); mask-image: linear-gradient(to bottom, #000 40%, transparent); border: 0; }
+.scene-bd + .scene-head { margin-top: -38px; position: relative; border-bottom-color: transparent; }
+html[data-slot="0"], html[data-slot="0"] body { background: radial-gradient(ellipse at top, #3d2a3a 0%, var(--bg) 60%) fixed, var(--bg); }
+html[data-slot="1"], html[data-slot="1"] body { background: radial-gradient(ellipse at top, #2f2a48 0%, var(--bg) 60%) fixed, var(--bg); }
+html[data-slot="2"], html[data-slot="2"] body { background: radial-gradient(ellipse at top, #161a3a 0%, #0f0c18 65%) fixed, #0f0c18; }
+
+/* ---------------- settings */
+html[data-textsize="s"], html[data-textsize="s"] body { font-size: 16px; }
+html[data-textsize="l"], html[data-textsize="l"] body { font-size: 21px; }
+html[data-textsize="xl"], html[data-textsize="xl"] body { font-size: 24px; }
+@media (max-width: 600px) {
+  html[data-textsize="s"], html[data-textsize="s"] body { font-size: 15px; }
+  html[data-textsize="l"], html[data-textsize="l"] body { font-size: 19px; }
+  html[data-textsize="xl"], html[data-textsize="xl"] body { font-size: 21px; }
+}
+html[data-pace="instant"] .scene .text p, html[data-pace="instant"] .log p, html[data-pace="instant"] .choices { animation: none !important; }
+.pending { display: none !important; }
+html[data-pace="paced"] .scene .text p { animation: rise .35s ease both !important; animation-delay: 0s !important; }
+.set-row { padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+.set-label { font-family: 'Cinzel', serif; font-size: .85rem; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.settings .music-toggle { margin-top: 12px; }
+textarea.code { width: 100%; font: .8rem/1.4 ui-monospace, monospace; color: var(--text); background: var(--bg2); border: 1px solid var(--line); border-radius: 6px; padding: 8px; margin: 8px 0; word-break: break-all; }
+
+/* ---------------- achievements & toasts */
+.ach-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+.ach { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 8px; background: var(--bg2); border: 1px dashed var(--line); opacity: .6; }
+.ach.got { opacity: 1; border: 1px solid var(--gold); }
+.ach-icon { font-size: 1.4rem; }
+#toasts { position: fixed; right: 12px; bottom: 12px; z-index: 80; display: flex; flex-direction: column; gap: 8px; max-width: min(320px, calc(100vw - 24px)); }
+.toast { background: var(--panel2); border: 1px solid var(--gold); border-radius: 10px; padding: 10px 14px; box-shadow: 0 6px 24px rgba(0, 0, 0, .5); animation: rise .35s ease both; transition: opacity .5s, transform .5s; }
+.toast b { color: var(--gold); }
+.toast.out { opacity: 0; transform: translateY(8px); }
+
+/* ---------------- heroine gallery */
+.h-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.h-cell { font: inherit; color: var(--text); background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 8px 4px; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
+.h-cell:hover:not(:disabled) { border-color: var(--c); }
+.h-cell:disabled { opacity: .45; cursor: default; }
+.h-name { font-size: .85rem; }
+.h-detail { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 12px; }
+.h-big.avatar.pic { width: min(240px, 70vw); height: min(240px, 70vw); border-radius: 16px; box-shadow: 0 0 0 3px var(--c); }
+.h-info { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }
+.h-info h3 { text-transform: none; font-size: 1.2rem; margin: 0; }
+.h-info .btn { font-size: .82rem; padding: 4px 10px; }

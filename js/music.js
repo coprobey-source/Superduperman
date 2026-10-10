@@ -189,8 +189,69 @@
     },
   };
 
+  // Leitmotifs: each heroine has a short theme of her own that plays in her romance
+  // scenes, dates and ending. Arrangement styles are shared; melodies are hers.
+  const STYLES = {
+    tender: { form: ['A', 'A2', 'B', 'Ai', 'A2'], lead: 'flute', lead2: 'cello', accomp: ['epiano', 'block'], pad: 'strings', bass: ['bass', 'root'], drums: null, extraAccomp: ['harp', 'arpSlow'], db: 0.2 },
+    waltz: { form: ['A', 'A2', 'B', 'Ai', 'A'], lead: 'violin', lead2: 'flute', accomp: ['harpsichord', 'waltz'], pad: 'strings', bass: ['bass', 'waltz'], drums: null, db: 2.8 },
+    folk: { form: ['A', 'A2', 'B', 'Ai', 'A', 'B2'], lead: 'fiddle', lead2: 'flute', accomp: ['guitar', 'arp6'], pad: 'accordion', bass: ['bass', 'jig'], drums: null, db: 0.0 },
+    mystic: { form: ['A', 'A2', 'Bi', 'B', 'A'], lead: 'celesta', lead2: 'flute', accomp: ['harp', 'arp'], pad: 'choir', bass: ['bass', 'root'], drums: null, db: 2.1 },
+    playful: { form: ['A', 'A2', 'B', 'A', 'Bi', 'A2'], lead: 'flute', lead2: 'celesta', accomp: ['lute', 'strum'], pad: null, bass: ['bass', 'roots2'], drums: 'light', db: -0.4 },
+    dark: { form: ['A', 'A2', 'B', 'Ai', 'A'], lead: 'violin', lead2: 'cello', accomp: ['harp', 'arpSlow'], pad: 'stringsDark', bass: ['bass', 'drone'], drums: null, db: 1.5 },
+    heroic: { form: ['A', 'A2', 'B', 'A2', 'Ai'], lead: 'brass', lead2: 'violin', accomp: ['strings', 'pulse'], pad: 'strings', bass: ['bass', 'pulse'], drums: 'march', db: 0.9 },
+  };
+  // id: [style, key, mode, meter, bpm, A chords, A melody, B chords, B melody, overrides]
+  const MOTIFS = {
+    fenna: ['folk', 62, 'dorian', 6, 184, '1 | 7 | 4 | 1', "1/2 3 5/2 3 | 7,/2 2 4/3 | 6/2 4 1'/2 6 | 5/3 1/3", '4 | 1 | 7 | 5', "4/2 6 1'/2 6 | 5/2 3 1/3 | 2/2 4 7/2 4 | 5/3 2/3", { drums: 'jig', pad: null }],
+    valeria: ['waltz', 57, 'harm', 3, 132, '1 | 4 | 5 | 1', "1'/1.5 7/.5 1' | 6/1.5 5/.5 4 | 7/2 2' | 1'/3", '6 | 4 | 2 | 5', "3'/2 1' | 1'/2 6 | 6 4 2 | 7/2 5", { pad: 'organ', lead2: 'cello' }],
+    sylvaine: ['mystic', 64, 'lydian', 4, 66, '1 | 2 | 6 | 1', "5/2 3/2 | 4/1.5 6/.5 2'/2 | 1'/2 6/2 | 5/4", '6 | 3 | 2 | 5', "1'/2 6/2 | 7/1.5 5/.5 3/2 | 6/2 4/2 | 5/2 2/2", { lead: 'flute', lead2: 'celesta', pad: 'strings', extras: ['birds'] }],
+    mira: ['playful', 67, 'major', 4, 112, '1 | 5 | 6 | 4', "1/.5 3/.5 5 3/.5 2/.5 1 | 2 7, 5,/2 | 6, 1 3/.5 2/.5 1 | 4/2 6, 7,", '4 | 5 | 3 6 | 2 5', "6/1.5 5/.5 4 6 | 5/2 7/.5 6/.5 5 | 5 3 1/2 | 2/2 5,/2", {}],
+    marigold: ['waltz', 69, 'major', 3, 138, '1 | 6 | 4 | 5', "3 5 1' | 1'/2 6 | 6 4 6 | 5/3", '1 | 3 | 4 | 5.7', "5 3 1 | 7/2 5 | 4 6 1' | 4/2 2", { lead: 'musicbox', lead2: 'celesta', accomp: ['epiano', 'waltz'], pad: null }],
+    shade: ['dark', 59, 'minor', 4, 70, '1 | 6 | 4 | 5', "5/3 3 | 1/2 3/2 | 4/1.5 6/.5 1'/2 | 7/2 5/2", '6 | 7 | 1 | 5', "6/2 1'/2 | 2'/2 7/2 | 1'/1.5 7/.5 5/2 | 5/4", { lead: 'flute' }],
+    pell: ['tender', 62, 'major', 4, 64, '1.7 | 4.7 | 6.7 | 5.7', '3/1.5 2/.5 1 5, | 6,/2 1 3 | 5/1.5 3/.5 1/2 | 2/3 r', '4.7 | 3.7 | 2.7 | 5.7', '6/2 4/2 | 5/2 7,/2 | 1/1.5 2/.5 4/2 | 5/4', { lead: 'celesta', leadOctave: 12 }],
+    kit: ['playful', 64, 'mixo', 4, 116, '1 | 7 | 4 | 1', "5/.5 6/.5 5 3/.5 5/.5 1' | 7/.5 1'/.5 7 4/.5 5/.5 2 | 6 4 1'/2 | 5/2 r 5,", '4 | 1 | 7 | 5', "1'/1.5 6/.5 4 6 | 5/1.5 3/.5 1/2 | 2' 1' 7 4 | 5/2 7,/2", { lead: 'fiddle' }],
+    malzahra: ['dark', 55, 'harm', 4, 64, '1 | 6 | 4 | 5', "1'/2 5/2 | 6/1.5 5/.5 3/2 | 4/2 1'/2 | 7/3 r", '4 | 1 | 2 | 5', "6/2 1'/2 | 5/1.5 3/.5 1/2 | 2/2 4/2 | 5/2 7,/2", { pad: 'choir' }],
+    celestine: ['mystic', 65, 'major', 4, 58, '1 | 5 | 6 | 4', "3/1.5 4/.5 5/2 | 5/1.5 4/.5 2/2 | 1'/1.5 7/.5 6/2 | 6/2 4/2", '4 | 1 | 2 | 5', "1'/1.5 7/.5 6/2 | 5/1.5 4/.5 3/2 | 4/1.5 3/.5 2/2 | 5/4", { lead: 'bell', accomp: ['harp', 'arpSlow'] }],
+    brakka: ['folk', 57, 'minor', 6, 180, '1 | 6 | 7 | 1', "1/2 1 5/2 3 | 6/2 1' 3'/3 | 2'/2 7 4/2 7 | 1'/3 1/3", '4 | 1 | 6 7 | 1', "4/2 6 1'/2 6 | 5/2 3 1/2 3 | 1'/2 6 7/2 2' | 1'/6", { accomp: ['guitar', 'jig'], drums: 'jig', pad: null }],
+    ignivara: ['dark', 52, 'minor', 4, 76, '1 | 7 | 6 | 7', "1/1.5 5/.5 1' 5 | 7/2 4/2 | 6/1.5 5/.5 3/2 | 2/4", '3 | 7 | 4 | 5', "5/2 7/2 | 2'/1.5 1'/.5 7/2 | 1'/2 6/2 | 5/2 7,/2", { lead: 'brass', accomp: ['harp', 'arp'] }],
+    lilette: ['playful', 62, 'dorian', 4, 104, '1 | 4 | 1 | 5', "3/.5 4/.5 5 3/.5 1/.5 3 | 6/.5 5/.5 4 1/2 | 5 3 1/2 | 7,/2 r 2", '4 | 7 | 1 | 5', "1'/1.5 6/.5 4 6 | 7/1.5 4/.5 2 4 | 3/1.5 5/.5 1/2 | 5/3 r", { lead: 'celesta', lead2: 'flute' }],
+    hilde: ['folk', 60, 'mixo', 6, 190, '1 | 4 | 7 | 1', "5/2 3 1/2 3 | 4/2 6 1'/2 6 | 7/2 2' 4'/2 2' | 1'/3 5/3", '4 | 1 | 5 | 1', "6/2 4 1/2 4 | 3/2 5 1'/3 | 2'/2 7 5/2 7 | 1'/6", { accomp: ['guitar', 'jig'], drums: 'jig' }],
+    coralie: ['folk', 67, 'major', 6, 170, '1 | 5 | 6 | 4', "3/3 5/3 | 5/2 7 2'/3 | 1'/2 6 3/3 | 4/3 6/3", '4 | 1 | 2 | 5', "6/2 1' 4'/3 | 3'/2 1' 5/3 | 2'/2 6 4/3 | 5/6", { lead: 'flute', lead2: 'celesta', extras: ['waves'], pad: null }],
+    morwen: ['playful', 60, 'dorian', 4, 100, '1 | 2 | 1 | 7', "1/.5 2/.5 3 5/.5 3/.5 1 | 2/.5 3/.5 4 6/.5 4/.5 2 | 3 5 1'/2 | 7/2 r 2", '4 | 1 | 4 | 5', "6/1.5 4/.5 1'/2 | 5/1.5 3/.5 1/2 | 4 6 1' 6 | 5/2 7,/2", { lead2: 'celesta', accomp: ['harpsichord', 'strum'] }],
+    aurelia: ['waltz', 67, 'major', 3, 144, '1 | 4 | 2 | 5', "1 3 5 | 6/2 4 | 4 6 2' | 7/2 5", '6 | 4 | 1 | 5.7', "1'/2 3' | 1'/2 6 | 5 3 1 | 4/2 2", { lead: 'flute', lead2: 'violin' }],
+    bettina: ['tender', 58, 'major', 4, 70, '2.7 | 5.7 | 1.7 | 6.7', '6/1.5 4/.5 1/2 | 7,/1.5 2/.5 4/2 | 3/2 7,/2 | 1/1.5 3/.5 5/2', '4.7 | 3.7 | 2.7 | 5.7', "3'/2 1'/2 | 2'/1.5 7/.5 5/2 | 1'/1.5 6/.5 4/2 | 4/2 2/2", { lead: 'cello', lead2: 'flute' }],
+    gloria: ['playful', 72, 'major', 4, 112, '1 | 6 | 2 | 5', "5/.5 3/.5 5 1'/.5 7/.5 1' | 6/.5 5/.5 6 3/.5 2/.5 1 | 2 4 6 4 | 5/2 7, 2", '4 | 5 | 3 6 | 2 5', "1'/.5 6/.5 4 6/.5 1'/.5 6 | 7/.5 5/.5 2 5/2 | 3 5 6 1' | 2/2 5/2", { lead: 'musicbox', lead2: 'flute', accomp: ['harp', 'arp'] }],
+    hikari: ['playful', 64, 'major', 4, 124, '4 | 5 | 3 | 6', "1'/1.5 6/.5 4 6 | 5/1.5 7/.5 2' 7 | 3/1.5 5/.5 7/2 | 6/3 r", '4 | 5 | 1 | 1', "4 6 1' 6 | 2' 1' 7 5 | 1'/3 5 | 1'/4", { lead2: 'brass', accomp: ['guitar', 'strum'], drums: 'festival' }],
+    brunhild: ['heroic', 62, 'major', 4, 84, '1 | 5 | 6 | 4', "1/1.5 5/.5 1' 5 | 7/1.5 5/.5 2'/2 | 3/1.5 6/.5 1'/2 | 6/2 4/2", '4 | 1 | 5 | 1', "6/1.5 4/.5 1'/2 | 5/1.5 3/.5 1'/2 | 2'/1.5 7/.5 5/2 | 1'/4", {}],
+    rosalind: ['waltz', 62, 'harm', 3, 150, '1 | 5 | 1 | 5', "5 1' 3' | 2'/2 7 | 1' 5 3 | 7/2 5", '6 | 4 | 2 | 5', "3'/2 1' | 1'/2 6 | 6 4 2 | 7/3", {}],
+    seven: ['tender', 69, 'major', 4, 72, '1 | 3 | 4 | 5', '1 3 5 3 | 3 5 7 5 | 4 6 1\' 6 | 5/2 2/2', '6 | 4 | 1 | 5', "1'/1.5 7/.5 6/2 | 6/1.5 5/.5 4/2 | 5/1.5 4/.5 3/2 | 2/4", { lead: 'musicbox', lead2: 'celesta', accomp: ['harp', 'arpSlow'], extraAccomp: null }],
+    ophelia: ['waltz', 55, 'harm', 3, 104, '1 | 6 | 4 | 5', "5/2 1' | 1'/2 6 | 6/2 4 | 5/2 7,", '1 | 4 | 6 | 5', '3/2 5 | 4/2 1 | 3/2 1 | 7,/3', { lead: 'celesta', lead2: 'violin', accomp: ['harp', 'arp'], pad: 'organ', leadOctave: 12 }],
+    scarlett: ['folk', 62, 'minor', 6, 196, '1 | 7 | 6 | 7', "1/2 3 5/2 1' | 7/2 6 4/2 2 | 6/2 1' 3'/2 1' | 2'/3 7/3", '3 | 7 | 4 | 5', "5/2 3 7/2 5 | 2'/2 1' 7/2 4 | 1'/2 6 4/2 6 | 5/3 7,/3", { accomp: ['guitar', 'jig'], drums: 'jig', extras: ['waves'] }],
+    amorette: ['mystic', 65, 'major', 4, 66, '1.7 | 3.7 | 4.7 | 5.7', "5/1.5 3/.5 7/2 | 2'/1.5 7/.5 5/2 | 6/1.5 1'/.5 3'/2 | 2'/4", '6.7 | 2.7 | 4.7 | 5.7', "1'/1.5 6/.5 5/2 | 4/1.5 6/.5 1'/2 | 3'/1.5 1'/.5 6/2 | 5/2 4/2", {}],
+    kohana: ['mystic', 62, 'major', 4, 96, '1 | 6 | 4 | 5', "5/.5 6/.5 5 3 2 | 6,/.5 1/.5 2 3/2 | 6 5 1'/2 | 2/2 5,/2", '6 | 2 | 1 | 5', "1'/.5 2'/.5 1' 6/2 | 6/.5 5/.5 6 2/2 | 3/.5 5/.5 3 1/2 | 2/3 r", { lead: 'flute', lead2: 'celesta', pad: null }],
+    sesha: ['tender', 57, 'dorian', 4, 62, '1 | 4 | 1 | 7', "5/2 3/2 | 6/1.5 4/.5 1/2 | 3/1.5 5/.5 1'/2 | 2/2 7,/2", '4 | 1 | 2 | 5', "1'/2 6/2 | 5/1.5 3/.5 1/2 | 4/1.5 2/.5 6/2 | 5/4", { lead: 'cello', lead2: 'flute', accomp: ['harp', 'arpSlow'], extraAccomp: null }],
+    sigrun: ['heroic', 62, 'dorian', 4, 92, '1 | 7 | 4 | 1', "1/1.5 5/.5 1'/2 | 7/1.5 4/.5 2'/2 | 1'/1.5 6/.5 4/2 | 5/4", '3 | 7 | 4 | 5', "3'/1.5 2'/.5 7/2 | 2'/1.5 1'/.5 7/2 | 6/1.5 4/.5 1'/2 | 7/2 5/2", { pad: 'stringsDark' }],
+    thistle: ['mystic', 69, 'lydian', 4, 72, '1 | 2 | 1 | 2', "1'/.5 7/.5 5 3 5 | 4/.5 6/.5 2' 6 4 | 5/2 1'/2 | 6/4", '6 | 3 | 2 | 5', "1'/2 6/2 | 7/1.5 5/.5 3/2 | 2'/1.5 6/.5 4/2 | 5/2 7/2", { pad: 'strings', extras: ['birds'] }],
+    lyra: ['folk', 65, 'major', 6, 182, '1 | 4 | 5 | 1', "1/2 2 3/2 5 | 6/2 5 4/2 6 | 5/2 6 7/2 2' | 1'/3 5/3", '6 | 4 | 2 | 5', "1'/2 7 6/2 3 | 4/2 6 1'/2 6 | 2'/2 1' 6/2 4 | 5/3 2/3", { lead: 'flute', lead2: 'fiddle', accomp: ['lute', 'arp6'], pad: null }],
+    maud: ['heroic', 60, 'major', 4, 88, '1 | 4 | 5 | 1', "5/1.5 5/.5 1'/2 | 1'/1.5 6/.5 4/2 | 2'/1.5 7/.5 5/2 | 1'/4", '6 | 4 | 2 | 5', "6/1.5 1'/.5 3'/2 | 1'/1.5 6/.5 4/2 | 2'/1.5 6/.5 4/2 | 5/2 7/2", { pad: 'organ', lead2: 'cello' }],
+    vespera: ['waltz', 64, 'minor', 3, 152, '1 | 4 | 7 | 3', "1' 5 3 | 4 6 1' | 2' 7 4 | 5/2 7", '6 | 4 | 5 | 1', "1'/2 6 | 6/2 4 | 2/2 7, | 1/3", {}],
+    zyra: ['playful', 66, 'mixo', 4, 118, '1 | 7 | 4 | 1', "1'/.5 1'/.5 7/.5 1'/.5 5 3 | 2'/.5 2'/.5 1'/.5 2'/.5 4 2 | 6/.5 6/.5 4/.5 6/.5 1'/2 | 5/2 r 5,", '4 | 1 | 7 | 5', "1'/1.5 6/.5 4 6 | 5/1.5 3/.5 1/2 | 2'/1.5 1'/.5 7/2 | 5/2 7,/2", { accomp: ['guitar', 'strum'], drums: 'festival' }],
+  };
+  // measured loudness corrections (dB) so every leitmotif sits near -16 dBFS RMS
+  const MOTIF_ADJ = {aurelia: -1.1, bettina: 0.8, brakka: 0.3, brunhild: 0.3, celestine: -0.7, kit: 1.4, kohana: -1.7, lyra: 0.7, malzahra: 3.3, marigold: -0.3, mira: -0.4, morwen: -0.3, ophelia: 0.6, pell: 1.7, sesha: 2.0, seven: 1.5, shade: -1.3, sigrun: 0.3, sylvaine: -2.2, valeria: 1.9};
+  const motifTrim = {};
+  Object.keys(MOTIFS).forEach(function (id) {
+    const m = MOTIFS[id], st = STYLES[m[0]];
+    const song = { key: m[1], mode: m[2], meter: m[3], bpm: m[4], A: { chords: m[5], mel: m[6] }, B: { chords: m[7], mel: m[8] }, motif: id, style: m[0] };
+    ['form', 'lead', 'lead2', 'accomp', 'pad', 'bass', 'drums', 'extraAccomp'].forEach(function (k) { song[k] = st[k]; });
+    Object.keys(m[9] || {}).forEach(function (k) { song[k] = m[9][k]; });
+    SONGS['love_' + id] = song;
+    motifTrim['love_' + id] = st.db + (MOTIF_ADJ[id] || 0);
+  });
+
   // Loudness trims in dB, measured with tools so every theme sits at a similar level.
   const TRIM = { cave: 0.5, epic: 0.9, festival: 0.6, forest: 0.8, library: 3.6, night: 3.8, noble: 2.8, romance: 0.2, sea: 0.0, tavern: 0.4, temple: 2.1, tension: 2.0, title: 0.4, town: -0.4 };
+  Object.keys(motifTrim).forEach(function (k) { if (TRIM[k] == null) TRIM[k] = motifTrim[k]; });
   Object.keys(TRIM).forEach(function (k) { SONGS[k].trim = Math.pow(10, TRIM[k] / 20); });
 
   // Pre-parse every song once.

@@ -42,6 +42,14 @@
     ['rum', 'Bottle of Rum', 15, 'Why is the rum always gone? Not this one. Yet.'],
     ['novel', 'Steamy Romance Novel', 12, '"The Duke\'s Forbidden Passion, Volume IX." The cover alone is scandalous.'],
     ['fork', 'Ordinary Fork', 3, 'A plain dinner fork. Nothing special about it. Nothing at all.'],
+    ['tofu', 'Fried Tofu Pockets', 8, 'Golden, sweet and sticky. Foxes are said to be utterly unable to resist them.'],
+    ['mead', 'Horn of Honey Mead', 22, 'A drinking horn of golden mead. Tastes like summer and poor decisions.'],
+    ['strings', 'Silver Lute Strings', 18, 'A coil of fine silver strings. Every bard in the kingdom wants a set.'],
+    ['nectar', 'Moonflower Nectar', 14, 'A thimble-sized vial of glowing nectar. Fairies have traded kingdoms for less.'],
+    ['polish', 'Glitter Nail Polish', 10, 'Hot pink and extremely sparkly. Not traditional elven fashion. At all.'],
+    ['salts', 'Scented Bath Salts', 16, 'Lavender and sea salt in a little glass jar. Instant relaxation, just add water.'],
+    ['relic', 'Saintly Relic (Probably)', 28, 'A knucklebone in a tiny gilded reliquary. The seller swore it was holy. The seller was sweating.'],
+    ['quill', 'Enchanted Quill', 26, 'A raven-feather quill that writes by itself. Mostly insults, in beautiful handwriting.'],
   ];
   items.forEach(function (i) {
     FL.addItem({ id: i[0], name: i[1], price: i[2], desc: i[3] });
@@ -289,6 +297,49 @@
       { id: 'forage', label: 'Forage (get Rare Moonherbs)', give: { herbs: 1 }, lines: [
         'You find a patch of moonherbs glittering in a hollow log.',
         'You gather moonherbs and only get slightly lost.',
+      ] },
+    ],
+  });
+  FL.addLocation({
+    id: 'bathhouse',
+    music: 'temple',
+    name: 'Steamwhistle Bathhouse',
+    icon: '♨️',
+    desc: [
+      'Steam curls from the vents of the Steamwhistle Bathhouse. Inside: cedar benches, warm tiles, and a sign reading "NO SWIMMING IN THE TEA."',
+      'The afternoon soak crowd lounges in the pools: a troll reading the paper, two retired knights comparing scars, and something long and scaled coiled around the hottest spring.',
+      'Lanterns float on the evening pools. The water glows faintly blue. Everyone is very relaxed and pretending not to look at everyone else.',
+    ],
+    activities: [
+      { id: 'soak', label: 'Soak in the hot springs (6g, +1 Charm)', cost: 6, stat: { charm: 1 }, lines: [
+        'You soak until every knot in your back unties itself. You emerge glowing and somehow more charming. (+1 Charm)',
+        'You share a pool with a chatty old dwarf who teaches you three compliments that work on anyone. (+1 Charm)',
+      ] },
+      { id: 'scrub', label: 'Scrub tiles (+14 gold)', gold: 14, lines: [
+        'You scrub tiles until they gleam. Something in the deep pool watches you approvingly.',
+        'You fish eleven lost rings and one confused frog out of the drains. Paid in full.',
+      ] },
+    ],
+  });
+  FL.addLocation({
+    id: 'academy',
+    music: 'library',
+    name: 'Arcane Academy',
+    icon: '🔮',
+    open: [0, 1],
+    desc: [
+      'The Arcane Academy of Clichéton: spires, gargoyles, and a courtyard where first-years practice levitation on increasingly nervous chickens.',
+      'Lecture halls hum with chanting. A door on the third floor has been glowing purple for a week, and the faculty have agreed not to talk about it.',
+      '',
+    ],
+    activities: [
+      { id: 'lecture', label: 'Sit in on a lecture (5g, +1 Wits)', cost: 5, stat: { wits: 1 }, lines: [
+        'You sit in on "Theoretical Fireballs 101." You only catch fire twice. (+1 Wits)',
+        'You attend a seminar on the ethics of summoning. The demon in the front row asks the best questions. (+1 Wits)',
+      ] },
+      { id: 'lab', label: 'Assist in the lab (+gold, more with Wits)', gold: 10, bonusStat: 'wits', bonusPer: 3, lines: [
+        'You stir cauldrons and label potions. Only one of them tries to escape.',
+        'You hold the ladder while a professor argues with a bookshelf. Hazard pay included.',
       ] },
     ],
   });
@@ -649,5 +700,7 @@
   FL.addEvent({ id: 'festival', day: 30, priority: 100, scene: 'festival' });
 
   FL.addEnding('harem', 'The Many-Hearted Household', 'Harem Ending', '#ff7eb6');
+  // The secret ending (New Game+ only). Its scene is wired up in the main plot section.
+  FL.addEnding('true_end', 'Happily Ever After (Unabridged)', 'True Ending', '#ffe9a8');
   FL.addEnding('alone', 'Stargazing with a Cat', 'Alone Ending', '#888888');
 })();

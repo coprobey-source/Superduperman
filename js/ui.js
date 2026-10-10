@@ -9,8 +9,9 @@
   const AGE_KEY = 'hgf_age_ok';
   const MEMORY_KEY = 'hgf_memories';
   const MUSIC_KEY = 'hgf_music';
-  const MEMORY_SCENES = ['intro', 's1', 's2', 's3', 'morning'];
-  const MEMORY_LABELS = { intro: 'First Meeting', s1: 'Scene I', s2: 'Scene II', s3: 'Scene III', morning: 'Morning After' };
+  const MEMORY_SCENES = ['intro', 's1', 's2', 's3', 'morning', 'date_dinner', 'date_gardens', 'date_harbor', 'date_picnic'];
+  const MEMORY_LABELS = { intro: 'First Meeting', s1: 'Scene I', s2: 'Scene II', s3: 'Scene III', morning: 'Morning After',
+    date_dinner: 'Date: Dinner', date_gardens: 'Date: Gardens', date_harbor: 'Date: Harbor', date_picnic: 'Date: Picnic' };
 
   const ui = {
     s: null,         // game state
@@ -18,6 +19,7 @@
     sel: null,       // selected character on hub
     log: [],         // feedback lines shown on hub
     lastChoice: null,
+    moods: {},       // heroine id -> portrait mood shown on the hub after talking / gifts
   };
 
   /* ------------------------------------------------------------------ storage */
@@ -45,16 +47,30 @@
     if (list.indexOf(key) < 0) { list.push(key); store(MEMORY_KEY, JSON.stringify(list)); }
   }
 
+  /* ------------------------------------------------------------------ sound effects */
+  function sfx(name) { if (FL.sfx) FL.sfx.play(name); }
+  function sfxNotes(notes) {
+    if (!notes || !notes.length) return;
+    if (notes.some(function (n) { return n.type === 'aff' && n.n > 0; })) sfx('heart');
+    else if (notes.some(function (n) { return n.type === 'aff' && n.n < 0; })) sfx('heartdown');
+    if (notes.some(function (n) { return n.type === 'gold' && n.n > 0; })) sfx('coin');
+    if (notes.some(function (n) { return n.type === 'stat'; })) sfx('stat');
+    if (notes.some(function (n) { return n.type === 'item'; })) sfx('gift');
+  }
+
   /* ------------------------------------------------------------------ music */
   function musicOn() { return store(MUSIC_KEY) === 'on'; }
   function music(theme) {
     if (FL.music) FL.music.setTheme(theme);
   }
   function sceneTheme(run) {
-    if (run.id === 'festival' || run.kind === 'ending') return 'festival';
-    if (run.char && (run.id === 's1' || run.id === 's2' || run.id === 's3' || run.id === 'morning')) return 'romance';
+    if (run.id === 'festival') return 'festival';
+    // her own leitmotif plays in her romance scenes, the morning after, dates and her ending
+    const mine = run.char && FL.music && FL.music.songs['love_' + run.char] ? 'love_' + run.char : 'romance';
+    if (run.kind === 'ending' || run.kind === 'date') return run.char ? mine : 'festival';
+    if (run.char && (run.id === 's1' || run.id === 's2' || run.id === 's3' || run.id === 'morning')) return mine;
     if (run.id === 'prologue') return 'title';
-    if (run.id === 'demon_attack' || run.id === 'marigold_jealous') return 'tension';
+    if (run.id === 'demon_attack' || /_jealous$/.test(run.id)) return 'tension';
     if (run.id === 'masquerade') return 'romance';
     const loc = ui.s && FL.locations[ui.s.loc];
     return (loc && loc.music) || 'town';
@@ -77,12 +93,13 @@
   function replayScene(id, scene) {
     closeModal();
     ui.replay = { saved: ui.s, savedRun: ui.run };
+    bumpLifetime('replays');
     const s = FL.newState({ name: store('hgf_lastname') || 'Traveler', stats: { might: 10, wits: 10, charm: 10 } });
     s.flags.demon_attack = true; s.flags.goddess_awake = true;
     s.chars[id].stage = FL.SCENE_FOR_STAGE.indexOf(scene) >= 0 ? FL.SCENE_FOR_STAGE.indexOf(scene) : 4;
     s.chars[id].aff = 90;
     ui.s = s;
-    ui.run = FL.startScene(s, { char: id, id: scene }, scene === 'morning' ? 'event' : 'romance');
+    ui.run = FL.startScene(s, { char: id, id: scene }, scene === 'morning' ? 'event' : scene.indexOf('date_') === 0 ? 'date' : 'romance');
     ui.lastChoice = null;
     renderScene();
   }
@@ -118,13 +135,23 @@
   }
   function para(s, line) {
     line = FL.fmt(s, line);
-    const m = /^@(\w+)\s+([\s\S]*)$/.exec(line);
-    if (m) {
-      const sp = FL.speakerInfo(s, m[1]);
+    const m = FL.parseLine(line);
+    if (m.speaker) {
+      const sp = FL.speakerInfo(s, m.speaker);
       return '<p class="dlg"><span class="spk" style="color:' + sp.color + '">' + esc(sp.name) +
-        '</span><span class="say">“' + rich(m[2]) + '”</span></p>';
+        '</span><span class="say">“' + rich(m.text) + '”</span></p>';
     }
     return '<p>' + rich(line) + '</p>';
+  }
+  // The last expression each heroine shows in a list of lines.
+  function moodsIn(lines, into) {
+    into = into || {};
+    (lines || []).forEach(function (l) {
+      if (typeof l !== 'string') return;
+      const m = FL.parseLine(l);
+      if (m.speaker && m.mood && FL.characters[m.speaker]) into[m.speaker] = m.mood;
+    });
+    return into;
   }
   function heartBar(aff) {
     const h = FL.hearts(aff);
@@ -136,10 +163,10 @@
     }
     return '<span class="hearts" title="' + aff + '/100">' + out + '</span>';
   }
-  function avatar(id, big) {
+  function avatar(id, big, mood) {
     const c = FL.characters[id];
     const cls = 'avatar' + (big ? ' big' : '');
-    if (FL.portrait) return '<span class="' + cls + ' pic">' + FL.portrait(id) + '</span>';
+    if (FL.portrait) return '<span class="' + cls + ' pic" data-mood="' + (mood || 'neutral') + '">' + FL.portrait(id, mood) + '</span>';
     return '<span class="' + cls + '">' + esc(c.short.charAt(0)) + '</span>';
   }
   function btn(label, onClick, opts) {
@@ -174,6 +201,7 @@
   function renderHud() {
     const hud = $('#hud');
     const s = ui.s;
+    document.documentElement.dataset.slot = s && !ui.replay ? s.slot : '';
     if (!s || ui.replay) { hud.hidden = true; return; }
     hud.hidden = false;
     const left = FL.CONFIG.maxDay - s.day;
@@ -212,7 +240,10 @@
     const got = unlockedEndings().length;
     menu.appendChild(btn('Endings Gallery (' + got + '/' + FL.endingOrder.length + ')', galleryModal));
     menu.appendChild(btn('Memories (' + memories().length + ')', memoriesModal));
+    menu.appendChild(btn('Heroines', function () { heroinesModal(); }));
+    menu.appendChild(btn('Achievements', achievementsModal));
     menu.appendChild(btn('How to Play', helpModal));
+    menu.appendChild(btn('Settings', settingsModal));
     menu.appendChild(btn('', toggleMusic, { cls: 'music-toggle' }));
     box.appendChild(menu);
     box.appendChild(el('p', 'fine', FL.charOrder.length + ' romanceable heroines · ' + FL.endingOrder.length +
@@ -251,7 +282,7 @@
       const name = ($('#ng-name').value || '').trim() || 'Traveler';
       store('hgf_lastname', name);
       const bg = (document.querySelector('input[name=bg]:checked') || {}).value;
-      const opts = { name: name, title: $('#ng-title').value, stats: {}, gold: 0 };
+      const opts = { name: name, title: $('#ng-title').value, stats: {}, gold: 0, meta: { endings: unlockedEndings() } };
       if (bg === 'soldier') opts.stats.might = 2;
       if (bg === 'scholar') opts.stats.wits = 2;
       if (bg === 'bard') opts.stats.charm = 2;
@@ -305,9 +336,9 @@
     const box = el('div', 'hub');
     music(loc.music || 'town');
 
-    const head = el('div', 'loc-head');
-    head.innerHTML = '<div class="loc-icon">' + loc.icon + '</div><div><h2>' + esc(loc.name) + '</h2>' +
-      '<div class="muted">' + FL.timeName(s) + ', Day ' + s.day + '</div></div>';
+    const head = el('div', 'loc-head backdrop');
+    head.innerHTML = (FL.backdrop ? FL.backdrop(s.loc, s.slot) : '') + '<div class="bd-title"><div class="loc-icon">' + loc.icon + '</div><div><h2>' + esc(loc.name) + '</h2>' +
+      '<div class="muted">' + FL.timeName(s) + ', Day ' + s.day + '</div></div></div>';
     box.appendChild(head);
     box.appendChild(el('p', 'loc-desc', rich(loc.desc[s.slot] || loc.desc[0])));
 
@@ -336,6 +367,7 @@
         wrap.appendChild(btn(esc(a.label) + (a.free ? '' : ' <span class="tick">⏳</span>'), function () {
           const res = FL.doActivity(s, a);
           if (!res) return;
+          sfx(res.stat ? 'stat' : res.gold ? 'coin' : res.give ? 'gift' : 'click');
           ui.sel = null;
           const extra = [];
           if (res.gold) extra.push('<p class="sys">+' + res.gold + ' gold</p>');
@@ -359,7 +391,7 @@
       const n = open ? FL.charsAt(s, id).filter(function (c) { return s.chars[c].stage > 0; }).length : 0;
       const b = btn('<span class="ti">' + l.icon + '</span>' + esc(l.name) +
         (n ? ' <span class="badge">' + n + '</span>' : '') + (open ? '' : '<span class="closed">closed</span>'),
-        function () { s.loc = id; ui.sel = null; ui.log = []; afterAction(); },
+        function () { s.loc = id; ui.sel = null; ui.log = []; ui.moods = {}; afterAction(); },
         { disabled: !open || id === s.loc, cls: id === s.loc ? 'here' : '' });
       grid.appendChild(b);
     });
@@ -367,6 +399,7 @@
     box.appendChild(tr);
 
     setMain(box);
+    checkAchievements();
   }
 
   function charCard(id) {
@@ -387,7 +420,7 @@
       return card;
     }
     const rs = FL.romanceStatus(s, id);
-    card.innerHTML = '<div class="card-head">' + avatar(id) + '<div><b>' + esc(c.name) +
+    card.innerHTML = '<div class="card-head">' + avatar(id, false, ui.moods[id]) + '<div><b>' + esc(c.name) +
       '</b> <span class="trope">' + esc(c.trope) + '</span><div>' + heartBar(st.aff) +
       ' <span class="muted">' + FL.STAGE_NAMES[st.stage] + '</span>' +
       (rs.ok ? ' <span class="ready">★ Romance ready</span>' : '') +
@@ -396,6 +429,8 @@
     row.appendChild(btn('Talk <span class="tick">⏳</span>', function () {
       const res = FL.talk(s, id);
       ui.log = res.lines.slice();
+      ui.moods = moodsIn(res.lines, {});
+      if (res.gain) sfx('heart');
       if (res.gain) ui.log.push('<p class="sys">' + noteHtml({ type: 'aff', char: id, n: res.gain }) + '</p>');
       else if (st.stage < 4) ui.log.push('<p class="sys muted">(' + c.short + ' seems to be waiting for something more before you can get any closer.)</p>');
       afterAction();
@@ -404,6 +439,12 @@
       disabled: !FL.canGift(s, id) || !Object.keys(s.inv).length,
       title: !FL.canGift(s, id) ? 'Already received a gift today' : '',
     }));
+    if (st.stage >= FL.CONFIG.dateStage && Object.keys(c.dates).length) {
+      const can = FL.canDate(s, id);
+      row.appendChild(btn('💕 Ask on a date <span class="tick">⏳</span>', function () { dateModal(id); }, {
+        disabled: !can, title: can ? '' : 'You\'ve already been on a date today',
+      }));
+    }
     if (rs.scene) {
       row.appendChild(btn('★ Romance scene <span class="tick">⏳</span>', function () {
         ui.log = [];
@@ -426,20 +467,37 @@
     const node = FL.currentNode(run);
     const box = el('div', 'scene');
     music(sceneTheme(run));
+    const lines = FL.nodeText(s, run, node);
+    // expressions persist across nodes until a line changes them
+    if (run.moodNode !== run.id + '.' + run.node) {
+      run.moods = run.moods || {};
+      if (node.mood && run.char) run.moods[run.char] = node.mood;
+      moodsIn(lines, run.moods);
+      run.moodNode = run.id + '.' + run.node;
+    }
+    const moods = run.moods || {};
+    if (!run.sfxDone) {
+      run.sfxDone = true;
+      if (run.id === 'festival') sfx('fireworks');
+      else if (run.id === 's3' && run.char) sfx('heartbeat');
+      else sfx('page');
+    }
+    if (FL.backdrop && !ui.replay) box.appendChild(el('div', 'backdrop scene-bd', FL.backdrop(s.loc, s.slot)));
     if (run.char) {
       const c = FL.characters[run.char];
-      const label = { intro: 'First Meeting', s1: 'Romance Scene I', s2: 'Romance Scene II', s3: 'Romance Scene III', morning: 'The Morning After', ending: 'Ending' }[run.id] || (run.kind === 'event' ? 'Chance Encounter' : '');
+      let label = { intro: 'First Meeting', s1: 'Romance Scene I', s2: 'Romance Scene II', s3: 'Romance Scene III', morning: 'The Morning After', ending: 'Ending' }[run.id] || (run.kind === 'event' ? 'Chance Encounter' : '');
+      if (run.kind === 'date') label = 'Date · ' + FL.DATE_SPOTS[run.id.slice(5)].name;
       const head = el('div', 'scene-head');
       head.style.setProperty('--c', c.color);
-      head.innerHTML = avatar(run.char, true) + '<div><b>' + esc(c.name) + '</b> · <span class="trope">' +
+      head.innerHTML = avatar(run.char, true, moods[run.char]) + '<div><b>' + esc(c.name) + '</b> · <span class="trope">' +
         esc(c.trope) + '</span><div class="muted">' + label + '</div></div>';
       box.appendChild(head);
     }
     if (!run.char && FL.sceneCast && FL.sceneCast[run.id]) {
       const cast = FL.sceneCast[run.id];
       const head = el('div', 'scene-head cast');
-      head.innerHTML = '<span class="cast-pics">' + cast.map(function (id) { return avatar(id, true); }).join('') + '</span><div><b>' +
-        cast.map(function (id) { return esc(FL.characters[id].short); }).join(' & ') + '</b><div class="muted">Chance Encounter</div></div>';
+      head.innerHTML = '<span class="cast-pics">' + cast.map(function (id) { return avatar(id, true, moods[id]); }).join('') + '</span><div><b>' +
+        cast.map(function (id) { return esc(FL.characters[id].short); }).join(' & ') + '</b><div class="muted">' + (cast.length > 1 ? 'Chance Encounter' : 'Event') + '</div></div>';
       box.appendChild(head);
     }
     if (ui.lastChoice) box.appendChild(el('p', 'chosen', '› ' + rich(FL.fmt(s, ui.lastChoice))));
@@ -449,20 +507,28 @@
         FL.STAT_NAMES[lc.stat] + ' check: ' + lc.val + ' vs ' + lc.dc + ' — ' + (lc.pass ? 'Success!' : 'Failed.')));
     }
     const text = el('div', 'text');
-    text.innerHTML = FL.nodeText(s, run, node).map(function (p) { return para(s, p); }).join('');
+    text.innerHTML = lines.map(function (p) { return para(s, p); }).join('');
     box.appendChild(text);
     if (run.notes && run.notes.length) {
       box.appendChild(el('div', 'notes', run.notes.map(noteHtml).join(' ')));
     }
 
     if (run.ending) {
+      sfx('ending');
       unlockEnding(run.ending);
       store(SAVE_PREFIX + 'auto', null);
       const e = FL.endings[run.ending];
       const end = el('div', 'ending-card');
       end.style.setProperty('--c', e.color);
+      let more = '';
+      if (e.char) {
+        const mine = FL.characters[e.char].endingIds;
+        const got = mine.filter(function (x) { return unlockedEndings().indexOf(x) >= 0; }).length;
+        more = '<p class="muted small">' + esc(FL.characters[e.char].short) + '\'s endings found: ' + got + ' / ' + mine.length +
+          (got < mine.length ? ' · the way you played her route decides which one you see' : '') + '</p>';
+      }
       end.innerHTML = '<div class="ending-label">ENDING UNLOCKED</div><h2>' + esc(e.title) + '</h2><div class="muted">' + esc(e.who) +
-        '</div><p class="muted">' + unlockedEndings().length + ' / ' + FL.endingOrder.length + ' endings discovered</p>';
+        '</div><p class="muted">' + unlockedEndings().length + ' / ' + FL.endingOrder.length + ' endings discovered</p>' + more;
       const row = el('div', 'btns center');
       row.appendChild(btn('New Game+ (keep stats & gold)', function () { newGameScreen(true); }, { cls: 'primary' }));
       row.appendChild(btn('Title Screen', titleScreen));
@@ -471,6 +537,8 @@
       box.appendChild(end);
       ui.run = null;
       setMain(box);
+      paceScene(box);
+      checkAchievements();
       return;
     }
 
@@ -485,14 +553,18 @@
     });
     box.appendChild(list);
     setMain(box);
+    paceScene(box);
   }
 
   function pick(ch) {
     const s = ui.s;
     const run = ui.run;
     ui.lastChoice = ch.text === 'Continue' || /^Begin/.test(ch.text) ? null : ch.text;
+    sfx('click');
     const r = FL.choose(s, run, ch);
     if (r === 'blocked') return;
+    if (run.lastCheck) sfx(run.lastCheck.pass ? 'pass' : 'fail');
+    sfxNotes(run.notes);
     if (r === 'end' && ui.replay) { finishReplay(); return; }
     if (r === 'end') {
       if (run.char && MEMORY_SCENES.indexOf(run.id) >= 0) rememberScene(run.char, run.id);
@@ -500,9 +572,15 @@
       const wasChar = run.char;
       const kind = run.kind;
       ui.run = null;
+      if (kind === 'date') {
+        FL.advance(s);
+        ui.log = ['<p class="sys">💕 You had a lovely time with ' + esc(FL.characters[wasChar].short) + '.</p>'];
+        ui.sel = wasChar;
+      }
       if (kind === 'romance') {
         FL.advance(s);
         const st = s.chars[wasChar];
+        if (st.stage >= 4) sfx('devoted');
         ui.log = ['<p class="sys">' + esc(FL.characters[wasChar].short) + ' is now: <b>' + FL.STAGE_NAMES[st.stage] + '</b>' +
           (st.stage >= 4 ? ' — her heart is yours. Find her at the Starfall Festival.' : '') + '</p>'];
         ui.sel = wasChar;
@@ -545,8 +623,14 @@
       wrap.appendChild(btn('<b>' + esc(item.name) + '</b> ×' + s.inv[it] + (mark ? ' <span class="muted">(' + mark + ')</span>' : ''), function () {
         const res = FL.giveGift(s, id, it);
         closeModal();
+        bumpLifetime('gifts');
+        if (res.reaction === 'love') bumpLifetime('loved');
+        if (it === 'fork') bumpLifetime('fork');
         ui.sel = id;
         ui.log = res.lines.slice();
+        ui.moods = {};
+        ui.moods[id] = moodsIn(res.lines, {})[id] || { love: 'happy', like: 'happy', neutral: 'neutral', hate: 'angry' }[res.reaction];
+        sfx(res.reaction === 'hate' ? 'heartdown' : res.gain > 0 ? 'gift' : 'click');
         const tag = { love: 'She loves it!', like: 'She likes it.', neutral: 'She\'s indifferent.', hate: 'She hates it!' }[res.reaction];
         ui.log.push('<p class="sys">' + tag + ' ' + (res.gain ? noteHtml({ type: 'aff', char: id, n: res.gain }) :
           '<span class="muted">(no change)</span>') + '</p>');
@@ -554,6 +638,27 @@
       }, { cls: 'wide' }));
     });
     openModal('Give a gift to ' + esc(c.short), wrap);
+  }
+
+  function dateModal(id) {
+    const s = ui.s;
+    const c = FL.characters[id];
+    const wrap = el('div', 'gift-list');
+    wrap.appendChild(el('p', 'muted', 'Where will you take ' + esc(c.short) + '? A date takes one part of the day. ' +
+      'Everyone has a favourite spot, and you\'ll only find out by trying.'));
+    FL.dateOptions(s, id).forEach(function (o) {
+      const tag = (o.fav && o.been ? ' <span class="ready">★ her favourite</span>' : '') + (o.been ? ' <span class="muted small">(been)</span>' : '');
+      wrap.appendChild(btn('<span class="ti">' + o.spot.icon + '</span><b>' + esc(o.spot.name) + '</b>' + tag +
+        ' <span class="price">' + (o.spot.cost ? '🪙 ' + o.spot.cost : 'free') + '</span><div class="muted small">' + esc(o.spot.desc) + '</div>',
+        function () {
+          closeModal();
+          const run = FL.startDate(s, id, o.id);
+          if (!run) return;
+          ui.log = []; ui.run = run; ui.lastChoice = null;
+          renderScene();
+        }, { cls: 'wide', disabled: !o.ok, title: o.ok ? '' : 'Not enough gold' }));
+    });
+    openModal('Ask ' + esc(c.short) + ' on a date', wrap);
   }
 
   function shopModal() {
@@ -594,9 +699,11 @@
       const c = FL.characters[id];
       const st = s.chars[id];
       const rs = FL.romanceStatus(s, id);
-      const known = Object.keys(s.known[id]).map(function (it) {
+      const known = Object.keys(s.known[id]).filter(function (it) { return FL.items[it]; }).map(function (it) {
         return '<span class="k k-' + s.known[id][it] + '">' + esc(FL.items[it].name) + '</span>';
       }).join(' ');
+      const favKnown = c.dateFav && s.flags[id + '_date_' + c.dateFav];
+      const endGot = c.endingIds.filter(function (x) { return unlockedEndings().indexOf(x) >= 0; }).length;
       html += '<div class="j-entry" style="--c:' + c.color + '"><div class="j-head"><b>' + esc(c.name) + '</b> <span class="trope">' + esc(c.trope) +
         '</span></div><div>' + heartBar(st.aff) + ' <span class="muted">' + st.aff + '/100 · ' + FL.STAGE_NAMES[st.stage] +
         ' · Scenes ' + Math.max(0, st.stage - 1) + '/3</span></div>' +
@@ -604,6 +711,9 @@
         '<div class="small"><b>Values:</b> ' + FL.STAT_NAMES[c.favStat] + '</div>' +
         '<div class="small"><b>Found:</b> ' + esc(FL.scheduleSummary(id).join(' · ')) + '</div>' +
         '<div class="small"><b>Gift notes:</b> ' + (known || '<span class="muted">none yet</span>') + '</div>' +
+        (st.stage >= FL.CONFIG.dateStage ? '<div class="small"><b>Dates:</b> ' + (st.dates || 0) +
+          (favKnown ? ' · favourite spot: ' + esc(FL.DATE_SPOTS[c.dateFav].name) : '') + '</div>' : '') +
+        '<div class="small"><b>Endings found:</b> ' + endGot + ' / ' + c.endingIds.length + '</div>' +
         '<div class="small"><b>Next:</b> ' + (rs.done ? 'Devoted — meet her at the Starfall Festival.' : rs.ok ? '★ Romance scene ready!' :
           esc((rs.needs || []).join(', '))) + '</div></div>';
     });
@@ -625,19 +735,29 @@
       row.appendChild(b);
       wrap.appendChild(row);
     });
+    wrap.appendChild(el('div', 'btns', '')).appendChild(btn('Save codes: back up or transfer a game', saveCodeModal, { disabled: !!ui.run }));
     openModal(canSave ? 'Save / Load' : 'Load Game', wrap);
   }
 
   function galleryModal() {
     const got = unlockedEndings();
-    let html = '<p class="muted">' + got.length + ' / ' + FL.endingOrder.length + ' endings discovered.</p><div class="gallery">';
-    FL.endingOrder.forEach(function (id) {
+    const chip = function (id) {
       const e = FL.endings[id];
       const have = got.indexOf(id) >= 0;
-      html += '<div class="g-item' + (have ? ' got' : '') + '" style="--c:' + e.color + '"><b>' + (have ? esc(e.title) : '???') +
-        '</b><div class="muted small">' + esc(e.who) + '</div></div>';
+      return '<span class="g-chip' + (have ? ' got' : '') + '" style="--c:' + e.color + '">' + (have ? esc(e.title) : '???') + '</span>';
+    };
+    let html = '<p class="muted">' + got.length + ' / ' + FL.endingOrder.length + ' endings discovered. Most heroines have more than one ending: how you play her route decides which you see.</p><div class="g-list">';
+    FL.charOrder.forEach(function (id) {
+      const c = FL.characters[id];
+      const any = c.endingIds.some(function (x) { return got.indexOf(x) >= 0; });
+      html += '<div class="g-row" style="--c:' + c.color + '">' + (any ? avatar(id) : '<span class="avatar">?</span>') +
+        '<div><b>' + (any ? esc(c.short) : '???') + '</b> <span class="trope">' + esc(c.trope) + '</span><div>' +
+        c.endingIds.map(chip).join(' ') + '</div></div></div>';
     });
-    html += '</div>';
+    const others = FL.endingOrder.filter(function (id) { return !FL.endings[id].char; });
+    html += '<div class="g-row"><span class="avatar">★</span><div><b>Other endings</b><div>' + others.map(function (id) {
+      return chip(id) + ' <span class="muted small">' + esc(FL.endings[id].who) + '</span>';
+    }).join(' ') + '</div></div></div></div>';
     openModal('Endings Gallery', html);
   }
 
@@ -674,6 +794,8 @@
       '<p>Some heroines only appear after certain events, or only at night. Check the Journal (📖) to see where everyone can be found.</p>',
       '<p>After your third romance scene with a heroine, look for her the next morning, and talk to her afterwards. She\'ll have things to say.</p>',
       '<p>Heroines know each other. Visit the places they hang out and you may stumble into one of their run-ins.</p>',
+      '<p><b>Dates:</b> after your first romance scene with someone, you can ask her on a date (💕): dinner, the Moonlit Gardens, the harbor at sunset, or a picnic. Each heroine has a favourite.</p>',
+      '<p><b>She remembers.</b> What you say and do in her scenes and on dates comes back later, and it decides which of her endings you get at the festival.</p>',
       '<p><b>Memories</b> (on the title screen and in the menu) lets you replay any romance scene you\'ve seen. Music can be switched on from the title screen or the 🎵 button.</p>',
       '<p>Keyboard: press <b>1–9</b> to pick choices in scenes.</p>',
     ].join(''));
@@ -688,6 +810,264 @@
     row.appendChild(btn('I am 18 or older', function () { store(AGE_KEY, '1'); then(); }, { cls: 'primary' }));
     box.appendChild(row);
     setMain(box);
+  }
+
+
+  /* ------------------------------------------------------------------ settings */
+  const SETTINGS_KEY = 'hgf_settings';
+  const DEFAULTS = { textSize: 'm', pace: 'animated', sfx: true, sfxVol: 0.6 };
+  function settings() {
+    let v = {};
+    try { v = JSON.parse(store(SETTINGS_KEY) || '{}') || {}; } catch (e) { v = {}; }
+    return Object.assign({}, DEFAULTS, v);
+  }
+  function saveSetting(k, v) {
+    const cur = settings(); cur[k] = v;
+    store(SETTINGS_KEY, JSON.stringify(cur));
+    applySettings();
+  }
+  function applySettings() {
+    const st = settings();
+    document.documentElement.dataset.textsize = st.textSize;
+    document.documentElement.dataset.pace = st.pace;
+    if (FL.sfx) { FL.sfx.setEnabled(st.sfx); FL.sfx.setVolume(st.sfxVol); }
+  }
+  function settingsModal() {
+    const st = settings();
+    const wrap = el('div', 'settings');
+    const group = function (label, key, opts) {
+      const g = el('div', 'set-row', '<div class="set-label">' + label + '</div>');
+      const b = el('div', 'btns');
+      opts.forEach(function (o) {
+        b.appendChild(btn(o[1], function () { saveSetting(key, o[0]); settingsModal(); }, { cls: st[key] === o[0] ? 'here' : '' }));
+      });
+      g.appendChild(b);
+      wrap.appendChild(g);
+    };
+    group('Text size', 'textSize', [['s', 'Small'], ['m', 'Medium'], ['l', 'Large'], ['xl', 'Extra large']]);
+    group('Text pacing', 'pace', [['animated', 'Gentle fade'], ['paced', 'Line by line'], ['instant', 'Instant']]);
+    wrap.appendChild(el('p', 'muted small', 'With "Line by line", click, tap or press Space to show everything at once.'));
+    group('Sound effects', 'sfx', [[true, 'On'], [false, 'Off']]);
+    const vols = el('div', 'set-row');
+    if (FL.music) {
+      const mv = el('label', 'vol', 'Music volume <input type="range" min="0" max="100" value="' + Math.round(FL.music.getVolume() * 100) + '">');
+      mv.querySelector('input').addEventListener('input', function (e) { FL.music.setVolume(e.target.value / 100); });
+      vols.appendChild(mv);
+    }
+    const sv = el('label', 'vol', 'Effects volume <input type="range" min="0" max="100" value="' + Math.round(st.sfxVol * 100) + '">');
+    sv.querySelector('input').addEventListener('change', function (e) { saveSetting('sfxVol', e.target.value / 100); sfx('heart'); });
+    vols.appendChild(sv);
+    wrap.appendChild(vols);
+    wrap.appendChild(btn('', toggleMusic, { cls: 'music-toggle' }));
+    openModal('Settings', wrap);
+    updateMusicButtons();
+  }
+
+  // "Line by line" pacing: reveal a scene's paragraphs one after another.
+  let paceTimer = null;
+  function paceScene(box) {
+    if (paceTimer) { clearTimeout(paceTimer); paceTimer = null; }
+    if (settings().pace !== 'paced') return;
+    const ps = Array.prototype.slice.call(box.querySelectorAll('.text p'));
+    const rest = box.querySelectorAll('.notes, .choices, .ending-card');
+    if (ps.length < 2) return;
+    ps.forEach(function (p, i) { if (i) p.classList.add('pending'); });
+    rest.forEach(function (r) { r.classList.add('pending'); });
+    let i = 1;
+    const showAll = function () {
+      box.querySelectorAll('.pending').forEach(function (x) { x.classList.remove('pending'); });
+      if (paceTimer) clearTimeout(paceTimer);
+      paceTimer = null;
+      document.removeEventListener('keydown', key, true);
+      box.removeEventListener('click', clickSkip, true);
+    };
+    const step = function () {
+      if (i >= ps.length) { showAll(); return; }
+      ps[i].classList.remove('pending');
+      const len = ps[i].textContent.length;
+      i++;
+      paceTimer = setTimeout(step, Math.min(2600, 500 + len * 22));
+    };
+    const clickSkip = function (e) {
+      if (!box.querySelector('.pending')) return;
+      if (e.target.closest('.choices')) return;
+      e.stopPropagation(); showAll();
+    };
+    const key = function (e) {
+      if ((e.key === ' ' || e.key === 'Enter') && box.querySelector('.pending')) { e.preventDefault(); e.stopPropagation(); showAll(); }
+    };
+    box.addEventListener('click', clickSkip, true);
+    document.addEventListener('keydown', key, true);
+    paceTimer = setTimeout(step, Math.min(2600, 500 + ps[0].textContent.length * 22));
+  }
+
+  /* ------------------------------------------------------------------ save codes */
+  function encodeSave(state) {
+    const json = JSON.stringify({ v: 1, game: 'hgf', when: Date.now(), state: state });
+    return 'HGF1:' + btoa(unescape(encodeURIComponent(json)));
+  }
+  function decodeSave(code) {
+    code = String(code || '').trim();
+    if (code.indexOf('HGF1:') === 0) code = code.slice(5);
+    const data = JSON.parse(decodeURIComponent(escape(atob(code))));
+    if (!data || data.game !== 'hgf' || !data.state || !data.state.chars) throw new Error('not a save code');
+    return data.state;
+  }
+  function saveCodeModal() {
+    const wrap = el('div', 'savecode');
+    wrap.appendChild(el('p', 'muted', 'Copy a save code to keep a backup or move your game to another browser. Paste one below to load it.'));
+    const ta = el('textarea', 'code');
+    ta.rows = 5;
+    ta.placeholder = 'HGF1:…';
+    if (ui.s && !ui.run) ta.value = encodeSave(ui.s);
+    wrap.appendChild(ta);
+    const msg = el('p', 'small muted', '');
+    const row = el('div', 'btns');
+    if (ui.s && !ui.run) row.appendChild(btn('Copy my current game\'s code', function () {
+      ta.value = encodeSave(ui.s); ta.select();
+      const done = function () { msg.textContent = 'Copied.'; };
+      if (navigator.clipboard) navigator.clipboard.writeText(ta.value).then(done, function () { document.execCommand('copy'); done(); });
+      else { document.execCommand('copy'); done(); }
+    }));
+    row.appendChild(btn('Load from code', function () {
+      try { const st = decodeSave(ta.value); loadState(st); } catch (e) { msg.textContent = 'That doesn\'t look like a valid save code.'; }
+    }, { cls: 'primary' }));
+    wrap.appendChild(row);
+    wrap.appendChild(msg);
+    openModal('Save Codes', wrap);
+  }
+
+  /* ------------------------------------------------------------------ achievements */
+  const ACH_KEY = 'hgf_achievements';
+  const STATS_KEY = 'hgf_lifetime';
+  function lifetime() { try { return JSON.parse(store(STATS_KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function bumpLifetime(k, n) { const l = lifetime(); l[k] = (l[k] || 0) + (n || 1); store(STATS_KEY, JSON.stringify(l)); }
+  function metEver() { return lifetime().met || {}; }
+  function noteMet(s) {
+    const l = lifetime(); l.met = l.met || {};
+    let changed = false;
+    FL.charOrder.forEach(function (id) { if (s.chars[id].stage > 0 && !l.met[id]) { l.met[id] = 1; changed = true; } });
+    if (changed) store(STATS_KEY, JSON.stringify(l));
+  }
+  function endingsFor(id) { return FL.characters[id].endingIds.filter(function (e) { return unlockedEndings().indexOf(e) >= 0; }).length; }
+  const ACHIEVEMENTS = [
+    ['hello', 'Meet-Cute', 'Meet your first heroine.', function (s) { return s && FL.metChars(s).length >= 1; }],
+    ['butterfly', 'Social Butterfly', 'Meet 15 heroines in one playthrough.', function (s) { return s && FL.metChars(s).length >= 15; }],
+    ['everyone', 'Gotta Meet ’Em All', 'Meet every heroine in one playthrough.', function (s) { return s && FL.metChars(s).length === FL.charOrder.length; }],
+    ['devoted', 'Heart Stolen', 'Win a heroine’s devotion.', function (s) { return s && FL.readyChars(s).length >= 1; }],
+    ['five', 'It’s Complicated', 'Have five heroines devoted at once.', function (s) { return s && FL.readyChars(s).length >= 5; }],
+    ['morning', 'The Morning After', 'Wake up next to someone.', function () { return memories().some(function (m) { return /\.morning$/.test(m); }); }],
+    ['date', 'First Date', 'Go on a date.', function (s) { return s && FL.charOrder.some(function (id) { return s.chars[id].dates > 0; }); }],
+    ['perfect', 'Perfect Date', 'Take someone to her favourite date spot.', function (s) { return s && FL.charOrder.some(function (id) { const c = FL.characters[id]; return c.dateFav && s.flags[id + '_date_' + c.dateFav]; }); }],
+    ['dates10', 'Serial Romantic', 'Go on ten dates in one playthrough.', function (s) { return s && FL.charOrder.reduce(function (a, id) { return a + (s.chars[id].dates || 0); }, 0) >= 10; }],
+    ['loved', 'Thoughtful', 'Give someone a gift she loves.', function () { return (lifetime().loved || 0) >= 1; }],
+    ['fork', 'Forked', 'Give someone the fork.', function () { return (lifetime().fork || 0) >= 1; }],
+    ['gifts50', 'Generous to a Fault', 'Give fifty gifts (across all playthroughs).', function () { return (lifetime().gifts || 0) >= 50; }],
+    ['crossover', 'Small Town', 'Witness five run-ins between heroines in one playthrough.', function (s) { return s && Object.keys(FL.sceneCast || {}).filter(function (x) { return /^x_/.test(x) && s.seenEvents[x]; }).length >= 5; }],
+    ['dance', 'Last Waltz', 'Dance with someone at the masquerade.', function (s) { return s && !!s.flags.danced_with; }],
+    ['might', 'Unstoppable', 'Reach 10 Might.', function (s) { return s && s.stats.might >= 10; }],
+    ['wits', 'Insufferable Genius', 'Reach 10 Wits.', function (s) { return s && s.stats.wits >= 10; }],
+    ['charm', 'Devastatingly Charming', 'Reach 10 Charm.', function (s) { return s && s.stats.charm >= 10; }],
+    ['rich', 'Moneybags', 'Hold 500 gold at once.', function (s) { return s && s.gold >= 500; }],
+    ['hero', 'Hero of Clichéton', 'Stop Lord Baalgrim’s scheme.', function (s) { return s && !!s.flags.plot_baalgrim_beaten; }],
+    ['ending', 'Happily Ever After', 'See a heroine’s ending.', function () { return unlockedEndings().some(function (e) { return FL.endings[e] && FL.endings[e].char; }); }],
+    ['variant', 'Another Way', 'See two different endings with the same heroine.', function () { return FL.charOrder.some(function (id) { return endingsFor(id) >= 2; }); }],
+    ['allof', 'Every Version of Her', 'See every ending for one heroine.', function () { return FL.charOrder.some(function (id) { return endingsFor(id) === FL.characters[id].endingIds.length; }); }],
+    ['end10', 'Hopeless Romantic', 'Discover 10 endings.', function () { return unlockedEndings().length >= 10; }],
+    ['end40', 'Serial Monogamist', 'Discover 40 endings.', function () { return unlockedEndings().length >= 40; }],
+    ['endall', 'Completionist', 'Discover every ending.', function () { return unlockedEndings().length >= FL.endingOrder.length; }],
+    ['harem', 'The Many-Hearted', 'Ask them all.', function () { return unlockedEndings().indexOf('harem') >= 0; }],
+    ['alone', 'Mrrp', 'Watch the stars with a cat.', function () { return unlockedEndings().indexOf('alone') >= 0; }],
+    ['greenhouse', 'Green Thumb', 'Find out what’s in the greenhouse.', function () { return unlockedEndings().indexOf('greenhouse') >= 0; }],
+    ['ngplus', 'Once More, With Feeling', 'Start a New Game+.', function (s) { return s && s.ngplus > 0; }],
+    ['true', 'Unabridged', 'Give the Narrator an ending of her own.', function () { return unlockedEndings().indexOf('true_end') >= 0; }],
+    ['memory', 'Memory Lane', 'Replay a memory.', function () { return (lifetime().replays || 0) >= 1; }],
+  ];
+  function gotAchievements() { try { return JSON.parse(store(ACH_KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function checkAchievements() {
+    if (ui.replay) return;
+    const s = ui.s;
+    if (s) noteMet(s);
+    const got = gotAchievements();
+    const fresh = [];
+    ACHIEVEMENTS.forEach(function (a) {
+      if (got[a[0]]) return;
+      let ok = false;
+      try { ok = a[3](s); } catch (e) { ok = false; }
+      if (ok) { got[a[0]] = Date.now(); fresh.push(a); }
+    });
+    if (!fresh.length) return;
+    store(ACH_KEY, JSON.stringify(got));
+    fresh.forEach(function (a, i) { setTimeout(function () { toast('🏆 ' + a[1], a[2]); }, i * 700); });
+  }
+  function toast(title, body) {
+    let host = $('#toasts');
+    if (!host) { host = el('div', null); host.id = 'toasts'; document.body.appendChild(host); }
+    const t = el('div', 'toast', '<b>' + esc(title) + '</b><div class="small">' + esc(body) + '</div>');
+    host.appendChild(t);
+    setTimeout(function () { t.classList.add('out'); }, 3600);
+    setTimeout(function () { t.remove(); }, 4200);
+  }
+  function achievementsModal() {
+    const got = gotAchievements();
+    const n = ACHIEVEMENTS.filter(function (a) { return got[a[0]]; }).length;
+    let html = '<p class="muted">' + n + ' / ' + ACHIEVEMENTS.length + ' unlocked.</p><div class="ach-list">';
+    ACHIEVEMENTS.forEach(function (a) {
+      const have = !!got[a[0]];
+      html += '<div class="ach' + (have ? ' got' : '') + '"><span class="ach-icon">' + (have ? '🏆' : '🔒') + '</span><div><b>' + esc(a[1]) +
+        '</b><div class="small muted">' + esc(a[2]) + '</div></div></div>';
+    });
+    openModal('Achievements', html + '</div>');
+  }
+
+  /* ------------------------------------------------------------------ heroine gallery */
+  function heroinesModal(focus) {
+    const met = metEver();
+    const wrap = el('div', 'heroines');
+    if (focus) {
+      const c = FL.characters[focus];
+      const d = el('div', 'h-detail');
+      d.style.setProperty('--c', c.color);
+      const pic = el('div', 'h-big avatar pic', FL.portrait(focus, 'neutral'));
+      d.appendChild(pic);
+      const info = el('div', 'h-info', '<h3 style="color:' + c.color + '">' + esc(c.name) + '</h3><div class="trope">' + esc(c.trope) + '</div>' +
+        '<p class="small">' + rich(c.blurb) + '</p><div class="small"><b>Values:</b> ' + FL.STAT_NAMES[c.favStat] +
+        ' · <b>Endings found:</b> ' + endingsFor(focus) + ' / ' + c.endingIds.length + '</div>');
+      const moods = el('div', 'btns');
+      FL.MOODS.forEach(function (m) {
+        moods.appendChild(btn(m.charAt(0).toUpperCase() + m.slice(1), function () {
+          pic.innerHTML = FL.portrait(focus, m);
+          moods.querySelectorAll('.btn').forEach(function (b) { b.classList.remove('here'); });
+          this.classList.add('here');
+        }, { cls: m === 'neutral' ? 'here' : '' }));
+      });
+      info.appendChild(moods);
+      if (FL.music && FL.music.songs['love_' + focus]) {
+        info.appendChild(btn('🎵 Play her theme', function () {
+          if (!musicOn()) toggleMusic();
+          music('love_' + focus);
+        }));
+      }
+      d.appendChild(info);
+      wrap.appendChild(d);
+      wrap.appendChild(btn('‹ All heroines', function () { heroinesModal(); }));
+      openModal('Heroines', wrap);
+      return;
+    }
+    wrap.appendChild(el('p', 'muted', Object.keys(met).length + ' / ' + FL.charOrder.length + ' heroines met. Tap a portrait for a closer look.'));
+    const grid = el('div', 'h-grid');
+    FL.charOrder.forEach(function (id) {
+      const c = FL.characters[id];
+      const known = !!met[id];
+      const cell = el('button', 'h-cell', (known ? avatar(id, true) : '<span class="avatar big">?</span>') +
+        '<span class="h-name">' + (known ? esc(c.short) : '???') + '</span>');
+      cell.style.setProperty('--c', c.color);
+      cell.disabled = !known;
+      cell.addEventListener('click', function () { heroinesModal(id); });
+      grid.appendChild(cell);
+    });
+    wrap.appendChild(grid);
+    openModal('Heroines', wrap);
   }
 
   /* ------------------------------------------------------------------ boot */
@@ -707,12 +1087,10 @@
       wrap.appendChild(btn('How to Play', helpModal));
       wrap.appendChild(btn('Endings Gallery', galleryModal));
       wrap.appendChild(btn('Memories', memoriesModal));
-      if (FL.music) {
-        const vol = el('label', 'vol', 'Music volume <input id="music-vol" type="range" min="0" max="100" value="' +
-          Math.round(FL.music.getVolume() * 100) + '">');
-        vol.querySelector('input').addEventListener('input', function (e) { FL.music.setVolume(e.target.value / 100); });
-        wrap.appendChild(vol);
-      }
+      wrap.appendChild(btn('Heroines', function () { heroinesModal(); }));
+      wrap.appendChild(btn('Achievements', achievementsModal));
+      wrap.appendChild(btn('Settings', settingsModal));
+      wrap.appendChild(btn('Save Codes (backup / transfer)', saveCodeModal, { disabled: !!ui.run }));
       wrap.appendChild(btn('Quit to Title (unsaved progress since the last autosave is lost)', function () { closeModal(); titleScreen(); }));
       openModal('Menu', wrap);
     });
@@ -726,6 +1104,7 @@
         if (b && !b.disabled) b.click();
       }
     });
+    applySettings();
     updateMusicButtons();
     ageGate(titleScreen);
   }

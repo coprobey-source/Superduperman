@@ -46,6 +46,8 @@
     c.giftLines = c.giftLines || {};
     c.gifts = c.gifts || {};
     c.afterTalk = c.afterTalk || [];
+    c.dates = c.dates || {};
+    c.endings = c.endings || {};
     FL.characters[c.id] = c;
     FL.charOrder.push(c.id);
     if (c.scenes.morning) {
@@ -61,12 +63,18 @@
         },
       });
     }
-    FL.addEnding(c.id, c.endingTitle || c.short + "'s Ending", c.short, c.color);
+    FL.addEnding(c.id, c.endingTitle || c.short + "'s Ending", c.short, c.color, c.id);
+    // Extra ending variants: { fenna_wild: 'Title', ... }
+    c.endingIds = [c.id];
+    Object.keys(c.endings).forEach(function (eid) {
+      FL.addEnding(eid, c.endings[eid], c.short, c.color, c.id);
+      c.endingIds.push(eid);
+    });
   };
 
-  FL.addEnding = function (id, title, who, color) {
+  FL.addEnding = function (id, title, who, color, char) {
     if (FL.endings[id]) return;
-    FL.endings[id] = { id, title, who: who || '', color: color || '#d4af37' };
+    FL.endings[id] = { id, title, who: who || '', color: color || '#d4af37', char: char || null };
     FL.endingOrder.push(id);
   };
 
@@ -101,6 +109,36 @@
     return FL.speakers[id] || { name: id, color: '#bbb' };
   };
 
+  // Portrait expressions a dialogue line can request: "@fenna:happy Text".
+  FL.MOODS = ['neutral', 'happy', 'blush', 'angry', 'sad', 'smug', 'surprised'];
+  const LINE_RE = /^@(\w+)(?::(\w+))?\s+([\s\S]*)$/;
+  FL.parseLine = function (line) {
+    const m = LINE_RE.exec(line);
+    if (!m) return { text: line };
+    return { speaker: m[1], mood: m[2] || null, text: m[3] };
+  };
+
+  /* ------------------------------------------------------------------ conditions */
+  // A condition is: 'flag' | '!flag' | [cond, ...] (all) | { any: [cond, ...] } |
+  // a req object (might/wits/charm/gold/item/flag/noflag/test) plus
+  // { stage: n } (scene owner's stage >= n), { ngplus: n }, { seenEnding: id }, { met: id }, { devoted: id }.
+  FL.cond = function (s, c, run) {
+    if (c == null) return true;
+    if (typeof c === 'string') return c.charAt(0) === '!' ? !s.flags[c.slice(1)] : !!s.flags[c];
+    if (typeof c === 'function') return !!c(s, run);
+    if (Array.isArray(c)) return c.every(function (x) { return FL.cond(s, x, run); });
+    if (c.any) return c.any.some(function (x) { return FL.cond(s, x, run); });
+    if (c.stage != null) {
+      const who = c.who || (run && run.char);
+      if (!who || !s.chars[who] || s.chars[who].stage < c.stage) return false;
+    }
+    if (c.ngplus != null && (s.ngplus || 0) < c.ngplus) return false;
+    if (c.seenEnding && !((s.meta && s.meta.endings) || []).includes(c.seenEnding)) return false;
+    if (c.met && !(s.chars[c.met] && s.chars[c.met].stage > 0)) return false;
+    if (c.devoted && !(s.chars[c.devoted] && s.chars[c.devoted].stage >= 4)) return false;
+    return FL.reqMet(s, c, run);
+  };
+
   /* ------------------------------------------------------------------ state */
 
   FL.newState = function (opts) {
@@ -119,13 +157,15 @@
       chars: {},
       known: {},
       seenEvents: {},
-      daily: { talk: {}, gift: {}, scene: {} },
+      daily: { talk: {}, gift: {}, scene: {}, date: {} },
       giftLog: {},
       ngplus: opts.ngplus || 0,
+      // what this player has seen in earlier playthroughs (for New Game+ callbacks)
+      meta: { endings: (opts.meta && opts.meta.endings) || [] },
       over: false,
     };
     FL.charOrder.forEach(function (id) {
-      s.chars[id] = { aff: 0, stage: 0, talks: 0, afterTalks: 0 };
+      s.chars[id] = FL.freshChar();
       s.known[id] = {};
     });
     if (opts.stats) FL.STATS.forEach(function (k) { s.stats[k] += opts.stats[k] || 0; });
@@ -133,15 +173,25 @@
     return s;
   };
 
+  FL.freshChar = function () {
+    return { aff: 0, stage: 0, talks: 0, afterTalks: 0, seenTalk: [], seenAfter: [], dates: 0 };
+  };
+
   // Bring an older/partial save up to date with the current roster.
   FL.normalizeState = function (s) {
     FL.charOrder.forEach(function (id) {
-      if (!s.chars[id]) s.chars[id] = { aff: 0, stage: 0, talks: 0, afterTalks: 0 };
-      if (s.chars[id].afterTalks == null) s.chars[id].afterTalks = 0;
+      if (!s.chars[id]) s.chars[id] = FL.freshChar();
+      const st = s.chars[id];
+      if (st.afterTalks == null) st.afterTalks = 0;
+      if (!st.seenTalk) st.seenTalk = [];
+      if (!st.seenAfter) st.seenAfter = [];
+      if (st.dates == null) st.dates = 0;
       if (!s.known[id]) s.known[id] = {};
     });
-    s.daily = s.daily || { talk: {}, gift: {}, scene: {} };
+    s.daily = s.daily || { talk: {}, gift: {}, scene: {}, date: {} };
     s.daily.scene = s.daily.scene || {};
+    s.daily.date = s.daily.date || {};
+    s.meta = s.meta || { endings: [] };
     s.giftLog = s.giftLog || {};
     s.flags = s.flags || {};
     s.seenEvents = s.seenEvents || {};
@@ -261,7 +311,7 @@
     if (s.slot > 2) {
       s.slot = 0;
       s.day += 1;
-      s.daily = { talk: {}, gift: {}, scene: {} };
+      s.daily = { talk: {}, gift: {}, scene: {}, date: {} };
       // Locations that are closed now kick you back to the square.
     }
     if (!FL.locOpen(s, s.loc)) s.loc = 'square';
@@ -271,18 +321,48 @@
     return s.chars[id].stage > 0 && !s.daily.talk[id];
   };
 
+  // Talk entries are either a list of lines or { if: cond, lines: [...] }.
+  // Unheard lines whose condition holds come first (conditional ones before plain ones,
+  // so callbacks surface as soon as they're earned), then everything eligible repeats.
+  function entryLines(e) { return Array.isArray(e) ? e : e.lines; }
+  FL.pickTalk = function (s, id, list, seen) {
+    const run = { char: id };
+    const ok = [];
+    list.forEach(function (e, i) { if (Array.isArray(e) || FL.cond(s, e.if, run)) ok.push(i); });
+    if (!ok.length) return null;
+    const fresh = ok.filter(function (i) { return seen.indexOf(i) < 0; });
+    let pick;
+    if (fresh.length) {
+      const cond = fresh.filter(function (i) { return !Array.isArray(list[i]); });
+      pick = cond.length ? cond[0] : fresh[0];
+      seen.push(pick);
+    } else {
+      // everything heard: cycle, but avoid repeating the most recent line
+      const last = seen[seen.length - 1];
+      const pool = ok.length > 1 ? ok.filter(function (i) { return i !== last; }) : ok;
+      pick = pool[(s.day * 7 + s.slot) % pool.length];
+      seen.splice(seen.indexOf(pick), 1);
+      seen.push(pick);
+    }
+    return { index: pick, lines: entryLines(list[pick]) };
+  };
+
   FL.talk = function (s, id) {
     const c = FL.characters[id];
     const st = s.chars[id];
-    let lines;
+    let lines = null;
     if (st.stage >= 4 && c.afterTalk.length) {
       // Once devoted, she talks about what you've shared.
-      lines = c.afterTalk[st.afterTalks % c.afterTalk.length];
-      st.afterTalks += 1;
-    } else {
-      lines = c.talk.length ? c.talk[st.talks % c.talk.length] : ['@' + id + ' ...'];
+      const p = FL.pickTalk(s, id, c.afterTalk, st.seenAfter);
+      if (p) { lines = p.lines; st.afterTalks += 1; }
+    }
+    if (!lines) {
+      const p = FL.pickTalk(s, id, c.talk, st.seenTalk);
+      lines = p ? p.lines : ['@' + id + ' ...'];
       st.talks += 1;
     }
+    // lines inside an entry can be conditional too ({ if, text, else })
+    lines = FL.flattenText(s, { char: id }, lines);
     s.daily.talk[id] = true;
     let gain = FL.CONFIG.talkAff;
     if (s.stats.charm >= 3) gain += 1;
@@ -335,7 +415,9 @@
     const got = FL.addAff(s, id, FL.CONFIG.giftAff[eff.tier]);
     let line = c.giftLines[r] || GENERIC_GIFT[r].replace('{id}', id);
     if (c.giftLines.special && c.giftLines.special[itemId]) line = c.giftLines.special[itemId];
-    return { reaction: r, tier: eff.tier, repeat: eff.repeat, gain: got, lines: Array.isArray(line) ? line : [line] };
+    // the same present again (and again) gets a tired reaction if she has one
+    if (eff.repeat >= 2 && r !== 'hate' && c.giftLines.repeat) line = c.giftLines.repeat;
+    return { reaction: r, tier: eff.tier, repeat: eff.repeat, gain: got, lines: FL.flattenText(s, { char: id }, Array.isArray(line) ? line : [line]) };
   };
 
   FL.buy = function (s, itemId, qty) {
@@ -374,6 +456,46 @@
     return res;
   };
 
+  /* ------------------------------------------------------------------ dates */
+  // Once you're friends (after her first romance scene), you can ask her out.
+  // Each spot is a short scene written per heroine: c.dates[spot].
+  FL.DATE_SPOTS = {
+    dinner: { name: 'Dinner at the Tipsy Wyvern', icon: '🕯️', loc: 'tavern', cost: 15, desc: 'A private corner booth, candlelight and the good wine.' },
+    gardens: { name: 'A stroll through the Moonlit Gardens', icon: '🌹', loc: 'noble', cost: 0, desc: 'Hedges, fountains and hidden benches in the Noble Quarter.' },
+    harbor: { name: 'Sunset at Saltbreeze Harbor', icon: '🌅', loc: 'docks', cost: 5, desc: 'Fried fish in paper, the end of the pier and the sun going down.' },
+    picnic: { name: 'A picnic in Whisperwood', icon: '🧺', loc: 'forest', cost: 10, desc: 'A basket, a blanket and a sunny clearing.' },
+  };
+  FL.DATE_ORDER = ['dinner', 'gardens', 'harbor', 'picnic'];
+  FL.CONFIG.dateStage = 2;
+  FL.CONFIG.dateAff = 4;
+  FL.CONFIG.dateFavAff = 4;
+
+  FL.canDate = function (s, id) {
+    const c = FL.characters[id];
+    const st = s.chars[id];
+    return st.stage >= FL.CONFIG.dateStage && !s.daily.date[id] && FL.DATE_ORDER.some(function (k) { return c.dates[k]; });
+  };
+  FL.dateOptions = function (s, id) {
+    const c = FL.characters[id];
+    return FL.DATE_ORDER.filter(function (k) { return c.dates[k]; }).map(function (k) {
+      const spot = FL.DATE_SPOTS[k];
+      return { id: k, spot: spot, fav: c.dateFav === k, ok: s.gold >= spot.cost, been: !!s.flags[id + '_date_' + k] };
+    });
+  };
+  FL.startDate = function (s, id, spotId) {
+    const c = FL.characters[id];
+    const spot = FL.DATE_SPOTS[spotId];
+    if (!FL.canDate(s, id) || !c.dates[spotId] || s.gold < spot.cost) return null;
+    s.gold -= spot.cost;
+    s.daily.date[id] = true;
+    s.loc = spot.loc;
+    const run = FL.startScene(s, { char: id, id: 'date_' + spotId }, 'date');
+    let gain = FL.CONFIG.dateAff + (c.dateFav === spotId ? FL.CONFIG.dateFavAff : 0);
+    const got = FL.addAff(s, id, gain);
+    if (got) run.notes.unshift({ type: 'aff', char: id, n: got });
+    return run;
+  };
+
   /* ------------------------------------------------------------------ events */
 
   FL.pendingEvent = function (s) {
@@ -393,7 +515,9 @@
   FL.getScene = function (ref) {
     if (ref.char) {
       const c = FL.characters[ref.char];
-      return c && c.scenes[ref.id];
+      if (!c) return null;
+      if (ref.id.indexOf('date_') === 0) return c.dates[ref.id.slice(5)];
+      return c.scenes[ref.id];
     }
     return FL.scenes[ref.id];
   };
@@ -425,7 +549,8 @@
     if (!fx) return [];
     const notes = [];
     if (fx.aff && run && run.char) {
-      const got = FL.addAff(s, run.char, fx.aff, true);
+      // dates can't push past the current stage's cap; romance scenes can
+      const got = FL.addAff(s, run.char, fx.aff, run.kind !== 'date');
       if (got) notes.push({ type: 'aff', char: run.char, n: got });
     }
     if (fx.affTo) {
@@ -477,10 +602,20 @@
     return FL.getScene(run)[run.node];
   };
 
-  FL.enterNode = function (s, run, nodeId) {
+  FL.enterNode = function (s, run, nodeId, depth) {
     const scene = FL.getScene(run);
     const node = scene[nodeId];
     if (!node) throw new Error('Missing node ' + nodeId + ' in ' + (run.char || '') + '.' + run.id);
+    if (node.branch) {
+      // a router node: jump straight to the first branch whose condition holds
+      if ((depth || 0) > 20) throw new Error('Branch loop at ' + nodeId);
+      const fx = FL.applyEffects(s, node, run);
+      const hit = node.branch.find(function (b) { return FL.cond(s, b.if, run); });
+      if (!hit) throw new Error('No branch matched at ' + nodeId);
+      FL.enterNode(s, run, hit.go, (depth || 0) + 1);
+      run.notes = fx.concat(run.notes);
+      return FL.currentNode(run);
+    }
     run.node = nodeId;
     run.notes = FL.applyEffects(s, node, run);
     if (node.ending) {
@@ -490,9 +625,20 @@
     return node;
   };
 
+  // Text entries may be strings or { if: cond, text: line(s), else: line(s) }.
+  FL.flattenText = function (s, run, t) {
+    const out = [];
+    (Array.isArray(t) ? t : [t]).forEach(function (p) {
+      if (p == null) return;
+      if (typeof p === 'string') { out.push(p); return; }
+      const pick = FL.cond(s, p.if, run) ? p.text : p.else;
+      if (pick != null) FL.flattenText(s, run, pick).forEach(function (x) { out.push(x); });
+    });
+    return out;
+  };
   FL.nodeText = function (s, run, node) {
     const t = typeof node.text === 'function' ? node.text(s, run) : node.text || [];
-    return (Array.isArray(t) ? t : [t]).map(function (p) { return FL.fmt(s, p); });
+    return FL.flattenText(s, run, t).map(function (p) { return FL.fmt(s, p); });
   };
 
   FL.nodeChoices = function (s, run, node) {
@@ -506,6 +652,7 @@
     return list
       .filter(function (ch) { return !ch.hideIf || !ch.hideIf(s); })
       .filter(function (ch) { return !ch.showIf || ch.showIf(s); })
+      .filter(function (ch) { return ch.if == null || FL.cond(s, ch.if, run); })
       .map(function (ch) {
         return { choice: ch, ok: FL.reqMet(s, ch.req, run), label: FL.reqLabel(ch.req) };
       });
@@ -538,6 +685,10 @@
 
   // Called when a scene ends (node with end:true, or a choice with no target).
   FL.finishScene = function (s, run) {
+    if (run.kind === 'date' && run.char) {
+      s.chars[run.char].dates = (s.chars[run.char].dates || 0) + 1;
+      s.flags[run.char + '_date_' + run.id.replace(/^date_/, '')] = true;
+    }
     if (run.kind === 'romance' && run.char) {
       s.daily.scene = s.daily.scene || {};
       s.daily.scene[run.char] = true;
