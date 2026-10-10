@@ -45,7 +45,7 @@ FL.addCharacter({
     { if: { stage: 3 }, lines: ["@gloria:blush I keep turning pinkish when you come in. Well — green-pink. Sort of brown. It's not a good colour on me.", "@gloria The letters say that means I'm in love. Or that I ate a beetroot. I *did* eat a beetroot. But I'm fairly sure it's the love."] },
   ],
   afterTalk: [
-    ["@gloria:happy I've been practicing holding human shape for longer! Four hours now! I want to be able to walk with you in the sunshine. And then come back down here and be *squishy* with you."],
+    ["@gloria:happy I've been practising holding human shape for longer! Four hours now! I want to be able to walk with you in the sunshine. And then come back down here and be *squishy* with you."],
     ["She gives you a long, cool, tingly hug that leaves your clothes spotless and your knees weak.", "@gloria:smug That's a slime kiss. It's like a regular kiss but everywhere. You're welcome!"],
     ["@gloria:blush I found a love letter in the drain today and I read it and it was nowhere *near* as nice as last night. I put it back anyway. I hope they figure it out."],
     ["@gloria:blush The pool in my treasure room is warm now. I warmed it up. For two. Just saying! *Bloop.*"],
@@ -62,7 +62,7 @@ FL.addCharacter({
         text: [
           "You're sitting in the corner booth at the Tipsy Wyvern when the floor drain beside your table starts to bubble. A green head pops up, followed by the rest of Gloria, who pours herself upward into the booth and into shape in a borrowed blue dress.",
           "@gloria:happy I came up the *kitchen pipe!* It was full of gravy! I ate the gravy! I'm sorry! I'm *so* sorry! It was *delicious!*",
-          "Bettina, behind the bar, looks over, looks at the drain, and calmly hangs a *Wet Floor* sign on it.",
+          { if: { met: 'bettina' }, text: "Bettina, behind the bar, looks over, looks at the drain, and calmly hangs a *Wet Floor* sign on it.", else: "The tavern's owner, a handsome auburn-haired woman behind the bar, looks over, looks at the drain, and calmly hangs a *Wet Floor* sign on it." },
           "@gloria:surprised There's a *candle.* On the *table.* And *plates!* Plates are for food to sit on before it goes in you! I've read about them!",
         ],
         choices: [
@@ -146,7 +146,7 @@ FL.addCharacter({
       },
       end: {
         text: [
-          "You sit on the fountain's edge until late, her head resting against your shoulder, cool and damp and humming. The fountain has never been cleaner. The gardeners will talk about it for years.",
+          "You sit on the fountain's edge until late, her cool, damp weight slumped companionably against your side, humming. The fountain has never been cleaner. The gardeners will talk about it for years.",
           { if: { stage: 4 }, text: "@gloria:blush There's room in the basin for two, you know. It's a very big fountain. And it's very late. And I'm very good at making things *clean* afterwards." },
         ],
         end: true,
@@ -180,7 +180,7 @@ FL.addCharacter({
         text: [
           "@gloria:happy Lost things! *Everything* that's ever been lost! Ships and rings and anchors and somebody's *teeth* — I'd bet there are hundreds of years of lost things, all down there in the dark, waiting for somebody to keep them safe.",
           "@gloria:sad Nobody's keeping them safe. Nobody's *counting* them.",
-          "She looks at the sea for a long time, with the expression of someone being offered the most enormous and most wonderful job in the world.",
+          "She gazes out at the water, very still, with the expression of someone being offered the most enormous and most wonderful job in the world.",
           "@gloria:blush ...Not yet, though. I've got *you* to keep safe first.",
         ],
         next: 'end',
@@ -271,6 +271,7 @@ FL.addCharacter({
       },
       comfy: {
         text: [
+          { if: '!gloria_comfy', text: '@you Are you the reason the — sorry. Lost my train of thought. You\'re very... comfortable.' },
           'Her face lights up like a lantern.',
           '@gloria:happy Really?! You think I\'m *comfortable?* Nobody\'s ever said that! People usually say "AAAAH" or "GET IT OFF ME" or "MY BOOTS!"',
           'She gently lifts you out of herself and sets you down on the walkway, perfectly dry. Your boots are spotless. Cleaner than they\'ve been in weeks.',
@@ -290,7 +291,7 @@ FL.addCharacter({
       smart: {
         text: [
           '@you Wait. A town this size should reek. There should be rats, plague, the works. But Clichéton\'s spotless. It\'s you, isn\'t it? You\'re eating all the filth.',
-          'She stares at you. Her whole body wobbles with astonishment.',
+          'Her whole body goes perfectly still, then wobbles with astonishment from the edges inward.',
           '@gloria:surprised You *figured it out!* Nobody\'s ever figured it out! I\'ve been doing it for *eleven years* and nobody ever says thank you, because nobody ever *knows!*',
           '@you Well — thank you.',
           'She makes a sound like a happy kettle and wraps you in a gentle, cool, squishy hug.',
@@ -319,7 +320,7 @@ FL.addCharacter({
           'She leads you through winding tunnels to a dry chamber lit by glowing moss. Every surface is covered with lost things, neatly arranged: rings, coins, buttons, keys, spectacles, a hundred letters, a child\'s wooden horse.',
           '@gloria Everything that falls down the drains comes to me! I don\'t eat any of it. I keep it safe. In case people come looking. But they never do.',
           'She holds up a gold ring.',
-          '@gloria:sad This one\'s my favorite. It\'s a wedding ring. It says "Forever, M." on the inside. I\'ve had it for a year. Someone must be so sad.',
+          '@gloria:sad This one\'s my favourite. It\'s a wedding ring. It says "Forever, M." on the inside. I\'ve had it for a year. Someone must be so sad.',
           { if: 'gloria_smart', text: '@gloria:happy And you\'re the clever one! You worked out the cleaning thing in about four seconds! So you\'ll be *perfect* for a mystery!' },
         ],
         choices: [
@@ -329,7 +330,7 @@ FL.addCharacter({
       },
       detective: {
         text: [
-          'You examine the ring. The goldsmith\'s mark is from Hilde\'s forge. The engraving style is old. And "M" — you remember the old man at the Temple who wrote a love letter to his wife, Margery, of fifty years.',
+          'You examine the ring. The goldsmith\'s mark belongs to a jeweller on Artisan\'s Row who retired decades ago. And "M" — you remember old Martin at the Temple, who wrote a love letter to his wife, Millicent, of fifty years.',
           'You track him down. When you hand him the ring, he bursts into tears. He lost it down a drain a year ago and thought it was gone forever. He hugs you. Then, when you explain who really found it, he walks to the nearest drain grate, kneels, and says "Thank you, Gloria" into it.',
           'Back in the sewers, Gloria is sobbing. Happy sobbing. It\'s a lot of liquid.',
           '@gloria:happy He said *thank you!* To *me!* Into the drain! I *heard* it!',
@@ -342,7 +343,7 @@ FL.addCharacter({
         text: [
           'You squint at the ring. You make a few guesses. They\'re all wrong. Eventually Gloria pats your head with a gentle squishy hand.',
           '@gloria:happy That\'s okay! You *tried!* Nobody else has ever even tried!',
-          'She puts the ring back in its place of honor, carefully, and you can tell she\'s touched just that you cared.',
+          'She puts the ring back in its place of honour, carefully, and you can tell she\'s touched just that you cared.',
         ],
         aff: 5,
         next: 'end',
@@ -379,9 +380,9 @@ FL.addCharacter({
     s2: {
       start: {
         text: [
-          'You hear the shouting from the sewer entrance. Torchlight. Armored boots. A crowd.',
+          'You hear the shouting from the sewer entrance. Torchlight. Armoured boots. A crowd.',
           'The Mayor of Clichéton, a round man in an enormous wig, is standing at the grate with a dozen guards and a priest with a bucket of holy salt.',
-          '@mayor Citizens! A monster has been spotted in our sewers! A *slime!* Witnesses report it waved at an old man! Today, we purge the menace!',
+          { if: 'gloria_grate', text: '@mayor Citizens! A monster has been spotted in our sewers! A *slime!* Witnesses report it waved at an old man! Today, we purge the menace!', else: '@mayor Citizens! A monster has been spotted in our sewers! A *slime!* Witnesses report it hummed at a washerwoman! Today, we purge the menace!' },
           'From somewhere deep in the tunnels, you hear a tiny, terrified *bloop.*',
           { if: 'gloria_grate', text: ['A small, wobbly voice whispers up through the grate beside your boot:', '@gloria:sad I *waved.* I knew I shouldn\'t have waved. It was the best wave of my whole life, and now there are *torches.*'] },
         ],
@@ -411,8 +412,7 @@ FL.addCharacter({
           'You plead. You tell them about the ring, the letters, the eleven years of quiet work. The crowd mutters. The Mayor looks unmoved.',
           'And then a small, shaking, translucent green figure rises out of the drain behind you.',
           '@gloria:sad P-please don\'t hurt them. They\'re my friend. If you have to purge someone, purge me. Just... leave my treasure. Somebody might need it.',
-          'There\'s a long silence. Then old Martin pushes to the front of the crowd, holding up his hand with a gold ring on it.',
-          '"She found my wedding ring," he says. "Kept it a whole year. If you want her, you\'ll go through me."',
+          { if: { any: ['gloria_detective', 'gloria_grate'] }, text: ['There\'s a long silence. Then old Martin pushes to the front of the crowd, holding up his hand with a gold ring on it.', '"She found my wedding ring," he says. "Kept it a whole year. If you want her, you\'ll go through me."'], else: ['There\'s a long silence. Then an old washerwoman pushes to the front of the crowd, holding up a silver thimble.', '"My mother\'s thimble," she says. "Lost it down the drain ten years back. Found it on my windowsill last spring, clean as new. If you want her, you\'ll go through me."'] },
           'One by one, other voices join in. The baker. The blacksmith. A little girl whose lost doll was returned, mysteriously clean, to her doorstep.',
           '@mayor ...Ah. Er. Well. Perhaps we\'ve been hasty.',
         ],
@@ -436,7 +436,7 @@ FL.addCharacter({
         text: [
           'Her body turns a bright, shining green, so bright the whole tunnel glows. She shapes her face very carefully, very precisely, and leans in and kisses you.',
           'It is cool and tingly and tastes faintly of mint, and she pulls back looking astonished.',
-          '@gloria:surprised I did it! I did a kiss! Was it right? I practiced on a lamp post!',
+          '@gloria:surprised I did it! I did a kiss! Was it right? I practised on a lamp post!',
         ],
         end: true,
       },
@@ -452,7 +452,7 @@ FL.addCharacter({
     s3: {
       start: {
         text: [
-          'Gloria has been practicing. When you arrive in her moss-lit treasure room, she is standing in the middle of it — and she is much more *defined* than usual. A face with real features. Long, flowing hair. Fingers with knuckles. She\'s concentrating very hard.',
+          'Gloria has been practising. When you arrive in her moss-lit treasure room, she is standing in the middle of it — and she is much more *defined* than usual. A face with real features. Long, flowing hair. Fingers with knuckles. She\'s concentrating very hard.',
           { if: 'gloria_love', text: ['Behind her, across the whole far wall of the chamber, someone has written in enormous letters of glowing moss: *{name} SAID THEY LOVE ME.*', '@gloria:blush I ran out of moss for the full stop. I\'ll get more.'], else: '@gloria:blush You hugged me. In the tunnel. On purpose. I\'ve thought about that hug every single day since. I want to do the next thing after the hug.' },
           '@gloria Do I look... human? I\'ve been studying! I borrowed an anatomy book from the library drain!',
           'She wobbles a little at the edges, but she\'s beautiful: a shimmering emerald woman with a gemstone heart glowing in her chest.',
@@ -493,7 +493,7 @@ FL.addCharacter({
           "@gloria:blush You're so *warm* inside — I mean — your *heart*, your heart is warm, I can feel it beating right through me — oh, it's going so fast —",
           "The gemstone in her chest glows brighter and brighter until it lights the whole room in shimmering green and blue, like being underwater in a sunlit sea. Her careful human shape dissolves entirely, and she becomes a warm, glowing, wordless tide around you...",
           "...",
-          "Afterward you lie with her in her treasure room, half sunk into her like the world's most comfortable waterbed. She's humming. She has given back your shirt. It's folded neatly. It's also the cleanest it has ever been.",
+          "Afterward you lie with her in her treasure room, half sunk into her like a hot spring that loves you back. She's humming. She has given back your shirt. It's folded neatly. It's also the cleanest it has ever been.",
           "@gloria:happy You know what I am? I'm a perfect fit. I can be any shape at all. And I picked the shape that fits *you.*",
           "She forms a hand and holds yours, very gently.",
           "@gloria:blush I think that's what love is. Picking the shape that fits.",
@@ -531,7 +531,7 @@ FL.addCharacter({
         text: [
           "@gloria:surprised All day? In the *sewers?* With *me?*",
           "@you With you.",
-          "She makes a sound like a happy kettle and settles around you even more snugly, like a warm bath that hugs back. You stay all day. She tells you about every treasure in the room. You fall asleep again around noon, floating, and she hums the whole time.",
+          "She fizzes all over, a thousand tiny happy bubbles rising through her, and settles around you even more snugly, like a warm bath that hugs back. You stay all day. She tells you about every treasure in the room. You fall asleep again around noon, floating, and she hums the whole time.",
         ],
         end: true,
       },
@@ -577,7 +577,7 @@ FL.addCharacter({
           'Her lost-and-found becomes an official town institution. People line up every Saturday to reclaim their treasures. Gloria hugs every single one of them. Most of them have learned to enjoy it.',
           'She still can\'t hold human shape for more than a few hours. She doesn\'t need to. Most evenings you sit in her pool together, and she curls around you like a warm green sea and tells you about everything she found in the drains that day.',
           { if: 'gloria_belt', text: 'Your belt still floats beside her heart. So do the next four. You have taken to wearing braces.' },
-          'There\'s a gold ring floating in her chest now, right beside the gemstone. Martin gave it to her when his wife passed — "for safekeeping," he said. It says *Forever, M.*',
+          { if: { any: ['gloria_detective', 'gloria_grate'] }, text: 'There\'s a gold ring floating in her chest now, right beside the gemstone. Martin gave it to her when his wife passed — "for safekeeping," he said. It says *Forever, M.*', else: 'There\'s a gold ring floating in her chest now, right beside the gemstone. Nobody ever came back for it. It says *Forever, M.*' },
           'She says she\'ll keep it until someone needs it. Then she looks at you, and glows.',
         ],
         ending: 'gloria',
@@ -600,7 +600,7 @@ FL.addCharacter({
       epilogue_professor: {
         text: [
           '*Some time later...*',
-          'Gloria enrolls at the Arcane Academy that autumn, the first slime ever to do so. For the first term she attends lectures from a large glass tank at the back of the hall, so as not to seep into the floor. By the second term she walks in on her own two feet, in a borrowed gown, and sits in the front row.',
+          'Gloria enrols at the Arcane Academy that autumn, the first slime ever to do so. For the first term she attends lectures from a large glass tank at the back of the hall, so as not to seep into the floor. By the second term she walks in on her own two feet, in a borrowed gown, and sits in the front row.',
           'She asks an average of four hundred questions a lecture. The professors find this exhausting, then thrilling, then indispensable. She is the only student in history to correct a hydrology examiner on the behaviour of water *from the inside.*',
           'Her thesis, *On the Self-Cleaning City; or, A Natural History of the Lost Sock,* is the most borrowed book in the Grand Library. Several copies have fallen down drains. They always come back. Cleaner.',
           'She becomes Clichéton\'s first Chief Engineer of Waterworks. Every town in the kingdom sends for her advice. She writes back to all of them, in beautiful handwriting, with lots of exclamation marks.',
@@ -614,11 +614,11 @@ FL.addCharacter({
         text: [
           '@gloria:surprised Down *there?* For *good?* But it\'s a *sewer!* It *smells!* — I mean, it doesn\'t, because of me, but *conceptually* it smells!',
           '@you It\'s where you are.',
-          'She stares at you. Her careful human shape slips at the edges, then lets go entirely, and she pours down into a soft, glowing, wobbly heap in your lap, stars and all.',
+          'Her careful human shape slips at the edges, then lets go entirely, and she pours down into a soft, glowing, wobbly heap in your lap, stars and all.',
           '@gloria:sad Everyone always wants me to come *up.* Up into the light, up into a house, up into a shape. You\'re the first person who ever wanted to come *down.*',
           '@you I liked it there. It was comfortable.',
           { if: 'gloria_comfy', text: '@gloria:blush You said that the very first day. Comfortable. You fell in me and you said I was *comfortable.* I kept the word. It\'s in here somewhere, next to the gem.' },
-          'She makes a sound like the happiest kettle in the world, and then she cries so hard that the whole festival hill gets very briefly, very wonderfully, very cleanly wet.',
+          'She lets out a whistle like the happiest kettle in the world, and then she cries so hard that the whole festival hill gets very briefly, very wonderfully, very cleanly wet.',
         ],
         next: 'epilogue_drain',
       },

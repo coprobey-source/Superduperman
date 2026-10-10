@@ -731,7 +731,7 @@ FL.addCharacter({
         text: [
           '*Some time later...*',
           'The shy assistant librarian of the Grand Library becomes, against every law of nature, the most sought-after reader in Clichéton.',
-          'It starts as one night a week at the Tipsy Wyvern: Pell, a stool, a candle, and whatever book she loves that week. At first she reads to five people. Then twenty. Then Madame Bettina has to take out a wall. She starts charging at the door. Pell gives every coin to the library roof fund.',
+          'It starts as one night a week at the Tipsy Wyvern: Pell, a stool, a candle, and whatever book she loves that week. At first she reads to five people. Then twenty. Then the Wyvern\'s owner, Madame Bettina, has to take out a wall. She starts charging at the door. Pell gives every coin to the library roof fund.',
           'She reads poetry so softly that grown dwarves weep into their tankards. She reads adventure so fiercely that a knight once drew his sword on a dragon that was only in chapter four. She reads chapter eleven of her own book exactly once, to a packed house, and has to be fanned back to consciousness afterwards. They still talk about it.',
           'Hecklers learn quickly. The first man to shout "Speak up!" receives a long look over the top of her enormous glasses, followed by the entire *Lament of the Drowned King* at a volume that rattles the tankards on the shelves. He buys every book she has ever written the next morning.',
           'At home she still whispers. She still stammers when she\'s flustered, which is often, because you make a point of it. She still hides behind books, but only from you, and only so she can peek over the top.',

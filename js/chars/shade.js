@@ -658,7 +658,7 @@ FL.addCharacter({
         text: [
           'You don\'t see Shade anywhere on the festival hill. And then a hand slips into yours, and she\'s simply *there*, at your side, as if she always has been.',
           'She\'s wearing a pale lavender dress that matches her eyes. Her face is bare. She is carrying a basket. It\'s full of honey cakes.',
-          '@shade Seventeen Guild operatives attempted to stop me from attending tonight. They are currently tied up in the cellar of the Tipsy Wyvern. Madame Bettina has agreed to keep them until morning.',
+          '@shade Seventeen Guild operatives attempted to stop me from attending tonight. They are currently tied up in the cellar of the Tipsy Wyvern. The owner, Madame Bettina, has agreed to keep them until morning.',
           '@shade:blush I did not want anything to interrupt.',
         ],
         next: 'plans',
